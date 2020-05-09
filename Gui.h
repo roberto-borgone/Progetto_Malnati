@@ -71,6 +71,9 @@ public:
     void deleteT();
     void setTextColor(const QColor& c);
 
+public slots:
+    void logged_in(const std::string& user);
+
 
 };
 

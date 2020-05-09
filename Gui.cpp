@@ -306,3 +306,7 @@ Project* Gui::getCurrentProject() {
     return project;
 }
 
+void Gui::logged_in(const std::string &user) {
+    this->setVisible(true);
+}
+

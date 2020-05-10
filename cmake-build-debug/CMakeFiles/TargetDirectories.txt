@@ -1,4 +1,0 @@
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/cmake-build-debug/CMakeFiles/editorCollaborativo.dir
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/cmake-build-debug/CMakeFiles/editorCollaborativo_autogen.dir

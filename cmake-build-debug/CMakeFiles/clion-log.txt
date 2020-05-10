@@ -1,4 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=C:\Qt\5.12.3\mingw73_64\ -G "CodeBlocks - MinGW Makefiles" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati"
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/cmake-build-debug
+CMakeLists.txt not found in C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati Select CMakeLists.txt file...

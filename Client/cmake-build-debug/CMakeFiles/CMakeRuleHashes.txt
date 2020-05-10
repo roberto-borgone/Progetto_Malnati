@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+c8360f5e6dc1e972480f5e8d5a074dc9 CMakeFiles/editorCollaborativo_autogen

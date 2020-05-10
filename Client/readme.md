@@ -1,1 +1,0 @@
-client per editor collaborativo

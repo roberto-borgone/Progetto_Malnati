@@ -5,68 +5,86 @@
 #include "Gui.h"
 
 
-
-
-
 Project *project = nullptr;
 const QString rsrcPath = "../images";
 
 
-Gui::Gui(QWidget *parent) :QMainWindow(parent){
+Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     textEdit = new QTextEdit(this);
-    project = new Project(textEdit->document(),this);
-    QObject::connect(textEdit->document(),&QTextDocument::contentsChange,[=](int pos,int removed,int added){
-        if(removed > 0){
+    project = new Project(textEdit->document(), this);
+    QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
+        if (removed > 0) {
             textEdit->undo();
             QTextCursor c(textEdit->textCursor());
             c.setPosition(pos);
             c.setPosition(pos + removed, QTextCursor::KeepAnchor);
-            project->eraseElements(pos,removed);
+            std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
+            project->eraseElements(pos, removed);
             textEdit->redo();
         }
-        if(added > 0){
+        if (added > 0) {
 
             QTextCursor c(textEdit->textCursor());
             c.setPosition(pos);
             c.setPosition(pos + added, QTextCursor::KeepAnchor);
             //       cout << c.position() <<c.selectedText().toStdString() << endl;
             string add;
-            if((add = c.selectedText().toStdString()) == "") return;
+            if ((add = c.selectedText().toStdString()) == "") return;
 
             //CONTROLLATE QUESTA PARTE QUI CREO SIMBOLO RELATIVO A CARATTERE DIGITATO DA UTENTE E GENERO FRAZIONARIO
-            for(auto sp = add.end() - 1 ; sp >= add.begin() ; sp--){
+            /*BUG: se si copiano e incollano più caratteri questo non viene gestito bene*/
+            for (auto sp = add.end() - 1; sp >= add.begin(); sp--) {
+                std::cout << sp.base() << std::endl;
                 QTextCharFormat f = c.charFormat();
                 vector<int> frac;
 
-                if(project->text.size() == 0)
+                if (project->text.size() == 0)
                     frac = vector<int>{0};
-                else if(pos == project->text.size()){
+                else if (pos == project->text.size()) {
                     frac = project->text[pos - 1].getFrac();
-                    frac.back() ++;
-                }
-                else if (pos == 0){
+                    frac.back()++;
+                } else if (pos == 0) {
                     frac = project->text[0].getFrac();
-                    frac.back() --;
-                }
-                else{
+                    frac.back()--;
+                } else {
 
-                    frac = project->text[pos -1].getFrac();
+                    frac = project->text[pos - 1].getFrac();
                     vector<int> next = project->text[pos].getFrac();
-                    if(frac.back() +1 == next.back()) frac.push_back(1);
+                    if (frac.back() == next[frac.size()-1]) {
+                        //se alla fine si hanno gli stessi numeri allora va ricopiato il vettore e aggiunto/incrementato elemento
+                        for(int i=frac.size(); i<next.size()-1; i++)
+                            frac.insert(frac.end(), next[i]);
+                        if(next.back()==1){
+                            frac.insert(frac.end(), 1);
+                            frac.insert(frac.end(), 1);
+                        }
+
+                        else{
+                            frac.insert(frac.end(), next.back()-1);
+                        }
+                    }
+                    else if (frac.back() + 1 == next.back()) frac.push_back(1);
                     else frac.back()++;
                 }
 
-                project->insert(pos,Symbol(*sp,f.font().family().toStdString(),
-                                                    f.fontWeight() == QFont::Weight::Bold,
-                                                    f.fontItalic(),
-                                                    f.fontUnderline(),
-                                                    f.fontStrikeOut(),
-                                                    f.foreground().color().name().toStdString(),
-                                                    frac,"p1","u1"));
+                /*QUI SI POTREBBE CREARE SIMBOLO, INVIARE PER CONTROLLARE SE CI SONO COLLSISIONI E SE NO METTERLO NEL VETTORE**/
+                std::cout << "invio carattere per controllo centrale su server..." << std::endl;
+                Symbol s = Symbol(*sp, f.font().family().toStdString(),
+                                  f.fontWeight() == QFont::Weight::Bold,
+                                  f.fontItalic(),
+                                  f.fontUnderline(),
+                                  f.fontStrikeOut(),
+                                  f.foreground().color().name().toStdString(),
+                                  frac, "p1", "u1");
+                project->insert(pos, s);
+
+                *sp = '\0';
+
             }
         }
         cout << endl;
-        for_each(project->text.begin(),project->text.end(),[](Symbol s)->void{s.print();}); //per controllo informazioni,i due controlli sono andati a buon fine
+        for_each(project->text.begin(), project->text.end(),
+                 [](Symbol s) -> void { s.print(); }); //per controllo informazioni,i due controlli sono andati a buon fine
 
     });
     this->setCentralWidget(textEdit);
@@ -74,90 +92,91 @@ Gui::Gui(QWidget *parent) :QMainWindow(parent){
     this->addToolBar(initToolBar());
 }
 
-QMenuBar* Gui::initMenuBar() {
+QMenuBar *Gui::initMenuBar() {
 
 
-    QMenuBar* menuBar = new QMenuBar(this); // |File |Edit |View |
+    QMenuBar *menuBar = new QMenuBar(this); // |File |Edit |View |
 
     //Definizione QMenu File |New | Open | Close |Save | Export to PDF |
     //Uso addAction(nome,function,QKeySequence)
-    QMenu *file = new QMenu("File",menuBar);
-    file->addAction("New",[this](){
+    QMenu *file = new QMenu("File", menuBar);
+    file->addAction("New", [this]() {
         QFileDialog dialog(this);
         dialog.setViewMode(QFileDialog::Detail);
-        if(dialog.exec() == QDialog::Accepted){
+        if (dialog.exec() == QDialog::Accepted) {
             QString s;
             dialog.selectFile(s);
             cout << s.toStdString() << endl;
         }
-        },QKeySequence::New); //da implementare funzionalità
-    file->addAction("Open",[](){cout << "Open";},QKeySequence::Open);
-    file->addAction("Close",[](){cout<<"Close";},QKeySequence::Close);
-    file->addAction("Save",[](){cout <<"Save";},QKeySequence::Save);
-    file->addAction("Save as",[](){cout << "Save as";},QKeySequence::SaveAs);
-    file->addAction("Export to PDF",[](){cout <<"er";});
+    }, QKeySequence::New); //da implementare funzionalità
+    file->addAction("Open", []() { cout << "Open"; }, QKeySequence::Open);
+    file->addAction("Close", []() { cout << "Close"; }, QKeySequence::Close);
+    file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
+    file->addAction("Save as", []() { cout << "Save as"; }, QKeySequence::SaveAs);
+    file->addAction("Export to PDF", []() { cout << "er"; });
     menuBar->addMenu(file);
 
 
     //Definizione QMenu Edit |Undo|Redo|Cut|Paste|Delete|Select All|
     //Uso addAction(nome,function,QKeySequence)
-    QMenu *edit = new QMenu("Edit",menuBar);
-    edit->addAction("Undo",[this](){undo();},QKeySequence::Undo); //da implementare funzionalità e da mettere shortcut
-    edit->addAction("Redo",[this](){redo();},QKeySequence::Redo);
-    edit->addAction("Cut",[this](){cut();},QKeySequence::Cut);
-    edit->addAction("Paste",[this](){paste();},QKeySequence::Paste);
-    edit->addAction("Delete",[this](){deleteT();},QKeySequence::Delete);
-    edit->addAction("Select All",[this](){selectAll();},QKeySequence::SelectAll);
+    QMenu *edit = new QMenu("Edit", menuBar);
+    edit->addAction("Undo", [this]() { undo(); },
+                    QKeySequence::Undo); //da implementare funzionalità e da mettere shortcut
+    edit->addAction("Redo", [this]() { redo(); }, QKeySequence::Redo);
+    edit->addAction("Cut", [this]() { cut(); }, QKeySequence::Cut);
+    edit->addAction("Paste", [this]() { paste(); }, QKeySequence::Paste);
+    edit->addAction("Delete", [this]() { deleteT(); }, QKeySequence::Delete);
+    edit->addAction("Select All", [this]() { selectAll(); }, QKeySequence::SelectAll);
 
 
     menuBar->addMenu(edit);
 
     //Definizione QMenu View ...
-    QMenu *view = new QMenu("View",menuBar);
+    QMenu *view = new QMenu("View", menuBar);
     menuBar->addMenu(view);
-
-
 
 
     return menuBar;
 
 }
-QToolBar* Gui::initToolBar() {
-    QToolBar* toolBar = new QToolBar(this);
+
+QToolBar *Gui::initToolBar() {
+    QToolBar *toolBar = new QToolBar(this);
 
     //ToolBar -> |stile(default,barrato,corsivo,grassetto,sottolineato)|Font|dimensione|Colore|
-    toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")),"New",[=](){
+    toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
 
     });
-    toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")),"Open",[=](){
+    toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {
 
     });
-    toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")),"Close",[=](){
+    toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {
 
     });
-    toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")),"Save",[this](){ //valutare cambio icona a save-1 a prima modifica
+    toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
+                       [this]() { //valutare cambio icona a save-1 a prima modifica
+
+                       });
+    toolBar->addAction(QIcon::fromTheme("Import", QIcon(rsrcPath + "/import.svg")), "Import", [this]() {
 
     });
-    toolBar->addAction(QIcon::fromTheme("Import", QIcon(rsrcPath + "/import.svg")),"Import",[this](){
+    toolBar->addAction(QIcon::fromTheme("Export", QIcon(rsrcPath + "/export.svg")), "Export", [this]() {
 
     });
-    toolBar->addAction(QIcon::fromTheme("Export", QIcon(rsrcPath + "/export.svg")),"Export",[this](){
-
-    });
-    toolBar->addAction(QIcon::fromTheme("Undo", QIcon(rsrcPath + "/undo.svg")),"Undo",[this](){
+    toolBar->addAction(QIcon::fromTheme("Undo", QIcon(rsrcPath + "/undo.svg")), "Undo", [this]() {
         undo();
 
     });
-    toolBar->addAction(QIcon::fromTheme("Redo", QIcon(rsrcPath + "/redo.svg")),"Redo",[this](){
+    toolBar->addAction(QIcon::fromTheme("Redo", QIcon(rsrcPath + "/redo.svg")), "Redo", [this]() {
         redo();
     });
-    toolBar->addAction(QIcon::fromTheme("Cut", QIcon(rsrcPath + "/scissors.svg")),"Cut",[this](){
+    toolBar->addAction(QIcon::fromTheme("Cut", QIcon(rsrcPath + "/scissors.svg")), "Cut", [this]() {
         cut();
     });
-    toolBar->addAction(QIcon::fromTheme("Paste", QIcon(rsrcPath + "/paste.svg")),"Paste",[this](){
+    toolBar->addAction(QIcon::fromTheme("Paste", QIcon(rsrcPath + "/paste.svg")), "Paste", [this]() {
         paste();
     });
-    toolBar->addAction(QIcon::fromTheme("Delete", QIcon(rsrcPath + "/eraser.svg")),"Delete",[this](){
+    toolBar->addAction(QIcon::fromTheme("Delete", QIcon(rsrcPath + "/eraser.svg")), "Delete", [this]() {
         deleteT();
     });
 
@@ -168,39 +187,37 @@ QToolBar* Gui::initToolBar() {
     QStringList families = db.families();
     QStringListIterator fonts(families);
 
-    while(fonts.hasNext()) {
+    while (fonts.hasNext()) {
         QString f = fonts.next();
         font->addItem(f);
-        if(f.toStdString() == "Arial")
+        if (f.toStdString() == "Arial")
             font->setCurrentText(f);
 
 
     }
-    QObject::connect(font,&QComboBox::currentTextChanged,[this](const QString &tex)->void {
+    QObject::connect(font, &QComboBox::currentTextChanged, [this](const QString &tex) -> void {
         setFont(tex);
     });
 
     toolBar->addWidget(font);
 
 
-
-
-    toolBar->addAction(QIcon::fromTheme("Bold", QIcon(rsrcPath + "/bold.svg")),"Bold",[this](){
+    toolBar->addAction(QIcon::fromTheme("Bold", QIcon(rsrcPath + "/bold.svg")), "Bold", [this]() {
         bold();
     });
-    toolBar->addAction(QIcon::fromTheme("Italic", QIcon(rsrcPath + "/italic.svg")),"Italic",[this](){
+    toolBar->addAction(QIcon::fromTheme("Italic", QIcon(rsrcPath + "/italic.svg")), "Italic", [this]() {
         italic();
     });
-    toolBar->addAction(QIcon::fromTheme("Underline", QIcon(rsrcPath + "/underline.svg")),"Underline",[this](){
+    toolBar->addAction(QIcon::fromTheme("Underline", QIcon(rsrcPath + "/underline.svg")), "Underline", [this]() {
         underline();
     });
-    toolBar->addAction(QIcon::fromTheme("Overline", QIcon(rsrcPath + "/strikethrough.svg")),"Overline",[this](){
+    toolBar->addAction(QIcon::fromTheme("Overline", QIcon(rsrcPath + "/strikethrough.svg")), "Overline", [this]() {
         overline();
     });
 
     QSpinBox *size = new QSpinBox(toolBar);
-    size->setRange(8,288);
-    QObject::connect(size,QOverload<int>::of(&QSpinBox::valueChanged),[this](int i)->void {
+    size->setRange(8, 288);
+    QObject::connect(size, QOverload<int>::of(&QSpinBox::valueChanged), [this](int i) -> void {
         setTextSize(i);
     });
     toolBar->addWidget(size);
@@ -208,12 +225,12 @@ QToolBar* Gui::initToolBar() {
     QPushButton *color = new QPushButton(toolBar);
     color->setStyleSheet("background-color: black");
 
-    connect(color,&QPushButton::pressed,[=](){
+    connect(color, &QPushButton::pressed, [=]() {
 
-        QColorDialog palette(QColor("black"),this);
-        connect(&palette,&QColorDialog::colorSelected,[color,this](const QColor &c)->void{
+        QColorDialog palette(QColor("black"), this);
+        connect(&palette, &QColorDialog::colorSelected, [color, this](const QColor &c) -> void {
 
-            string s = "background-color: "+c.name().toStdString();
+            string s = "background-color: " + c.name().toStdString();
 
             color->setStyleSheet(QString::fromStdString(s));
             setTextColor(c);
@@ -225,21 +242,21 @@ QToolBar* Gui::initToolBar() {
 
     toolBar->addWidget(color);
 
-    toolBar->addAction(QIcon::fromTheme("Left-align", QIcon(rsrcPath + "/left-align.svg")),"Left-align",[=](){
+    toolBar->addAction(QIcon::fromTheme("Left-align", QIcon(rsrcPath + "/left-align.svg")), "Left-align", [=]() {
         overline();
     });
-    toolBar->addAction(QIcon::fromTheme("Justify", QIcon(rsrcPath + "/justify.svg")),"Justify",[=](){
+    toolBar->addAction(QIcon::fromTheme("Justify", QIcon(rsrcPath + "/justify.svg")), "Justify", [=]() {
         overline();
     });
-    toolBar->addAction(QIcon::fromTheme("Right-align", QIcon(rsrcPath + "/right-align.svg")),"Right-align",[=](){
+    toolBar->addAction(QIcon::fromTheme("Right-align", QIcon(rsrcPath + "/right-align.svg")), "Right-align", [=]() {
         overline();
     });
 
     return toolBar;
 
 
-
 }
+
 void Gui::setFont(QString text) {
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFont(QFont(text));
@@ -247,62 +264,68 @@ void Gui::setFont(QString text) {
 
 
 }
+
 void Gui::bold() {
     QTextCharFormat format = textEdit->currentCharFormat();
-    if(format.fontWeight()!= QFont::Weight::Bold) format.setFontWeight(QFont::Weight::Bold);
+    if (format.fontWeight() != QFont::Weight::Bold) format.setFontWeight(QFont::Weight::Bold);
     else format.setFontWeight(QFont::Weight::Normal);
     textEdit->setCurrentCharFormat(format);
 }
+
 void Gui::italic() {
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFontItalic(!format.fontItalic());
     textEdit->setCurrentCharFormat(format);
 }
+
 void Gui::underline() {
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFontUnderline(!format.fontUnderline());
     textEdit->setCurrentCharFormat(format);
 }
-void Gui::overline(){
+
+void Gui::overline() {
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFontStrikeOut(!format.fontStrikeOut());
     textEdit->setCurrentCharFormat(format);
 }
 
-void Gui::setTextSize( int size){
+void Gui::setTextSize(int size) {
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFontPointSize(size);
     textEdit->setCurrentCharFormat(format);
 }
 
-void Gui::undo(){
+void Gui::undo() {
     textEdit->undo();
 }
 
-void Gui::redo(){
+void Gui::redo() {
     textEdit->redo();
 }
 
-void Gui::cut(){
+void Gui::cut() {
     textEdit->cut();
 }
 
 void Gui::paste() {
     textEdit->paste();
 }
+
 void Gui::selectAll() {
     textEdit->selectAll();
 }
+
 void Gui::deleteT() {
     QTextCursor cursor = textEdit->textCursor();
     cursor.removeSelectedText();
 }
 
-void Gui::setTextColor(const QColor& color) {
+void Gui::setTextColor(const QColor &color) {
     textEdit->setTextColor(color);
 }
 
-Project* Gui::getCurrentProject() {
+Project *Gui::getCurrentProject() {
     return project;
 }
 

@@ -79,7 +79,10 @@ const vector<int>& Symbol::getFrac() {
     return this->frac;
 }
 void Symbol::print() {
-    cout << this->s <<" "<< this->bold << this->italic << this->underline << this->strike << this->color <<endl;
+    cout << this->s <<" "<< this->bold << this->italic << this->underline << this->strike << this->color << "---";
+    for(auto& n : frac)
+        cout << n;
+    cout << std::endl;
 }
 string Symbol::getId() {
     return id;

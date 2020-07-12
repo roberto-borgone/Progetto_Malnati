@@ -62,5 +62,7 @@ signals:
 
     void logged_in(std::string user);
 
+    void move_socket(QSslSocket& s);
+
 };
 #endif //EDITORCOLLABORATIVO_DB_CLIENT_H

@@ -25,3 +25,30 @@ void Network::receiveCommand() {
 
 
 }
+
+void Network::getSocket(QSslSocket& s) {
+    std::cout<<"qui dovrei prendermi il socket\n"<< s.tr;
+    socket_ptr=std::shared_ptr<QSslSocket>(&s);
+}
+
+void Network::send_symbol(Symbol s) {
+    std::string std_message(s.getId() + "_" + s.getChar() + "_log");
+    QString message = QString::fromStdString(s.getId() + "_" + s.getChar() + "_log");
+    socket_ptr->write(message.toUtf8());
+    if (socket_ptr->waitForBytesWritten()) {
+        qDebug() << "sent!";
+        qDebug() << "wait for response";
+        if (socket_ptr->waitForReadyRead()) {
+            int result = socket_ptr->readAll().toInt();
+            std::cout << result;
+        } else {
+            qDebug() << "no response";
+            socket_ptr->close();
+            return;
+        }
+    } else {
+        //qDebug() << sslClient.errorString();
+        qDebug() << socket_ptr->state();
+        return;
+    }
+}

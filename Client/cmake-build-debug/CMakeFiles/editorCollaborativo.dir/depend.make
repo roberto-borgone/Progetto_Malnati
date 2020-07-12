@@ -334,6 +334,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: ../Symbol.h
 
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
@@ -351,7 +352,9 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qcontainerfwd.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qcontiguouscache.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qcoreevent.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qcryptographichash.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qdatastream.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qdatetime.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qflags.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qgenericatomic.h
@@ -432,6 +435,15 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qtransform.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs_win.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslSocket
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qabstractsocket.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qssl.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslcertificate.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslerror.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslsocket.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtcpsocket.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetwork-config.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetworkglobal.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Network.cpp
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Network.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Project.h

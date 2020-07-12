@@ -129,7 +129,7 @@ void DB_Client::send_log_in() {
                 int result = sslClient.readAll().toInt();
                 std::cout << result;
                 if (result == 0) {
-                    sslClient.close();
+                    //sslClient.close();
                     logged = true;
                     emit logged_in(user.toStdString());
                 } else {
@@ -219,8 +219,6 @@ void DB_Client::send_subscribe() {
                             this->setCentralWidget(widg);
                         }
                     }
-
-                    sslClient.close();
                     return;
                 }
             } else {
@@ -268,6 +266,8 @@ void DB_Client::log_in_success(const std::string &user) {
     this->setCentralWidget(widg);
 
     this->setVisible(false);
+
+    emit move_socket(sslClient);
 }
 
 void DB_Client::main_menu() {
@@ -295,5 +295,6 @@ void DB_Client::main_menu() {
     QObject::connect(subscribe, &QPushButton::clicked, this, &DB_Client::subscribe_Window);
     QObject::connect(this, &DB_Client::logged_in, this, &DB_Client::log_in_success);
 }
+
 
 

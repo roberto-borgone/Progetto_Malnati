@@ -74,6 +74,8 @@ public:
 public slots:
     void logged_in(const std::string& user);
 
+signals:
+    void send_symbol(Symbol s);
 
 };
 

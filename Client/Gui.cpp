@@ -69,6 +69,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
                 /*QUI SI POTREBBE CREARE SIMBOLO, INVIARE PER CONTROLLARE SE CI SONO COLLSISIONI E SE NO METTERLO NEL VETTORE**/
                 std::cout << "invio carattere per controllo centrale su server..." << std::endl;
+                //creo il simbolo ed emetto segnale per inviarlo alla classe network che lo invierà al server
                 Symbol s = Symbol(*sp, f.font().family().toStdString(),
                                   f.fontWeight() == QFont::Weight::Bold,
                                   f.fontItalic(),
@@ -76,6 +77,8 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
                                   frac, "p1", "u1");
+                emit send_symbol(s);
+                //forse conviene che non si inserisca il simbolo qui ma si aspetti sempre un segnale da network
                 project->insert(pos, s);
 
                 *sp = '\0';

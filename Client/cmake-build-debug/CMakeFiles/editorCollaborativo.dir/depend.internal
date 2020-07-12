@@ -335,6 +335,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
@@ -352,7 +353,9 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qcontainerfwd.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qcontiguouscache.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qcoreevent.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qcryptographichash.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qdatastream.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qdatetime.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qflags.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qgenericatomic.h
@@ -433,6 +436,15 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtGui/qtransform.h
  C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs.h
  C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs_win.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslSocket
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qabstractsocket.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qssl.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslcertificate.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslerror.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslsocket.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtcpsocket.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetwork-config.h
+ C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetworkglobal.h
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Network.cpp
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Network.h
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h

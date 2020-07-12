@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
 
     auto g = new Gui(nullptr);
     Project *project = g->getCurrentProject();
+    auto network = new Network(g->getCurrentProject());
     auto db_client = new DB_Client();
    /*
     thread network([project](){
@@ -26,6 +27,8 @@ int main(int argc, char *argv[]) {
     */
 
     QObject::connect(db_client, &DB_Client::logged_in, g, &Gui::logged_in);
+    QObject::connect(db_client, &DB_Client::move_socket, network, &Network::getSocket);
+    QObject::connect(g, &Gui::send_symbol, network, &Network::send_symbol);
     g->show();
     g->setVisible(false);
     db_client->show();

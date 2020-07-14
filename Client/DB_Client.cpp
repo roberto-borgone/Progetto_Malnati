@@ -121,7 +121,22 @@ void DB_Client::send_log_in() {
         std::cout << "connession established!!" << std::endl;
         std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_log");
         QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_log");
-        sslClient.write(message.toUtf8());
+
+        //create JSON object of type log in
+        auto json_message = QJsonObject({
+                                                qMakePair(QString("operation"), QJsonValue("log")),
+                                                qMakePair(QString("user"), QJsonValue(user)),
+                                                qMakePair(QString("pwd"), QJsonValue(pwd)),
+
+                                        });
+
+        //print JSON object
+        QJsonDocument Doc(json_message);
+        QByteArray ba = Doc.toJson();
+        std::cout<<ba.toStdString()<<std::endl;
+
+        //send JOSN obj
+        sslClient.write(ba);
         if (sslClient.waitForBytesWritten()) {
             qDebug() << "sent!";
             qDebug() << "wait for response";
@@ -186,7 +201,22 @@ void DB_Client::send_subscribe() {
         std::cout << "connession established!!" << std::endl;
         std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_sub");
         QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_sub");
-        sslClient.write(message.toUtf8());
+
+        //create JSON object of type log in
+        auto json_message = QJsonObject({
+                                                qMakePair(QString("operation"), QJsonValue("sub")),
+                                                qMakePair(QString("user"), QJsonValue(user)),
+                                                qMakePair(QString("pwd"), QJsonValue(pwd)),
+
+                                        });
+
+        //print JSON object
+        QJsonDocument Doc(json_message);
+        QByteArray ba = Doc.toJson();
+        std::cout<<ba.toStdString()<<std::endl;
+        //send JOSN obj
+        sslClient.write(ba);
+
         if (sslClient.waitForBytesWritten()) {
             qDebug() << "sent!";
             qDebug() << "wait for response";

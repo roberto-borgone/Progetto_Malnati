@@ -13,6 +13,7 @@
 #include <map>
 #include <iostream>
 #include <QSslSocket>
+#include <QJsonObject>
 #include <memory>
 
 class Network : public  QObject{

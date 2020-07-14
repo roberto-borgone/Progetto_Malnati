@@ -20,6 +20,8 @@
 #include <QSslSocket>
 #include <QTextEdit>
 #include <QElapsedTimer>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 
 class DB_Client : public QMainWindow {

@@ -4,6 +4,8 @@
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QStandardPaths
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
@@ -39,6 +41,9 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h
@@ -336,6 +341,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
@@ -365,6 +371,8 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h
@@ -580,6 +588,8 @@ CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
@@ -619,6 +629,9 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h
@@ -787,6 +800,8 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
@@ -826,6 +841,9 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h

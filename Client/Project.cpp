@@ -84,3 +84,7 @@ void Project::externalDelete(string id) {
     cursor.deleteChar();
 
 }
+
+Symbol Project::get_symbol_in_pos(int pos) {
+    return text[pos];
+}

@@ -56,7 +56,7 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) {
     int stat = sqlite3_step(stmt);
     if (stat != SQLITE_DONE) {
         std::cout << "already existing user" << std::endl;
-        return 1;
+        return 7;
     } else {
         std::ostringstream s_pwd;
         s_pwd << (int) std::hash<std::string>()(pwd);

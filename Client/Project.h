@@ -32,6 +32,7 @@ public:
     void eraseElement(int pos);
     void eraseElement(string id);
     void eraseElements(int pos,int r);
+    Symbol get_symbol_in_pos(int pos);
 
     signals:
     void internalInsert(Symbol s);

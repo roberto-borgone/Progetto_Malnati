@@ -169,6 +169,10 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/DB_Client.cpp
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/DB_Client.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
@@ -201,6 +205,9 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h
@@ -341,8 +348,12 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonParseError
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
@@ -371,6 +382,8 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
@@ -458,6 +471,10 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
@@ -486,6 +503,9 @@ CMakeFiles/editorCollaborativo.dir/Project.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h
@@ -583,14 +603,58 @@ CMakeFiles/editorCollaborativo.dir/Project.cpp.obj
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_bootstrap.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qcompilerdetection.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qconfig-bootstrapped.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qconfig.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qflags.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qgenericatomic.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qglobal.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qglobalstatic.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qlogging.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qmutex.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qnamespace.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qnumeric.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qpair.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qprocessordetection.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qrefcount.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qstring.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringalgorithms.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringbuilder.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringliteral.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringview.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qsysinfo.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qsystemdetection.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qtcore-config.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qversiontagging.h
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.cpp
  C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonParseError
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
@@ -629,6 +693,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
@@ -800,9 +865,13 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonParseError
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
@@ -841,6 +910,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h

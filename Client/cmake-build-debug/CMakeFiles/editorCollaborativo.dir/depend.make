@@ -168,6 +168,10 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/in
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../DB_Client.h
 
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
@@ -200,6 +204,9 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h
@@ -340,8 +347,12 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: ../Symbol.h
 
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonParseError
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
@@ -370,6 +381,8 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
@@ -457,6 +470,10 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Network.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Symbol.h
 
+CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
+CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
+CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
@@ -485,6 +502,9 @@ CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qline.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qlist.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qlocale.h
@@ -582,14 +602,58 @@ CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: ../Project.cpp
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: ../Symbol.h
 
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_bootstrap.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qcompilerdetection.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qconfig-bootstrapped.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qconfig.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qflags.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qgenericatomic.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qglobal.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qglobalstatic.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qlogging.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qmutex.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qnamespace.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qnumeric.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qpair.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qprocessordetection.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qrefcount.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qstring.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringalgorithms.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringbuilder.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringliteral.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringview.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qsysinfo.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qsystemdetection.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtcore-config.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
+CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qversiontagging.h
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: ../Symbol.cpp
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: ../Symbol.h
 
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonParseError
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
@@ -628,6 +692,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
@@ -799,9 +864,13 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonParseError
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
@@ -840,6 +909,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qhashfunctions.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiodevice.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qiterator.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h

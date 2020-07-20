@@ -32,7 +32,7 @@ Q_OBJECT
     QString host_name;
     quint16 port;
     QSslSocket sslClient;
-    bool logged;
+    bool logged, connected; //connected servirà a capire se si è già connessi (tentivo precedente di login o subscribe fallito) oppure no
 
 public:
     DB_Client() {
@@ -41,6 +41,7 @@ public:
         host_name = "127.0.1.1";
         port = 1290;
         logged=false;
+        connected = false;
     }
 
 
@@ -58,11 +59,13 @@ public slots:
 
     void log_in_success(const std::string& user);
 
+    void failed_log_in();
+
+    void failed_subscribe();
+
 signals:
 
     void log_in();
-
-    void logged_in(std::string user);
 
     void move_socket(QSslSocket& s);
 

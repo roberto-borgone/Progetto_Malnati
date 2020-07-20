@@ -5,9 +5,9 @@
 #include "Symbol.h"
 
 Symbol::Symbol(char s, string font, bool bold, bool italic, bool underline, bool strike, string color,
-        const vector<int>& frac, const string &project, const string &user) {
+               const vector<int> &frac, const string &project, const string &user) {
     id = user + project + to_string(chrono::system_clock::now().time_since_epoch().count());
-    this-> s = s;
+    this->s = s;
     this->font = font;
     this->color = color;
     this->bold = bold;
@@ -17,9 +17,8 @@ Symbol::Symbol(char s, string font, bool bold, bool italic, bool underline, bool
     this->frac = frac;
 
 
-
-
 }
+
 Symbol::Symbol(const Symbol &symbol) {
 
     this->id = symbol.id;
@@ -46,8 +45,8 @@ Symbol::Symbol(Symbol &&symbol) {
 
 }
 
-Symbol& Symbol::operator=(const Symbol& symbol) {
-    if(&symbol != this){
+Symbol &Symbol::operator=(const Symbol &symbol) {
+    if (&symbol != this) {
         this->id = symbol.id;
         this->s = symbol.s;
         this->color = symbol.color;
@@ -60,33 +59,84 @@ Symbol& Symbol::operator=(const Symbol& symbol) {
     }
     return *this;
 }
+
 bool Symbol::operator<(const Symbol &symbol) {
     return this->frac < symbol.frac;
 }
+
 bool Symbol::operator>(const Symbol &symbol) {
     return this->frac > symbol.frac;
 }
+
 bool Symbol::operator<=(const Symbol &symbol) {
     return this->frac <= symbol.frac;
 }
+
 bool Symbol::operator>=(const Symbol &symbol) {
     return this->frac >= symbol.frac;
 }
-bool Symbol::operator==(const Symbol& symbol) {
+
+bool Symbol::operator==(const Symbol &symbol) {
     return this->id == symbol.id;
 }
-const vector<int>& Symbol::getFrac() {
+
+const vector<int> &Symbol::getFrac() {
     return this->frac;
 }
+
 void Symbol::print() {
-    cout << this->s <<" "<< this->bold << this->italic << this->underline << this->strike << this->color << "---";
-    for(auto& n : frac)
+    cout << this->s << " " << this->bold << this->italic << this->underline << this->strike << this->color << "---";
+    for (auto &n : frac)
         cout << n;
     cout << std::endl;
 }
+
 string Symbol::getId() {
     return id;
 }
+
 char Symbol::getChar() {
     return s;
+}
+
+QJsonObject Symbol::toJson() {
+    //creo QJsonArray per inviare vettore posizione
+    QJsonArray json_frac;
+    for (auto el : frac) {
+        json_frac.append(QJsonValue(el));
+    }
+    auto Json_symbol = QJsonObject({
+                                           qMakePair(QString("id"), QJsonValue(QString(this->id.c_str()))),
+                                           qMakePair(QString("s"), QJsonValue(this->s)),
+                                           qMakePair(QString("font"), QJsonValue(QString(this->font.c_str()))),
+                                           qMakePair(QString("color"),
+                                                     QJsonValue(QString(this->color.c_str()))),
+                                           qMakePair(QString("bold"),
+                                                     QJsonValue(this->bold)),
+                                           qMakePair(QString("italic"),
+                                                     QJsonValue(this->italic)),
+                                           qMakePair(QString("underline"),
+                                                     QJsonValue(this->underline)),
+                                           qMakePair(QString("strike"),
+                                                     QJsonValue(this->strike)),
+                                           qMakePair(QString("frac"),
+                                                     QJsonValue(json_frac)),
+
+                                   });
+    return Json_symbol;
+}
+
+Symbol::Symbol(QJsonObject json_symbol) {
+    QJsonArray json_frac = json_symbol["frac"].toArray();
+    for(int i=0; i<json_frac.size(); i++){
+        frac.insert(frac.end(),json_frac[i].toInt());
+    }
+    id=string(json_symbol["id"].toString().toStdString());
+    s=json_symbol["s"].toString().toStdString()[0];
+    font=string(json_symbol["font"].toString().toStdString());
+    color=string(json_symbol["color"].toString().toStdString());
+    bold=json_symbol["bold"].toBool();
+    italic=json_symbol["italic"].toBool();
+    underline=json_symbol["underline"].toBool();
+    strike=json_symbol["strike"].toBool();
 }

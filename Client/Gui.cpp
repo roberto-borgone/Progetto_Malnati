@@ -46,39 +46,95 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 } else if (pos == 0) {
                     frac = project->text[0].getFrac();
                     frac.back()--;
-                } else {
+                } else { //inserimento in mezzo
 
-                    frac = project->text[pos - 1].getFrac();
+                    vector<int> frac; //vettore di posizione risultante
+                    auto before = project->text[pos - 1].getFrac();
                     vector<int> next = project->text[pos].getFrac();
-                    if (frac.back() == next[frac.size()-1]) {
-                        //se alla fine si hanno gli stessi numeri allora va ricopiato il vettore e aggiunto/incrementato elemento
-                        for(int i=frac.size(); i<next.size()-1; i++)
-                            frac.insert(frac.end(), next[i]);
-                        if(next.back()==1){
-                            frac.insert(frac.end(), 1);
-                            frac.insert(frac.end(), 1);
-                        }
 
-                        else{
-                            frac.insert(frac.end(), next.back()-1);
-                        }
+                    //ciclo fino a che i due vettori sono uguali oppure uno dei due finisce
+                    int i = 0;
+                    while (before[i] == next[i] || i < before.size() || i < next.size()) {
+                        frac.insert(frac.end(), before[i]);
+                        i++;
                     }
-                    else if (frac.back() + 1 == next.back()) frac.push_back(1);
+
+                    //caso in cui entrambi i vettori siano finiti (caso particolare in cui due client siano riusciti a mettere due caratteri nella stessa posizione allo stesso momento)
+                    if(i > before.size() && i > next.size()){
+                        //generate random number to put in the last position
+                        std::default_random_engine generator;
+                        std::uniform_int_distribution<int> distribution(50,200);
+                        int random_number = distribution(generator);
+                        frac.insert(frac.end(), random_number);
+
+                    }
+
+                    //caso in cui il primo sia finito e il secondo no
+                    else if(i>before.size()){
+                        //generate random number to put in the last position, subtract next element of second vector by this number
+                        std::default_random_engine generator;
+                        std::uniform_int_distribution<int> distribution(5,20);
+                        int random_number = distribution(generator);
+                        frac.insert(frac.end(), next[i]-random_number);
+                    }
+
+                    //caso in cui il secondo sia finito e il primo no
+                    else if(i>before.size()){
+                        //generate random number to put in the last position, summed next element of first vector by this number
+                        std::default_random_engine generator;
+                        std::uniform_int_distribution<int> distribution(50,200);
+                        int random_number = distribution(generator);
+                        frac.insert(frac.end(), before[i]+random_number);
+                    }
+
+                    //caso in cui sono arrivato ad elemento diverso tra i due vettori e differenza tra gli elementi > 1
+                    else if(next[i]-before[i]>1){
+                        int new_el = (next[i]+before[i])/2; //prendo la media dei valori e la metto nel vettore
+                        frac.insert(frac.end(), new_el);
+                    }
+
+                    //caso in cui sono arrivato ad elemento diverso tra i due vettori e differenza tra gli elementi = 1
+                    else if(next[i]-before[i]==1){
+                        frac.insert(frac.end(), before[i]); //metto elemento del primo vettore
+                        //generate random number to put in the last position
+                        std::default_random_engine generator;
+                        std::uniform_int_distribution<int> distribution(50,200);
+                        int random_number = distribution(generator);
+                        frac.insert(frac.end(), random_number);
+                    }
+
+
+                    /*
+                    //vecchio
+                    if (frac.back() == next[frac.size() - 1]) {
+                        //se alla fine si hanno gli stessi numeri allora va ricopiato il vettore e aggiunto/incrementato elemento
+                        for (int i = frac.size(); i < next.size() - 1; i++)
+                            frac.insert(frac.end(), next[i]);
+                        if (next.back() == 1) {
+                            frac.insert(frac.end(), 1);
+                            frac.insert(frac.end(), 1);
+                        } else {
+                            frac.insert(frac.end(), next.back() - 1);
+                        }
+                    } else if (frac.back() + 1 == next.back()) frac.push_back(1);
                     else frac.back()++;
+                     */
                 }
 
                 /*QUI SI POTREBBE CREARE SIMBOLO, INVIARE PER CONTROLLARE SE CI SONO COLLSISIONI E SE NO METTERLO NEL VETTORE**/
                 std::cout << "invio carattere per controllo centrale su server..." << std::endl;
                 //creo il simbolo ed emetto segnale per inviarlo alla classe network che lo invierà al server
+                std::string proj = std::string("p1"); //qui si dovrà predere il progetto aperto dallo user
+                std::string user = std::string("u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
                 Symbol s = Symbol(*sp, f.font().family().toStdString(),
                                   f.fontWeight() == QFont::Weight::Bold,
                                   f.fontItalic(),
                                   f.fontUnderline(),
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
-                                  frac, "p1", "u1");
-                emit send_symbol(s);
-                //forse conviene che non si inserisca il simbolo qui ma si aspetti sempre un segnale da network
+                                  frac, proj, user);
+                emit send_symbol(s, pos, proj, user);
+                //inserisco simbolo in gui
                 project->insert(pos, s);
 
                 *sp = '\0';

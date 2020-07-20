@@ -9,6 +9,10 @@
 #include <string>
 #include <chrono>
 #include <iostream>
+#include <QJsonObject>
+#include <QString>
+#include <QJsonArray>
+#include <QJsonValue>
 
 using namespace std;
 class Symbol {
@@ -22,6 +26,7 @@ public:
     Symbol(char s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user);
     Symbol(const Symbol& symbol);
     Symbol(Symbol&& symbol);
+    Symbol(QJsonObject json_symbol);
     Symbol& operator=(const Symbol& symbol);
     bool operator<(const Symbol& symbol);
     bool operator>(const Symbol& symbol);
@@ -32,6 +37,8 @@ public:
     char getChar();
     const vector<int>& getFrac();
     void print();
+    QJsonObject toJson();
+
 
 
 

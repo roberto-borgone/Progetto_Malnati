@@ -19,7 +19,7 @@ private:
 public:
     DB_interface();
     virtual ~DB_interface();
-    int subscribe(const std::string& user, std::string pwd);
-    int log_in(const std::string& user, std::string pwd);
+    int subscribe(const std::string& user, std::string pwd) const;
+    int log_in(const std::string& user, std::string pwd) const;
 };
 #endif //PROVA_DATABASE_DB_INTERFACE_H

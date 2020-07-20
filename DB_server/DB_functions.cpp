@@ -39,7 +39,7 @@ DB_interface::~DB_interface() {
     }
 }
 
-int DB_interface::subscribe(const std::string &user, std::string pwd) {
+int DB_interface::subscribe(const std::string &user, std::string pwd) const{
     int result;
     std::string statement;
     char *err_message = nullptr;
@@ -56,7 +56,7 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) {
     int stat = sqlite3_step(stmt);
     if (stat != SQLITE_DONE) {
         std::cout << "already existing user" << std::endl;
-        return 7;
+        return 1;
     } else {
         std::ostringstream s_pwd;
         s_pwd << (int) std::hash<std::string>()(pwd);
@@ -75,7 +75,7 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) {
     return 0;
 }
 
-int DB_interface::log_in(const std::string &user, std::string pwd) {
+int DB_interface::log_in(const std::string &user, std::string pwd) const{
     int result;
     std::string statement;
     char *err_message = nullptr;

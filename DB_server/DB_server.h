@@ -19,43 +19,37 @@
 #include <QSslSocket>
 #include <QHostAddress>
 #include <QTcpServer>
+#include <QThreadPool>
 #include <QSslKey>
 #include <QSslCertificate>
 #include <QElapsedTimer>
 #include "DB_functions.h"
+#include "Client.h"
+#include "Service.h"
 
 class DB_server : public QTcpServer {
 Q_OBJECT
 
-    QSslSocket *socket = new QSslSocket;
-    DB_interface DB;
+    Service service;
 
 public:
-    DB_server(QObject *parent) : QTcpServer(parent) {
+    explicit DB_server(QObject *parent = nullptr) : QTcpServer(parent) {
 
         //put server on listening
         QHostAddress address = QHostAddress::Any;
         quint16 port = 1290;
 
-        socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-
         if (this->listen(address, port)) {
             std::cout << QSslSocket::supportsSsl() << std::endl;
-            std::cout << (socket->sslLibraryBuildVersionString()).toStdString()<<std::endl;
+            std::cout << (QSslSocket::sslLibraryBuildVersionString()).toStdString()<<std::endl;
             std::cout << "Now listen on address: " << qPrintable(address.toString()) << " on port: " << port
                       << std::endl;
-            QObject::connect(this, &DB_server::newConnection, this, &DB_server::new_connection);
         } else
             std::cout << "ERROR: could not bind to " << qPrintable(address.toString()) << ":" << port << std::endl;
     }
 
-public slots:
-
-    void new_connection();
-    void reply();
-
 protected:
-    void incomingConnection(qintptr socketDescriptor);
+    void incomingConnection(qintptr socketDescriptor) override;
 
 };
 

@@ -18,20 +18,20 @@ TaskGeneric::TaskGeneric(const Service& service, QJsonObject message): service(s
 void TaskGeneric::run(){
 
     QJsonObject json;
-    int result_login;
+    int result;
 
     int opCode = this->getOpCode();
 
     switch(opCode){
 
         case LOGIN:
-            result_login = this->service.login(this->message["user"].toString().toStdString(), this->message["password"].toString().toStdString());
+            result = this->service.login(this->message["user"].toString().toStdString(), this->message["password"].toString().toStdString());
             json = QJsonObject({
                                      qMakePair(QString("opcode"), QJsonValue(0)),
-                                     qMakePair(QString("status"), QJsonValue(result_login)),
+                                     qMakePair(QString("status"), QJsonValue(result)),
                              });
 
-            if(result_login == 0){
+            if(result == 0){
                 json.insert("user", QJsonValue(this->message["user"].toString()));
                 emit login(this->message["user"].toString());
             }else{
@@ -43,7 +43,20 @@ void TaskGeneric::run(){
 
         case SUBSCRIPTION:
 
-            emit returnResult(this->service.subscribe(this->message["user"].toString().toStdString(), this->message["password"].toString().toStdString()));
+            result = this->service.subscribe(this->message["user"].toString().toStdString(), this->message["password"].toString().toStdString());
+            json = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(1)),
+                                       qMakePair(QString("status"), QJsonValue(result)),
+                               });
+
+            if(result == 0){
+                json.insert("user", QJsonValue(this->message["user"].toString()));
+                emit login(this->message["user"].toString());
+            }else{
+                json.insert("user", QJsonValue(""));
+            }
+
+            emit returnResult(QJsonDocument(json).toJson());
             break;
 
         case INSERT:

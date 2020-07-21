@@ -15,7 +15,7 @@ class Service {
 public:
 
     int login(std::string user, std::string password) const;
-    QByteArray subscribe(std::string user, std::string password) const;
+    int subscribe(std::string user, std::string password) const;
 
 private:
 

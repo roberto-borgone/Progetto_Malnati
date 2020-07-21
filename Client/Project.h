@@ -37,6 +37,7 @@ public:
     signals:
     void internalInsert(Symbol s);
     void internalDelete(string id);
+    void remove_symbol(Symbol s);
 
 public slots:
    // void updateText(int pos,int removed,int added);

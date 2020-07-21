@@ -57,12 +57,21 @@ int Project::insert(int pos,Symbol s) {
     symbols.insert({s.getId(),pos});
 }
 void Project::eraseElements(int pos, int r) {
-    auto it = text.begin()+pos;
+    /*auto it = text.begin()+pos;
     auto end = it + r;
     while(it != end){
         symbols.erase(it->getId());
+        Symbol s = *it;
         text.erase(it);
+        emit remove_symbol(s);
         it ++;
+    }*/
+    for(int i=0;i<r;i++){
+        auto it = text.begin()+pos;
+        symbols.erase(it->getId());
+        Symbol s = *it;
+        text.erase(it);
+        emit remove_symbol(s);
     }
 }
 

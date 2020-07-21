@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
     QObject::connect(network, &Network::logged_in, db_client, &DB_Client::log_in_success);
     QObject::connect(network, &Network::wrong_log_in, db_client, &DB_Client::failed_log_in);
     QObject::connect(network, &Network::wrong_sub, db_client, &DB_Client::failed_subscribe);
+    QObject::connect(project, &Project::remove_symbol, network, &Network::remove_symbol);
 
     g->show();
     g->setVisible(false);

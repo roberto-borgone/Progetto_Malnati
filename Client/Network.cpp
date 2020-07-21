@@ -37,11 +37,32 @@ void Network::getSocket(QSslSocket &s) {
 }
 
 void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
-    //create JSON object of type log in
+    //create JSON object of type insert
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(6)),
                                             qMakePair(QString("symbol"), QJsonValue(s.toJson())),
                                             qMakePair(QString("position"), QJsonValue(pos)),
+                                            qMakePair(QString("prjID"), QJsonValue(QString(prj.c_str()))),
+                                            qMakePair(QString("user"), QJsonValue(QString(usr.c_str()))),
+
+                                    });
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send.toLatin1());
+}
+
+void Network::remove_symbol(Symbol s) {
+    std::string prj = std::string("p1"); //qui si dovrà predere il progetto aperto dallo user
+    std::string usr = std::string("u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
+    //create JSON object of type remove
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(7)),
+                                            qMakePair(QString("symbol"), QJsonValue(s.toJson())),
                                             qMakePair(QString("prjID"), QJsonValue(QString(prj.c_str()))),
                                             qMakePair(QString("user"), QJsonValue(QString(usr.c_str()))),
 
@@ -159,3 +180,5 @@ void Network::message_received() {
     }
 
 }
+
+

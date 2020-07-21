@@ -166,8 +166,8 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgets-config.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgetsglobal.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/DB_Client.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/DB_Client.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
@@ -342,10 +342,10 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgets-config.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgetsglobal.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Gui.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Gui.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
@@ -466,10 +466,10 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtcpsocket.h
  C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetwork-config.h
  C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetworkglobal.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Network.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Network.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
@@ -599,9 +599,9 @@ CMakeFiles/editorCollaborativo.dir/Project.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgets-config.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgetsglobal.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
@@ -643,8 +643,8 @@ CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qtcore-config.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qversiontagging.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
@@ -852,16 +852,16 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgets-config.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgetsglobal.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/DB_Client.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Gui.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Network.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
@@ -1071,9 +1071,9 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgets-config.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgetsglobal.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/DB_Client.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Gui.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Network.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Project.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/Symbol.h
- C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/main.cpp
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
+ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/main.cpp

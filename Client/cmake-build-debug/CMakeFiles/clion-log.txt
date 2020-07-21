@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=C:\Qt\5.12.3\mingw73_64\ -G "CodeBlocks - MinGW Makefiles" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client"
+"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client"
 -- The C compiler identification is GNU 7.3.0
 -- The CXX compiler identification is GNU 7.3.0
 -- Check for working C compiler: C:/Qt/Tools/mingw730_64/bin/gcc.exe
@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/cmake-build-debug
+-- Build files have been written to: C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug

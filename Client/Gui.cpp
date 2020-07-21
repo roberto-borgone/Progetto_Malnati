@@ -46,63 +46,64 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 } else if (pos == 0) {
                     frac = project->text[0].getFrac();
                     frac.back()--;
-                } else { //inserimento in mezzo
+                } else {  //inserimento in mezzo
 
-                    vector<int> frac; //vettore di posizione risultante
                     auto before = project->text[pos - 1].getFrac();
                     vector<int> next = project->text[pos].getFrac();
 
-                    //ciclo fino a che i due vettori sono uguali oppure uno dei due finisce
-                    int i = 0;
-                    while (before[i] == next[i] || i < before.size() || i < next.size()) {
-                        frac.insert(frac.end(), before[i]);
-                        i++;
-                    }
-
-                    //caso in cui entrambi i vettori siano finiti (caso particolare in cui due client siano riusciti a mettere due caratteri nella stessa posizione allo stesso momento)
-                    if(i > before.size() && i > next.size()){
-                        //generate random number to put in the last position
-                        std::default_random_engine generator;
-                        std::uniform_int_distribution<int> distribution(50,200);
-                        int random_number = distribution(generator);
-                        frac.insert(frac.end(), random_number);
-
-                    }
-
-                    //caso in cui il primo sia finito e il secondo no
-                    else if(i>before.size()){
-                        //generate random number to put in the last position, subtract next element of second vector by this number
+                    //caso in cui il secondo sia più piccolo del primo
+                    if(next.size()<before.size()){
+                        //generate random number to put in the last position, summed next element of first vector by this number
                         std::default_random_engine generator;
                         std::uniform_int_distribution<int> distribution(5,20);
                         int random_number = distribution(generator);
-                        frac.insert(frac.end(), next[i]-random_number);
+                        frac=before;
+                        frac[frac.size()-1]=frac[frac.size()-1]+random_number;
                     }
+                    else {
+                        //ciclo fino a che i due vettori sono uguali oppure uno dei due finisce
+                        int i = 0;
+                        while (before[i] == next[i] && i < before.size() && i < next.size()) {
+                            frac.insert(frac.end(), before[i]);
+                            i++;
+                        }
 
-                    //caso in cui il secondo sia finito e il primo no
-                    else if(i>before.size()){
-                        //generate random number to put in the last position, summed next element of first vector by this number
-                        std::default_random_engine generator;
-                        std::uniform_int_distribution<int> distribution(50,200);
-                        int random_number = distribution(generator);
-                        frac.insert(frac.end(), before[i]+random_number);
+                        //caso in cui entrambi i vettori siano finiti (caso particolare in cui due client siano riusciti a mettere due caratteri nella stessa posizione allo stesso momento)
+                        if (i > before.size()-1 && i > next.size()-1) {
+                            //generate random number to put in the last position
+                            std::default_random_engine generator;
+                            std::uniform_int_distribution<int> distribution(5, 20);
+                            int random_number = distribution(generator);
+                            frac.insert(frac.end(), random_number);
+
+                        }
+
+                            //caso in cui il primo sia finito e il secondo no
+                        else if (i > before.size()-1) {
+                            //generate random number to put in the last position, subtract next element of second vector by this number
+                            std::default_random_engine generator;
+                            std::uniform_int_distribution<int> distribution(5, 20);
+                            int random_number = distribution(generator);
+                            frac.insert(frac.end(), next[i] - random_number);
+                        }
+
+
+                            //caso in cui sono arrivato ad elemento diverso tra i due vettori e differenza tra gli elementi > 1
+                        else if (next[i] - before[i] > 1) {
+                            int new_el = (next[i] + before[i]) / 2; //prendo la media dei valori e la metto nel vettore
+                            frac.insert(frac.end(), new_el);
+                        }
+
+                            //caso in cui sono arrivato ad elemento diverso tra i due vettori e differenza tra gli elementi = 1
+                        else if (next[i] - before[i] == 1) {
+                            frac.insert(frac.end(), before[i]); //metto elemento del primo vettore
+                            //generate random number to put in the last position
+                            std::default_random_engine generator;
+                            std::uniform_int_distribution<int> distribution(5, 20);
+                            int random_number = distribution(generator);
+                            frac.insert(frac.end(), random_number);
+                        }
                     }
-
-                    //caso in cui sono arrivato ad elemento diverso tra i due vettori e differenza tra gli elementi > 1
-                    else if(next[i]-before[i]>1){
-                        int new_el = (next[i]+before[i])/2; //prendo la media dei valori e la metto nel vettore
-                        frac.insert(frac.end(), new_el);
-                    }
-
-                    //caso in cui sono arrivato ad elemento diverso tra i due vettori e differenza tra gli elementi = 1
-                    else if(next[i]-before[i]==1){
-                        frac.insert(frac.end(), before[i]); //metto elemento del primo vettore
-                        //generate random number to put in the last position
-                        std::default_random_engine generator;
-                        std::uniform_int_distribution<int> distribution(50,200);
-                        int random_number = distribution(generator);
-                        frac.insert(frac.end(), random_number);
-                    }
-
 
                     /*
                     //vecchio

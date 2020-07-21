@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client"
+CMAKE_SOURCE_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug"
 
 # Utility rule file for editorCollaborativo_autogen.
 
@@ -53,8 +53,8 @@ CMAKE_BINARY_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-
 include CMakeFiles/editorCollaborativo_autogen.dir/progress.make
 
 CMakeFiles/editorCollaborativo_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target editorCollaborativo"
-	"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E cmake_autogen "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo_autogen.dir/AutogenInfo.cmake" Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target editorCollaborativo"
+	"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E cmake_autogen "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo_autogen.dir/AutogenInfo.cmake" Debug
 
 editorCollaborativo_autogen: CMakeFiles/editorCollaborativo_autogen
 editorCollaborativo_autogen: CMakeFiles/editorCollaborativo_autogen.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/editorCollaborativo_autogen.dir/clean:
 .PHONY : CMakeFiles/editorCollaborativo_autogen.dir/clean
 
 CMakeFiles/editorCollaborativo_autogen.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles\editorCollaborativo_autogen.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles\editorCollaborativo_autogen.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/editorCollaborativo_autogen.dir/depend
 

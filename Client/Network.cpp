@@ -36,7 +36,7 @@ void Network::getSocket(QSslSocket &s) {
     QObject::connect(socket_ptr.get(), &QSslSocket::readyRead, this, &Network::message_received);
 }
 
-void Network::send_symbol(Symbol s, int pos,  std::string prj, std::string usr) {
+void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
     //create JSON object of type log in
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(6)),
@@ -49,7 +49,7 @@ void Network::send_symbol(Symbol s, int pos,  std::string prj, std::string usr) 
 
     //print JSON object
     QJsonDocument Doc(json_message);
-    QString message_to_send= QString::fromLatin1(Doc.toJson());
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
@@ -62,10 +62,12 @@ void Network::message_received() {
     QJsonParseError parseError;
     QJsonDocument doc = QJsonDocument::fromJson(socket_ptr->readAll(), &parseError);
 
+    /*
     if (parseError.error == QJsonParseError::NoError) {
         //possible error to handle
         return;
     }
+     */
 
     QJsonObject obj = doc.object();
 
@@ -81,6 +83,7 @@ void Network::message_received() {
 
         case log_in: {
             int result = obj["status"].toInt();
+            qDebug() << "entrato in log_in con codice:" << result;
             if (result == 0) {
                 std::string usr = obj["user"].toString().toStdString();
                 emit logged_in(usr); //qui dovrò prendermi lo user dalla risposta del server
@@ -91,6 +94,7 @@ void Network::message_received() {
 
         case subscribe: {
             int result = obj["status"].toInt();
+            qDebug() << "entrato in subscribe con codice:" << result;
             if (result == 0) {
                 std::string usr = obj["user"].toString().toStdString();
                 emit logged_in(usr); //qui dovrò prendermi lo user dalla risposta del server
@@ -129,22 +133,15 @@ void Network::message_received() {
             //altrimenti vuol dire che il simbolo che mi arriva è stato generato dopo che era arrvato al client il mio simbolo
             //in quella posizione
             Symbol symbol_in_pos = project_ptr->get_symbol_in_pos(position);
-            if(symbol_in_pos.getFrac()==s.getFrac()){
-                //in questo caso bisogna controllare gli id
-                std::hash<std::string> hash_funct;
-                int local_id = hash_funct(symbol_in_pos.getId());
-                int remote_id = hash_funct(symbol_in_pos.getId());
-                if(remote_id<=local_id) {
-                    //nel caso l'id del simbolo remoto sia minore di quello in progetto lo metto prima di quest'ultimo, altrimenti dopo
-                    project_ptr->insert(position, s);
-                }
-                else{
-                    project_ptr->insert(position+1,s);
-                }
+            //in questo caso bisogna controllare gli id di tutti i simboli successivi (nel caso di pi utenti che inseriscano contemporaneamente in stessa pos)
+            std::hash<std::string> hash_funct;
+            //ciclo fino a che ho vettori uguali e l'id remoto è minore di quelli locali con uguali vettori, quando esc metto nella posizione trovata
+            while (symbol_in_pos.getFrac() == s.getFrac() &&
+                   hash_funct(symbol_in_pos.getId()) > hash_funct(symbol_in_pos.getId())) {
+                position++;
+                symbol_in_pos = project_ptr->get_symbol_in_pos(position);
             }
-            else{
-                project_ptr->insert(position,s);
-            }
+            project_ptr->insert(position, s);
         }
             break;
 

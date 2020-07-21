@@ -125,7 +125,7 @@ void DB_Client::send_log_in() {
 
         //create JSON object of type log in
         auto json_message = QJsonObject({
-                                                qMakePair(QString("operation"), QJsonValue(0)),
+                                                qMakePair(QString("opcode"), QJsonValue(0)),
                                                 qMakePair(QString("user"), QJsonValue(user)),
                                                 qMakePair(QString("pwd"), QJsonValue(pwd)),
 
@@ -185,7 +185,7 @@ void DB_Client::send_log_in() {
 
         //create JSON object of type log in
         auto json_message = QJsonObject({
-                                                qMakePair(QString("operation"), QJsonValue(0)),
+                                                qMakePair(QString("opcode"), QJsonValue(0)),
                                                 qMakePair(QString("user"), QJsonValue(user)),
                                                 qMakePair(QString("pwd"), QJsonValue(pwd)),
 
@@ -241,7 +241,7 @@ void DB_Client::send_subscribe() {
 
             //create JSON object of type log in
             auto json_message = QJsonObject({
-                                                    qMakePair(QString("operation"), QJsonValue(1)),
+                                                    qMakePair(QString("opcode"), QJsonValue(1)),
                                                     qMakePair(QString("user"), QJsonValue(user)),
                                                     qMakePair(QString("pwd"), QJsonValue(pwd)),
 
@@ -301,7 +301,7 @@ void DB_Client::send_subscribe() {
 
         //create JSON object of type log in
         auto json_message = QJsonObject({
-                                                qMakePair(QString("operation"), QJsonValue(1)),
+                                                qMakePair(QString("opcode"), QJsonValue(1)),
                                                 qMakePair(QString("user"), QJsonValue(user)),
                                                 qMakePair(QString("pwd"), QJsonValue(pwd)),
 

@@ -43,7 +43,7 @@ void TaskGeneric::run(){
 
         case SUBSCRIPTION:
 
-            emit returnResult(this->service.subscribe(this->message["user"].toString().toStdString(), this->message["pwd"].toString().toStdString()));
+            emit returnResult(this->service.subscribe(this->message["user"].toString().toStdString(), this->message["password"].toString().toStdString()));
             break;
 
         case INSERT:

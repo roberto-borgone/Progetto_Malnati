@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/rober/CLionProjects/DB_server/sqlite3.c" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/sqlite3.c.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.c" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/sqlite3.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -31,13 +31,13 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "C:/Qt/5.12.3/mingw73_64/include/QtNetwork"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/rober/CLionProjects/DB_server/Client.cpp" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Client.cpp.obj"
-  "C:/Users/rober/CLionProjects/DB_server/DB_functions.cpp" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_functions.cpp.obj"
-  "C:/Users/rober/CLionProjects/DB_server/DB_server.cpp" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server.cpp.obj"
-  "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj"
-  "C:/Users/rober/CLionProjects/DB_server/Service.cpp" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Service.cpp.obj"
-  "C:/Users/rober/CLionProjects/DB_server/TaskGeneric.cpp" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj"
-  "C:/Users/rober/CLionProjects/DB_server/main.cpp" "C:/Users/rober/CLionProjects/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/main.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Client.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_functions.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Service.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/main.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -3,9 +3,9 @@ C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazi
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.h
  mmc:Q_OBJECT
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_functions.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.cpp
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_server.h
  mmc:Q_OBJECT
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.cpp
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Service.h
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/TaskGeneric.h
  mmc:Q_OBJECT

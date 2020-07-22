@@ -167,7 +167,10 @@ void Network::message_received() {
             break;
 
         case remote_delete: {
-            //to do
+            //ricezione cancellazione simbolo da remoto
+            Symbol s(obj["symbol"].toObject());
+            std::string user = obj["user"].toString().toStdString();
+            project_ptr->remote_delete(s); //funzione che si occuperà di cancellare il simbolo nel progetto
         }
             break;
 

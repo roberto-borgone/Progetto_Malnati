@@ -127,7 +127,7 @@ void DB_Client::send_log_in() {
         auto json_message = QJsonObject({
                                                 qMakePair(QString("opcode"), QJsonValue(0)),
                                                 qMakePair(QString("user"), QJsonValue(user)),
-                                                qMakePair(QString("pwd"), QJsonValue(pwd)),
+                                                qMakePair(QString("password"), QJsonValue(pwd)),
 
                                         });
 
@@ -187,7 +187,7 @@ void DB_Client::send_log_in() {
         auto json_message = QJsonObject({
                                                 qMakePair(QString("opcode"), QJsonValue(0)),
                                                 qMakePair(QString("user"), QJsonValue(user)),
-                                                qMakePair(QString("pwd"), QJsonValue(pwd)),
+                                                qMakePair(QString("password"), QJsonValue(pwd)),
 
                                         });
 
@@ -243,7 +243,7 @@ void DB_Client::send_subscribe() {
             auto json_message = QJsonObject({
                                                     qMakePair(QString("opcode"), QJsonValue(1)),
                                                     qMakePair(QString("user"), QJsonValue(user)),
-                                                    qMakePair(QString("pwd"), QJsonValue(pwd)),
+                                                    qMakePair(QString("password"), QJsonValue(pwd)),
 
                                             });
 
@@ -303,7 +303,7 @@ void DB_Client::send_subscribe() {
         auto json_message = QJsonObject({
                                                 qMakePair(QString("opcode"), QJsonValue(1)),
                                                 qMakePair(QString("user"), QJsonValue(user)),
-                                                qMakePair(QString("pwd"), QJsonValue(pwd)),
+                                                qMakePair(QString("password"), QJsonValue(pwd)),
 
                                         });
 

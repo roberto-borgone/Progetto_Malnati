@@ -52,15 +52,14 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                     vector<int> next = project->text[pos].getFrac();
 
                     //caso in cui il secondo sia più piccolo del primo
-                    if(next.size()<before.size()){
+                    if (next.size() < before.size()) {
                         //generate random number to put in the last position, summed next element of first vector by this number
                         std::default_random_engine generator;
-                        std::uniform_int_distribution<int> distribution(5,20);
+                        std::uniform_int_distribution<int> distribution(5, 20);
                         int random_number = distribution(generator);
-                        frac=before;
-                        frac[frac.size()-1]=frac[frac.size()-1]+random_number;
-                    }
-                    else {
+                        frac = before;
+                        frac[frac.size() - 1] = frac[frac.size() - 1] + random_number;
+                    } else {
                         //ciclo fino a che i due vettori sono uguali oppure uno dei due finisce
                         int i = 0;
                         while (before[i] == next[i] && i < before.size() && i < next.size()) {
@@ -69,7 +68,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                         }
 
                         //caso in cui entrambi i vettori siano finiti (caso particolare in cui due client siano riusciti a mettere due caratteri nella stessa posizione allo stesso momento)
-                        if (i > before.size()-1 && i > next.size()-1) {
+                        if (i > before.size() - 1 && i > next.size() - 1) {
                             //generate random number to put in the last position
                             std::default_random_engine generator;
                             std::uniform_int_distribution<int> distribution(5, 20);
@@ -79,7 +78,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                         }
 
                             //caso in cui il primo sia finito e il secondo no
-                        else if (i > before.size()-1) {
+                        else if (i > before.size() - 1) {
                             //generate random number to put in the last position, subtract next element of second vector by this number
                             std::default_random_engine generator;
                             std::uniform_int_distribution<int> distribution(5, 20);
@@ -126,7 +125,8 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 std::cout << "invio carattere per controllo centrale su server..." << std::endl;
                 //creo il simbolo ed emetto segnale per inviarlo alla classe network che lo invierà al server
                 std::string proj = std::string("p1"); //qui si dovrà predere il progetto aperto dallo user
-                std::string user = std::string("u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
+                std::string user = std::string(
+                        "u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
                 Symbol s = Symbol(*sp, f.font().family().toStdString(),
                                   f.fontWeight() == QFont::Weight::Bold,
                                   f.fontItalic(),
@@ -137,6 +137,18 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 emit send_symbol(s, pos, proj, user);
                 //inserisco simbolo in gui
                 project->insert(pos, s);
+
+                /*PROVA DI INSERIMENTO DI CARATTERE IN GUI*/
+                auto old_position = textEdit->textCursor().position(); //save old cursor
+                auto new_cursor = QTextCursor(textEdit->document());//create new cursor
+                new_cursor.setPosition(0); //set position of new cursor
+                textEdit->setTextCursor(new_cursor); //update editor cursor
+                new_cursor.insertText(
+                        QString("x")); //insert text in position (better use overloaded function with format)
+                auto old_cursor = QTextCursor(textEdit->document());//create new cursor
+                old_cursor.setPosition(old_position); //set position of new cursor
+                textEdit->setTextCursor(old_cursor); //update editor cursor
+
 
                 *sp = '\0';
 

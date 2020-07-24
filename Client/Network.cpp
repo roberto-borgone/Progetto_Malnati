@@ -9,8 +9,9 @@ enum opcode {
     log_in, subscribe, request_projects, open, create, close, remote_insert, remote_delete, cursor
 };
 
-Network::Network(Project *project) : QObject(nullptr) {
+Network::Network(Project *project, Gui* gui) : QObject(nullptr) {
     project_ptr = shared_ptr<Project>(project);
+    gui_ptr = std::shared_ptr<Gui>(gui);
     QObject::connect(this, &Network::insert, project, &Project::externalInsert, Qt::BlockingQueuedConnection);
     QObject::connect(this, &Network::erase, project, &Project::externalDelete, Qt::BlockingQueuedConnection);
     // connect(project,&Project::internalInsert,[](Symbol s)-> void {s.print();},Qt::BlockingQueuedConnection);
@@ -163,6 +164,7 @@ void Network::message_received() {
                 symbol_in_pos = project_ptr->get_symbol_in_pos(position);
             }
             project_ptr->insert(position, s);
+            gui_ptr->insert_in_Gui(position,s);
         }
             break;
 
@@ -170,7 +172,10 @@ void Network::message_received() {
             //ricezione cancellazione simbolo da remoto
             Symbol s(obj["symbol"].toObject());
             std::string user = obj["user"].toString().toStdString();
-            project_ptr->remote_delete(s); //funzione che si occuperà di cancellare il simbolo nel progetto
+            int pos=project_ptr->remote_delete(s); //funzione che si occuperà di cancellare il simbolo nel progetto
+            if(pos>=0){ //cioè se il simbolo da eliminare non era già stato eliminato in precedenza
+                gui_ptr->delete_in_Gui(pos);
+            }
         }
             break;
 

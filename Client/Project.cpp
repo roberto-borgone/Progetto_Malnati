@@ -101,7 +101,7 @@ Symbol Project::get_symbol_in_pos(int pos) {
     return text[pos];
 }
 
-void Project::remote_delete(Symbol s) {
+int Project::remote_delete(Symbol s) {
     std::cout << "dentro la remote cancella" << std::endl;
     std::vector<int> tmp; //vettore temporane che mi servirà per la ricerca
     auto bounds = make_pair(text.begin(), text.end());
@@ -110,7 +110,7 @@ void Project::remote_delete(Symbol s) {
     std::cout << "vettore tmp: ";
     for (auto el:tmp) std::cout << el << " ";
     std::cout << std::endl;
-
+    int pos=-1;
     for(int i=0; i<tmp.size()-1; i++) {
         Symbol tmp_symbol('t', std::string("no_font"), false, false, false, false, std::string("no_color"), tmp,
                           std::string("no_project"), std::string("no_user"));
@@ -145,7 +145,10 @@ void Project::remote_delete(Symbol s) {
     for (auto it = begin; it != end; it++) {
         std::cout << "trovato elemento" << it->getChar() << std::endl;
         if (it->getId() == s.getId()) {
+            pos=it-text.begin();
             text.erase(it);
         }
     }
+
+    return pos;
 }

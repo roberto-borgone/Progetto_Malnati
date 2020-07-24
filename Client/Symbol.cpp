@@ -140,3 +140,27 @@ Symbol::Symbol(QJsonObject json_symbol) {
     underline=json_symbol["underline"].toBool();
     strike=json_symbol["strike"].toBool();
 }
+
+const QString Symbol::getFont() const {
+    return QString(font.c_str());
+}
+
+bool Symbol::isBold() const {
+    return bold;
+}
+
+bool Symbol::isItalic() const {
+    return italic;
+}
+
+bool Symbol::isUnderline() const {
+    return underline;
+}
+
+bool Symbol::isStrike() const {
+    return strike;
+}
+
+const QString Symbol::getColor() const {
+    return QString(color.c_str());
+}

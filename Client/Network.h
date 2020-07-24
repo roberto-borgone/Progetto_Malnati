@@ -8,6 +8,7 @@
 #include <QObject>
 #include "Symbol.h"
 #include "Project.h"
+#include "Gui.h"
 #include <functional>
 #include <thread>
 #include <vector>
@@ -22,8 +23,9 @@ class Network : public QObject {
 Q_OBJECT;
     std::shared_ptr<QSslSocket> socket_ptr;
     std::shared_ptr<Project> project_ptr;
+    std::shared_ptr<Gui> gui_ptr;
 public:
-    Network(Project *project);
+    Network(Project *project, Gui *gui);
 
     void receiveCommand(); //riceve comando da esterno e lo manda a project
 signals:
@@ -37,6 +39,7 @@ signals:
     void wrong_log_in();
 
     void wrong_sub();
+
 
 public slots:
 

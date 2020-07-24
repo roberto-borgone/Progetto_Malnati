@@ -71,6 +71,8 @@ public:
     void selectAll();
     void deleteT();
     void setTextColor(const QColor& c);
+    void insert_in_Gui(int pos, Symbol s);
+    void delete_in_Gui(int pos);
 
 public slots:
     void logged_in(const std::string& user);

@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
     auto g = new Gui(nullptr);
     Project *project = g->getCurrentProject();
-    auto network = new Network(g->getCurrentProject());
+    auto network = new Network(g->getCurrentProject(), g);
     auto db_client = new DB_Client();
    /*
     thread network([project](){

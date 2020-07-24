@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server
+CMAKE_SOURCE_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/DB_server.dir/depend.make
@@ -59,114 +59,114 @@ include CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
 CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj: DB_server_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\DB_server_autogen\mocs_compilation.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\DB_server_autogen\mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\DB_server_autogen\mocs_compilation.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\DB_server_autogen\mocs_compilation.cpp"
 
 CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\DB_server_autogen\mocs_compilation.cpp > CMakeFiles\DB_server.dir\DB_server_autogen\mocs_compilation.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\DB_server_autogen\mocs_compilation.cpp" > CMakeFiles\DB_server.dir\DB_server_autogen\mocs_compilation.cpp.i
 
 CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\DB_server_autogen\mocs_compilation.cpp -o CMakeFiles\DB_server.dir\DB_server_autogen\mocs_compilation.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\DB_server_autogen\mocs_compilation.cpp" -o CMakeFiles\DB_server.dir\DB_server_autogen\mocs_compilation.cpp.s
 
 CMakeFiles/DB_server.dir/main.cpp.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/main.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
 CMakeFiles/DB_server.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DB_server.dir/main.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\main.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DB_server.dir/main.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\main.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\main.cpp"
 
 CMakeFiles/DB_server.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/main.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\main.cpp > CMakeFiles\DB_server.dir\main.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\main.cpp" > CMakeFiles\DB_server.dir\main.cpp.i
 
 CMakeFiles/DB_server.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/main.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\main.cpp -o CMakeFiles\DB_server.dir\main.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\main.cpp" -o CMakeFiles\DB_server.dir\main.cpp.s
 
 CMakeFiles/DB_server.dir/DB_functions.cpp.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/DB_functions.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
 CMakeFiles/DB_server.dir/DB_functions.cpp.obj: ../DB_functions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DB_server.dir/DB_functions.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\DB_functions.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\DB_functions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DB_server.dir/DB_functions.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\DB_functions.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\DB_functions.cpp"
 
 CMakeFiles/DB_server.dir/DB_functions.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/DB_functions.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\DB_functions.cpp > CMakeFiles\DB_server.dir\DB_functions.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\DB_functions.cpp" > CMakeFiles\DB_server.dir\DB_functions.cpp.i
 
 CMakeFiles/DB_server.dir/DB_functions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/DB_functions.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\DB_functions.cpp -o CMakeFiles\DB_server.dir\DB_functions.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\DB_functions.cpp" -o CMakeFiles\DB_server.dir\DB_functions.cpp.s
 
 CMakeFiles/DB_server.dir/sqlite3.c.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/sqlite3.c.obj: CMakeFiles/DB_server.dir/includes_C.rsp
 CMakeFiles/DB_server.dir/sqlite3.c.obj: ../sqlite3.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/DB_server.dir/sqlite3.c.obj"
-	C:\Qt\Tools\mingw730_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\DB_server.dir\sqlite3.c.obj   -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\sqlite3.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/DB_server.dir/sqlite3.c.obj"
+	C:\Qt\Tools\mingw730_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\DB_server.dir\sqlite3.c.obj   -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\sqlite3.c"
 
 CMakeFiles/DB_server.dir/sqlite3.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/DB_server.dir/sqlite3.c.i"
-	C:\Qt\Tools\mingw730_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\sqlite3.c > CMakeFiles\DB_server.dir\sqlite3.c.i
+	C:\Qt\Tools\mingw730_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\sqlite3.c" > CMakeFiles\DB_server.dir\sqlite3.c.i
 
 CMakeFiles/DB_server.dir/sqlite3.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/DB_server.dir/sqlite3.c.s"
-	C:\Qt\Tools\mingw730_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\sqlite3.c -o CMakeFiles\DB_server.dir\sqlite3.c.s
+	C:\Qt\Tools\mingw730_64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\sqlite3.c" -o CMakeFiles\DB_server.dir\sqlite3.c.s
 
 CMakeFiles/DB_server.dir/DB_server.cpp.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/DB_server.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
 CMakeFiles/DB_server.dir/DB_server.cpp.obj: ../DB_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DB_server.dir/DB_server.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\DB_server.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\DB_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DB_server.dir/DB_server.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\DB_server.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\DB_server.cpp"
 
 CMakeFiles/DB_server.dir/DB_server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/DB_server.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\DB_server.cpp > CMakeFiles\DB_server.dir\DB_server.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\DB_server.cpp" > CMakeFiles\DB_server.dir\DB_server.cpp.i
 
 CMakeFiles/DB_server.dir/DB_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/DB_server.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\DB_server.cpp -o CMakeFiles\DB_server.dir\DB_server.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\DB_server.cpp" -o CMakeFiles\DB_server.dir\DB_server.cpp.s
 
 CMakeFiles/DB_server.dir/Client.cpp.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/Client.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
 CMakeFiles/DB_server.dir/Client.cpp.obj: ../Client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DB_server.dir/Client.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\Client.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DB_server.dir/Client.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\Client.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\Client.cpp"
 
 CMakeFiles/DB_server.dir/Client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/Client.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Client.cpp > CMakeFiles\DB_server.dir\Client.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\Client.cpp" > CMakeFiles\DB_server.dir\Client.cpp.i
 
 CMakeFiles/DB_server.dir/Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/Client.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Client.cpp -o CMakeFiles\DB_server.dir\Client.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\Client.cpp" -o CMakeFiles\DB_server.dir\Client.cpp.s
 
 CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
 CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj: ../TaskGeneric.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\TaskGeneric.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\TaskGeneric.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\TaskGeneric.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\TaskGeneric.cpp"
 
 CMakeFiles/DB_server.dir/TaskGeneric.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/TaskGeneric.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\TaskGeneric.cpp > CMakeFiles\DB_server.dir\TaskGeneric.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\TaskGeneric.cpp" > CMakeFiles\DB_server.dir\TaskGeneric.cpp.i
 
 CMakeFiles/DB_server.dir/TaskGeneric.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/TaskGeneric.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\TaskGeneric.cpp -o CMakeFiles\DB_server.dir\TaskGeneric.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\TaskGeneric.cpp" -o CMakeFiles\DB_server.dir\TaskGeneric.cpp.s
 
 CMakeFiles/DB_server.dir/Service.cpp.obj: CMakeFiles/DB_server.dir/flags.make
 CMakeFiles/DB_server.dir/Service.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
 CMakeFiles/DB_server.dir/Service.cpp.obj: ../Service.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DB_server.dir/Service.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\Service.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Service.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DB_server.dir/Service.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\Service.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\Service.cpp"
 
 CMakeFiles/DB_server.dir/Service.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/Service.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Service.cpp > CMakeFiles\DB_server.dir\Service.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\Service.cpp" > CMakeFiles\DB_server.dir\Service.cpp.i
 
 CMakeFiles/DB_server.dir/Service.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/Service.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Service.cpp -o CMakeFiles\DB_server.dir\Service.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\Service.cpp" -o CMakeFiles\DB_server.dir\Service.cpp.s
 
 # Object files for target DB_server
 DB_server_OBJECTS = \
@@ -199,7 +199,7 @@ DB_server.exe: C:/Qt/5.12.3/mingw73_64/lib/libQt5Cored.a
 DB_server.exe: CMakeFiles/DB_server.dir/linklibs.rsp
 DB_server.exe: CMakeFiles/DB_server.dir/objects1.rsp
 DB_server.exe: CMakeFiles/DB_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable DB_server.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable DB_server.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\DB_server.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -212,6 +212,6 @@ CMakeFiles/DB_server.dir/clean:
 .PHONY : CMakeFiles/DB_server.dir/clean
 
 CMakeFiles/DB_server.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles\DB_server.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\DB_server\cmake-build-debug\CMakeFiles\DB_server.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/DB_server.dir/depend
 

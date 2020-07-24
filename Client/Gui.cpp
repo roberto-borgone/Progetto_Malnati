@@ -21,6 +21,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
             std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
             project->eraseElements(pos, removed);
             textEdit->redo();
+
         }
         if (added > 0) {
 
@@ -137,18 +138,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 emit send_symbol(s, pos, proj, user);
                 //inserisco simbolo in gui
                 project->insert(pos, s);
-
-                /*PROVA DI INSERIMENTO DI CARATTERE IN GUI*/
-                auto old_position = textEdit->textCursor().position(); //save old cursor
-                auto new_cursor = QTextCursor(textEdit->document());//create new cursor
-                new_cursor.setPosition(0); //set position of new cursor
-                textEdit->setTextCursor(new_cursor); //update editor cursor
-                new_cursor.insertText(
-                        QString("x")); //insert text in position (better use overloaded function with format)
-                auto old_cursor = QTextCursor(textEdit->document());//create new cursor
-                old_cursor.setPosition(old_position); //set position of new cursor
-                textEdit->setTextCursor(old_cursor); //update editor cursor
-
 
                 *sp = '\0';
 
@@ -403,5 +392,47 @@ Project *Gui::getCurrentProject() {
 
 void Gui::logged_in(const std::string &user) {
     this->setVisible(true);
+}
+
+void Gui::insert_in_Gui(int pos, Symbol s) {
+    /*INSERIMENTO DI CARATTERE IN GUI*/
+    auto old_cursor = textEdit->textCursor(); //save old cursor
+    auto new_cursor = QTextCursor(textEdit->document());//create new cursor
+    new_cursor.setPosition(pos); //set position of new cursor
+    textEdit->setTextCursor(new_cursor); //update editor cursor
+    QTextCharFormat format;//create in Gui same format of symbol (font, bold, italic, underline, strike, color)
+    QFont q;
+    q.setFamily(s.getFont());
+    q.setBold(s.isBold());
+    q.setItalic(s.isItalic());
+    q.setUnderline(s.isUnderline());
+    q.setStrikeOut(s.isStrike());
+    format.setFont(q);
+    QBrush brush;
+    brush.setColor(QColor(s.getColor()));
+    format.setForeground(brush);
+    new_cursor.insertText(
+            QChar(s.getChar()), format); //insert text in position (better use overloaded function with format)
+    if (pos <= old_cursor.position()) {
+        old_cursor.setPosition(old_cursor.position() + 1);
+    } else {
+        old_cursor.setPosition(old_cursor.position());
+    }
+    textEdit->setTextCursor(old_cursor); //update editor cursor
+}
+
+void Gui::delete_in_Gui(int pos) {
+    /*CANCELLAZIONE DI CARATTERE IN GUI*/
+    auto old_cursor = textEdit->textCursor(); //save old cursor
+    auto new_cursor = QTextCursor(textEdit->document());//create new cursor
+    new_cursor.setPosition(pos); //set position of new cursor
+    textEdit->setTextCursor(new_cursor); //update editor cursor
+    new_cursor.deleteChar();//delete text in position
+    if (pos <= old_cursor.position()) {
+        old_cursor.setPosition(old_cursor.position());
+    } else {
+        old_cursor.setPosition(old_cursor.position());
+    }
+    textEdit->setTextCursor(old_cursor); //update editor cursor
 }
 

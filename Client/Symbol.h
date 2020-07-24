@@ -39,7 +39,17 @@ public:
     void print();
     QJsonObject toJson();
 
+    const QString getFont() const;
 
+    bool isBold() const;
+
+    bool isItalic() const;
+
+    bool isUnderline() const;
+
+    bool isStrike() const;
+
+    const QString getColor() const;
 
 
 };

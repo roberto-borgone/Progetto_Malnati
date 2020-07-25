@@ -135,11 +135,16 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
                                   frac, proj, user);
-                emit send_symbol(s, pos, proj, user);
-                //inserisco simbolo in gui
-                project->insert(pos, s);
 
-                *sp = '\0';
+                if (project->prjID_set) {
+                    emit send_symbol(s, pos, proj, user);
+                    //inserisco simbolo in gui
+                    project->insert(pos, s);
+                    *sp = '\0';
+                } else {
+                    project->prjID_set = true; //set true to use editor
+                    emit no_project();
+                }
 
             }
         }
@@ -421,7 +426,7 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     textEdit->setTextCursor(old_cursor); //update editor cursor
 }
 
-void Gui::delete_in_Gui(int pos) {
+void Gui::delete_in_Gui(int pos = 0) {
     /*CANCELLAZIONE DI CARATTERE IN GUI*/
     auto old_cursor = textEdit->textCursor(); //save old cursor
     auto new_cursor = QTextCursor(textEdit->document());//create new cursor

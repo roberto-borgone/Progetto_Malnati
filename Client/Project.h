@@ -27,6 +27,8 @@ public:
     Project(QTextDocument *document,QObject *parent);
     vector<Symbol> text;
     map<string,int> symbols; //id->position
+    /*******PROVA DI POP UP PER NESSUN PROGETTO APERTO***/
+    bool prjID_set = false; //set true to use editor
 
     int insert(int pos,Symbol s);
     int insertOrder(int l,int r,Symbol s);

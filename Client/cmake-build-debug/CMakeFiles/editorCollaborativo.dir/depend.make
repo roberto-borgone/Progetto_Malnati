@@ -866,6 +866,8 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QBoxLayout
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QColorDialog
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QComboBox
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialog
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialogButtonBox
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QFileDialog
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QGroupBox
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QHBoxLayout
@@ -894,6 +896,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qcombobox.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdesktopwidget.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialog.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialogbuttonbox.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qfiledialog.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qframe.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qgridlayout.h
@@ -924,11 +927,13 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Network.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Symbol.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/mocs_compilation.cpp
 
@@ -1083,6 +1088,8 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QBoxLayout
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QColorDialog
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QComboBox
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialog
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialogButtonBox
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QFileDialog
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QGroupBox
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QHBoxLayout
@@ -1112,6 +1119,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qcombobox.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdesktopwidget.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialog.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialogbuttonbox.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qfiledialog.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qframe.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qgridlayout.h
@@ -1143,6 +1151,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Network.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Symbol.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../main.cpp

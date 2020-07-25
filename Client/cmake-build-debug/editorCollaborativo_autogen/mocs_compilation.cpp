@@ -2,4 +2,5 @@
 #include "EWIEGA46WW/moc_DB_Client.cpp"
 #include "EWIEGA46WW/moc_Gui.cpp"
 #include "EWIEGA46WW/moc_Network.cpp"
+#include "EWIEGA46WW/moc_PopUp.cpp"
 #include "EWIEGA46WW/moc_Project.cpp"

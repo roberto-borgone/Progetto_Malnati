@@ -7,12 +7,16 @@
 #include "Gui.h"
 #include "Network.h"
 #include "DB_Client.h"
+#include "PopUp.h"
 
 
 int main(int argc, char *argv[]) {
 
 
     QApplication a(argc,argv);
+
+    //create Pop up
+    auto no_prj_pop_up = new PopUp();
 
     auto g = new Gui(nullptr);
     Project *project = g->getCurrentProject();
@@ -33,6 +37,8 @@ int main(int argc, char *argv[]) {
     QObject::connect(network, &Network::wrong_log_in, db_client, &DB_Client::failed_log_in);
     QObject::connect(network, &Network::wrong_sub, db_client, &DB_Client::failed_subscribe);
     QObject::connect(project, &Project::remove_symbol, network, &Network::remove_symbol);
+    QObject::connect(g, &Gui::no_project, [&no_prj_pop_up](){no_prj_pop_up->exec();}); //pop up when no project is open
+    QObject::connect(no_prj_pop_up, &PopUp::popUp_delete, g, &Gui::delete_in_Gui);
 
     g->show();
     g->setVisible(false);

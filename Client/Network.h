@@ -55,6 +55,9 @@ public slots:
     //funzione generica per la ricezione di una risposta o di un comando da parte del server
     void message_received();
 
+    //slot per invio richiesta progetti
+    void ask_projects(std::string usr);
+
 };
 
 

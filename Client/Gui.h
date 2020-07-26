@@ -80,6 +80,7 @@ public slots:
 signals:
     void send_symbol(Symbol s, int pos, std::string prj, std::string usr);
     void no_project();
+    void request_for_projects(std::string usr);
 
 };
 

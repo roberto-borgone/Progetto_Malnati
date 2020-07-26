@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Network_t {
-    QByteArrayData data[20];
-    char stringdata0[165];
+    QByteArrayData data[21];
+    char stringdata0[178];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -50,14 +50,15 @@ QT_MOC_LITERAL(15, 122, 3), // "pos"
 QT_MOC_LITERAL(16, 126, 3), // "prj"
 QT_MOC_LITERAL(17, 130, 3), // "usr"
 QT_MOC_LITERAL(18, 134, 13), // "remove_symbol"
-QT_MOC_LITERAL(19, 148, 16) // "message_received"
+QT_MOC_LITERAL(19, 148, 16), // "message_received"
+QT_MOC_LITERAL(20, 165, 12) // "ask_projects"
 
     },
     "Network\0insert\0\0Symbol\0s\0erase\0string\0"
     "logged_in\0std::string\0user\0wrong_log_in\0"
     "wrong_sub\0getSocket\0QSslSocket&\0"
     "send_symbol\0pos\0prj\0usr\0remove_symbol\0"
-    "message_received"
+    "message_received\0ask_projects"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,7 +68,7 @@ static const uint qt_meta_data_Network[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,17 +76,18 @@ static const uint qt_meta_data_Network[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   59,    2, 0x06 /* Public */,
-       5,    1,   62,    2, 0x06 /* Public */,
-       7,    1,   65,    2, 0x06 /* Public */,
-      10,    0,   68,    2, 0x06 /* Public */,
-      11,    0,   69,    2, 0x06 /* Public */,
+       1,    1,   64,    2, 0x06 /* Public */,
+       5,    1,   67,    2, 0x06 /* Public */,
+       7,    1,   70,    2, 0x06 /* Public */,
+      10,    0,   73,    2, 0x06 /* Public */,
+      11,    0,   74,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      12,    1,   70,    2, 0x0a /* Public */,
-      14,    4,   73,    2, 0x0a /* Public */,
-      18,    1,   82,    2, 0x0a /* Public */,
-      19,    0,   85,    2, 0x0a /* Public */,
+      12,    1,   75,    2, 0x0a /* Public */,
+      14,    4,   78,    2, 0x0a /* Public */,
+      18,    1,   87,    2, 0x0a /* Public */,
+      19,    0,   90,    2, 0x0a /* Public */,
+      20,    1,   91,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -99,6 +101,7 @@ static const uint qt_meta_data_Network[] = {
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, 0x80000000 | 8, 0x80000000 | 8,    4,   15,   16,   17,
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 8,   17,
 
        0        // eod
 };
@@ -118,6 +121,7 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 6: _t->send_symbol((*reinterpret_cast< Symbol(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< std::string(*)>(_a[3])),(*reinterpret_cast< std::string(*)>(_a[4]))); break;
         case 7: _t->remove_symbol((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
         case 8: _t->message_received(); break;
+        case 9: _t->ask_projects((*reinterpret_cast< std::string(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -189,13 +193,13 @@ int Network::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

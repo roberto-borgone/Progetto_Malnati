@@ -175,7 +175,7 @@ QMenuBar *Gui::initMenuBar() {
             cout << s.toStdString() << endl;
         }
     }, QKeySequence::New); //da implementare funzionalità
-    file->addAction("Open", []() { cout << "Open"; }, QKeySequence::Open);
+    file->addAction("Open", [this]() { emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
     file->addAction("Close", []() { cout << "Close"; }, QKeySequence::Close);
     file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
     file->addAction("Save as", []() { cout << "Save as"; }, QKeySequence::SaveAs);
@@ -214,7 +214,7 @@ QToolBar *Gui::initToolBar() {
 
     });
     toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {
-
+        emit request_for_projects(std::string("user1"));
     });
     toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {
 

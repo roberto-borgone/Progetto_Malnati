@@ -30,15 +30,21 @@ int main(int argc, char *argv[]) {
     });
     */
 
+   //for log in and socket
     QObject::connect(network, &Network::logged_in, g, &Gui::logged_in);
     QObject::connect(db_client, &DB_Client::move_socket, network, &Network::getSocket);
-    QObject::connect(g, &Gui::send_symbol, network, &Network::send_symbol);
     QObject::connect(network, &Network::logged_in, db_client, &DB_Client::log_in_success);
     QObject::connect(network, &Network::wrong_log_in, db_client, &DB_Client::failed_log_in);
     QObject::connect(network, &Network::wrong_sub, db_client, &DB_Client::failed_subscribe);
+
+    //for C/S communication (symbols)
+    QObject::connect(g, &Gui::send_symbol, network, &Network::send_symbol);
     QObject::connect(project, &Project::remove_symbol, network, &Network::remove_symbol);
-    QObject::connect(g, &Gui::no_project, [&no_prj_pop_up](){no_prj_pop_up->exec();}); //pop up when no project is open
     QObject::connect(no_prj_pop_up, &PopUp::popUp_delete, g, &Gui::delete_in_Gui);
+
+    //for C/S communication (projects)
+    QObject::connect(g, &Gui::no_project, [&no_prj_pop_up](){no_prj_pop_up->exec();}); //pop up when no project is open
+    QObject::connect(g, &Gui::request_for_projects, network, &Network::ask_projects);
 
     g->show();
     g->setVisible(false);

@@ -189,4 +189,21 @@ void Network::message_received() {
 
 }
 
+void Network::ask_projects(std::string usr) {
+    //create JSON object of type request_projects
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(2)),
+                                            qMakePair(QString("user"), QJsonValue(QString(usr.c_str()))),
+
+                                    });
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send.toLatin1());
+}
+
 

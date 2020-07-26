@@ -416,8 +416,13 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     QBrush brush;
     brush.setColor(QColor(s.getColor()));
     format.setForeground(brush);
+
+    std::cout<<"inserimento remoto"<<s.getChar()<<std::endl;
+    bool resume_signals = textEdit->document()->blockSignals(true); //block signal "contentsChange" to avoid infinite loop
     new_cursor.insertText(
             QChar(s.getChar()), format); //insert text in position (better use overloaded function with format)
+    textEdit->document()->blockSignals(resume_signals);
+
     if (pos <= old_cursor.position()) {
         old_cursor.setPosition(old_cursor.position() + 1);
     } else {
@@ -432,7 +437,11 @@ void Gui::delete_in_Gui(int pos = 0) {
     auto new_cursor = QTextCursor(textEdit->document());//create new cursor
     new_cursor.setPosition(pos); //set position of new cursor
     textEdit->setTextCursor(new_cursor); //update editor cursor
+
+    bool resume_signals = textEdit->document()->blockSignals(true); //block signal "contentsChange" to avoid infinite loop
     new_cursor.deleteChar();//delete text in position
+    textEdit->document()->blockSignals(resume_signals);
+
     if (pos <= old_cursor.position()) {
         old_cursor.setPosition(old_cursor.position());
     } else {

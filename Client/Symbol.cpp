@@ -107,7 +107,7 @@ QJsonObject Symbol::toJson() {
     }
     auto Json_symbol = QJsonObject({
                                            qMakePair(QString("id"), QJsonValue(QString(this->id.c_str()))),
-                                           qMakePair(QString("s"), QJsonValue(this->s)),
+                                           qMakePair(QString("s"), QJsonValue(QChar(this->s))),
                                            qMakePair(QString("font"), QJsonValue(QString(this->font.c_str()))),
                                            qMakePair(QString("color"),
                                                      QJsonValue(QString(this->color.c_str()))),

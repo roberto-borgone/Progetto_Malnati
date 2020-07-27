@@ -8,6 +8,10 @@
 
 #define LOGIN 0
 #define SUBSCRIPTION 1
+#define REQUEST_PROJECTS 2
+#define OPEN 3
+#define CREATE 4
+#define CLOSE 5
 #define INSERT 6
 #define DELETE 7
 #define CURSOR 8
@@ -59,6 +63,19 @@ void TaskGeneric::run(){
             emit returnResult(QJsonDocument(json).toJson());
             break;
 
+        case REQUEST_PROJECTS:
+            break;
+
+        case OPEN:
+            break;
+
+        case CREATE:
+
+            break;
+
+        case CLOSE:
+            break;
+
         case INSERT:
 
             emit forwardMessage(QJsonDocument(this->message).toJson());
@@ -84,19 +101,6 @@ void TaskGeneric::run(){
 int TaskGeneric::getOpCode(){
 
     if(this->message.contains("opcode") && this->message["opcode"].isDouble()){
-        switch(this->message["opcode"].toInt()){
-            case 0:
-                return LOGIN;
-            case 1:
-                return SUBSCRIPTION;
-            case 6:
-                return INSERT;
-            case 7:
-                return DELETE;
-            case 8:
-                return CURSOR;
-            default:
-                return ERROR;
-        }
+        return this->message["opcode"].toInt();
     }
 }

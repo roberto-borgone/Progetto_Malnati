@@ -10,7 +10,7 @@ DB_interface::DB_interface() {
     char *err_message = nullptr;
 
     //try to open (or create if not existing) database
-    result = sqlite3_open("users_database.db", &db);
+    result = sqlite3_open("database.db", &db);
     if (result) {
         std::cout << "can't connect to DB" << std::endl;
         db = nullptr;
@@ -23,6 +23,18 @@ DB_interface::DB_interface() {
     statement = "create table if not exists users("\
                 "user text primary key not null,"\
                 "pwd text not null);";
+    result = sqlite3_exec(db, statement, nullptr, nullptr, &err_message);
+    if (result != SQLITE_OK) {
+        std::cout << "SQL error: " << err_message << std::endl;
+        sqlite3_free(err_message);
+    } else {
+        std::cout << "table created successfully" << std::endl;
+    }
+
+    //create project table (if it doesn't exists)
+    statement = "create table if not exists projects("\
+                "id text primary key not null,"\
+                "doc text not null);";
     result = sqlite3_exec(db, statement, nullptr, nullptr, &err_message);
     if (result != SQLITE_OK) {
         std::cout << "SQL error: " << err_message << std::endl;
@@ -110,3 +122,105 @@ int DB_interface::log_in(const std::string &user, std::string pwd) const{
     }
     return 0;
 }
+
+int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
+
+    int result;
+    std::string statement;
+    char *err_message = nullptr;
+
+    //check if project is already in DB
+    statement = std::string("SELECT id FROM projects WHERE id = ?");
+
+    sqlite3_stmt *stmt;
+    if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
+        std::cout << "some error occured in query the DB" << std::endl;
+        return 2;
+    }
+    sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
+    int stat = sqlite3_step(stmt);
+    if (stat != SQLITE_DONE) {
+        std::cout << "already existing project" << std::endl;
+        return 1;
+    } else {
+        statement = "insert into projects(id,doc)"\
+                "values('" + id + "'," + doc.toStdString() + ")";
+        result = sqlite3_exec(db, statement.c_str(), nullptr, nullptr, &err_message);
+        if (result != SQLITE_OK) {
+            std::cout << "SQL error: " << err_message << std::endl;
+            sqlite3_free(err_message);
+            return 2;
+        } else {
+            std::cout << "created project" << std::endl;
+        }
+    }
+
+    return 0;
+}
+
+QStringList DB_interface::get_projects() const{
+
+    std::string statement;
+    QStringList project_list;
+
+    statement = std::string("SELECT id FROM projects");
+
+    sqlite3_stmt *stmt;
+    if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
+        std::cout << "some error occured in query the DB" << std::endl;
+        return project_list;
+    }
+
+    while (sqlite3_step(stmt) != SQLITE_DONE) {
+        project_list.push_back(QString((char*)sqlite3_column_text(stmt, 0)));
+    }
+
+    return project_list;
+}
+
+QByteArray DB_interface::get_project(std::string& id) const{
+
+    std::string statement;
+
+    statement = std::string("SELECT doc FROM projects WHERE id = ?");
+
+    sqlite3_stmt *stmt;
+    if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
+        std::cout << "some error occured in query the DB" << std::endl;
+        return QByteArray("");
+    }
+    sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
+
+    int stat = sqlite3_step(stmt);
+
+    if (stat != SQLITE_DONE) {
+        return QByteArray((char*)sqlite3_column_text(stmt, 0));
+    }
+
+    return QByteArray("");
+}
+
+int DB_interface::update_project(const std::string& id, QByteArray doc) const{
+
+    std::string statement;
+
+    //check if project is already in DB
+    statement = std::string("UPDATE projects SET doc = ? WHERE id = ?");
+
+    sqlite3_stmt *stmt;
+    if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
+        std::cout << "some error occured in query the DB" << std::endl;
+        return 2;
+    }
+    sqlite3_bind_text(stmt, 1, doc.toStdString().c_str(), doc.toStdString().size(), SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, id.c_str(), id.size(), SQLITE_STATIC);
+
+    int stat = sqlite3_step(stmt);
+    if (stat != SQLITE_DONE) {
+        std::cout << "error in update project" << std::endl;
+        return 1;
+    }
+
+    return 0;
+}
+

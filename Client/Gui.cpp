@@ -146,6 +146,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                     emit no_project();
                 }
 
+
             }
         }
         cout << endl;
@@ -176,7 +177,10 @@ QMenuBar *Gui::initMenuBar() {
         }
     }, QKeySequence::New); //da implementare funzionalità
     file->addAction("Open", [this]() { emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
-    file->addAction("Close", []() { cout << "Close"; }, QKeySequence::Close);
+    file->addAction("Close", [this]() {
+        emit close_project(std::string("prj1"));
+        project->prjID_set = false; //client can't now write on editor
+    }, QKeySequence::Close);
     file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
     file->addAction("Save as", []() { cout << "Save as"; }, QKeySequence::SaveAs);
     file->addAction("Export to PDF", []() { cout << "er"; });
@@ -217,7 +221,8 @@ QToolBar *Gui::initToolBar() {
         emit request_for_projects(std::string("user1"));
     });
     toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {
-
+        emit close_project(std::string("prj1"));
+        project->prjID_set = false; //client can't now write on editor
     });
     toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
                        [this]() { //valutare cambio icona a save-1 a prima modifica
@@ -417,8 +422,9 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     brush.setColor(QColor(s.getColor()));
     format.setForeground(brush);
 
-    std::cout<<"inserimento remoto"<<s.getChar()<<std::endl;
-    bool resume_signals = textEdit->document()->blockSignals(true); //block signal "contentsChange" to avoid infinite loop
+    std::cout << "inserimento remoto" << s.getChar() << std::endl;
+    bool resume_signals = textEdit->document()->blockSignals(
+            true); //block signal "contentsChange" to avoid infinite loop
     new_cursor.insertText(
             QChar(s.getChar()), format); //insert text in position (better use overloaded function with format)
     textEdit->document()->blockSignals(resume_signals);
@@ -438,7 +444,8 @@ void Gui::delete_in_Gui(int pos = 0) {
     new_cursor.setPosition(pos); //set position of new cursor
     textEdit->setTextCursor(new_cursor); //update editor cursor
 
-    bool resume_signals = textEdit->document()->blockSignals(true); //block signal "contentsChange" to avoid infinite loop
+    bool resume_signals = textEdit->document()->blockSignals(
+            true); //block signal "contentsChange" to avoid infinite loop
     new_cursor.deleteChar();//delete text in position
     textEdit->document()->blockSignals(resume_signals);
 
@@ -449,4 +456,5 @@ void Gui::delete_in_Gui(int pos = 0) {
     }
     textEdit->setTextCursor(old_cursor); //update editor cursor
 }
+
 

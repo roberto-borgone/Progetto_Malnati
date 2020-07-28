@@ -55,6 +55,15 @@ void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
 
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
+
+    /**PROVA DI ARRIVO DI PROGETTI DA SCEGLIERE**/
+    std::vector<std::string> list;
+    list.insert(list.end(), std::string("progetto1"));
+    list.insert(list.end(), std::string("progetto2"));
+    list.insert(list.end(), std::string("progetto3"));
+    list.insert(list.end(), std::string("progetto4"));
+    emit list_available(list);
+    emit project_to_choose();
 }
 
 void Network::remove_symbol(Symbol s) {
@@ -125,7 +134,13 @@ void Network::message_received() {
             break;
 
         case request_projects: {
-            //to do
+            std::vector<std::string> list;
+            QJsonArray projects_list = obj["prjIDs"].toArray();
+            for(auto el : projects_list){
+                list.insert(list.end(), el.toString().toStdString());
+            }
+            emit list_available(list);
+            emit project_to_choose();
         }
             break;
 
@@ -207,5 +222,40 @@ void Network::ask_projects(std::string usr) {
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
 }
+
+void Network::close_project(std::string prj) {
+//create JSON object of type close_project
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(5)),
+                                            qMakePair(QString("prjID"), QJsonValue(QString(prj.c_str()))),
+
+                                    });
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send.toLatin1());
+}
+
+void Network::project_to_get(std::string prj_name) {
+    //create JSON object of type project_to_get
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(3)),
+                                            qMakePair(QString("prjID"), QJsonValue(QString(prj_name.c_str()))),
+                                            qMakePair(QString("user"), QJsonValue(QString("user1"))),
+                                    });
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send.toLatin1());
+}
+
 
 

@@ -8,6 +8,7 @@
 #include "Network.h"
 #include "DB_Client.h"
 #include "PopUp.h"
+#include "ProjectsPopup.h"
 
 
 int main(int argc, char *argv[]) {
@@ -17,6 +18,8 @@ int main(int argc, char *argv[]) {
 
     //create Pop up
     auto no_prj_pop_up = new PopUp();
+    //create Pop up for list of projects
+    auto projects_pop_up = new ProjectsPopUp();
 
     auto g = new Gui(nullptr);
     Project *project = g->getCurrentProject();
@@ -45,6 +48,10 @@ int main(int argc, char *argv[]) {
     //for C/S communication (projects)
     QObject::connect(g, &Gui::no_project, [&no_prj_pop_up](){no_prj_pop_up->exec();}); //pop up when no project is open
     QObject::connect(g, &Gui::request_for_projects, network, &Network::ask_projects);
+    QObject::connect(g, &Gui::close_project, network, &Network::close_project);
+    QObject::connect(network, &Network::list_available, projects_pop_up, &ProjectsPopUp::set_list);
+    QObject::connect(network, &Network::project_to_choose, [&projects_pop_up](){projects_pop_up->exec();});
+    QObject::connect(projects_pop_up, &ProjectsPopUp::send_prj_to_open, network, &Network::project_to_get);
 
     g->show();
     g->setVisible(false);

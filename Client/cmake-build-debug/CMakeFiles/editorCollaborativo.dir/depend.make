@@ -726,6 +726,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/Qt
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
@@ -883,6 +884,8 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QTextEdit
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QToolBar
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QToolButton
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QVBoxLayout
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QWidget
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractbutton.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractitemdelegate.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractscrollarea.h
@@ -924,17 +927,21 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgets-config.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../ClickableLabel.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Network.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Project.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../ProjectsPopup.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Symbol.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/mocs_compilation.cpp
 
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
@@ -948,6 +955,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/Qt
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
@@ -1106,6 +1114,8 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QTextEdit
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QToolBar
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QToolButton
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QVBoxLayout
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QWidget
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractbutton.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractitemdelegate.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractscrollarea.h
@@ -1148,11 +1158,13 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgets-config.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../ClickableLabel.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Network.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Project.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../ProjectsPopup.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Symbol.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../main.cpp
 

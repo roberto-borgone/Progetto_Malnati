@@ -23,5 +23,5 @@ list(APPEND LIBRARIES
         )
 list(REMOVE_DUPLICATES LIBRARIES)
 
-add_executable(DB_server main.cpp DB_functions.cpp DB_functions.h sqlite3.c sqlite3.h DB_server.cpp DB_server.h Client.cpp Client.h TaskGeneric.cpp TaskGeneric.h Service.cpp Service.h)
+add_executable(DB_server main.cpp DB_functions.cpp DB_functions.h sqlite3.c sqlite3.h DB_server.cpp DB_server.h Client.cpp Client.h TaskGeneric.cpp TaskGeneric.h Service.cpp Service.h Project.cpp Project.h Symbol.cpp Symbol.h)
 target_link_libraries(DB_server ${LIBRARIES})

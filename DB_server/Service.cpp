@@ -19,7 +19,7 @@ int Service::createProject(const std::string& id, QByteArray& doc) const{
     return this->db.create_project(id, doc);
 }
 
-std::vector<std::string> Service::getProjects() const{
+QStringList Service::getProjects() const{
     return this->db.get_projects();
 }
 

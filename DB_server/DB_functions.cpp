@@ -158,10 +158,10 @@ int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
     return 0;
 }
 
-std::vector<std::string> DB_interface::get_projects() const{
+QStringList DB_interface::get_projects() const{
 
     std::string statement;
-    std::vector<std::string> project_list;
+    QStringList project_list;
 
     statement = std::string("SELECT id FROM projects");
 
@@ -172,7 +172,7 @@ std::vector<std::string> DB_interface::get_projects() const{
     }
 
     while (sqlite3_step(stmt) != SQLITE_DONE) {
-        project_list.emplace_back(std::string((char*)sqlite3_column_text(stmt, 0)));
+        project_list.push_back(QString((char*)sqlite3_column_text(stmt, 0)));
     }
 
     return project_list;

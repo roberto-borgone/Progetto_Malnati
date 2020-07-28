@@ -35,7 +35,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_functions.cpp.obj"
   "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server.cpp.obj"
   "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Project.cpp.obj"
   "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Service.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Symbol.cpp.obj"
   "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj"
   "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/main.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/main.cpp.obj"
   )

@@ -5,6 +5,7 @@
 #include "TaskGeneric.h"
 
 #include <utility>
+#include <QtCore/QJsonArray>
 
 #define LOGIN 0
 #define SUBSCRIPTION 1
@@ -21,50 +22,73 @@ TaskGeneric::TaskGeneric(const Service& service, QJsonObject message): service(s
 
 void TaskGeneric::run(){
 
-    QJsonObject json;
-    int result;
-
     int opCode = this->getOpCode();
 
     switch(opCode){
 
-        case LOGIN:
-            result = this->service.login(this->message["user"].toString().toStdString(), this->message["password"].toString().toStdString());
-            json = QJsonObject({
-                                     qMakePair(QString("opcode"), QJsonValue(0)),
-                                     qMakePair(QString("status"), QJsonValue(result)),
-                             });
+        case LOGIN: {
 
-            if(result == 0){
+            int result;
+            QJsonObject json;
+
+            result = this->service.login(this->message["user"].toString().toStdString(),
+                                         this->message["password"].toString().toStdString());
+            json = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(0)),
+                                       qMakePair(QString("status"), QJsonValue(result)),
+                               });
+
+            if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
                 emit login(this->message["user"].toString());
-            }else{
+            } else {
                 json.insert("user", QJsonValue(""));
             }
 
             emit returnResult(QJsonDocument(json).toJson());
             break;
 
-        case SUBSCRIPTION:
+        }
 
-            result = this->service.subscribe(this->message["user"].toString().toStdString(), this->message["password"].toString().toStdString());
+        case SUBSCRIPTION: {
+
+            int result;
+            QJsonObject json;
+
+            result = this->service.subscribe(this->message["user"].toString().toStdString(),
+                                             this->message["password"].toString().toStdString());
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(1)),
                                        qMakePair(QString("status"), QJsonValue(result)),
                                });
 
-            if(result == 0){
+            if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
                 emit login(this->message["user"].toString());
-            }else{
+            } else {
                 json.insert("user", QJsonValue(""));
             }
 
             emit returnResult(QJsonDocument(json).toJson());
             break;
 
-        case REQUEST_PROJECTS:
+        }
+
+        case REQUEST_PROJECTS: {
+
+            QStringList result;
+            QJsonObject json;
+
+            result = this->service.getProjects();
+
+            json = QJsonObject({
+                qMakePair(QString("opcode"), QJsonValue(2)),
+                qMakePair(QString("prjIDs"), QJsonArray::fromStringList(result))
+            });
+
             break;
+
+        }
 
         case OPEN:
             break;

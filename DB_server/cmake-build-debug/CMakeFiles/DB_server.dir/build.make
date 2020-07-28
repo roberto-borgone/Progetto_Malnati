@@ -168,6 +168,34 @@ CMakeFiles/DB_server.dir/Service.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/Service.cpp.s"
 	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Service.cpp -o CMakeFiles\DB_server.dir\Service.cpp.s
 
+CMakeFiles/DB_server.dir/Project.cpp.obj: CMakeFiles/DB_server.dir/flags.make
+CMakeFiles/DB_server.dir/Project.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
+CMakeFiles/DB_server.dir/Project.cpp.obj: ../Project.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/DB_server.dir/Project.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\Project.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Project.cpp
+
+CMakeFiles/DB_server.dir/Project.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/Project.cpp.i"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Project.cpp > CMakeFiles\DB_server.dir\Project.cpp.i
+
+CMakeFiles/DB_server.dir/Project.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/Project.cpp.s"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Project.cpp -o CMakeFiles\DB_server.dir\Project.cpp.s
+
+CMakeFiles/DB_server.dir/Symbol.cpp.obj: CMakeFiles/DB_server.dir/flags.make
+CMakeFiles/DB_server.dir/Symbol.cpp.obj: CMakeFiles/DB_server.dir/includes_CXX.rsp
+CMakeFiles/DB_server.dir/Symbol.cpp.obj: ../Symbol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/DB_server.dir/Symbol.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DB_server.dir\Symbol.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Symbol.cpp
+
+CMakeFiles/DB_server.dir/Symbol.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DB_server.dir/Symbol.cpp.i"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Symbol.cpp > CMakeFiles\DB_server.dir\Symbol.cpp.i
+
+CMakeFiles/DB_server.dir/Symbol.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DB_server.dir/Symbol.cpp.s"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\Symbol.cpp -o CMakeFiles\DB_server.dir\Symbol.cpp.s
+
 # Object files for target DB_server
 DB_server_OBJECTS = \
 "CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj" \
@@ -177,7 +205,9 @@ DB_server_OBJECTS = \
 "CMakeFiles/DB_server.dir/DB_server.cpp.obj" \
 "CMakeFiles/DB_server.dir/Client.cpp.obj" \
 "CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj" \
-"CMakeFiles/DB_server.dir/Service.cpp.obj"
+"CMakeFiles/DB_server.dir/Service.cpp.obj" \
+"CMakeFiles/DB_server.dir/Project.cpp.obj" \
+"CMakeFiles/DB_server.dir/Symbol.cpp.obj"
 
 # External object files for target DB_server
 DB_server_EXTERNAL_OBJECTS =
@@ -190,6 +220,8 @@ DB_server.exe: CMakeFiles/DB_server.dir/DB_server.cpp.obj
 DB_server.exe: CMakeFiles/DB_server.dir/Client.cpp.obj
 DB_server.exe: CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj
 DB_server.exe: CMakeFiles/DB_server.dir/Service.cpp.obj
+DB_server.exe: CMakeFiles/DB_server.dir/Project.cpp.obj
+DB_server.exe: CMakeFiles/DB_server.dir/Symbol.cpp.obj
 DB_server.exe: CMakeFiles/DB_server.dir/build.make
 DB_server.exe: C:/Qt/5.12.3/mingw73_64/lib/libQt5Widgetsd.a
 DB_server.exe: C:/Qt/5.12.3/mingw73_64/lib/libQt5WebSocketsd.a
@@ -199,7 +231,7 @@ DB_server.exe: C:/Qt/5.12.3/mingw73_64/lib/libQt5Cored.a
 DB_server.exe: CMakeFiles/DB_server.dir/linklibs.rsp
 DB_server.exe: CMakeFiles/DB_server.dir/objects1.rsp
 DB_server.exe: CMakeFiles/DB_server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable DB_server.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\DB_server\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable DB_server.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\DB_server.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -243,6 +243,33 @@ DB_server_autogen/mocs_compilation.cpp.s:
 	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.s
 .PHONY : DB_server_autogen/mocs_compilation.cpp.s
 
+Project.obj: Project.cpp.obj
+
+.PHONY : Project.obj
+
+# target to build an object file
+Project.cpp.obj:
+	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/Project.cpp.obj
+.PHONY : Project.cpp.obj
+
+Project.i: Project.cpp.i
+
+.PHONY : Project.i
+
+# target to preprocess a source file
+Project.cpp.i:
+	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/Project.cpp.i
+.PHONY : Project.cpp.i
+
+Project.s: Project.cpp.s
+
+.PHONY : Project.s
+
+# target to generate assembly for a file
+Project.cpp.s:
+	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/Project.cpp.s
+.PHONY : Project.cpp.s
+
 Service.obj: Service.cpp.obj
 
 .PHONY : Service.obj
@@ -269,6 +296,33 @@ Service.s: Service.cpp.s
 Service.cpp.s:
 	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/Service.cpp.s
 .PHONY : Service.cpp.s
+
+Symbol.obj: Symbol.cpp.obj
+
+.PHONY : Symbol.obj
+
+# target to build an object file
+Symbol.cpp.obj:
+	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/Symbol.cpp.obj
+.PHONY : Symbol.cpp.obj
+
+Symbol.i: Symbol.cpp.i
+
+.PHONY : Symbol.i
+
+# target to preprocess a source file
+Symbol.cpp.i:
+	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/Symbol.cpp.i
+.PHONY : Symbol.cpp.i
+
+Symbol.s: Symbol.cpp.s
+
+.PHONY : Symbol.s
+
+# target to generate assembly for a file
+Symbol.cpp.s:
+	$(MAKE) -f CMakeFiles\DB_server.dir\build.make CMakeFiles/DB_server.dir/Symbol.cpp.s
+.PHONY : Symbol.cpp.s
 
 TaskGeneric.obj: TaskGeneric.cpp.obj
 
@@ -373,9 +427,15 @@ help:
 	@echo ... DB_server_autogen/mocs_compilation.obj
 	@echo ... DB_server_autogen/mocs_compilation.i
 	@echo ... DB_server_autogen/mocs_compilation.s
+	@echo ... Project.obj
+	@echo ... Project.i
+	@echo ... Project.s
 	@echo ... Service.obj
 	@echo ... Service.i
 	@echo ... Service.s
+	@echo ... Symbol.obj
+	@echo ... Symbol.i
+	@echo ... Symbol.s
 	@echo ... TaskGeneric.obj
 	@echo ... TaskGeneric.i
 	@echo ... TaskGeneric.s

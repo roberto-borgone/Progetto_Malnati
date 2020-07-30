@@ -37,6 +37,7 @@ public:
     void eraseElements(int pos,int r);
     Symbol get_symbol_in_pos(int pos);
     int remote_delete(Symbol s);
+    void delete_all();
 
     signals:
     void internalInsert(Symbol s);

@@ -152,3 +152,8 @@ int Project::remote_delete(Symbol s) {
 
     return pos;
 }
+
+void Project::delete_all() {
+    text.clear();
+    symbols.clear();
+}

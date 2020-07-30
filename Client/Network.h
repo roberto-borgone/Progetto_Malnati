@@ -45,7 +45,6 @@ signals:
     void project_to_choose();
 
 
-
 public slots:
 
     //void sendCommand(); //manda comando all' esterno

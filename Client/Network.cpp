@@ -145,12 +145,24 @@ void Network::message_received() {
             break;
 
         case open: {
-            //to do
+            project_ptr->delete_all();
+            gui_ptr->delete_all_Gui();
+            project_ptr->prjID_set=true;
+            QJsonArray symbols = obj["text"].toArray();
+            int i=0;
+            for(auto el : symbols){
+                Symbol s(el.toObject());
+                project_ptr->insert(i, s);
+                gui_ptr->insert_in_Gui(i,s);
+                i++;
+            }
         }
             break;
 
         case create: {
-            //to do
+            project_ptr->delete_all();
+            gui_ptr->delete_all_Gui();
+            project_ptr->prjID_set=true;
         }
             break;
 
@@ -238,6 +250,9 @@ void Network::close_project(std::string prj) {
 
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
+    project_ptr->prjID_set=false;
+    project_ptr->delete_all();
+    gui_ptr->delete_all_Gui();
 }
 
 void Network::project_to_get(std::string prj_name) {

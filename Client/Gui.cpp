@@ -142,7 +142,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                     project->insert(pos, s);
                     *sp = '\0';
                 } else {
-                    project->prjID_set = true; //set true to use editor
                     emit no_project();
                 }
 
@@ -455,6 +454,10 @@ void Gui::delete_in_Gui(int pos = 0) {
         old_cursor.setPosition(old_cursor.position());
     }
     textEdit->setTextCursor(old_cursor); //update editor cursor
+}
+
+void Gui::delete_all_Gui() {
+    textEdit->clear();
 }
 
 

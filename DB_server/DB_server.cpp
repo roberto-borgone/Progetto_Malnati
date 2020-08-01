@@ -6,5 +6,5 @@
 
 void DB_server::incomingConnection(qintptr socketDescriptor) {
 
-    auto client = new Client(this->service, socketDescriptor, this);
+    auto client = new Client(this->service, this->projects, this->projects_mux, socketDescriptor, this);
 }

@@ -3,8 +3,8 @@
 //
 
 #include "TaskGeneric.h"
+#include "Project.h"
 
-#include <utility>
 #include <QtCore/QJsonArray>
 
 #define LOGIN 0
@@ -18,7 +18,7 @@
 #define CURSOR 8
 #define ERROR -1
 
-TaskGeneric::TaskGeneric(const Service& service, QJsonObject message): service(service), message(std::move(message)){}
+TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), message(std::move(message)){}
 
 void TaskGeneric::run(){
 
@@ -86,29 +86,160 @@ void TaskGeneric::run(){
                 qMakePair(QString("prjIDs"), QJsonArray::fromStringList(result))
             });
 
+            emit returnResult(QJsonDocument(json).toJson());
             break;
 
         }
 
-        case OPEN:
+        case OPEN: {
+
+            QByteArray result;
+            QJsonObject json;
+            std::vector<Symbol> text;
+            QJsonArray text_json;
+            std::shared_ptr<Project> project;
+
+            {
+                auto lock = std::lock_guard(this->projects_mux);
+                if(this->projects.find(this->message["prjID"].toString().toStdString()) == this->projects.end()){
+
+                    result = this->service.getProject(this->message["prjID"].toString().toStdString());
+
+                    QJsonDocument json_document = QJsonDocument::fromJson(result);
+                    json = json_document.object();
+
+                    text_json = json["text"].toArray();
+                    for (auto value : text_json) {
+                        QJsonObject obj = value.toObject();
+                        text.emplace_back(Symbol(obj));
+                    }
+
+                    project = std::make_shared<Project>(json["id"].toString().toStdString(), text);
+
+                    this->projects.insert(std::pair(project->getId(), project));
+                }else{
+                    project = this->projects[this->message["prjID"].toString().toStdString()];
+                }
+            }
+
+
+
+            json = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(3)),
+                                       qMakePair(QString("prjID"), this->message["prjID"]),
+                                       qMakePair(QString("text"), text_json)
+                               });
+
+            emit openProject(project);
+            emit returnResult(QJsonDocument(json).toJson());
             break;
 
-        case CREATE:
+        }
+
+        case CREATE: {
+
+            int result;
+            QJsonObject json;
+            std::vector<Symbol> text;
+            std::shared_ptr<Project> project;
+
+            json = QJsonObject({
+                                       qMakePair(QString("id"), QJsonValue(this->message["prjID"].toString())),
+                                       qMakePair(QString("text"), QJsonArray())
+                               });
+
+            result = this->service.createProject(this->message["prjID"].toString().toStdString(), QJsonDocument(json).toJson());
+
+            json = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(4)),
+                                       qMakePair(QString("status"), QJsonValue(result))
+                               });
+
+            if(result == 0) {
+
+                project = std::make_shared<Project>(this->message["prjID"].toString().toStdString(), std::vector<Symbol>());
+
+                {
+                    auto lock = std::lock_guard(this->projects_mux);
+                    this->projects.insert(std::pair(project->getId(), project));
+                }
+
+                emit openProject(project);
+            }
+
+            emit returnResult(QJsonDocument(json).toJson());
 
             break;
 
-        case CLOSE:
+        }
+
+        case CLOSE: {
+
+            {
+                auto lock = std::lock_guard(this->projects_mux);
+                if (this->projects[this->message["prjID"].toString().toStdString()].use_count() == 2) {
+
+                    QJsonArray text;
+
+                    for (Symbol s : this->project->text) {
+                        text.push_back(s.toJson());
+                    }
+
+                    QJsonObject json = QJsonObject({
+                                                           qMakePair(QString("id"),
+                                                                     QJsonValue(this->message["prjID"].toString())),
+                                                           qMakePair(QString("text"), text)
+                                                   });
+
+                    this->service.update_project(this->message["prjID"].toString().toStdString(),
+                                                 QJsonDocument(json).toJson());
+                    this->projects.erase(this->message["prjID"].toString().toStdString());
+                }
+            }
+
+            emit closeProject(this->message["prjID"].toString().toStdString());
             break;
 
-        case INSERT:
+        }
+
+        case INSERT: {
+
+            Symbol s(this->message["symbol"].toObject());
+            int position = this->message["position"].toInt();
+
+            {
+                auto lock = std::lock_guard(this->project->text_mux);
+                if (position < this->project->text.size()) {
+                    Symbol symbol_in_pos = this->project->get_symbol_in_pos(position);
+                    std::hash<std::string> hash_funct;
+                    while (symbol_in_pos.getFrac() == s.getFrac() &&
+                           hash_funct(symbol_in_pos.getId()) > hash_funct(symbol_in_pos.getId())) {
+                        position++;
+                        symbol_in_pos = this->project->get_symbol_in_pos(position);
+                    }
+                }
+                this->project->insert(position, s);
+            }
 
             emit forwardMessage(QJsonDocument(this->message).toJson());
             break;
 
-        case DELETE:
+        }
+
+        case DELETE: {
+
+            Symbol s(this->message["symbol"].toObject());
+
+            {
+                auto lock = std::lock_guard(this->project->text_mux);
+                int pos = this->project->remote_delete(s);
+            }
 
             emit forwardMessage(QJsonDocument(this->message).toJson());
+
             break;
+
+        }
 
         case CURSOR:
 

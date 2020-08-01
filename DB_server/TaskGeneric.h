@@ -11,7 +11,10 @@
 #include <sstream>
 #include <QJsonObject>
 #include <QJsonDocument>
+#import <memory>
+#include <mutex>
 #include "Service.h"
+#include "Project.h"
 
 class TaskGeneric: public QObject, public QRunnable  {
 
@@ -19,16 +22,21 @@ class TaskGeneric: public QObject, public QRunnable  {
 
 public:
 
-    TaskGeneric(const Service& service, QJsonObject message);
+    TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QJsonObject message);
 
 signals:
     void returnResult(QByteArray result);
     void forwardMessage(QByteArray);
     void login(QString user);
+    void openProject(std::shared_ptr<Project> project);
+    void closeProject(std::string id);
 
 protected:
 
     const Service& service;
+    std::map<std::string, std::shared_ptr<Project>>& projects;
+    std::mutex& projects_mux;
+    std::shared_ptr<Project>& project;
     QJsonObject message;
 
     void run() override;

@@ -3,8 +3,9 @@
 //
 
 #include "Client.h"
+#include "DB_server.h"
 
-Client::Client(const Service& service, qintptr socketDescriptor, QObject* parent): QObject(parent), service(service), userId("") {
+Client::Client(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, qintptr socketDescriptor, QObject* parent): QObject(parent), service(service), projects(projects), projects_mux(projects_mux), userId("") {
 
     // create the QSslSocket object
     this->socket = new QSslSocket(this);
@@ -43,13 +44,15 @@ void Client::readyRead() {
 
     std::cout << "Message: \n" << document_message.toJson().toStdString() << std::endl;
 
-    auto task = new TaskGeneric(this->service, json_message);
+    auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, json_message);
 
     task->setAutoDelete(true);
 
     connect(task, SIGNAL(login(QString)), this, SLOT(login(QString)));
     connect(task, SIGNAL(returnResult(QByteArray)), this, SLOT(taskCompleted(QByteArray)));
     connect(task, SIGNAL(forwardMessage(QByteArray)), this, SLOT(forwardMessage(QByteArray)));
+    connect(task, SIGNAL(openProject(std::shared_ptr<Project>)), this, SLOT(openProject(std::shared_ptr<Project>)));
+    connect(task, SIGNAL(closeProject(std::string)), this, SLOT(closeProject(std::string)));
     QThreadPool::globalInstance()->start(task);
 
     std::cout << "New task created for client at " << this->socket->socketDescriptor() << std::endl;
@@ -70,7 +73,7 @@ void Client::forwardMessage(const QByteArray& message){
     foreach(auto obj, childrens){
         auto c = qobject_cast<Client*>(obj);
         std::cout << c->userId.toStdString() << std::endl;
-        if(c->userId.toStdString() != "" && this->userId.toStdString() != c->userId.toStdString()){
+        if(c->userId.toStdString() != "" && this->userId.toStdString() != c->userId.toStdString() && this->project->getId() == c->project->getId()){
             c->sendMessage(message);
         }
     }
@@ -83,4 +86,12 @@ void Client::sendMessage(const QByteArray& message){
 void Client::login(QString user){
     this->userId = user;
     std::cout << "Client Logged, user: " << this->userId.toStdString() << std::endl;
+}
+
+void Client::openProject(std::shared_ptr<Project> project){
+    this->project = project;
+}
+
+void Client::closeProject(std::string id){
+    this->project.reset();
 }

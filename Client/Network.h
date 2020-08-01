@@ -40,6 +40,10 @@ signals:
 
     void wrong_sub();
 
+    void list_available(std::vector<std::string> list);
+
+    void project_to_choose();
+
 
 public slots:
 
@@ -57,6 +61,11 @@ public slots:
 
     //slot per invio richiesta progetti
     void ask_projects(std::string usr);
+
+    //slot per l'invio chiusura progetto
+    void close_project(std::string prj);
+
+    void project_to_get(std::string prj_name);
 
 };
 

@@ -23,7 +23,7 @@ list(APPEND LIBRARIES
         Qt5::WebSockets)
 list(REMOVE_DUPLICATES LIBRARIES)
 
-add_executable(editorCollaborativo main.cpp Gui.cpp Gui.h Project.cpp Project.h Symbol.cpp Symbol.h Network.cpp Network.h DB_Client.cpp DB_Client.h PopUp.h)
+add_executable(editorCollaborativo main.cpp Gui.cpp Gui.h Project.cpp Project.h Symbol.cpp Symbol.h Network.cpp Network.h DB_Client.cpp DB_Client.h PopUp.h ProjectsPopup.h ClickableLabel.h)
 target_link_libraries(editorCollaborativo ${LIBRARIES})
 
 

@@ -73,6 +73,7 @@ public:
     void setTextColor(const QColor& c);
     void insert_in_Gui(int pos, Symbol s);
     void delete_in_Gui(int pos);
+    void delete_all_Gui();
 
 public slots:
     void logged_in(const std::string& user);
@@ -81,7 +82,7 @@ signals:
     void send_symbol(Symbol s, int pos, std::string prj, std::string usr);
     void no_project();
     void request_for_projects(std::string usr);
-
+    void close_project(std::string prj);
 };
 
 

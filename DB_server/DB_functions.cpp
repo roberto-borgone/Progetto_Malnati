@@ -143,11 +143,18 @@ int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
         std::cout << "already existing project" << std::endl;
         return 1;
     } else {
-        statement = "insert into projects(id,doc)"\
-                "values('" + id + "'," + doc.toStdString() + ")";
-        result = sqlite3_exec(db, statement.c_str(), nullptr, nullptr, &err_message);
-        if (result != SQLITE_OK) {
-            std::cout << "SQL error: " << err_message << std::endl;
+        statement = std::string("INSERT into projects(id, doc) values(?,?)");
+
+        sqlite3_stmt *stmt;
+        if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
+            std::cout << "some error occured in query the DB" << std::endl;
+            return 2;
+        }
+        sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 2, doc.toStdString().c_str(), doc.toStdString().size(), SQLITE_STATIC);
+        result = sqlite3_step(stmt);
+        if (result != SQLITE_DONE) {
+            std::cout << "SQL error creating project" << std::endl;
             sqlite3_free(err_message);
             return 2;
         } else {

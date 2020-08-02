@@ -122,15 +122,13 @@ void TaskGeneric::run(){
                 }
             }
 
-
-
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(3)),
                                        qMakePair(QString("prjID"), this->message["prjID"]),
                                        qMakePair(QString("text"), text_json)
                                });
 
-            emit openProject(project);
+            this->project = project;
             emit returnResult(QJsonDocument(json).toJson());
             break;
 
@@ -144,7 +142,7 @@ void TaskGeneric::run(){
             std::shared_ptr<Project> project;
 
             json = QJsonObject({
-                                       qMakePair(QString("id"), QJsonValue(this->message["prjID"].toString())),
+                                       qMakePair(QString("id"), this->message["prjID"]),
                                        qMakePair(QString("text"), QJsonArray())
                                });
 
@@ -152,7 +150,8 @@ void TaskGeneric::run(){
 
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(4)),
-                                       qMakePair(QString("status"), QJsonValue(result))
+                                       qMakePair(QString("status"), QJsonValue(result)),
+                                       qMakePair(QString("prjID"), this->message["prjID"]),
                                });
 
             if(result == 0) {
@@ -164,7 +163,7 @@ void TaskGeneric::run(){
                     this->projects.insert(std::pair(project->getId(), project));
                 }
 
-                emit openProject(project);
+                this->project = project;
             }
 
             emit returnResult(QJsonDocument(json).toJson());
@@ -175,13 +174,15 @@ void TaskGeneric::run(){
 
         case CLOSE: {
 
+            this->project.reset();
+
             {
                 auto lock = std::lock_guard(this->projects_mux);
-                if (this->projects[this->message["prjID"].toString().toStdString()].use_count() == 2) {
+                if (this->projects[this->message["prjID"].toString().toStdString()].use_count() == 1) {
 
                     QJsonArray text;
 
-                    for (Symbol s : this->project->text) {
+                    for (Symbol s : this->projects[this->message["prjID"].toString().toStdString()]->text) {
                         text.push_back(s.toJson());
                     }
 
@@ -197,7 +198,6 @@ void TaskGeneric::run(){
                 }
             }
 
-            emit closeProject(this->message["prjID"].toString().toStdString());
             break;
 
         }

@@ -51,8 +51,6 @@ void Client::readyRead() {
     connect(task, SIGNAL(login(QString)), this, SLOT(login(QString)));
     connect(task, SIGNAL(returnResult(QByteArray)), this, SLOT(taskCompleted(QByteArray)));
     connect(task, SIGNAL(forwardMessage(QByteArray)), this, SLOT(forwardMessage(QByteArray)));
-    connect(task, SIGNAL(openProject(std::shared_ptr<Project>)), this, SLOT(openProject(std::shared_ptr<Project>)));
-    connect(task, SIGNAL(closeProject(std::string)), this, SLOT(closeProject(std::string)));
     QThreadPool::globalInstance()->start(task);
 
     std::cout << "New task created for client at " << this->socket->socketDescriptor() << std::endl;
@@ -72,7 +70,6 @@ void Client::forwardMessage(const QByteArray& message){
     auto childrens = this->parent()->findChildren<Client(*)>();
     foreach(auto obj, childrens){
         auto c = qobject_cast<Client*>(obj);
-        std::cout << c->userId.toStdString() << std::endl;
         if(c->userId.toStdString() != "" && this->userId.toStdString() != c->userId.toStdString() && this->project->getId() == c->project->getId()){
             c->sendMessage(message);
         }
@@ -86,12 +83,4 @@ void Client::sendMessage(const QByteArray& message){
 void Client::login(QString user){
     this->userId = user;
     std::cout << "Client Logged, user: " << this->userId.toStdString() << std::endl;
-}
-
-void Client::openProject(std::shared_ptr<Project> project){
-    this->project = project;
-}
-
-void Client::closeProject(std::string id){
-    this->project.reset();
 }

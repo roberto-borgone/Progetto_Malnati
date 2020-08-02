@@ -36,8 +36,6 @@ public slots:
     void forwardMessage(const QByteArray& message);
     void sendMessage(const QByteArray& message);
     void login(QString user);
-    void openProject(std::shared_ptr<Project> project);
-    void closeProject(std::string id);
 
 private:
 

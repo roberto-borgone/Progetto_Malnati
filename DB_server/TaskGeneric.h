@@ -28,8 +28,6 @@ signals:
     void returnResult(QByteArray result);
     void forwardMessage(QByteArray);
     void login(QString user);
-    void openProject(std::shared_ptr<Project> project);
-    void closeProject(std::string id);
 
 protected:
 

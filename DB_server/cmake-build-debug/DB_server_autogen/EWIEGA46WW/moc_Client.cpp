@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Client_t {
-    QByteArrayData data[15];
-    char stringdata0[153];
+    QByteArrayData data[12];
+    char stringdata0[108];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,17 +42,12 @@ QT_MOC_LITERAL(7, 62, 14), // "forwardMessage"
 QT_MOC_LITERAL(8, 77, 7), // "message"
 QT_MOC_LITERAL(9, 85, 11), // "sendMessage"
 QT_MOC_LITERAL(10, 97, 5), // "login"
-QT_MOC_LITERAL(11, 103, 4), // "user"
-QT_MOC_LITERAL(12, 108, 11), // "openProject"
-QT_MOC_LITERAL(13, 120, 24), // "std::shared_ptr<Project>"
-QT_MOC_LITERAL(14, 145, 7) // "project"
+QT_MOC_LITERAL(11, 103, 4) // "user"
 
     },
     "Client\0connected\0\0disconnected\0readyRead\0"
     "taskCompleted\0result\0forwardMessage\0"
-    "message\0sendMessage\0login\0user\0"
-    "openProject\0std::shared_ptr<Project>\0"
-    "project"
+    "message\0sendMessage\0login\0user"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +57,7 @@ static const uint qt_meta_data_Client[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,14 +65,13 @@ static const uint qt_meta_data_Client[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   54,    2, 0x0a /* Public */,
-       3,    0,   55,    2, 0x0a /* Public */,
-       4,    0,   56,    2, 0x0a /* Public */,
-       5,    1,   57,    2, 0x0a /* Public */,
-       7,    1,   60,    2, 0x0a /* Public */,
-       9,    1,   63,    2, 0x0a /* Public */,
-      10,    1,   66,    2, 0x0a /* Public */,
-      12,    1,   69,    2, 0x0a /* Public */,
+       1,    0,   49,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x0a /* Public */,
+       4,    0,   51,    2, 0x0a /* Public */,
+       5,    1,   52,    2, 0x0a /* Public */,
+       7,    1,   55,    2, 0x0a /* Public */,
+       9,    1,   58,    2, 0x0a /* Public */,
+      10,    1,   61,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -87,7 +81,6 @@ static const uint qt_meta_data_Client[] = {
     QMetaType::Void, QMetaType::QByteArray,    8,
     QMetaType::Void, QMetaType::QByteArray,    8,
     QMetaType::Void, QMetaType::QString,   11,
-    QMetaType::Void, 0x80000000 | 13,   14,
 
        0        // eod
 };
@@ -105,7 +98,6 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 4: _t->forwardMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
         case 5: _t->sendMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
         case 6: _t->login((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 7: _t->openProject((*reinterpret_cast< std::shared_ptr<Project>(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -140,13 +132,13 @@ int Client::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 7;
     }
     return _id;
 }

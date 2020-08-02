@@ -165,6 +165,7 @@ void Network::message_received() {
         case create: {
             project_ptr->delete_all();
             gui_ptr->delete_all_Gui();
+            std::cout<<"sono nella create\n";
             project_ptr->prjID_set=true;
             project_ptr->prjID = obj["prjID"].toString().toStdString();
             gui_ptr->start_timer();

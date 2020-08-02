@@ -455,7 +455,9 @@ void Gui::delete_in_Gui(int pos = 0) {
 }
 
 void Gui::delete_all_Gui() {
-    textEdit->clear();
+    if(!textEdit->document()->isEmpty()) {
+        textEdit->clear();
+    }
 }
 
 void Gui::start_timer() {

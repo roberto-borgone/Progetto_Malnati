@@ -50,8 +50,12 @@ int main(int argc, char *argv[]) {
     //for C/S communication (projects)
     QObject::connect(no_prj_pop_up, &PopUp::popUp_delete, g, &Gui::delete_in_Gui);
     QObject::connect(g, &Gui::no_project, [&no_prj_pop_up](){no_prj_pop_up->exec();}); //pop up when no project is open
-    QObject::connect(g, &Gui::new_project, [&newPrj_pop_up](){newPrj_pop_up->exec();});
-    QObject::connect(newPrj_pop_up, &NewProjectPopUp::create_project, network, &Network::new_project);
+
+    QObject::connect(g, &Gui::new_project, [&network](){
+        auto newPrj_pop_up = new NewProjectPopUp();
+        QObject::connect(newPrj_pop_up, &NewProjectPopUp::create_project, network, &Network::new_project);
+        newPrj_pop_up->exec();});
+
     QObject::connect(g, &Gui::request_for_projects, network, &Network::ask_projects);
     QObject::connect(g, &Gui::close_project, network, &Network::close_project);
     QObject::connect(network, &Network::list_available, projects_pop_up, &ProjectsPopUp::set_list);

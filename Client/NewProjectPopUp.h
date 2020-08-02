@@ -13,6 +13,8 @@
 class NewProjectPopUp : public QDialog
 {
 Q_OBJECT;
+
+    QLineEdit* lineEdit = new QLineEdit();
 public:
     NewProjectPopUp(): QDialog(){
         setWindowTitle("No project open");
@@ -21,8 +23,7 @@ public:
         QVBoxLayout* layout = new QVBoxLayout();
         setLayout(layout);
         layout->addWidget(new QLabel("insert name of project"));
-
-        auto lineEdit = new QLineEdit();
+        layout->addWidget(lineEdit);
 
         QDialogButtonBox* buttonBox =
                 new QDialogButtonBox(QDialogButtonBox::Ok);
@@ -30,7 +31,9 @@ public:
                 this, &QDialog::accept);
 
         connect(buttonBox, &QDialogButtonBox::accepted,
-                [this,&lineEdit](){emit create_project(lineEdit->text().toStdString());});
+                [this](){
+            std::cout<<lineEdit->text().toStdString();
+            emit create_project(lineEdit->text().toStdString());});
 
 
         layout->addSpacing(10);

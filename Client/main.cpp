@@ -53,6 +53,9 @@ int main(int argc, char *argv[]) {
     QObject::connect(network, &Network::project_to_choose, [&projects_pop_up](){projects_pop_up->exec();});
     QObject::connect(projects_pop_up, &ProjectsPopUp::send_prj_to_open, network, &Network::project_to_get);
 
+    //for C/S communication (cursor)
+    QObject::connect(g, &Gui::time_out, network, &Network::send_cursor);
+
     g->show();
     g->setVisible(false);
     db_client->show();

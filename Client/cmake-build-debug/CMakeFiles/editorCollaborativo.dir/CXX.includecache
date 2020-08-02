@@ -6,37 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
-qelapsedtimer.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qelapsedtimer.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags
-qflags.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qflags.h
+C:/Qt/5.12.3/mingw73_64/include/QtCore/QDebug
+qdebug.h
+C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
 
 C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
 qjsonarray.h
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonarray.h
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonDocument
-qjsondocument.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
 qjsonobject.h
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonParseError
-qjsondocument.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
 qjsonvalue.h
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonvalue.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
-qobject.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qobject.h
 
 C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 qstring.h
@@ -46,13 +30,9 @@ C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
 qstringlist.h
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qstringlist.h
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
-qvector.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qvector.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/Qt
-qnamespace.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qnamespace.h
+C:/Qt/5.12.3/mingw73_64/include/QtCore/QTimer
+qtimer.h
+C:/Qt/5.12.3/mingw73_64/include/QtCore/qtimer.h
 
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
 QtCore/qvariant.h
@@ -106,6 +86,12 @@ QtCore/qatomic_cxx11.h
 QtCore/qatomic_msvc.h
 -
 
+C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasictimer.h
+QtCore/qglobal.h
+-
+QtCore/qnamespace.h
+-
+
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
 QtCore/qrefcount.h
 -
@@ -156,29 +142,9 @@ limits.h
 new
 -
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qcoreapplication.h
-QtCore/qglobal.h
--
-QtCore/qstring.h
--
-QtCore/qobject.h
--
-QtCore/qcoreevent.h
--
-QtCore/qeventloop.h
--
-QtCore/qscopedpointer.h
--
-
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qcoreevent.h
 QtCore/qnamespace.h
 -
-QtCore/qbytearray.h
--
-QtCore/qobjectdefs.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qcryptographichash.h
 QtCore/qbytearray.h
 -
 QtCore/qobjectdefs.h
@@ -190,16 +156,6 @@ QtCore/qscopedpointer.h
 QtCore/qiodevice.h
 -
 QtCore/qpair.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qdatetime.h
-QtCore/qstring.h
--
-QtCore/qnamespace.h
--
-QtCore/qshareddata.h
--
-limits
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
@@ -242,14 +198,6 @@ QtCore/qfileinfo.h
 QtCore/qstringlist.h
 -
 QtCore/qshareddata.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qelapsedtimer.h
-QtCore/qglobal.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qeventloop.h
-QtCore/qobject.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qfile.h
@@ -384,10 +332,6 @@ QtCore/qjsonvalue.h
 QtCore/qiterator.h
 -
 initializer_list
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsondocument.h
-QtCore/qjsonvalue.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qjsonobject.h
@@ -742,6 +686,16 @@ QtCore/qscopedpointer.h
 stdio.h
 -
 
+C:/Qt/5.12.3/mingw73_64/include/QtCore/qtimer.h
+QtCore/qglobal.h
+-
+QtCore/qbasictimer.h
+-
+QtCore/qobject.h
+-
+chrono
+-
+
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
 QtCore/qglobal.h
 -
@@ -984,22 +938,6 @@ QtCore/qsharedpointer.h
 QtCore/qrect.h
 -
 
-C:/Qt/5.12.3/mingw73_64/include/QtGui/qguiapplication.h
-QtGui/qtguiglobal.h
--
-QtCore/qcoreapplication.h
--
-QtGui/qwindowdefs.h
--
-QtGui/qinputmethod.h
--
-QtCore/qlocale.h
--
-QtCore/qpoint.h
--
-QtCore/qsize.h
--
-
 C:/Qt/5.12.3/mingw73_64/include/QtGui/qicon.h
 QtGui/qtguiglobal.h
 -
@@ -1030,12 +968,6 @@ QtCore/qrect.h
 QtCore/qstring.h
 -
 QtCore/qstringlist.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtGui/qinputmethod.h
-QtGui/qtguiglobal.h
--
-QtCore/qobject.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtGui/qkeysequence.h
@@ -1286,90 +1218,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs_win.h
 QtGui/qtguiglobal.h
 -
 
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslSocket
-qsslsocket.h
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslsocket.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qabstractsocket.h
-QtNetwork/qtnetworkglobal.h
--
-QtCore/qiodevice.h
--
-QtCore/qobject.h
--
-QtCore/qdebug.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qssl.h
-QtNetwork/qtnetworkglobal.h
--
-QtCore/QFlags
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslcertificate.h
-QtNetwork/qtnetworkglobal.h
--
-QtCore/qnamespace.h
--
-QtCore/qbytearray.h
--
-QtCore/qcryptographichash.h
--
-QtCore/qdatetime.h
--
-QtCore/qregexp.h
--
-QtCore/qsharedpointer.h
--
-QtCore/qmap.h
--
-QtNetwork/qssl.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslerror.h
-QtNetwork/qtnetworkglobal.h
--
-QtCore/qvariant.h
--
-QtNetwork/qsslcertificate.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslsocket.h
-QtNetwork/qtnetworkglobal.h
--
-QtCore/qlist.h
--
-QtCore/qregexp.h
--
-QtNetwork/qtcpsocket.h
--
-QtNetwork/qsslerror.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtcpsocket.h
-QtNetwork/qtnetworkglobal.h
--
-QtNetwork/qabstractsocket.h
--
-QtCore/qvariant.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetwork-config.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetworkglobal.h
-QtCore/qglobal.h
--
-QtNetwork/qtnetwork-config.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QApplication
-qapplication.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qapplication.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QBoxLayout
-qboxlayout.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qboxlayout.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QColorDialog
 qcolordialog.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qcolordialog.h
@@ -1377,14 +1225,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qcolordialog.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QComboBox
 qcombobox.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qcombobox.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialog
-qdialog.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialog.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialogButtonBox
-qdialogbuttonbox.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialogbuttonbox.h
 
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QFileDialog
 qfiledialog.h
@@ -1398,14 +1238,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QHBoxLayout
 qboxlayout.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qboxlayout.h
 
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLabel
-qlabel.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlabel.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLineEdit
-qlineedit.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlineedit.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QMainWindow
 qmainwindow.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qmainwindow.h
@@ -1418,10 +1250,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QMenuBar
 qmenubar.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qmenubar.h
 
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QMessageBox
-qmessagebox.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qmessagebox.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QPushButton
 qpushbutton.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qpushbutton.h
@@ -1429,10 +1257,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qpushbutton.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QSpinBox
 qspinbox.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qspinbox.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QStatusBar
-qstatusbar.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qstatusbar.h
 
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QStyle
 qstyle.h
@@ -1449,14 +1273,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtoolbar.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QToolButton
 qtoolbutton.h
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qtoolbutton.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QVBoxLayout
-qboxlayout.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qboxlayout.h
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QWidget
-qwidget.h
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
 
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractbutton.h
 QtWidgets/qtwidgetsglobal.h
@@ -1518,24 +1334,6 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qaction.h
 -
 
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qapplication.h
-QtWidgets/qtwidgetsglobal.h
--
-QtCore/qcoreapplication.h
--
-QtGui/qwindowdefs.h
--
-QtCore/qpoint.h
--
-QtCore/qsize.h
--
-QtGui/qcursor.h
--
-QtWidgets/qdesktopwidget.h
--
-QtGui/qguiapplication.h
--
-
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qboxlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1566,19 +1364,7 @@ QtCore/qvariant.h
 QtGui/qvalidator.h
 -
 
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdesktopwidget.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qwidget.h
--
-
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialog.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qwidget.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialogbuttonbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -1618,12 +1404,6 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qframe.h
 -
 
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlabel.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qframe.h
--
-
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1654,18 +1434,6 @@ QtCore/qrect.h
 limits.h
 -
 
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlineedit.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qframe.h
--
-QtGui/qtextcursor.h
--
-QtCore/qstring.h
--
-QtCore/qmargins.h
--
-
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qmainwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1690,12 +1458,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qmenubar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qmenu.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qmessagebox.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qdialog.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qpushbutton.h
@@ -1728,12 +1490,6 @@ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qspinbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractspinbox.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qstatusbar.h
-QtWidgets/qtwidgetsglobal.h
--
-QtWidgets/qwidget.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qstyle.h
@@ -1864,50 +1620,10 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ClickableLabel.h
-QLabel
--
-QWidget
--
-Qt
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
-iostream
--
-QMainWindow
--
-QApplication
--
-QtWidgets/QPushButton
--
-QtWidgets/QStatusBar
--
-QMainWindow
--
-string
--
-QApplication
--
-QLabel
--
-QPushButton
--
-QtWidgets/QBoxLayout
--
-QLineEdit
--
-Qvector
--
-QSslSocket
--
-QTextEdit
--
-QElapsedTimer
--
-QJsonObject
--
-QJsonDocument
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.cpp
+Gui.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+QDebug
 -
 
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
@@ -1985,44 +1701,10 @@ QToolButton
 -
 QStyle
 -
+QTimer
+-
 Project.h
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
-QObject
--
-Symbol.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
-Project.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
-Gui.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
-functional
--
-thread
--
-vector
--
-map
--
-iostream
--
-QSslSocket
--
-QJsonObject
--
-memory
--
-QJsonParseError
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/PopUp.h
-QDialog
--
-QLabel
--
-QDialogButtonBox
--
 
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
 QTextDocument
@@ -2039,20 +1721,6 @@ algorithm
 -
 Symbol.h
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ProjectsPopup.h
-QDialog
--
-QLabel
--
-QDialogButtonBox
--
-QVBoxLayout
--
-utility
--
-ClickableLabel.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ClickableLabel.h
 
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
 vector
@@ -2071,100 +1739,4 @@ QJsonArray
 -
 QJsonValue
 -
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
-../../../ClickableLabel.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ClickableLabel.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
-../../../DB_Client.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
-../../../Gui.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
-../../../Network.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
-../../../PopUp.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/PopUp.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
-../../../Project.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
-../../../ProjectsPopup.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ProjectsPopup.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_ClickableLabel.cpp
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
-EWIEGA46WW/moc_DB_Client.cpp
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
-EWIEGA46WW/moc_Gui.cpp
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
-EWIEGA46WW/moc_Network.cpp
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
-EWIEGA46WW/moc_PopUp.cpp
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
-EWIEGA46WW/moc_Project.cpp
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
-EWIEGA46WW/moc_ProjectsPopup.cpp
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/main.cpp
-iostream
--
-thread
--
-QApplication
--
-chrono
--
-functional
--
-QMessageBox
--
-Gui.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
-Network.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
-DB_Client.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
-PopUp.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/PopUp.h
-ProjectsPopup.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ProjectsPopup.h
 

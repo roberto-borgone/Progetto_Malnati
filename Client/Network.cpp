@@ -56,14 +56,14 @@ void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
 
-    /**PROVA DI ARRIVO DI PROGETTI DA SCEGLIERE**/
+    /**PROVA DI ARRIVO DI PROGETTI DA SCEGLIERE*
     std::vector<std::string> list;
     list.insert(list.end(), std::string("progetto1"));
     list.insert(list.end(), std::string("progetto2"));
     list.insert(list.end(), std::string("progetto3"));
     list.insert(list.end(), std::string("progetto4"));
     emit list_available(list);
-    emit project_to_choose();
+    emit project_to_choose();*/
 }
 
 void Network::remove_symbol(Symbol s) {
@@ -148,6 +148,7 @@ void Network::message_received() {
             project_ptr->delete_all();
             gui_ptr->delete_all_Gui();
             project_ptr->prjID_set=true;
+            project_ptr->prjID = obj["prjID"].toString().toStdString();
             QJsonArray symbols = obj["text"].toArray();
             int i=0;
             for(auto el : symbols){
@@ -156,6 +157,8 @@ void Network::message_received() {
                 gui_ptr->insert_in_Gui(i,s);
                 i++;
             }
+
+            gui_ptr->start_timer();
         }
             break;
 
@@ -163,11 +166,13 @@ void Network::message_received() {
             project_ptr->delete_all();
             gui_ptr->delete_all_Gui();
             project_ptr->prjID_set=true;
+            project_ptr->prjID = obj["prjID"].toString().toStdString();
+            gui_ptr->start_timer();
         }
             break;
 
         case close: {
-            //to do
+            //NOTHING TO DO
         }
             break;
 
@@ -209,7 +214,8 @@ void Network::message_received() {
             break;
 
         case cursor: {
-            //to do
+            std::string user = obj["user"].toString().toStdString();
+            int position = obj["position"].toInt(); /*PER DAVIDE: QUI SI HA DOVE SI TROVA IL CURSORE DI UN UTENTE DA MOSTRARE*/
         }
             break;
 
@@ -272,5 +278,22 @@ void Network::project_to_get(std::string prj_name) {
     socket_ptr->write(message_to_send.toLatin1());
 }
 
+void Network::send_cursor(int position){
+    //create JSON object of type project_to_get
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(8)),
+                                            qMakePair(QString("prjID"), QJsonValue(QString(project_ptr->prjID.c_str()))),
+                                            qMakePair(QString("user"), QJsonValue(QString("user1"))),
+                                            qMakePair(QString("position"), QJsonValue(position))
+                                    });
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send.toLatin1());
+}
 
 

@@ -67,6 +67,9 @@ public slots:
 
     void project_to_get(std::string prj_name);
 
+    //slot per l'invio cursore
+    void send_cursor(int position);
+
 };
 
 

@@ -29,6 +29,7 @@ public:
     map<string,int> symbols; //id->position
     /*******PROVA DI POP UP PER NESSUN PROGETTO APERTO***/
     bool prjID_set = false; //set true to use editor
+    std::string prjID;
 
     int insert(int pos,Symbol s);
     int insertOrder(int l,int r,Symbol s);

@@ -171,13 +171,7 @@ QMenuBar *Gui::initMenuBar() {
     //Uso addAction(nome,function,QKeySequence)
     QMenu *file = new QMenu("File", menuBar);
     file->addAction("New", [this]() {
-        QFileDialog dialog(this);
-        dialog.setViewMode(QFileDialog::Detail);
-        if (dialog.exec() == QDialog::Accepted) {
-            QString s;
-            dialog.selectFile(s);
-            cout << s.toStdString() << endl;
-        }
+        emit new_project();
     }, QKeySequence::New); //da implementare funzionalità
     file->addAction("Open", [this]() { emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
     file->addAction("Close", [this]() {
@@ -218,7 +212,7 @@ QToolBar *Gui::initToolBar() {
 
     //ToolBar -> |stile(default,barrato,corsivo,grassetto,sottolineato)|Font|dimensione|Colore|
     toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
-
+        emit new_project();
     });
     toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {
         emit request_for_projects(std::string("user1"));

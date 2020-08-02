@@ -86,6 +86,7 @@ signals:
     void no_project();
     void request_for_projects(std::string usr);
     void close_project(std::string prj);
+    void new_project();
     void time_out(int position);
 };
 

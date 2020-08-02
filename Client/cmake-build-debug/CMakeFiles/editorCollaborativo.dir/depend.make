@@ -941,6 +941,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Network.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../NewProjectPopUp.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../ProjectsPopup.h
@@ -949,6 +950,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_NewProjectPopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
@@ -1175,6 +1177,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../ClickableLabel.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Network.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../NewProjectPopUp.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../ProjectsPopup.h

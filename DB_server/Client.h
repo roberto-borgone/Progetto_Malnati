@@ -23,7 +23,7 @@ class Client: public QObject {
     Q_OBJECT
 
 public:
-    Client(const Service& service, qintptr socketDescriptor, QObject* parent = nullptr);
+    Client(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, qintptr socketDescriptor, QObject* parent = nullptr);
 
 signals:
 
@@ -36,12 +36,17 @@ public slots:
     void forwardMessage(const QByteArray& message);
     void sendMessage(const QByteArray& message);
     void login(QString user);
+    void openProject(std::shared_ptr<Project> project);
+    void closeProject(std::string id);
 
 private:
 
     QSslSocket* socket;
     const Service& service;
     QString userId;
+    std::shared_ptr<Project> project;
+    std::map<std::string, std::shared_ptr<Project>>& projects;
+    std::mutex& projects_mux;
 
 };
 

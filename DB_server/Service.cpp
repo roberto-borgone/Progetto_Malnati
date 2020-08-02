@@ -15,7 +15,7 @@ int Service::subscribe(std::string user, std::string password) const{
     return this->db.subscribe(user, password);
 }
 
-int Service::createProject(const std::string& id, QByteArray& doc) const{
+int Service::createProject(const std::string id, QByteArray doc) const{
     return this->db.create_project(id, doc);
 }
 
@@ -23,11 +23,11 @@ QStringList Service::getProjects() const{
     return this->db.get_projects();
 }
 
-QByteArray Service::getProject(std::string& id) const{
+QByteArray Service::getProject(std::string id) const{
     return this->db.get_project(id);
 }
 
-int Service::update_project(const std::string& id, QByteArray doc) const{
+int Service::update_project(const std::string id, QByteArray doc) const{
     return this->db.update_project(id, doc);
 }
 

@@ -16,10 +16,10 @@ public:
 
     int login(std::string user, std::string password) const;
     int subscribe(std::string user, std::string password) const;
-    int createProject(const std::string& id, QByteArray& doc) const;
+    int createProject(const std::string id, QByteArray doc) const;
     QStringList getProjects() const;
-    QByteArray getProject(std::string& id) const;
-    int update_project(const std::string& id, QByteArray doc) const;
+    QByteArray getProject(std::string id) const;
+    int update_project(const std::string id, QByteArray doc) const;
 
 private:
 

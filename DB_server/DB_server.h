@@ -31,6 +31,8 @@ class DB_server : public QTcpServer {
 Q_OBJECT
 
     Service service;
+    std::map<std::string, std::shared_ptr<Project>> projects;
+    std::mutex projects_mux;
 
 public:
     explicit DB_server(QObject *parent = nullptr) : QTcpServer(parent) {

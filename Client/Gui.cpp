@@ -3,6 +3,7 @@
 //
 
 #include "Gui.h"
+#include <QDebug>
 
 
 Project *project = nullptr;
@@ -12,6 +13,7 @@ const QString rsrcPath = "../images";
 Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     textEdit = new QTextEdit(this);
     project = new Project(textEdit->document(), this);
+    cursor_timer = new QTimer();
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
         if (removed > 0) {
             textEdit->undo();
@@ -29,11 +31,12 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
             c.setPosition(pos);
             c.setPosition(pos + added, QTextCursor::KeepAnchor);
             //       cout << c.position() <<c.selectedText().toStdString() << endl;
-            string add;
-            if ((add = c.selectedText().toStdString()) == "") return;
+            string add = c.selectedText().toStdString();
+            if (add == "") return;
 
             //CONTROLLATE QUESTA PARTE QUI CREO SIMBOLO RELATIVO A CARATTERE DIGITATO DA UTENTE E GENERO FRAZIONARIO
             /*BUG: se si copiano e incollano più caratteri questo non viene gestito bene*/
+            qDebug()<<c.selectedText();
             for (auto sp = add.end() - 1; sp >= add.begin(); sp--) {
                 std::cout << sp.base() << std::endl;
                 QTextCharFormat f = c.charFormat();
@@ -143,6 +146,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                     *sp = '\0';
                 } else {
                     emit no_project();
+                    project->prjID_set=true;
                 }
 
 
@@ -167,13 +171,7 @@ QMenuBar *Gui::initMenuBar() {
     //Uso addAction(nome,function,QKeySequence)
     QMenu *file = new QMenu("File", menuBar);
     file->addAction("New", [this]() {
-        QFileDialog dialog(this);
-        dialog.setViewMode(QFileDialog::Detail);
-        if (dialog.exec() == QDialog::Accepted) {
-            QString s;
-            dialog.selectFile(s);
-            cout << s.toStdString() << endl;
-        }
+        emit new_project();
     }, QKeySequence::New); //da implementare funzionalità
     file->addAction("Open", [this]() { emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
     file->addAction("Close", [this]() {
@@ -214,7 +212,7 @@ QToolBar *Gui::initToolBar() {
 
     //ToolBar -> |stile(default,barrato,corsivo,grassetto,sottolineato)|Font|dimensione|Colore|
     toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
-
+        emit new_project();
     });
     toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {
         emit request_for_projects(std::string("user1"));
@@ -457,7 +455,15 @@ void Gui::delete_in_Gui(int pos = 0) {
 }
 
 void Gui::delete_all_Gui() {
-    textEdit->clear();
+    if(!textEdit->document()->isEmpty()) {
+        textEdit->clear();
+    }
+}
+
+void Gui::start_timer() {
+    /*Timer per invio periodico del cursore*/
+    cursor_timer->start(1000);
+    cursor_timer->callOnTimeout([this](){emit time_out(textEdit->textCursor().position());});
 }
 
 

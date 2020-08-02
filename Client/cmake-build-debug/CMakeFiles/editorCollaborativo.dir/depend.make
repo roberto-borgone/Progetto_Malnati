@@ -168,11 +168,13 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/in
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../DB_Client.h
 
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QDebug
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonObject
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonValue
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QTimer
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
@@ -181,6 +183,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasictimer.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearraylist.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
@@ -245,6 +248,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qsystemdetection.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtcore-config.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtextstream.h
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtimer.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurl.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurlquery.h
@@ -354,6 +358,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QTimer
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
@@ -362,6 +367,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasictimer.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearraylist.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
@@ -429,6 +435,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qsystemdetection.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtcore-config.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtextstream.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtimer.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurl.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurlquery.h
@@ -725,6 +732,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QTimer
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/Qt
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
@@ -735,6 +743,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasictimer.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearraylist.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
@@ -805,6 +814,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qsystemdetection.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtcore-config.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtextstream.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtimer.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurl.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurlquery.h
@@ -931,6 +941,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Network.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../NewProjectPopUp.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../ProjectsPopup.h
@@ -939,6 +950,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_NewProjectPopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
@@ -954,6 +966,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QObject
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QString
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QStringList
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QTimer
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QVector
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/Qt
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qabstractitemmodel.h
@@ -964,6 +977,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasictimer.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearraylist.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
@@ -1034,6 +1048,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qsystemdetection.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtcore-config.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtextstream.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtimer.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qtypeinfo.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurl.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qurlquery.h
@@ -1162,6 +1177,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../ClickableLabel.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../DB_Client.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Gui.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Network.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../NewProjectPopUp.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../PopUp.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../ProjectsPopup.h

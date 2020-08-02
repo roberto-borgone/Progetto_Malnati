@@ -42,6 +42,7 @@
 #include <QGroupBox>
 #include <QToolButton>
 #include <QStyle>
+#include <QTimer>
 
 #include "Project.h"
 
@@ -51,6 +52,7 @@ class Gui : public QMainWindow{
     QMenuBar* initMenuBar();
     QToolBar* initToolBar();
     QTextEdit *textEdit;
+    QTimer* cursor_timer;
 
 
 
@@ -74,6 +76,7 @@ public:
     void insert_in_Gui(int pos, Symbol s);
     void delete_in_Gui(int pos);
     void delete_all_Gui();
+    void start_timer();
 
 public slots:
     void logged_in(const std::string& user);
@@ -83,6 +86,8 @@ signals:
     void no_project();
     void request_for_projects(std::string usr);
     void close_project(std::string prj);
+    void new_project();
+    void time_out(int position);
 };
 
 

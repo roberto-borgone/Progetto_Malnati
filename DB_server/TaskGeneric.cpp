@@ -97,7 +97,7 @@ void TaskGeneric::run(){
             QJsonObject json;
             std::vector<Symbol> text;
             QJsonArray text_json;
-            std::shared_ptr<Project> project;
+            std::shared_ptr<Project> new_project;
 
             {
                 auto lock = std::lock_guard(this->projects_mux);
@@ -105,7 +105,10 @@ void TaskGeneric::run(){
 
                     result = this->service.getProject(this->message["prjID"].toString().toStdString());
 
+                    std::cout << "Opening:\n" << result.toStdString() << std::endl;
+
                     QJsonDocument json_document = QJsonDocument::fromJson(result);
+
                     json = json_document.object();
 
                     text_json = json["text"].toArray();
@@ -114,11 +117,11 @@ void TaskGeneric::run(){
                         text.emplace_back(Symbol(obj));
                     }
 
-                    project = std::make_shared<Project>(json["id"].toString().toStdString(), text);
+                    new_project = std::make_shared<Project>(json["id"].toString().toStdString(), text);
 
-                    this->projects.insert(std::pair(project->getId(), project));
+                    this->projects.insert(std::pair(new_project->getId(), new_project));
                 }else{
-                    project = this->projects[this->message["prjID"].toString().toStdString()];
+                    new_project = this->projects[this->message["prjID"].toString().toStdString()];
                 }
             }
 
@@ -128,7 +131,7 @@ void TaskGeneric::run(){
                                        qMakePair(QString("text"), text_json)
                                });
 
-            this->project = project;
+            this->project = new_project;
             emit returnResult(QJsonDocument(json).toJson());
             break;
 
@@ -139,7 +142,7 @@ void TaskGeneric::run(){
             int result;
             QJsonObject json;
             std::vector<Symbol> text;
-            std::shared_ptr<Project> project;
+            std::shared_ptr<Project> new_project;
 
             json = QJsonObject({
                                        qMakePair(QString("id"), this->message["prjID"]),
@@ -156,14 +159,14 @@ void TaskGeneric::run(){
 
             if(result == 0) {
 
-                project = std::make_shared<Project>(this->message["prjID"].toString().toStdString(), std::vector<Symbol>());
+                new_project = std::make_shared<Project>(this->message["prjID"].toString().toStdString(), std::vector<Symbol>());
 
                 {
                     auto lock = std::lock_guard(this->projects_mux);
-                    this->projects.insert(std::pair(project->getId(), project));
+                    this->projects.insert(std::pair(new_project->getId(), new_project));
                 }
 
-                this->project = project;
+                this->project = new_project;
             }
 
             emit returnResult(QJsonDocument(json).toJson());
@@ -187,13 +190,11 @@ void TaskGeneric::run(){
                     }
 
                     QJsonObject json = QJsonObject({
-                                                           qMakePair(QString("id"),
-                                                                     QJsonValue(this->message["prjID"].toString())),
+                                                           qMakePair(QString("id"), this->message["prjID"]),
                                                            qMakePair(QString("text"), text)
                                                    });
 
-                    this->service.update_project(this->message["prjID"].toString().toStdString(),
-                                                 QJsonDocument(json).toJson());
+                    this->service.update_project(this->message["prjID"].toString().toStdString(), QJsonDocument(json).toJson());
                     this->projects.erase(this->message["prjID"].toString().toStdString());
                 }
             }

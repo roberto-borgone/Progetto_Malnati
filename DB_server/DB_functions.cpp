@@ -151,7 +151,7 @@ int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
             return 2;
         }
         sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
-        sqlite3_bind_text(stmt, 2, doc.toStdString().c_str(), doc.toStdString().size(), SQLITE_STATIC);
+        sqlite3_bind_text(stmt, 2, doc, doc.size(), SQLITE_STATIC);
         result = sqlite3_step(stmt);
         if (result != SQLITE_DONE) {
             std::cout << "SQL error creating project" << std::endl;
@@ -200,14 +200,18 @@ QByteArray DB_interface::get_project(std::string& id) const{
 
     int stat = sqlite3_step(stmt);
 
-    if (stat != SQLITE_DONE) {
-        return QByteArray((char*)sqlite3_column_text(stmt, 0));
+    if (stat == SQLITE_ERROR) {
+        std::cout << "SQL error getting project" << std::endl;
+        return QByteArray("");
     }
 
-    return QByteArray("");
+    return QByteArray((char*)sqlite3_column_text(stmt, 0));
+
 }
 
-int DB_interface::update_project(const std::string& id, QByteArray doc) const{
+int DB_interface::update_project(const std::string& id, QByteArray& doc) const{
+
+    std::cout << "Saving:\n" << doc.toStdString() << std::endl;
 
     std::string statement;
 
@@ -219,7 +223,7 @@ int DB_interface::update_project(const std::string& id, QByteArray doc) const{
         std::cout << "some error occured in query the DB" << std::endl;
         return 2;
     }
-    sqlite3_bind_text(stmt, 1, doc.toStdString().c_str(), doc.toStdString().size(), SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 1, doc, doc.size(), SQLITE_STATIC);
     sqlite3_bind_text(stmt, 2, id.c_str(), id.size(), SQLITE_STATIC);
 
     int stat = sqlite3_step(stmt);

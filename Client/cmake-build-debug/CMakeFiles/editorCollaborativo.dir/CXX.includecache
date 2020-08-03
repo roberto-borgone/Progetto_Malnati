@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QDebug
-qdebug.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
 qelapsedtimer.h
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qelapsedtimer.h
@@ -884,6 +880,10 @@ C:/Qt/5.12.3/mingw73_64/include/QtGui/QFontDatabase
 qfontdatabase.h
 C:/Qt/5.12.3/mingw73_64/include/QtGui/qfontdatabase.h
 
+C:/Qt/5.12.3/mingw73_64/include/QtGui/QTextBlock
+qtextobject.h
+C:/Qt/5.12.3/mingw73_64/include/QtGui/qtextobject.h
+
 C:/Qt/5.12.3/mingw73_64/include/QtGui/QTextCharFormat
 qtextformat.h
 C:/Qt/5.12.3/mingw73_64/include/QtGui/qtextformat.h
@@ -1006,6 +1006,18 @@ QtGui/qfont.h
 QtCore/qsharedpointer.h
 -
 QtCore/qrect.h
+-
+
+C:/Qt/5.12.3/mingw73_64/include/QtGui/qglyphrun.h
+QtGui/qtguiglobal.h
+-
+QtCore/qsharedpointer.h
+-
+QtCore/qvector.h
+-
+QtCore/qpoint.h
+-
+QtGui/qrawfont.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtGui/qguiapplication.h
@@ -1160,6 +1172,26 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
+C:/Qt/5.12.3/mingw73_64/include/QtGui/qrawfont.h
+QtGui/qtguiglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qiodevice.h
+-
+QtCore/qglobal.h
+-
+QtCore/qobject.h
+-
+QtCore/qpoint.h
+-
+QtGui/qfont.h
+-
+QtGui/qtransform.h
+-
+QtGui/qfontdatabase.h
+-
+
 C:/Qt/5.12.3/mingw73_64/include/QtGui/qregion.h
 QtGui/qtguiglobal.h
 -
@@ -1228,6 +1260,42 @@ QtGui/qpen.h
 QtGui/qbrush.h
 -
 QtGui/qtextoption.h
+-
+
+C:/Qt/5.12.3/mingw73_64/include/QtGui/qtextlayout.h
+QtGui/qtguiglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qnamespace.h
+-
+QtCore/qrect.h
+-
+QtCore/qvector.h
+-
+QtGui/qcolor.h
+-
+QtCore/qobject.h
+-
+QtGui/qevent.h
+-
+QtGui/qtextformat.h
+-
+QtGui/qglyphrun.h
+-
+QtGui/qtextcursor.h
+-
+
+C:/Qt/5.12.3/mingw73_64/include/QtGui/qtextobject.h
+QtGui/qtguiglobal.h
+-
+QtCore/qobject.h
+-
+QtGui/qtextformat.h
+-
+QtGui/qtextlayout.h
+-
+QtGui/qglyphrun.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtGui/qtextoption.h
@@ -1888,7 +1956,7 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ClickableLabel.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/ClickableLabel.h
 QLabel
 -
 QWidget
@@ -1896,7 +1964,7 @@ QWidget
 Qt
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/DB_Client.h
 iostream
 -
 QMainWindow
@@ -1934,13 +2002,7 @@ QJsonObject
 QJsonDocument
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.cpp
-Gui.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
-QDebug
--
-
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Gui.h
 vector
 -
 string
@@ -2018,17 +2080,17 @@ QStyle
 QTimer
 -
 Project.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Project.h
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Network.h
 QObject
 -
 Symbol.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Symbol.h
 Project.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Project.h
 Gui.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Gui.h
 functional
 -
 thread
@@ -2048,7 +2110,7 @@ memory
 QJsonParseError
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/NewProjectPopUp.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/NewProjectPopUp.h
 QDialog
 -
 QLabel
@@ -2060,7 +2122,7 @@ QVBoxLayout
 QLineEdit
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/PopUp.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/PopUp.h
 QDialog
 -
 QLabel
@@ -2068,7 +2130,15 @@ QLabel
 QDialogButtonBox
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Project.cpp
+QTextEdit
+-
+QTextBlock
+-
+Project.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Project.h
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Project.h
 QTextDocument
 -
 QFont
@@ -2082,9 +2152,9 @@ QTextCursor
 algorithm
 -
 Symbol.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Symbol.h
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ProjectsPopup.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/ProjectsPopup.h
 QDialog
 -
 QLabel
@@ -2096,9 +2166,9 @@ QVBoxLayout
 utility
 -
 ClickableLabel.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ClickableLabel.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/ClickableLabel.h
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Symbol.h
 vector
 -
 string
@@ -2116,7 +2186,89 @@ QJsonArray
 QJsonValue
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/main.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
+../../../ClickableLabel.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/ClickableLabel.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
+../../../DB_Client.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/DB_Client.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
+../../../Gui.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Gui.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+../../../Network.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Network.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_NewProjectPopUp.cpp
+../../../NewProjectPopUp.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/NewProjectPopUp.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
+../../../PopUp.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/PopUp.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
+../../../Project.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Project.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
+../../../ProjectsPopup.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/ProjectsPopup.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_ClickableLabel.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
+EWIEGA46WW/moc_DB_Client.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
+EWIEGA46WW/moc_Gui.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
+EWIEGA46WW/moc_Network.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+EWIEGA46WW/moc_NewProjectPopUp.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_NewProjectPopUp.cpp
+EWIEGA46WW/moc_PopUp.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
+EWIEGA46WW/moc_Project.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
+EWIEGA46WW/moc_ProjectsPopup.cpp
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
+
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/main.cpp
 iostream
 -
 thread
@@ -2130,15 +2282,15 @@ functional
 QMessageBox
 -
 Gui.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Gui.h
 Network.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Network.h
 DB_Client.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/DB_Client.h
 PopUp.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/PopUp.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/PopUp.h
 ProjectsPopup.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ProjectsPopup.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/ProjectsPopup.h
 NewProjectPopUp.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/NewProjectPopUp.h
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/NewProjectPopUp.h
 

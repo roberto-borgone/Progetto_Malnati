@@ -26,6 +26,6 @@ public:
     int create_project(const std::string& id, QByteArray& doc) const;
     QStringList get_projects() const;
     QByteArray get_project(std::string& id) const;
-    int update_project(const std::string& id, QByteArray doc) const;
+    int update_project(const std::string& id, QByteArray& doc) const;
 };
 #endif //PROVA_DATABASE_DB_INTERFACE_H

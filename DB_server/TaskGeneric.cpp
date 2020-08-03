@@ -16,7 +16,6 @@
 #define INSERT 6
 #define DELETE 7
 #define CURSOR 8
-#define ERROR -1
 
 TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), message(std::move(message)){}
 
@@ -248,6 +247,7 @@ void TaskGeneric::run(){
             break;
 
         default:
+            std::cout << "OPCODE NOT RECOGNIZED!!!!!" << std::endl;
             break;
     }
 
@@ -259,4 +259,6 @@ int TaskGeneric::getOpCode(){
     if(this->message.contains("opcode") && this->message["opcode"].isDouble()){
         return this->message["opcode"].toInt();
     }
+
+    return -1;
 }

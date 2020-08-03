@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     //create Pop up
     auto no_prj_pop_up = new PopUp();
     //create Pop up for list of projects
-    auto projects_pop_up = new ProjectsPopUp();
+    //auto projects_pop_up = new ProjectsPopUp();
     //create Pop up for creating new project
     auto newPrj_pop_up = new NewProjectPopUp();
 
@@ -51,6 +51,7 @@ int main(int argc, char *argv[]) {
     QObject::connect(no_prj_pop_up, &PopUp::popUp_delete, g, &Gui::delete_in_Gui);
     QObject::connect(g, &Gui::no_project, [&no_prj_pop_up](){no_prj_pop_up->exec();}); //pop up when no project is open
 
+    //PopUp fow a new project
     QObject::connect(g, &Gui::new_project, [&network](){
         auto newPrj_pop_up = new NewProjectPopUp();
         QObject::connect(newPrj_pop_up, &NewProjectPopUp::create_project, network, &Network::new_project);
@@ -58,9 +59,12 @@ int main(int argc, char *argv[]) {
 
     QObject::connect(g, &Gui::request_for_projects, network, &Network::ask_projects);
     QObject::connect(g, &Gui::close_project, network, &Network::close_project);
-    QObject::connect(network, &Network::list_available, projects_pop_up, &ProjectsPopUp::set_list);
-    QObject::connect(network, &Network::project_to_choose, [&projects_pop_up](){projects_pop_up->exec();});
-    QObject::connect(projects_pop_up, &ProjectsPopUp::send_prj_to_open, network, &Network::project_to_get);
+
+    QObject::connect(network, &Network::list_available, [=](std::vector<std::string> list){
+        auto projects_pop_up = new ProjectsPopUp(list);
+        QObject::connect(projects_pop_up, &ProjectsPopUp::send_prj_to_open, network, &Network::project_to_get);
+        projects_pop_up->exec();
+    });
 
     //for C/S communication (cursor)
     QObject::connect(g, &Gui::time_out, network, &Network::send_cursor);

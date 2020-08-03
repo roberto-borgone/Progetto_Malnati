@@ -16,13 +16,15 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     cursor_timer = new QTimer();
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
         if (removed > 0) {
-            textEdit->undo();
-            QTextCursor c(textEdit->textCursor());
-            c.setPosition(pos);
-            c.setPosition(pos + removed, QTextCursor::KeepAnchor);
-            std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
-            project->eraseElements(pos, removed);
-            textEdit->redo();
+            if (project->prjID_set) {
+                textEdit->undo();
+                QTextCursor c(textEdit->textCursor());
+                c.setPosition(pos);
+                c.setPosition(pos + removed, QTextCursor::KeepAnchor);
+                std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
+                project->eraseElements(pos, removed);
+                textEdit->redo();
+            }
 
         }
         if (added > 0) {
@@ -36,7 +38,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
             //CONTROLLATE QUESTA PARTE QUI CREO SIMBOLO RELATIVO A CARATTERE DIGITATO DA UTENTE E GENERO FRAZIONARIO
             /*BUG: se si copiano e incollano più caratteri questo non viene gestito bene*/
-            qDebug()<<c.selectedText();
+            qDebug() << c.selectedText();
             for (auto sp = add.end() - 1; sp >= add.begin(); sp--) {
                 std::cout << sp.base() << std::endl;
                 QTextCharFormat f = c.charFormat();
@@ -128,7 +130,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 /*QUI SI POTREBBE CREARE SIMBOLO, INVIARE PER CONTROLLARE SE CI SONO COLLSISIONI E SE NO METTERLO NEL VETTORE**/
                 std::cout << "invio carattere per controllo centrale su server..." << std::endl;
                 //creo il simbolo ed emetto segnale per inviarlo alla classe network che lo invierà al server
-                std::string proj = std::string("p1"); //qui si dovrà predere il progetto aperto dallo user
+                std::string proj = std::string(project->prjID); //qui si dovrà predere il progetto aperto dallo user
                 std::string user = std::string(
                         "u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
                 Symbol s = Symbol(*sp, f.font().family().toStdString(),
@@ -146,7 +148,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                     *sp = '\0';
                 } else {
                     emit no_project();
-                    project->prjID_set=true;
                 }
 
 
@@ -175,7 +176,7 @@ QMenuBar *Gui::initMenuBar() {
     }, QKeySequence::New); //da implementare funzionalità
     file->addAction("Open", [this]() { emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
     file->addAction("Close", [this]() {
-        emit close_project(std::string("prj1"));
+        emit close_project(std::string(project->prjID));
         project->prjID_set = false; //client can't now write on editor
     }, QKeySequence::Close);
     file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
@@ -218,7 +219,7 @@ QToolBar *Gui::initToolBar() {
         emit request_for_projects(std::string("user1"));
     });
     toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {
-        emit close_project(std::string("prj1"));
+        emit close_project(std::string(project->prjID));
         project->prjID_set = false; //client can't now write on editor
     });
     toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
@@ -455,7 +456,7 @@ void Gui::delete_in_Gui(int pos = 0) {
 }
 
 void Gui::delete_all_Gui() {
-    if(!textEdit->document()->isEmpty()) {
+    if (!textEdit->document()->isEmpty()) {
         textEdit->clear();
     }
 }
@@ -463,7 +464,11 @@ void Gui::delete_all_Gui() {
 void Gui::start_timer() {
     /*Timer per invio periodico del cursore*/
     cursor_timer->start(1000);
-    cursor_timer->callOnTimeout([this](){emit time_out(textEdit->textCursor().position());});
+    cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
+}
+
+void Gui::stop_timer() {
+    cursor_timer->stop();
 }
 
 

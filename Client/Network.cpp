@@ -67,7 +67,7 @@ void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
 }
 
 void Network::remove_symbol(Symbol s) {
-    std::string prj = std::string("p1"); //qui si dovrà predere il progetto aperto dallo user
+    std::string prj = std::string(project_ptr->prjID);
     std::string usr = std::string("u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
     //create JSON object of type remove
     auto json_message = QJsonObject({
@@ -140,7 +140,6 @@ void Network::message_received() {
                 list.insert(list.end(), el.toString().toStdString());
             }
             emit list_available(list);
-            emit project_to_choose();
         }
             break;
 
@@ -257,9 +256,13 @@ void Network::close_project(std::string prj) {
 
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
+
+    //delete project and stop timer for cursor
     project_ptr->prjID_set=false;
     project_ptr->delete_all();
     gui_ptr->delete_all_Gui();
+    gui_ptr->stop_timer();
+
 }
 
 void Network::project_to_get(std::string prj_name) {

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QDebug
-qdebug.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
 qelapsedtimer.h
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qelapsedtimer.h
@@ -1934,12 +1930,6 @@ QJsonObject
 QJsonDocument
 -
 
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.cpp
-Gui.h
-C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
-QDebug
--
-
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
 vector
 -
@@ -2019,6 +2009,10 @@ QTimer
 -
 Project.h
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.cpp
+Network.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
 
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
 QObject
@@ -2115,6 +2109,88 @@ QJsonArray
 -
 QJsonValue
 -
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
+../../../ClickableLabel.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ClickableLabel.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
+../../../DB_Client.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
+../../../Gui.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+../../../Network.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_NewProjectPopUp.cpp
+../../../NewProjectPopUp.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/NewProjectPopUp.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
+../../../PopUp.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/PopUp.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
+../../../Project.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
+../../../ProjectsPopup.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/ProjectsPopup.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_ClickableLabel.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
+EWIEGA46WW/moc_DB_Client.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
+EWIEGA46WW/moc_Gui.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
+EWIEGA46WW/moc_Network.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
+EWIEGA46WW/moc_NewProjectPopUp.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_NewProjectPopUp.cpp
+EWIEGA46WW/moc_PopUp.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
+EWIEGA46WW/moc_Project.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
+EWIEGA46WW/moc_ProjectsPopup.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
 
 C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/main.cpp
 iostream

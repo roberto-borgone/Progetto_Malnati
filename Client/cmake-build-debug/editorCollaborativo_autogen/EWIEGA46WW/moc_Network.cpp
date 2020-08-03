@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Network_t {
-    QByteArrayData data[32];
-    char stringdata0[318];
+    QByteArrayData data[31];
+    char stringdata0[300];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,34 +46,33 @@ QT_MOC_LITERAL(11, 78, 9), // "wrong_sub"
 QT_MOC_LITERAL(12, 88, 14), // "list_available"
 QT_MOC_LITERAL(13, 103, 24), // "std::vector<std::string>"
 QT_MOC_LITERAL(14, 128, 4), // "list"
-QT_MOC_LITERAL(15, 133, 17), // "project_to_choose"
-QT_MOC_LITERAL(16, 151, 9), // "getSocket"
-QT_MOC_LITERAL(17, 161, 11), // "QSslSocket&"
-QT_MOC_LITERAL(18, 173, 11), // "send_symbol"
-QT_MOC_LITERAL(19, 185, 3), // "pos"
-QT_MOC_LITERAL(20, 189, 3), // "prj"
-QT_MOC_LITERAL(21, 193, 3), // "usr"
-QT_MOC_LITERAL(22, 197, 13), // "remove_symbol"
-QT_MOC_LITERAL(23, 211, 16), // "message_received"
-QT_MOC_LITERAL(24, 228, 12), // "ask_projects"
-QT_MOC_LITERAL(25, 241, 13), // "close_project"
-QT_MOC_LITERAL(26, 255, 14), // "project_to_get"
-QT_MOC_LITERAL(27, 270, 8), // "prj_name"
-QT_MOC_LITERAL(28, 279, 11), // "new_project"
-QT_MOC_LITERAL(29, 291, 5), // "prjID"
-QT_MOC_LITERAL(30, 297, 11), // "send_cursor"
-QT_MOC_LITERAL(31, 309, 8) // "position"
+QT_MOC_LITERAL(15, 133, 9), // "getSocket"
+QT_MOC_LITERAL(16, 143, 11), // "QSslSocket&"
+QT_MOC_LITERAL(17, 155, 11), // "send_symbol"
+QT_MOC_LITERAL(18, 167, 3), // "pos"
+QT_MOC_LITERAL(19, 171, 3), // "prj"
+QT_MOC_LITERAL(20, 175, 3), // "usr"
+QT_MOC_LITERAL(21, 179, 13), // "remove_symbol"
+QT_MOC_LITERAL(22, 193, 16), // "message_received"
+QT_MOC_LITERAL(23, 210, 12), // "ask_projects"
+QT_MOC_LITERAL(24, 223, 13), // "close_project"
+QT_MOC_LITERAL(25, 237, 14), // "project_to_get"
+QT_MOC_LITERAL(26, 252, 8), // "prj_name"
+QT_MOC_LITERAL(27, 261, 11), // "new_project"
+QT_MOC_LITERAL(28, 273, 5), // "prjID"
+QT_MOC_LITERAL(29, 279, 11), // "send_cursor"
+QT_MOC_LITERAL(30, 291, 8) // "position"
 
     },
     "Network\0insert\0\0Symbol\0s\0erase\0string\0"
     "logged_in\0std::string\0user\0wrong_log_in\0"
     "wrong_sub\0list_available\0"
-    "std::vector<std::string>\0list\0"
-    "project_to_choose\0getSocket\0QSslSocket&\0"
-    "send_symbol\0pos\0prj\0usr\0remove_symbol\0"
-    "message_received\0ask_projects\0"
-    "close_project\0project_to_get\0prj_name\0"
-    "new_project\0prjID\0send_cursor\0position"
+    "std::vector<std::string>\0list\0getSocket\0"
+    "QSslSocket&\0send_symbol\0pos\0prj\0usr\0"
+    "remove_symbol\0message_received\0"
+    "ask_projects\0close_project\0project_to_get\0"
+    "prj_name\0new_project\0prjID\0send_cursor\0"
+    "position"
 };
 #undef QT_MOC_LITERAL
 
@@ -83,32 +82,31 @@ static const uint qt_meta_data_Network[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       7,       // signalCount
+       6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   94,    2, 0x06 /* Public */,
-       5,    1,   97,    2, 0x06 /* Public */,
-       7,    1,  100,    2, 0x06 /* Public */,
-      10,    0,  103,    2, 0x06 /* Public */,
-      11,    0,  104,    2, 0x06 /* Public */,
-      12,    1,  105,    2, 0x06 /* Public */,
-      15,    0,  108,    2, 0x06 /* Public */,
+       1,    1,   89,    2, 0x06 /* Public */,
+       5,    1,   92,    2, 0x06 /* Public */,
+       7,    1,   95,    2, 0x06 /* Public */,
+      10,    0,   98,    2, 0x06 /* Public */,
+      11,    0,   99,    2, 0x06 /* Public */,
+      12,    1,  100,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      16,    1,  109,    2, 0x0a /* Public */,
-      18,    4,  112,    2, 0x0a /* Public */,
-      22,    1,  121,    2, 0x0a /* Public */,
-      23,    0,  124,    2, 0x0a /* Public */,
-      24,    1,  125,    2, 0x0a /* Public */,
-      25,    1,  128,    2, 0x0a /* Public */,
-      26,    1,  131,    2, 0x0a /* Public */,
-      28,    1,  134,    2, 0x0a /* Public */,
-      30,    1,  137,    2, 0x0a /* Public */,
+      15,    1,  103,    2, 0x0a /* Public */,
+      17,    4,  106,    2, 0x0a /* Public */,
+      21,    1,  115,    2, 0x0a /* Public */,
+      22,    0,  118,    2, 0x0a /* Public */,
+      23,    1,  119,    2, 0x0a /* Public */,
+      24,    1,  122,    2, 0x0a /* Public */,
+      25,    1,  125,    2, 0x0a /* Public */,
+      27,    1,  128,    2, 0x0a /* Public */,
+      29,    1,  131,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -117,18 +115,17 @@ static const uint qt_meta_data_Network[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 13,   14,
-    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 17,    4,
-    QMetaType::Void, 0x80000000 | 3, QMetaType::Int, 0x80000000 | 8, 0x80000000 | 8,    4,   19,   20,   21,
+    QMetaType::Void, 0x80000000 | 16,    4,
+    QMetaType::Void, 0x80000000 | 3, QMetaType::Int, 0x80000000 | 8, 0x80000000 | 8,    4,   18,   19,   20,
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 8,   21,
     QMetaType::Void, 0x80000000 | 8,   20,
-    QMetaType::Void, 0x80000000 | 8,   27,
-    QMetaType::Void, 0x80000000 | 8,   29,
-    QMetaType::Void, QMetaType::Int,   31,
+    QMetaType::Void, 0x80000000 | 8,   19,
+    QMetaType::Void, 0x80000000 | 8,   26,
+    QMetaType::Void, 0x80000000 | 8,   28,
+    QMetaType::Void, QMetaType::Int,   30,
 
        0        // eod
 };
@@ -145,16 +142,15 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 3: _t->wrong_log_in(); break;
         case 4: _t->wrong_sub(); break;
         case 5: _t->list_available((*reinterpret_cast< std::vector<std::string>(*)>(_a[1]))); break;
-        case 6: _t->project_to_choose(); break;
-        case 7: _t->getSocket((*reinterpret_cast< QSslSocket(*)>(_a[1]))); break;
-        case 8: _t->send_symbol((*reinterpret_cast< Symbol(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< std::string(*)>(_a[3])),(*reinterpret_cast< std::string(*)>(_a[4]))); break;
-        case 9: _t->remove_symbol((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
-        case 10: _t->message_received(); break;
-        case 11: _t->ask_projects((*reinterpret_cast< std::string(*)>(_a[1]))); break;
-        case 12: _t->close_project((*reinterpret_cast< std::string(*)>(_a[1]))); break;
-        case 13: _t->project_to_get((*reinterpret_cast< std::string(*)>(_a[1]))); break;
-        case 14: _t->new_project((*reinterpret_cast< std::string(*)>(_a[1]))); break;
-        case 15: _t->send_cursor((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 6: _t->getSocket((*reinterpret_cast< QSslSocket(*)>(_a[1]))); break;
+        case 7: _t->send_symbol((*reinterpret_cast< Symbol(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< std::string(*)>(_a[3])),(*reinterpret_cast< std::string(*)>(_a[4]))); break;
+        case 8: _t->remove_symbol((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
+        case 9: _t->message_received(); break;
+        case 10: _t->ask_projects((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 11: _t->close_project((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 12: _t->project_to_get((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 13: _t->new_project((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 14: _t->send_cursor((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -201,13 +197,6 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
                 return;
             }
         }
-        {
-            using _t = void (Network::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Network::project_to_choose)) {
-                *result = 6;
-                return;
-            }
-        }
     }
 }
 
@@ -240,13 +229,13 @@ int Network::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 16)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 16;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 16)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 16;
+        _id -= 15;
     }
     return _id;
 }
@@ -289,12 +278,6 @@ void Network::list_available(std::vector<std::string> _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
-}
-
-// SIGNAL 6
-void Network::project_to_choose()
-{
-    QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

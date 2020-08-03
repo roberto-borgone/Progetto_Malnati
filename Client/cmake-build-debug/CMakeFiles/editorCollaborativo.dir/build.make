@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2018.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\rober\CLionProjects\Progetto_Malnati\Client
+CMAKE_SOURCE_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/editorCollaborativo.dir/depend.make
@@ -59,100 +59,100 @@ include CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: CMakeFiles/editorCollaborativo.dir/includes_CXX.rsp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\editorCollaborativo_autogen\mocs_compilation.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\editorCollaborativo_autogen\mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\editorCollaborativo_autogen\mocs_compilation.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\editorCollaborativo_autogen\mocs_compilation.cpp"
 
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\editorCollaborativo_autogen\mocs_compilation.cpp > CMakeFiles\editorCollaborativo.dir\editorCollaborativo_autogen\mocs_compilation.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\editorCollaborativo_autogen\mocs_compilation.cpp" > CMakeFiles\editorCollaborativo.dir\editorCollaborativo_autogen\mocs_compilation.cpp.i
 
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\editorCollaborativo_autogen\mocs_compilation.cpp -o CMakeFiles\editorCollaborativo.dir\editorCollaborativo_autogen\mocs_compilation.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\editorCollaborativo_autogen\mocs_compilation.cpp" -o CMakeFiles\editorCollaborativo.dir\editorCollaborativo_autogen\mocs_compilation.cpp.s
 
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: CMakeFiles/editorCollaborativo.dir/includes_CXX.rsp
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/editorCollaborativo.dir/main.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\main.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\Client\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/editorCollaborativo.dir/main.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\main.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\main.cpp"
 
 CMakeFiles/editorCollaborativo.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editorCollaborativo.dir/main.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\Client\main.cpp > CMakeFiles\editorCollaborativo.dir\main.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\main.cpp" > CMakeFiles\editorCollaborativo.dir\main.cpp.i
 
 CMakeFiles/editorCollaborativo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editorCollaborativo.dir/main.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\Client\main.cpp -o CMakeFiles\editorCollaborativo.dir\main.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\main.cpp" -o CMakeFiles\editorCollaborativo.dir\main.cpp.s
 
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: CMakeFiles/editorCollaborativo.dir/includes_CXX.rsp
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: ../Gui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Gui.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Gui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Gui.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Gui.cpp"
 
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editorCollaborativo.dir/Gui.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Gui.cpp > CMakeFiles\editorCollaborativo.dir\Gui.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Gui.cpp" > CMakeFiles\editorCollaborativo.dir\Gui.cpp.i
 
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editorCollaborativo.dir/Gui.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Gui.cpp -o CMakeFiles\editorCollaborativo.dir\Gui.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Gui.cpp" -o CMakeFiles\editorCollaborativo.dir\Gui.cpp.s
 
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: CMakeFiles/editorCollaborativo.dir/includes_CXX.rsp
 CMakeFiles/editorCollaborativo.dir/Project.cpp.obj: ../Project.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/editorCollaborativo.dir/Project.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Project.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Project.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/editorCollaborativo.dir/Project.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Project.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Project.cpp"
 
 CMakeFiles/editorCollaborativo.dir/Project.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editorCollaborativo.dir/Project.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Project.cpp > CMakeFiles\editorCollaborativo.dir\Project.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Project.cpp" > CMakeFiles\editorCollaborativo.dir\Project.cpp.i
 
 CMakeFiles/editorCollaborativo.dir/Project.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editorCollaborativo.dir/Project.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Project.cpp -o CMakeFiles\editorCollaborativo.dir\Project.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Project.cpp" -o CMakeFiles\editorCollaborativo.dir\Project.cpp.s
 
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: CMakeFiles/editorCollaborativo.dir/includes_CXX.rsp
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj: ../Symbol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Symbol.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Symbol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Symbol.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Symbol.cpp"
 
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editorCollaborativo.dir/Symbol.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Symbol.cpp > CMakeFiles\editorCollaborativo.dir\Symbol.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Symbol.cpp" > CMakeFiles\editorCollaborativo.dir\Symbol.cpp.i
 
 CMakeFiles/editorCollaborativo.dir/Symbol.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editorCollaborativo.dir/Symbol.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Symbol.cpp -o CMakeFiles\editorCollaborativo.dir\Symbol.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Symbol.cpp" -o CMakeFiles\editorCollaborativo.dir\Symbol.cpp.s
 
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: CMakeFiles/editorCollaborativo.dir/includes_CXX.rsp
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Network.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/editorCollaborativo.dir/Network.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Network.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Network.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/editorCollaborativo.dir/Network.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\Network.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Network.cpp"
 
 CMakeFiles/editorCollaborativo.dir/Network.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editorCollaborativo.dir/Network.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Network.cpp > CMakeFiles\editorCollaborativo.dir\Network.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Network.cpp" > CMakeFiles\editorCollaborativo.dir\Network.cpp.i
 
 CMakeFiles/editorCollaborativo.dir/Network.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editorCollaborativo.dir/Network.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\Client\Network.cpp -o CMakeFiles\editorCollaborativo.dir\Network.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\Network.cpp" -o CMakeFiles\editorCollaborativo.dir\Network.cpp.s
 
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: CMakeFiles/editorCollaborativo.dir/flags.make
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: CMakeFiles/editorCollaborativo.dir/includes_CXX.rsp
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../DB_Client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\DB_Client.cpp.obj -c C:\Users\rober\CLionProjects\Progetto_Malnati\Client\DB_Client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj"
+	C:\Qt\Tools\mingw730_64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\editorCollaborativo.dir\DB_Client.cpp.obj -c "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\DB_Client.cpp"
 
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.i"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rober\CLionProjects\Progetto_Malnati\Client\DB_Client.cpp > CMakeFiles\editorCollaborativo.dir\DB_Client.cpp.i
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\DB_Client.cpp" > CMakeFiles\editorCollaborativo.dir\DB_Client.cpp.i
 
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.s"
-	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rober\CLionProjects\Progetto_Malnati\Client\DB_Client.cpp -o CMakeFiles\editorCollaborativo.dir\DB_Client.cpp.s
+	C:\Qt\Tools\mingw730_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\DB_Client.cpp" -o CMakeFiles\editorCollaborativo.dir\DB_Client.cpp.s
 
 # Object files for target editorCollaborativo
 editorCollaborativo_OBJECTS = \
@@ -184,7 +184,7 @@ editorCollaborativo.exe: C:/Qt/5.12.3/mingw73_64/lib/libQt5Cored.a
 editorCollaborativo.exe: CMakeFiles/editorCollaborativo.dir/linklibs.rsp
 editorCollaborativo.exe: CMakeFiles/editorCollaborativo.dir/objects1.rsp
 editorCollaborativo.exe: CMakeFiles/editorCollaborativo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable editorCollaborativo.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable editorCollaborativo.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\editorCollaborativo.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -197,6 +197,6 @@ CMakeFiles/editorCollaborativo.dir/clean:
 .PHONY : CMakeFiles/editorCollaborativo.dir/clean
 
 CMakeFiles/editorCollaborativo.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\rober\CLionProjects\Progetto_Malnati\Client C:\Users\rober\CLionProjects\Progetto_Malnati\Client C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug C:\Users\rober\CLionProjects\Progetto_Malnati\Client\cmake-build-debug\CMakeFiles\editorCollaborativo.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug" "C:\Users\Clemente Cetera\Desktop\polito-magistrale\2-anno\2-semestre\Programmazione_di_sistema(rifatto)\progetto\Progetto_Malnati_new\Client\cmake-build-debug\CMakeFiles\editorCollaborativo.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/editorCollaborativo.dir/depend
 

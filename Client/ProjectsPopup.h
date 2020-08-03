@@ -17,27 +17,16 @@ Q_OBJECT;
 
     QVBoxLayout *layout = new QVBoxLayout();
 public:
-    ProjectsPopUp() : QDialog() {
+    ProjectsPopUp(std::vector<std::string> projects_name) : QDialog() {
         setWindowTitle("projects available");
         setWindowFlags(Qt::Dialog);
-    };
-
-    ~ProjectsPopUp() = default;
-
-public slots:
-
-    void set_list(std::vector<std::string> projects_name) {
-        //per ogni stringa nella lista creo unq Qlabel cliccabile e la aggiungo al layout e per ognuno faccio la connect per l'invio della scelta
-        while ( auto w = findChild<QWidget*>() ) {
-            delete w;
-        }
         setLayout(layout);
 
         for (const auto &project_name : projects_name) {
             auto name = new ClickableLabel(QString(project_name.c_str()));
             connect(name, &ClickableLabel::clicked,
                     [this](std::string name) {
-                emit send_prj_to_open(name);});
+                        emit send_prj_to_open(name);});
             connect(name, &ClickableLabel::clicked,
                     this, &QDialog::accept);
             layout->addWidget(name);
@@ -45,6 +34,8 @@ public slots:
         }
 
     };
+
+    ~ProjectsPopUp() = default;
 
 signals:
 

@@ -42,7 +42,6 @@ signals:
 
     void list_available(std::vector<std::string> list);
 
-    void project_to_choose();
 
 
 public slots:

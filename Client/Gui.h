@@ -76,8 +76,8 @@ public:
     void insert_in_Gui(int pos, Symbol s);
     void delete_in_Gui(int pos);
     void delete_all_Gui();
-    void start_timer();
-    void stop_timer();
+    //void start_timer();
+    //void stop_timer();
 
 public slots:
     void logged_in(const std::string& user);

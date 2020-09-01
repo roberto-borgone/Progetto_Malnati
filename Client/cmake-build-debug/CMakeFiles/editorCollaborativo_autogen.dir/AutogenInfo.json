@@ -1,0 +1,144 @@
+{
+	"BUILD_DIR" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/editorCollaborativo_autogen",
+	"CMAKE_BINARY_DIR" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client",
+	"CMAKE_EXECUTABLE" : "/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake",
+	"CMAKE_SOURCE_DIR" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client",
+	"HEADERS" : 
+	[
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/ClickableLabel.h",
+			"MU",
+			"EWIEGA46WW/moc_ClickableLabel.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/DB_Client.h",
+			"MU",
+			"EWIEGA46WW/moc_DB_Client.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Gui.h",
+			"MU",
+			"EWIEGA46WW/moc_Gui.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Network.h",
+			"MU",
+			"EWIEGA46WW/moc_Network.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/NewProjectPopUp.h",
+			"MU",
+			"EWIEGA46WW/moc_NewProjectPopUp.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/PopUp.h",
+			"MU",
+			"EWIEGA46WW/moc_PopUp.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Project.h",
+			"MU",
+			"EWIEGA46WW/moc_Project.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/ProjectsPopup.h",
+			"MU",
+			"EWIEGA46WW/moc_ProjectsPopup.cpp"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Symbol.h",
+			"MU",
+			"EWIEGA46WW/moc_Symbol.cpp"
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/editorCollaborativo_autogen/include",
+	"MOC_COMPILATION_FILE" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CHARTS_LIB",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NETWORK_LIB",
+		"QT_WEBSOCKETS_LIB",
+		"QT_WIDGETS_LIB"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"/Users/davidemiro/opt/anaconda3/include/qt",
+		"/Users/davidemiro/opt/anaconda3/include/qt/QtCore",
+		"/Users/davidemiro/opt/anaconda3/mkspecs/macx-clang",
+		"/Users/davidemiro/opt/anaconda3/include/qt/QtGui",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+		"/Users/davidemiro/opt/anaconda3/include/qt/QtWidgets",
+		"/Users/davidemiro/opt/anaconda3/include/qt/QtCharts",
+		"/Users/davidemiro/opt/anaconda3/include/qt/QtWebSockets",
+		"/Users/davidemiro/opt/anaconda3/include/qt/QtNetwork",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.3/include",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : true,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++",
+		"-dM",
+		"-E",
+		"-c",
+		"/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/editorCollaborativo_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "/Users/davidemiro/opt/anaconda3/bin/moc",
+	"QT_UIC_EXECUTABLE" : "/Users/davidemiro/opt/anaconda3/bin/uic",
+	"QT_VERSION_MAJOR" : 5,
+	"SETTINGS_FILE" : "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/DB_Client.cpp",
+			"MU"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Gui.cpp",
+			"MU"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Network.cpp",
+			"MU"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Project.cpp",
+			"MU"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Symbol.cpp",
+			"MU"
+		],
+		[
+			"/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/main.cpp",
+			"MU"
+		]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"VERBOSITY" : 0
+}

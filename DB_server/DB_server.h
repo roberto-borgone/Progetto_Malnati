@@ -8,7 +8,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include <bits/stdc++.h>
+//#include <bits/stdc++.h>
 #include <QMainWindow>
 #include <QApplication>
 #include <QtWidgets/QPushButton>
@@ -38,12 +38,15 @@ public:
     explicit DB_server(QObject *parent = nullptr) : QTcpServer(parent) {
 
         //put server on listening
-        QHostAddress address = QHostAddress::Any;
+
+        QHostAddress address = QHostAddress::LocalHost;
+        address.setAddress("127.0.0.1");
         quint16 port = 1290;
 
         if (this->listen(address, port)) {
             std::cout << QSslSocket::supportsSsl() << std::endl;
             std::cout << (QSslSocket::sslLibraryBuildVersionString()).toStdString()<<std::endl;
+
             std::cout << "Now listen on address: " << qPrintable(address.toString()) << " on port: " << port
                       << std::endl;
         } else

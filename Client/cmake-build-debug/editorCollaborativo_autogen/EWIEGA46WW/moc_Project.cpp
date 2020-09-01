@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Project.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Project.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.3. It"
+#error "This file was generated using the moc from 5.9.7. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -53,7 +53,7 @@ QT_MOC_LITERAL(10, 87, 14) // "externalDelete"
 static const uint qt_meta_data_Project[] = {
 
  // content:
-       8,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        5,   14, // methods
@@ -87,7 +87,7 @@ static const uint qt_meta_data_Project[] = {
 void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<Project *>(_o);
+        Project *_t = static_cast<Project *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->internalInsert((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
@@ -100,21 +100,21 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Project::*)(Symbol );
+            typedef void (Project::*_t)(Symbol );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Project::internalInsert)) {
                 *result = 0;
                 return;
             }
         }
         {
-            using _t = void (Project::*)(string );
+            typedef void (Project::*_t)(string );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Project::internalDelete)) {
                 *result = 1;
                 return;
             }
         }
         {
-            using _t = void (Project::*)(Symbol );
+            typedef void (Project::*_t)(Symbol );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Project::remove_symbol)) {
                 *result = 2;
                 return;
@@ -123,14 +123,10 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject Project::staticMetaObject = { {
-    &QObject::staticMetaObject,
-    qt_meta_stringdata_Project.data,
-    qt_meta_data_Project,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+const QMetaObject Project::staticMetaObject = {
+    { &QObject::staticMetaObject, qt_meta_stringdata_Project.data,
+      qt_meta_data_Project,  qt_static_metacall, nullptr, nullptr}
+};
 
 
 const QMetaObject *Project::metaObject() const

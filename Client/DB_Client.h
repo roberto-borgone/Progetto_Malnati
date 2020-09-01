@@ -22,6 +22,7 @@
 #include <QElapsedTimer>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QTcpSocket>
 
 
 class DB_Client : public QMainWindow {
@@ -31,14 +32,14 @@ Q_OBJECT
     QVector<QWidget *> layout_items;
     QString host_name;
     quint16 port;
-    QSslSocket sslClient;
+    QTcpSocket sslClient;
     bool logged, connected; //connected servirà a capire se si è già connessi (tentivo precedente di login o subscribe fallito) oppure no
 
 public:
     DB_Client() {
         widg->setLayout(layout);
         main_menu();
-        host_name = "127.0.1.1";
+        host_name = "127.0.0.1";
         port = 1290;
         logged=false;
         connected = false;
@@ -67,7 +68,7 @@ signals:
 
     void log_in();
 
-    void move_socket(QSslSocket& s);
+    void move_socket(QTcpSocket& s);
 
 };
 #endif //EDITORCOLLABORATIVO_DB_CLIENT_H

@@ -31,9 +31,9 @@ void Network::receiveCommand() {
 
 }
 
-void Network::getSocket(QSslSocket &s) {
+void Network::getSocket(QTcpSocket &s) {
     std::cout << "qui dovrei prendermi il socket\n" << s.tr;
-    socket_ptr = std::shared_ptr<QSslSocket>(&s);
+    socket_ptr = std::shared_ptr<QTcpSocket>(&s);
     QObject::connect(socket_ptr.get(), &QSslSocket::readyRead, this, &Network::message_received);
 }
 
@@ -167,7 +167,7 @@ void Network::message_received() {
             std::cout<<"sono nella create\n";
             project_ptr->prjID_set=true;
             project_ptr->prjID = obj["prjID"].toString().toStdString();
-            gui_ptr->start_timer();
+            //gui_ptr->start_timer();
         }
             break;
 
@@ -261,7 +261,7 @@ void Network::close_project(std::string prj) {
     project_ptr->prjID_set=false;
     project_ptr->delete_all();
     gui_ptr->delete_all_Gui();
-    gui_ptr->stop_timer();
+    //gui_ptr->stop_timer();
 
 }
 

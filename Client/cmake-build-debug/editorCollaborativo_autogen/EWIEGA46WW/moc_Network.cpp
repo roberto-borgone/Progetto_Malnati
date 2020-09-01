@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Network.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Network.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.3. It"
+#error "This file was generated using the moc from 5.9.7. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -47,7 +47,7 @@ QT_MOC_LITERAL(12, 88, 14), // "list_available"
 QT_MOC_LITERAL(13, 103, 24), // "std::vector<std::string>"
 QT_MOC_LITERAL(14, 128, 4), // "list"
 QT_MOC_LITERAL(15, 133, 9), // "getSocket"
-QT_MOC_LITERAL(16, 143, 11), // "QSslSocket&"
+QT_MOC_LITERAL(16, 143, 11), // "QTcpSocket&"
 QT_MOC_LITERAL(17, 155, 11), // "send_symbol"
 QT_MOC_LITERAL(18, 167, 3), // "pos"
 QT_MOC_LITERAL(19, 171, 3), // "prj"
@@ -68,7 +68,7 @@ QT_MOC_LITERAL(30, 291, 8) // "position"
     "logged_in\0std::string\0user\0wrong_log_in\0"
     "wrong_sub\0list_available\0"
     "std::vector<std::string>\0list\0getSocket\0"
-    "QSslSocket&\0send_symbol\0pos\0prj\0usr\0"
+    "QTcpSocket&\0send_symbol\0pos\0prj\0usr\0"
     "remove_symbol\0message_received\0"
     "ask_projects\0close_project\0project_to_get\0"
     "prj_name\0new_project\0prjID\0send_cursor\0"
@@ -79,7 +79,7 @@ QT_MOC_LITERAL(30, 291, 8) // "position"
 static const uint qt_meta_data_Network[] = {
 
  // content:
-       8,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
       15,   14, // methods
@@ -133,7 +133,7 @@ static const uint qt_meta_data_Network[] = {
 void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<Network *>(_o);
+        Network *_t = static_cast<Network *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->insert((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
@@ -142,7 +142,7 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 3: _t->wrong_log_in(); break;
         case 4: _t->wrong_sub(); break;
         case 5: _t->list_available((*reinterpret_cast< std::vector<std::string>(*)>(_a[1]))); break;
-        case 6: _t->getSocket((*reinterpret_cast< QSslSocket(*)>(_a[1]))); break;
+        case 6: _t->getSocket((*reinterpret_cast< QTcpSocket(*)>(_a[1]))); break;
         case 7: _t->send_symbol((*reinterpret_cast< Symbol(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< std::string(*)>(_a[3])),(*reinterpret_cast< std::string(*)>(_a[4]))); break;
         case 8: _t->remove_symbol((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
         case 9: _t->message_received(); break;
@@ -156,42 +156,42 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Network::*)(Symbol );
+            typedef void (Network::*_t)(Symbol );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Network::insert)) {
                 *result = 0;
                 return;
             }
         }
         {
-            using _t = void (Network::*)(string );
+            typedef void (Network::*_t)(string );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Network::erase)) {
                 *result = 1;
                 return;
             }
         }
         {
-            using _t = void (Network::*)(std::string );
+            typedef void (Network::*_t)(std::string );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Network::logged_in)) {
                 *result = 2;
                 return;
             }
         }
         {
-            using _t = void (Network::*)();
+            typedef void (Network::*_t)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Network::wrong_log_in)) {
                 *result = 3;
                 return;
             }
         }
         {
-            using _t = void (Network::*)();
+            typedef void (Network::*_t)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Network::wrong_sub)) {
                 *result = 4;
                 return;
             }
         }
         {
-            using _t = void (Network::*)(std::vector<std::string> );
+            typedef void (Network::*_t)(std::vector<std::string> );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Network::list_available)) {
                 *result = 5;
                 return;
@@ -200,14 +200,10 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject Network::staticMetaObject = { {
-    &QObject::staticMetaObject,
-    qt_meta_stringdata_Network.data,
-    qt_meta_data_Network,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+const QMetaObject Network::staticMetaObject = {
+    { &QObject::staticMetaObject, qt_meta_stringdata_Network.data,
+      qt_meta_data_Network,  qt_static_metacall, nullptr, nullptr}
+};
 
 
 const QMetaObject *Network::metaObject() const

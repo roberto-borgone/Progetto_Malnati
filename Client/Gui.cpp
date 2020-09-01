@@ -460,9 +460,10 @@ void Gui::delete_all_Gui() {
         textEdit->clear();
     }
 }
-
+/*Timer per invio periodico del cursore*/
+/*
 void Gui::start_timer() {
-    /*Timer per invio periodico del cursore*/
+   //
     cursor_timer->start(1000);
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
 }
@@ -470,5 +471,5 @@ void Gui::start_timer() {
 void Gui::stop_timer() {
     cursor_timer->stop();
 }
-
+*/
 

@@ -5,41 +5,21 @@
 		<Option title="DB_server"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\opt\;CMake Files\..\..\..\opt\anaconda3\;CMake Files\..\..\..\opt\anaconda3\lib\;CMake Files\..\..\..\opt\anaconda3\lib\cmake\;CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\;CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\;CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5WebSockets\;CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Network\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Qt\;CMake Files\..\..\..\..\..\Qt\5.12.3\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5WebSockets\;CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Network\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug"/>
+				<Option working_dir="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DB_server">
-				<Option output="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/DB_server" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug"/>
+				<Option output="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -49,32 +29,32 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_WEBSOCKETS_LIB"/>
 					<Add option="-DQT_NETWORK_LIB"/>
-					<Add directory="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/DB_server_autogen/include"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtCore"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/./mkspecs/macx-clang"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtGui"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtWidgets"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtWebSockets"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtNetwork"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.3/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtCore"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtGui"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtANGLE"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtWidgets"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtWebSockets"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtNetwork"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 DB_server"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 DB_server"/>
+					<CompileFile command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DB_server/fast">
-				<Option output="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/DB_server" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug"/>
+				<Option output="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -84,189 +64,212 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_WEBSOCKETS_LIB"/>
 					<Add option="-DQT_NETWORK_LIB"/>
-					<Add directory="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/DB_server_autogen/include"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtCore"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/./mkspecs/macx-clang"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtGui"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtWidgets"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtWebSockets"/>
-					<Add directory="/Users/davidemiro/opt/anaconda3/include/qt/QtNetwork"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.3/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtCore"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtGui"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtANGLE"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtWidgets"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtWebSockets"/>
+					<Add directory="C:/Qt/5.12.3/mingw73_64/include/QtNetwork"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed"/>
+					<Add directory="C:/Qt/Tools/mingw730_64/bin/../lib/gcc/x86_64-w64-mingw32/7.3.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 DB_server/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 DB_server/fast"/>
+					<CompileFile command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DB_server_autogen">
-				<Option working_dir="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug"/>
+				<Option working_dir="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 DB_server_autogen"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 DB_server_autogen"/>
+					<CompileFile command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Qt/Tools/mingw730_64/bin/mingw32-make.exe -f &quot;C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Client.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Client.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/DB_functions.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/DB_functions.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/DB_server.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/DB_server.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Project.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Project.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Service.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Service.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Symbol.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Symbol.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/TaskGeneric.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/TaskGeneric.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/main.cpp">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/main.cpp">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/sqlite3.c">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.c">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/sqlite3.h">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.h">
 			<Option target="DB_server"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/CMakeLists.txt">
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Core\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Core\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QCocoaIntegrationPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QMacJp2Plugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Gui\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Gui\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Widgets\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Widgets\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Widgets\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Widgets\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5WebSockets/Qt5WebSocketsConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5WebSockets\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Widgets\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5WebSockets/Qt5WebSocketsConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5WebSockets\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5WebSockets/Qt5WebSocketsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5WebSockets\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Network\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5WebSockets/Qt5WebSocketsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5WebSockets\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Network\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Network\"/>
 		</Unit>
-		<Unit filename="/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/../../../opt/anaconda3/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\opt\anaconda3\lib\cmake\Qt5Network\"/>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/../../../../../Qt/5.12.3/mingw73_64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Qt\5.12.3\mingw73_64\lib\cmake\Qt5Network\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

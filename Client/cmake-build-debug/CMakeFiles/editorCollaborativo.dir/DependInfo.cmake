@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/DB_Client.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Gui.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Gui.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Network.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Network.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Project.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Project.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/Symbol.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Symbol.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/main.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/main.cpp.o"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/DB_Client.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Gui.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Network.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Network.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Project.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Project.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Symbol.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/main.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
@@ -27,15 +27,15 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "editorCollaborativo_autogen/include"
-  "/Users/davidemiro/opt/anaconda3/include/qt"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtCore"
-  "/Users/davidemiro/opt/anaconda3/./mkspecs/macx-clang"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtGui"
-  "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtWidgets"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtCharts"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtWebSockets"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtNetwork"
+  "C:/Qt/5.12.3/mingw73_64/include"
+  "C:/Qt/5.12.3/mingw73_64/include/QtCore"
+  "C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"
+  "C:/Qt/5.12.3/mingw73_64/include/QtGui"
+  "C:/Qt/5.12.3/mingw73_64/include/QtANGLE"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWidgets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtCharts"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWebSockets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtNetwork"
   )
 
 # Targets to which this target links.

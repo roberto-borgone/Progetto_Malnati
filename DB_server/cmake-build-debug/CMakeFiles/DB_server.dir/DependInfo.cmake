@@ -5,9 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/sqlite3.c" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/sqlite3.c.o"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.c" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/sqlite3.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "AppleClang")
+set(CMAKE_C_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
@@ -21,27 +21,27 @@ set(CMAKE_TARGET_DEFINITIONS_C
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "DB_server_autogen/include"
-  "/Users/davidemiro/opt/anaconda3/include/qt"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtCore"
-  "/Users/davidemiro/opt/anaconda3/./mkspecs/macx-clang"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtGui"
-  "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtWidgets"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtWebSockets"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtNetwork"
+  "C:/Qt/5.12.3/mingw73_64/include"
+  "C:/Qt/5.12.3/mingw73_64/include/QtCore"
+  "C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"
+  "C:/Qt/5.12.3/mingw73_64/include/QtGui"
+  "C:/Qt/5.12.3/mingw73_64/include/QtANGLE"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWidgets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWebSockets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtNetwork"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Client.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Client.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/DB_functions.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_functions.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/DB_server.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Project.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Project.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Service.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Service.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/Symbol.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Symbol.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/TaskGeneric.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/TaskGeneric.cpp.o"
-  "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/main.cpp" "/Users/davidemiro/Desktop/Progetto_Malnati-master/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/main.cpp.o"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Client.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_functions.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/DB_server_autogen/mocs_compilation.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Project.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Service.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/Symbol.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/TaskGeneric.cpp.obj"
+  "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/main.cpp" "C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
@@ -55,14 +55,14 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "DB_server_autogen/include"
-  "/Users/davidemiro/opt/anaconda3/include/qt"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtCore"
-  "/Users/davidemiro/opt/anaconda3/./mkspecs/macx-clang"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtGui"
-  "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtWidgets"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtWebSockets"
-  "/Users/davidemiro/opt/anaconda3/include/qt/QtNetwork"
+  "C:/Qt/5.12.3/mingw73_64/include"
+  "C:/Qt/5.12.3/mingw73_64/include/QtCore"
+  "C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"
+  "C:/Qt/5.12.3/mingw73_64/include/QtGui"
+  "C:/Qt/5.12.3/mingw73_64/include/QtANGLE"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWidgets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWebSockets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtNetwork"
   )
 
 # Targets to which this target links.

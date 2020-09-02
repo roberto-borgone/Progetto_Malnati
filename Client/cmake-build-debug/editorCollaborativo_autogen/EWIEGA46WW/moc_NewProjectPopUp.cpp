@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'NewProjectPopUp.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'NewProjectPopUp.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.7. It"
+#error "This file was generated using the moc from 5.12.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -46,7 +46,7 @@ QT_MOC_LITERAL(4, 44, 8) // "prj_name"
 static const uint qt_meta_data_NewProjectPopUp[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
@@ -68,7 +68,7 @@ static const uint qt_meta_data_NewProjectPopUp[] = {
 void NewProjectPopUp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        NewProjectPopUp *_t = static_cast<NewProjectPopUp *>(_o);
+        auto *_t = static_cast<NewProjectPopUp *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->create_project((*reinterpret_cast< std::string(*)>(_a[1]))); break;
@@ -77,7 +77,7 @@ void NewProjectPopUp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (NewProjectPopUp::*_t)(std::string );
+            using _t = void (NewProjectPopUp::*)(std::string );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&NewProjectPopUp::create_project)) {
                 *result = 0;
                 return;
@@ -86,10 +86,14 @@ void NewProjectPopUp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     }
 }
 
-const QMetaObject NewProjectPopUp::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_NewProjectPopUp.data,
-      qt_meta_data_NewProjectPopUp,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject NewProjectPopUp::staticMetaObject = { {
+    &QDialog::staticMetaObject,
+    qt_meta_stringdata_NewProjectPopUp.data,
+    qt_meta_data_NewProjectPopUp,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *NewProjectPopUp::metaObject() const

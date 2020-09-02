@@ -157,7 +157,7 @@ void Network::message_received() {
                 i++;
             }
 
-            //gui_ptr->start_timer();
+            gui_ptr->start_timer();
         }
             break;
 

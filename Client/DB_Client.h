@@ -38,7 +38,7 @@ public:
     DB_Client() {
         widg->setLayout(layout);
         main_menu();
-        host_name = "127.0.1.1";
+        host_name = "127.0.0.1";
         port = 1290;
         logged=false;
         connected = false;

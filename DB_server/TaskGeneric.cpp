@@ -248,6 +248,7 @@ void TaskGeneric::run(){
 
         default:
             std::cout << "OPCODE NOT RECOGNIZED!!!!!" << std::endl;
+            std::cout<<QJsonDocument(this->message).toJson().toStdString()<<std::endl;
             break;
     }
 

@@ -174,7 +174,12 @@ QMenuBar *Gui::initMenuBar() {
     file->addAction("New", [this]() {
         emit new_project();
     }, QKeySequence::New); //da implementare funzionalità
-    file->addAction("Open", [this]() { emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
+    file->addAction("Open", [this]() {
+        if(project->prjID_set){
+            emit close_project(std::string(project->prjID));
+            project->prjID_set = false; //client can't now write on editor
+        }
+        emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
     file->addAction("Close", [this]() {
         emit close_project(std::string(project->prjID));
         project->prjID_set = false; //client can't now write on editor
@@ -216,6 +221,10 @@ QToolBar *Gui::initToolBar() {
         emit new_project();
     });
     toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {
+        if(project->prjID_set){
+            emit close_project(std::string(project->prjID));
+            project->prjID_set = false; //client can't now write on editor
+        }
         emit request_for_projects(std::string("user1"));
     });
     toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {

@@ -103,21 +103,21 @@ void DB_Client::send_log_in() {
     std::cout << "username: " << user.toStdString() << std::endl;
     std::cout << "password: " << pwd.toStdString() << std::endl;
     if (!connected) {
-        std::cout << QSslSocket::supportsSsl() << std::endl;
-        //ignore errors deriving from autosigned certficate
-        QList<QSslCertificate> cert = QSslCertificate::fromPath(
-                QLatin1String("certificates\\server.crt")); //make sure certificates folder is in your working dir
-        QSslError error(QSslError::SelfSignedCertificate, cert.at(0));
-        QSslError name_error(QSslError::HostNameMismatch, cert.at(0));
-        QList<QSslError> expectedSslErrors;
-        expectedSslErrors.append(error);
-        expectedSslErrors.append(name_error);
-        sslClient.ignoreSslErrors(expectedSslErrors);
-        sslClient.connectToHostEncrypted(host_name, port);
+//        std::cout << QSslSocket::supportsSsl() << std::endl;
+//        //ignore errors deriving from autosigned certficate
+//        QList<QSslCertificate> cert = QSslCertificate::fromPath(
+//                QLatin1String("certificates/server.crt")); //make sure certificates folder is in your working dir
+//        QSslError error(QSslError::SelfSignedCertificate, cert.at(0));
+//        QSslError name_error(QSslError::HostNameMismatch, cert.at(0));
+//        QList<QSslError> expectedSslErrors;
+//        expectedSslErrors.append(error);
+//        expectedSslErrors.append(name_error);
+        //sslClient.ignoreSslErrors(expectedSslErrors);
+        sslClient.connectToHost(host_name, port);
         //sslClient.connectToHostEncrypted("gmail.com", 443);
 
     // send data and wait for response
-    if (sslClient.waitForEncrypted(3000)) {
+    if (sslClient.waitForConnected(3000)) {
         std::cout << "connession established!!" << std::endl;
         emit move_socket(sslClient); //metto socket creato in network
         std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_log");
@@ -219,21 +219,30 @@ void DB_Client::send_subscribe() {
     std::cout << "username: " << user.toStdString() << std::endl;
     std::cout << "password: " << pwd.toStdString() << std::endl;
     if (!connected) {
-        std::cout << QSslSocket::supportsSsl() << std::endl;
+         //std::cout << QSslSocket::supportsSsl() << std::endl;
         //ignore errors deriving from autosigned certficate
+        /*
         QList<QSslCertificate> cert = QSslCertificate::fromPath(
-                QLatin1String("certificates\\server.crt")); //make sure certificates folder is in your working dir
+                QLatin1String("/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/certificates/project.pem")); //make sure certificates folder is in your working dir
+
         QSslError error(QSslError::SelfSignedCertificate, cert.at(0));
         QSslError name_error(QSslError::HostNameMismatch, cert.at(0));
         QList<QSslError> expectedSslErrors;
         expectedSslErrors.append(error);
         expectedSslErrors.append(name_error);
         sslClient.ignoreSslErrors(expectedSslErrors);
-        sslClient.connectToHostEncrypted(host_name, port);
+        */
+        /*
+        QList<QSslCertificate> cert = QSslCertificate::fromPath(
+                QLatin1String("/Users/davidemiro/Desktop/Progetto_Malnati-master/Client/certificates/myCA.pem"));
+        sslClient.addCaCertificates(cert);
+        */
+
+        sslClient.connectToHost(host_name, port);
         //sslClient.connectToHostEncrypted("gmail.com", 443);
 
         // send data and wait for response
-        if (sslClient.waitForEncrypted(3000)) {
+        if (sslClient.waitForConnected(3000)) {
             std::cout << "connession established!!" << std::endl;
             emit move_socket(sslClient); //metto socket creato in network
             std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_sub");

@@ -31,9 +31,9 @@ void Network::receiveCommand() {
 
 }
 
-void Network::getSocket(QSslSocket &s) {
+void Network::getSocket(QTcpSocket &s) {
     std::cout << "qui dovrei prendermi il socket\n" << s.tr;
-    socket_ptr = std::shared_ptr<QSslSocket>(&s);
+    socket_ptr = std::shared_ptr<QTcpSocket>(&s);
     QObject::connect(socket_ptr.get(), &QSslSocket::readyRead, this, &Network::message_received);
 }
 

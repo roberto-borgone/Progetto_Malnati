@@ -126,6 +126,7 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/in
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslConfiguration
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslKey
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslSocket
+CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QTcpSocket
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qabstractsocket.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qssl.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslcertificate.h
@@ -865,6 +866,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs_win.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslSocket
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QTcpSocket
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qabstractsocket.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qssl.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslcertificate.h
@@ -1099,6 +1101,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs_win.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QSslSocket
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/QTcpSocket
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qabstractsocket.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qssl.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qsslcertificate.h

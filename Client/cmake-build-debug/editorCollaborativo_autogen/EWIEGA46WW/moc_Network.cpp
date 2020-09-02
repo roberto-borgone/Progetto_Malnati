@@ -47,7 +47,7 @@ QT_MOC_LITERAL(12, 88, 14), // "list_available"
 QT_MOC_LITERAL(13, 103, 24), // "std::vector<std::string>"
 QT_MOC_LITERAL(14, 128, 4), // "list"
 QT_MOC_LITERAL(15, 133, 9), // "getSocket"
-QT_MOC_LITERAL(16, 143, 11), // "QSslSocket&"
+QT_MOC_LITERAL(16, 143, 11), // "QTcpSocket&"
 QT_MOC_LITERAL(17, 155, 11), // "send_symbol"
 QT_MOC_LITERAL(18, 167, 3), // "pos"
 QT_MOC_LITERAL(19, 171, 3), // "prj"
@@ -68,7 +68,7 @@ QT_MOC_LITERAL(30, 291, 8) // "position"
     "logged_in\0std::string\0user\0wrong_log_in\0"
     "wrong_sub\0list_available\0"
     "std::vector<std::string>\0list\0getSocket\0"
-    "QSslSocket&\0send_symbol\0pos\0prj\0usr\0"
+    "QTcpSocket&\0send_symbol\0pos\0prj\0usr\0"
     "remove_symbol\0message_received\0"
     "ask_projects\0close_project\0project_to_get\0"
     "prj_name\0new_project\0prjID\0send_cursor\0"
@@ -142,7 +142,7 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 3: _t->wrong_log_in(); break;
         case 4: _t->wrong_sub(); break;
         case 5: _t->list_available((*reinterpret_cast< std::vector<std::string>(*)>(_a[1]))); break;
-        case 6: _t->getSocket((*reinterpret_cast< QSslSocket(*)>(_a[1]))); break;
+        case 6: _t->getSocket((*reinterpret_cast< QTcpSocket(*)>(_a[1]))); break;
         case 7: _t->send_symbol((*reinterpret_cast< Symbol(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< std::string(*)>(_a[3])),(*reinterpret_cast< std::string(*)>(_a[4]))); break;
         case 8: _t->remove_symbol((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
         case 9: _t->message_received(); break;

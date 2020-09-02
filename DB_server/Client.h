@@ -39,7 +39,7 @@ public slots:
 
 private:
 
-    QSslSocket* socket;
+    QTcpSocket* socket;
     const Service& service;
     QString userId;
     std::shared_ptr<Project> project;

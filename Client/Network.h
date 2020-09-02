@@ -21,7 +21,7 @@
 
 class Network : public QObject {
 Q_OBJECT;
-    std::shared_ptr<QSslSocket> socket_ptr;
+    std::shared_ptr<QTcpSocket> socket_ptr;
     std::shared_ptr<Project> project_ptr;
     std::shared_ptr<Gui> gui_ptr;
 public:
@@ -47,7 +47,7 @@ signals:
 public slots:
 
     //void sendCommand(); //manda comando all' esterno
-    void getSocket(QSslSocket &s);
+    void getSocket(QTcpSocket &s);
 
     //creo slot che riceve il segnale send_symbol emesso in gui.cpp con il corrispondente simbolo e lo invia tramite socket_ptr
     void send_symbol(Symbol s, int pos, std::string prj, std::string usr);

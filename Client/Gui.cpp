@@ -14,6 +14,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     textEdit = new QTextEdit(this);
     project = new Project(textEdit->document(), this);
     cursor_timer = new QTimer();
+    cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
         if (removed > 0) {
             if (project->prjID_set) {
@@ -471,13 +472,11 @@ void Gui::delete_all_Gui() {
 }
 
 void Gui::start_timer() {
-    /*Timer per invio periodico del cursore*/
-    cursor_timer->start(1000);
-    cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
+   //
+    cursor_timer->start(10000);
 }
 
 void Gui::stop_timer() {
     cursor_timer->stop();
 }
-
 

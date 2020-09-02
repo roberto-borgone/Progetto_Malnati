@@ -8,7 +8,7 @@
 Client::Client(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, qintptr socketDescriptor, QObject* parent): QObject(parent), service(service), projects(projects), projects_mux(projects_mux), userId("") {
 
     // create the QSslSocket object
-    this->socket = new QSslSocket(this);
+    this->socket = new QTcpSocket(this);
 
     // since i'm not in the QTcpServer class anymore i can't use the pending connections
     // mechanism of QTcpServer so i have to link the connected signal of the socket directly
@@ -19,11 +19,6 @@ Client::Client(const Service& service, std::map<std::string, std::shared_ptr<Pro
 
     this->socket->setSocketDescriptor(socketDescriptor);
 
-    // start a secure connection
-    this->socket->setPrivateKey("certificates\\server.key", QSsl::Rsa); //make sure certificates folder is in your working dir
-    this->socket->setLocalCertificate("certificates\\server.crt");
-    this->socket->setPeerVerifyMode(QSslSocket::VerifyNone);
-    this->socket->startServerEncryption();
 }
 
 void Client::connected() {

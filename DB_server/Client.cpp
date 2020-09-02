@@ -13,7 +13,7 @@ Client::Client(const Service& service, std::map<std::string, std::shared_ptr<Pro
     // since i'm not in the QTcpServer class anymore i can't use the pending connections
     // mechanism of QTcpServer so i have to link the connected signal of the socket directly
     // to see the connection happening
-    connect(this->socket, SIGNAL(encrypted()), this, SLOT(connected()));
+    connect(this->socket, SIGNAL(connected()), this, SLOT(connected()));
     connect(this->socket, SIGNAL(disconnected()), this, SLOT(disconnected()));
     connect(this->socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
 

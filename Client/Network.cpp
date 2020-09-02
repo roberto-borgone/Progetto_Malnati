@@ -55,6 +55,7 @@ void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
 
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
+    socket_ptr->flush();
 
     /**PROVA DI ARRIVO DI PROGETTI DA SCEGLIERE*
     std::vector<std::string> list;
@@ -85,6 +86,7 @@ void Network::remove_symbol(Symbol s) {
 
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
+    socket_ptr->flush();
 }
 
 void Network::message_received() {
@@ -256,6 +258,7 @@ void Network::close_project(std::string prj) {
 
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
+    socket_ptr->flush();
 
     //delete project and stop timer for cursor
     project_ptr->prjID_set=false;
@@ -315,6 +318,7 @@ void Network::send_cursor(int position){
 
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
+    socket_ptr->flush();
 }
 
 

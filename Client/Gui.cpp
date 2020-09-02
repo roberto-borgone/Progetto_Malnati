@@ -473,7 +473,7 @@ void Gui::delete_all_Gui() {
 
 void Gui::start_timer() {
    //
-    cursor_timer->start(10000);
+    cursor_timer->start(1000);
 }
 
 void Gui::stop_timer() {

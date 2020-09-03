@@ -173,6 +173,10 @@ QMenuBar *Gui::initMenuBar() {
     //Uso addAction(nome,function,QKeySequence)
     QMenu *file = new QMenu("File", menuBar);
     file->addAction("New", [this]() {
+        if(project->prjID_set){
+            emit close_project(std::string(project->prjID));
+            project->prjID_set = false; //client can't now write on editor
+        }
         emit new_project();
     }, QKeySequence::New); //da implementare funzionalità
     file->addAction("Open", [this]() {
@@ -219,6 +223,10 @@ QToolBar *Gui::initToolBar() {
 
     //ToolBar -> |stile(default,barrato,corsivo,grassetto,sottolineato)|Font|dimensione|Colore|
     toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
+        if(project->prjID_set){
+            emit close_project(std::string(project->prjID));
+            project->prjID_set = false; //client can't now write on editor
+        }
         emit new_project();
     });
     toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {

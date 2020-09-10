@@ -219,7 +219,7 @@ void Network::message_received() {
             std::string user = obj["user"].toString().toStdString();
             int position = obj["position"].toInt(); /*PER DAVIDE: QUI SI HA DOVE SI TROVA IL CURSORE DI UN UTENTE DA MOSTRARE*/
 
-            emit change_cursor(user,position);
+            //emit change_cursor(user,position);
         }
             break;
 

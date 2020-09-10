@@ -39,7 +39,10 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             string add = c.selectedText().toStdString();
-            char32_t cd = add[0];
+
+            if (add == "\U00002029"){
+                add =="\n";
+            }
 
 
             if (add == "") return;
@@ -552,6 +555,7 @@ void Gui::add_user(std::string user, int pos) {
     int r = rand() %255;
     int g = rand() %255;
     int b = rand() %255;
+    user_color[user] = {r,g,b};
     item->setBackgroundColor(QColor::fromRgb(r,g,b));
     list->addItem(item);
 

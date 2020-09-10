@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.c
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/sqlite3.c
 config.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/config.h
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/config.h
 vxWorks.h
 -
 pthread.h
 -
 mingw.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/mingw.h
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/mingw.h
 _mingw.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/_mingw.h
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/_mingw.h
 stdarg.h
 -
 stdint.h
@@ -54,7 +54,7 @@ malloc.h
 pthread.h
 -
 windows.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/windows.h
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/windows.h
 sys/cygwin.h
 -
 errno.h
@@ -98,13 +98,13 @@ sys/statvfs.h
 dlfcn.h
 -
 sqlite_tcl.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite_tcl.h
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/sqlite_tcl.h
 tcl.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/tcl.h
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/tcl.h
 ctype.h
 -
 sqlite3rtree.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3rtree.h
+/Users/davidemiro/Desktop/progetto_malnati/DB_server/sqlite3rtree.h
 ctype.h
 -
 unicode/utypes.h

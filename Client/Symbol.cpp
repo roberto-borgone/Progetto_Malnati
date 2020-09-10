@@ -6,7 +6,8 @@
 
 Symbol::Symbol(char s, string font, bool bold, bool italic, bool underline, bool strike, string color,
                const vector<int> &frac, const string &project, const string &user) {
-    id = user + project + to_string(chrono::system_clock::now().time_since_epoch().count());
+
+    id = user +"/"+ project +"/" + to_string(chrono::system_clock::now().time_since_epoch().count());
     this->s = s;
     this->font = font;
     this->color = color;

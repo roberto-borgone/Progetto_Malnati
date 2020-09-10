@@ -69,6 +69,7 @@ void Project::eraseElements(int pos, int r) {
         emit remove_symbol(s);
         it ++;
     }*/
+
     for (int i = 0; i < r; i++) {
         auto it = text.begin() + pos;
         symbols.erase(it->getId());
@@ -156,4 +157,26 @@ int Project::remote_delete(Symbol s) {
 void Project::delete_all() {
     text.clear();
     symbols.clear();
+}
+
+void Project::markUsersText(map<string,vector<int>> colors) {
+    //Qui deve gestire il sottolineamento del testo,per farlo bisogna cambiare l' html.
+    //Ho modificato l' id = utente/progetto/tempo in modo tale da poter facilmente estrapolare l'utente che lo ha scritto
+    //Bisogna iterare su ogni simbolo
+    std::cout << document->toHtml().toStdString();
+    QString previousHTML = document->toHtml();
+    string html = document->toHtml().toStdString();
+    int start = html.find("<p");
+    int end = html.find("p>") + 2;
+    string paragraph = html.substr(start,end);
+
+
+    auto it = symbols.begin();
+    for (;it != symbols.end();it++){
+        string id = it->first;
+        string user  = id.substr(0, id.find("/"));
+
+    }
+    std::cout << document->toHtml().toStdString();
+
 }

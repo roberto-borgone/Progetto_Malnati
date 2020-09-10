@@ -4,6 +4,7 @@
 
 #include "Gui.h"
 #include <QDebug>
+#include <QTextCodec>
 
 
 Project *project = nullptr;
@@ -11,35 +12,41 @@ const QString rsrcPath = "../images";
 
 
 Gui::Gui(QWidget *parent) : QMainWindow(parent) {
-    textEdit = new QTextEdit(this);
+
+    centralWidget = new QWidget(this);
+    lh = new QHBoxLayout();
+    list = new QListWidget(centralWidget);
+    textEdit = new QTextEdit(centralWidget);
+
+    lh->addWidget(list);
+    lh->addWidget(textEdit);
+    centralWidget->setLayout(lh);
+    this->setCentralWidget(centralWidget);
     project = new Project(textEdit->document(), this);
     cursor_timer = new QTimer();
+
+
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
-        if (removed > 0) {
-            if (project->prjID_set) {
-                textEdit->undo();
-                QTextCursor c(textEdit->textCursor());
-                c.setPosition(pos);
-                c.setPosition(pos + removed, QTextCursor::KeepAnchor);
-                std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
-                project->eraseElements(pos, removed);
-                textEdit->redo();
-            }
 
-        }
         if (added > 0) {
 
             QTextCursor c(textEdit->textCursor());
+            cout << c.position();
             c.setPosition(pos);
             c.setPosition(pos + added, QTextCursor::KeepAnchor);
             //       cout << c.position() <<c.selectedText().toStdString() << endl;
+
+
             string add = c.selectedText().toStdString();
+            char32_t cd = add[0];
+
+
             if (add == "") return;
 
             //CONTROLLATE QUESTA PARTE QUI CREO SIMBOLO RELATIVO A CARATTERE DIGITATO DA UTENTE E GENERO FRAZIONARIO
             /*BUG: se si copiano e incollano più caratteri questo non viene gestito bene*/
-            qDebug() << c.selectedText();
+
             for (auto sp = add.end() - 1; sp >= add.begin(); sp--) {
                 std::cout << sp.base() << std::endl;
                 QTextCharFormat f = c.charFormat();
@@ -132,8 +139,8 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 std::cout << "invio carattere per controllo centrale su server..." << std::endl;
                 //creo il simbolo ed emetto segnale per inviarlo alla classe network che lo invierà al server
                 std::string proj = std::string(project->prjID); //qui si dovrà predere il progetto aperto dallo user
-                std::string user = std::string(
-                        "u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
+                //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
+
                 Symbol s = Symbol(*sp, f.font().family().toStdString(),
                                   f.fontWeight() == QFont::Weight::Bold,
                                   f.fontItalic(),
@@ -141,6 +148,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
                                   frac, proj, user);
+                std::cout<<s.getId();
 
                 if (project->prjID_set) {
                     emit send_symbol(s, pos, proj, user);
@@ -154,12 +162,26 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
             }
         }
+        if (removed > 0) {
+
+            if (project->prjID_set) {
+                textEdit->undo();
+                QTextCursor c(textEdit->textCursor());
+                c.setPosition(pos);
+                c.setPosition(pos + removed, QTextCursor::KeepAnchor);
+                std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
+                project->eraseElements(pos, removed);
+                textEdit->redo();
+            }
+
+        }
+
         cout << endl;
         for_each(project->text.begin(), project->text.end(),
                  [](Symbol s) -> void { s.print(); }); //per controllo informazioni,i due controlli sono andati a buon fine
 
     });
-    this->setCentralWidget(textEdit);
+    //this->setCentralWidget(textEdit);
     this->setMenuBar(initMenuBar());
     this->addToolBar(initToolBar());
 }
@@ -169,7 +191,7 @@ QMenuBar *Gui::initMenuBar() {
 
     QMenuBar *menuBar = new QMenuBar(this); // |File |Edit |View |
 
-    //Definizione QMenu File |New | Open | Close |Save | Export to PDF |
+    //Definizione QMenu |File |New | Open | Close |Save | Export to PDF |
     //Uso addAction(nome,function,QKeySequence)
     QMenu *file = new QMenu("File", menuBar);
     file->addAction("New", [this]() {
@@ -191,7 +213,13 @@ QMenuBar *Gui::initMenuBar() {
     }, QKeySequence::Close);
     file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
     file->addAction("Save as", []() { cout << "Save as"; }, QKeySequence::SaveAs);
-    file->addAction("Export to PDF", []() { cout << "er"; });
+    file->addAction("Export to PDF", [this]() {
+        QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+        QPdfWriter* writer = new QPdfWriter(QString(fileName));
+        QTextDocument *doc = this->textEdit->document();
+        doc->print(writer);
+    });
     menuBar->addMenu(file);
 
 
@@ -222,6 +250,17 @@ QToolBar *Gui::initToolBar() {
     QToolBar *toolBar = new QToolBar(this);
 
     //ToolBar -> |stile(default,barrato,corsivo,grassetto,sottolineato)|Font|dimensione|Colore|
+
+    toolBar->addAction(QIcon::fromTheme("Profile", QIcon("/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg")), "Profile", [=]() {
+        Profile f;
+        f.exec();
+
+
+    });
+    toolBar->addAction(QIcon::fromTheme("Collaborators", QIcon(rsrcPath + "/link.svg")), "Collaborators", [=]() {
+
+        //project->markUsersText(this->user_color);
+    });
     toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
         if(project->prjID_set){
             emit close_project(std::string(project->prjID));
@@ -330,13 +369,25 @@ QToolBar *Gui::initToolBar() {
     toolBar->addWidget(color);
 
     toolBar->addAction(QIcon::fromTheme("Left-align", QIcon(rsrcPath + "/left-align.svg")), "Left-align", [=]() {
-        overline();
+        QTextCursor cursor = textEdit->textCursor();
+        QTextBlockFormat textBlockFormat = cursor.blockFormat();
+        textBlockFormat.setAlignment(Qt::AlignLeft);//or another alignment
+        cursor.mergeBlockFormat(textBlockFormat);
+        this->textEdit->setTextCursor(cursor);
     });
     toolBar->addAction(QIcon::fromTheme("Justify", QIcon(rsrcPath + "/justify.svg")), "Justify", [=]() {
-        overline();
+        QTextCursor cursor = textEdit->textCursor();
+        QTextBlockFormat textBlockFormat = cursor.blockFormat();
+        textBlockFormat.setAlignment(Qt::AlignJustify);//or another alignment
+        cursor.mergeBlockFormat(textBlockFormat);
+        this->textEdit->setTextCursor(cursor);
     });
     toolBar->addAction(QIcon::fromTheme("Right-align", QIcon(rsrcPath + "/right-align.svg")), "Right-align", [=]() {
-        overline();
+        QTextCursor cursor = textEdit->textCursor();
+        QTextBlockFormat textBlockFormat = cursor.blockFormat();
+        textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
+        cursor.mergeBlockFormat(textBlockFormat);
+        this->textEdit->setTextCursor(cursor);
     });
 
     return toolBar;
@@ -376,6 +427,7 @@ void Gui::overline() {
     format.setFontStrikeOut(!format.fontStrikeOut());
     textEdit->setCurrentCharFormat(format);
 }
+
 
 void Gui::setTextSize(int size) {
     QTextCharFormat format = textEdit->currentCharFormat();
@@ -418,6 +470,20 @@ Project *Gui::getCurrentProject() {
 
 void Gui::logged_in(const std::string &user) {
     this->setVisible(true);
+    this->setWindowTitle(QString::fromStdString(user));
+    this->user = user;
+
+    //Qui prende l' immagine a caso,ma dovrebbe chiedere al DB per un utente dove è salvata l' immagine
+    std::string iconpath = "/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg";
+    QPixmap p(QString::fromStdString(iconpath));
+    QIcon ico(p);
+    QListWidgetItem* item = new QListWidgetItem(ico,QString::fromStdString(user));
+    int r = rand() %255;
+    int g = rand() %255;
+    int b = rand() %255;
+    item->setBackgroundColor(QColor::fromRgb(r,g,b));
+    list->addItem(item);
+    user_color[user] = {r,g,b};
 }
 
 void Gui::insert_in_Gui(int pos, Symbol s) {
@@ -478,7 +544,18 @@ void Gui::delete_all_Gui() {
         textEdit->clear();
     }
 }
+void Gui::add_user(std::string user, int pos) {
 
+    QPixmap p(QString::fromStdString("..path"));
+    QIcon ico(p);
+    QListWidgetItem* item = new QListWidgetItem(ico,QString::fromStdString(user));
+    int r = rand() %255;
+    int g = rand() %255;
+    int b = rand() %255;
+    item->setBackgroundColor(QColor::fromRgb(r,g,b));
+    list->addItem(item);
+
+}
 void Gui::start_timer() {
    //
     cursor_timer->start(1000);

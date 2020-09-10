@@ -43,6 +43,9 @@
 #include <QToolButton>
 #include <QStyle>
 #include <QTimer>
+#include <QPdfWriter>
+#include <QListWidgetItem>
+#include "Profile.h"
 
 #include "Project.h"
 
@@ -53,6 +56,11 @@ class Gui : public QMainWindow{
     QToolBar* initToolBar();
     QTextEdit *textEdit;
     QTimer* cursor_timer;
+    QListWidget* list;
+    QHBoxLayout* lh;
+    QWidget *centralWidget;
+    map<string,vector<int>> user_color;
+    string user;
 
 
 
@@ -78,9 +86,12 @@ public:
     void delete_all_Gui();
     void start_timer();
     void stop_timer();
+    void markTextUser();
 
 public slots:
     void logged_in(const std::string& user);
+    void add_user(std::string user, int pos);
+    void change_cursor(std::string user, int pos);
 
 signals:
     void send_symbol(Symbol s, int pos, std::string prj, std::string usr);

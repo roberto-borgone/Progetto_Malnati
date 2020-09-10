@@ -97,6 +97,7 @@ void DB_Client::subscribe_Window() {
 }
 
 void DB_Client::send_log_in() {
+
     QString user = widg->findChild<QLineEdit *>("username")->text();
     QString pwd = widg->findChild<QLineEdit *>("password")->text();
 
@@ -210,6 +211,7 @@ void DB_Client::send_log_in() {
             return;
         }
     }
+
 }
 
 void DB_Client::send_subscribe() {

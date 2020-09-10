@@ -39,6 +39,7 @@ public:
     Symbol get_symbol_in_pos(int pos);
     int remote_delete(Symbol s);
     void delete_all();
+    void markUsersText(map<string,vector<int>> colors);
 
     signals:
     void internalInsert(Symbol s);

@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Gui.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../../../Gui.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Gui.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.3. It"
+#error "This file was generated using the moc from 5.15.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Gui_t {
-    QByteArrayData data[17];
-    char stringdata0[141];
+    QByteArrayData data[18];
+    char stringdata0[150];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -47,13 +48,14 @@ QT_MOC_LITERAL(12, 96, 11), // "new_project"
 QT_MOC_LITERAL(13, 108, 8), // "time_out"
 QT_MOC_LITERAL(14, 117, 8), // "position"
 QT_MOC_LITERAL(15, 126, 9), // "logged_in"
-QT_MOC_LITERAL(16, 136, 4) // "user"
+QT_MOC_LITERAL(16, 136, 4), // "user"
+QT_MOC_LITERAL(17, 141, 8) // "add_user"
 
     },
     "Gui\0send_symbol\0\0Symbol\0s\0pos\0std::string\0"
     "prj\0usr\0no_project\0request_for_projects\0"
     "close_project\0new_project\0time_out\0"
-    "position\0logged_in\0user"
+    "position\0logged_in\0user\0add_user"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,7 +65,7 @@ static const uint qt_meta_data_Gui[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,15 +73,16 @@ static const uint qt_meta_data_Gui[] = {
        6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    4,   49,    2, 0x06 /* Public */,
-       9,    0,   58,    2, 0x06 /* Public */,
-      10,    1,   59,    2, 0x06 /* Public */,
-      11,    1,   62,    2, 0x06 /* Public */,
-      12,    0,   65,    2, 0x06 /* Public */,
-      13,    1,   66,    2, 0x06 /* Public */,
+       1,    4,   54,    2, 0x06 /* Public */,
+       9,    0,   63,    2, 0x06 /* Public */,
+      10,    1,   64,    2, 0x06 /* Public */,
+      11,    1,   67,    2, 0x06 /* Public */,
+      12,    0,   70,    2, 0x06 /* Public */,
+      13,    1,   71,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      15,    1,   69,    2, 0x0a /* Public */,
+      15,    1,   74,    2, 0x0a /* Public */,
+      17,    2,   77,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, 0x80000000 | 6, 0x80000000 | 6,    4,    5,    7,    8,
@@ -91,6 +94,7 @@ static const uint qt_meta_data_Gui[] = {
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 6,   16,
+    QMetaType::Void, 0x80000000 | 6, QMetaType::Int,   16,    5,
 
        0        // eod
 };
@@ -108,6 +112,7 @@ void Gui::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 4: _t->new_project(); break;
         case 5: _t->time_out((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->logged_in((*reinterpret_cast< const std::string(*)>(_a[1]))); break;
+        case 7: _t->add_user((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -158,7 +163,7 @@ void Gui::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
 }
 
 QT_INIT_METAOBJECT const QMetaObject Gui::staticMetaObject = { {
-    &QMainWindow::staticMetaObject,
+    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
     qt_meta_stringdata_Gui.data,
     qt_meta_data_Gui,
     qt_static_metacall,
@@ -186,13 +191,13 @@ int Gui::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }
@@ -200,7 +205,7 @@ int Gui::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void Gui::send_symbol(Symbol _t1, int _t2, std::string _t3, std::string _t4)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
@@ -213,14 +218,14 @@ void Gui::no_project()
 // SIGNAL 2
 void Gui::request_for_projects(std::string _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 
 // SIGNAL 3
 void Gui::close_project(std::string _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 
@@ -233,7 +238,7 @@ void Gui::new_project()
 // SIGNAL 5
 void Gui::time_out(int _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
 }
 QT_WARNING_POP

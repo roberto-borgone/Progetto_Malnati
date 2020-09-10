@@ -554,6 +554,7 @@ void Gui::add_user(std::string user, int pos) {
     int b = rand() %255;
     item->setBackgroundColor(QColor::fromRgb(r,g,b));
     list->addItem(item);
+    user_color[user] = {r,g,b};
 
 }
 void Gui::start_timer() {

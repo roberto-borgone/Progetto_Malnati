@@ -42,6 +42,7 @@ signals:
 
     void list_available(std::vector<std::string> list);
 
+    void change_cursor(std::string user, int position);
 
 
 public slots:

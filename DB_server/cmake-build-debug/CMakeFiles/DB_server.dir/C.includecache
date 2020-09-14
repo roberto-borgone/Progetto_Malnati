@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/sqlite3.c
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/sqlite3.c
 config.h
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/config.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/config.h
 vxWorks.h
 -
 pthread.h
 -
 mingw.h
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/mingw.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/mingw.h
 _mingw.h
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/_mingw.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/_mingw.h
 stdarg.h
 -
 stdint.h
@@ -54,7 +54,7 @@ malloc.h
 pthread.h
 -
 windows.h
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/windows.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/windows.h
 sys/cygwin.h
 -
 errno.h
@@ -98,13 +98,13 @@ sys/statvfs.h
 dlfcn.h
 -
 sqlite_tcl.h
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/sqlite_tcl.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/sqlite_tcl.h
 tcl.h
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/tcl.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/tcl.h
 ctype.h
 -
 sqlite3rtree.h
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/sqlite3rtree.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/sqlite3rtree.h
 ctype.h
 -
 unicode/utypes.h

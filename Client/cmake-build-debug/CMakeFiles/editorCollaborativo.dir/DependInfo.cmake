@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/DB_Client.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.o"
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/Gui.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Gui.cpp.o"
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/Network.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Network.cpp.o"
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/Profile.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Profile.cpp.o"
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/Project.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Project.cpp.o"
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/Symbol.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Symbol.cpp.o"
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o"
-  "/Users/davidemiro/Desktop/progetto_malnati/Client/main.cpp" "/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/main.cpp.o"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/DB_Client.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Gui.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Network.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Network.cpp.obj"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Profile.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Project.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Project.cpp.obj"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/Symbol.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/Symbol.cpp.obj"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj"
+  "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/main.cpp" "C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
@@ -28,20 +28,15 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "editorCollaborativo_autogen/include"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/./mkspecs/macx-clang"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtGui.framework"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers"
-  "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCharts.framework"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCharts.framework/Headers"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWebSockets.framework"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWebSockets.framework/Headers"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtNetwork.framework"
-  "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtNetwork.framework/Headers"
+  "C:/Qt/5.12.3/mingw73_64/include"
+  "C:/Qt/5.12.3/mingw73_64/include/QtCore"
+  "C:/Qt/5.12.3/mingw73_64/./mkspecs/win32-g++"
+  "C:/Qt/5.12.3/mingw73_64/include/QtGui"
+  "C:/Qt/5.12.3/mingw73_64/include/QtANGLE"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWidgets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtCharts"
+  "C:/Qt/5.12.3/mingw73_64/include/QtWebSockets"
+  "C:/Qt/5.12.3/mingw73_64/include/QtNetwork"
   )
 
 # Targets to which this target links.

@@ -566,3 +566,7 @@ void Gui::stop_timer() {
     cursor_timer->stop();
 }
 
+void Gui::change_cursor(std::string user, int pos) {
+
+}
+

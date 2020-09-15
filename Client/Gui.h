@@ -90,8 +90,8 @@ public:
 
 public slots:
     void logged_in(const std::string& user);
-    void add_user(std::string user, int pos);
-    //void change_cursor(std::string user, int pos);
+    void add_user(std::string user);
+    void change_cursor(std::string user, int pos);
 
 signals:
     void send_symbol(Symbol s, int pos, std::string prj, std::string usr);

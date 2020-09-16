@@ -1,3 +1,4 @@
-ToolSet: 1.0 (local)Options: 
+ToolSet: w64 6.0 (local)@C:\Qt\Tools\mingw730_64
+Options: 
 
-Options:-DCMAKE_PREFIX_PATH=/Users/davidemiro/Qt/5.15.0/clang_64/lib/cmake
+Options:

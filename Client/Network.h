@@ -18,12 +18,14 @@
 #include <QJsonObject>
 #include <memory>
 #include <QJsonParseError>
+#include <set>
 
 class Network : public QObject {
 Q_OBJECT;
     std::shared_ptr<QTcpSocket> socket_ptr;
     std::shared_ptr<Project> project_ptr;
     std::shared_ptr<Gui> gui_ptr;
+    std::set<string> users;
 public:
     Network(Project *project, Gui *gui);
 
@@ -43,6 +45,8 @@ signals:
     void list_available(std::vector<std::string> list);
 
     void change_cursor(std::string user, int position);
+
+    void new_user(std::string user);
 
 
 public slots:

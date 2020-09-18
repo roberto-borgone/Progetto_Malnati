@@ -39,7 +39,10 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             string add = c.selectedText().toStdString();
-            char32_t cd = add[0];
+
+            if (add == "\U00002029"){
+                add =="\n";
+            }
 
 
             if (add == "") return;
@@ -544,7 +547,7 @@ void Gui::delete_all_Gui() {
         textEdit->clear();
     }
 }
-void Gui::add_user(std::string user, int pos) {
+void Gui::add_user(std::string user) {
 
     QPixmap p(QString::fromStdString("..path"));
     QIcon ico(p);
@@ -552,6 +555,7 @@ void Gui::add_user(std::string user, int pos) {
     int r = rand() %255;
     int g = rand() %255;
     int b = rand() %255;
+    user_color[user] = {r,g,b};
     item->setBackgroundColor(QColor::fromRgb(r,g,b));
     list->addItem(item);
     user_color[user] = {r,g,b};
@@ -567,6 +571,15 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
+    int prevPos = textEdit->textCursor().position();
+    textEdit->textCursor().setPosition(pos);
+    QTextCharFormat fmr = textEdit->textCursor().charFormat();
+    int r = user_color[user][0];
+    int g = user_color[user][1];
+    int b = user_color[user][2];
+    fmr.setBackground(QBrush(QColor(r,g,b)));
+    textEdit->textCursor().setCharFormat(fmr);
+    textEdit->textCursor().setPosition(prevPos);
 
 }
 

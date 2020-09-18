@@ -159,7 +159,7 @@ void Network::message_received() {
                 i++;
             }
 
-            gui_ptr->start_timer();
+            //gui_ptr->start_timer();
         }
             break;
 
@@ -182,6 +182,10 @@ void Network::message_received() {
             //ricezione insrimento simbolo da remoto
             Symbol s(obj["symbol"].toObject());
             std::string user = obj["user"].toString().toStdString();
+            if(users.find(user) == users.end()){
+                users.insert(user);
+                emit new_user(user);
+            }
             int position = obj["position"].toInt();
 
             //passi per inserimento nel progetto
@@ -208,6 +212,10 @@ void Network::message_received() {
             //ricezione cancellazione simbolo da remoto
             Symbol s(obj["symbol"].toObject());
             std::string user = obj["user"].toString().toStdString();
+            if(users.find(user) == users.end()){
+                users.insert(user);
+                emit new_user(user);
+            }
             int pos=project_ptr->remote_delete(s); //funzione che si occuperà di cancellare il simbolo nel progetto
             if(pos>=0){ //cioè se il simbolo da eliminare non era già stato eliminato in precedenza
                 gui_ptr->delete_in_Gui(pos);
@@ -217,6 +225,10 @@ void Network::message_received() {
 
         case cursor: {
             std::string user = obj["user"].toString().toStdString();
+            if(users.find(user) == users.end()){
+                users.insert(user);
+                emit new_user(user);
+            }
             int position = obj["position"].toInt(); /*PER DAVIDE: QUI SI HA DOVE SI TROVA IL CURSORE DI UN UTENTE DA MOSTRARE*/
 
             emit change_cursor(user,position);

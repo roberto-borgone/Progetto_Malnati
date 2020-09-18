@@ -46,6 +46,8 @@ int main(int argc, char *argv[]) {
     //for C/S communication (symbols)
     QObject::connect(g, &Gui::send_symbol, network, &Network::send_symbol);
     QObject::connect(project, &Project::remove_symbol, network, &Network::remove_symbol);
+    QObject::connect(network,&Network::change_cursor,g,&Gui::change_cursor);
+    QObject::connect(network,&Network::new_user,g,&Gui::add_user);
 
     //for C/S communication (projects)
     QObject::connect(no_prj_pop_up, &PopUp::popUp_delete, g, &Gui::delete_in_Gui);

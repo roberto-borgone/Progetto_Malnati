@@ -65,7 +65,7 @@ void Client::forwardMessage(const QByteArray& message){
     auto childrens = this->parent()->findChildren<Client(*)>();
     foreach(auto obj, childrens){
         auto c = qobject_cast<Client*>(obj);
-        if(c->userId.toStdString() != "" && this->userId.toStdString() != c->userId.toStdString() && this->project->getId() == c->project->getId()){
+        if(c->userId.toStdString() != "" && this->userId.toStdString() != c->userId.toStdString() && c->project && this->project->getId() == c->project->getId()){
             c->sendMessage(message);
         }
     }

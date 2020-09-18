@@ -124,10 +124,16 @@ void TaskGeneric::run(){
                 }
             }
 
+            QJsonArray response_text;
+
+            for (Symbol s : new_project->text) {
+                response_text.push_back(s.toJson());
+            }
+
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(3)),
                                        qMakePair(QString("prjID"), this->message["prjID"]),
-                                       qMakePair(QString("text"), text_json)
+                                       qMakePair(QString("text"), response_text)
                                });
 
             this->project = new_project;

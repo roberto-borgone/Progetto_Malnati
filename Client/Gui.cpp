@@ -17,6 +17,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     lh = new QHBoxLayout();
     list = new QListWidget(centralWidget);
     textEdit = new QTextEdit(centralWidget);
+    show_collaborators=false;//show colored text or restore original text
 
     lh->addWidget(list);
     lh->addWidget(textEdit);
@@ -211,8 +212,10 @@ QMenuBar *Gui::initMenuBar() {
         }
         emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
     file->addAction("Close", [this]() {
-        emit close_project(std::string(project->prjID));
-        project->prjID_set = false; //client can't now write on editor
+        if(project->prjID_set) {
+            emit close_project(std::string(project->prjID));
+            project->prjID_set = false; //client can't now write on editor
+        }
     }, QKeySequence::Close);
     file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
     file->addAction("Save as", []() { cout << "Save as"; }, QKeySequence::SaveAs);
@@ -262,7 +265,7 @@ QToolBar *Gui::initToolBar() {
     });
     toolBar->addAction(QIcon::fromTheme("Collaborators", QIcon(rsrcPath + "/link.svg")), "Collaborators", [=]() {
 
-        //project->markUsersText(this->user_color);
+        markTextUser(user_color);
     });
     toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
         if(project->prjID_set){
@@ -279,8 +282,10 @@ QToolBar *Gui::initToolBar() {
         emit request_for_projects(std::string("user1"));
     });
     toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {
-        emit close_project(std::string(project->prjID));
-        project->prjID_set = false; //client can't now write on editor
+        if(project->prjID_set) {
+            emit close_project(std::string(project->prjID));
+            project->prjID_set = false; //client can't now write on editor
+        }
     });
     toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
                        [this]() { //valutare cambio icona a save-1 a prima modifica
@@ -580,6 +585,111 @@ void Gui::change_cursor(std::string user, int pos) {
     fmr.setBackground(QBrush(QColor(r,g,b)));
     textEdit->textCursor().setCharFormat(fmr);
     textEdit->textCursor().setPosition(prevPos);
+
+}
+
+void Gui::markTextUser(map<string,vector<int>> colors) {
+    //Qui deve gestire il sottolineamento del testo,per farlo bisogna cambiare l' html.
+    //Ho modificato l' id = utente/progetto/tempo in modo tale da poter facilmente estrapolare l'utente che lo ha scritto
+    //Bisogna iterare su ogni simbolo
+    /*std::cout << project->document->toHtml().toStdString();
+    QString previousHTML = document->toHtml();
+    string html = document->toHtml().toStdString();
+    int start = html.find("<p");
+    int end = html.find("p>") + 2;
+    string paragraph = html.substr(start,end);*/
+
+    //1) salvare cursore corrente
+    if (!show_collaborators) {
+        auto old_cursor = textEdit->textCursor(); //save old cursor
+        auto new_cursor = new QTextCursor(textEdit->document());//create new cursor
+        new_cursor->setPosition(0); //set position of new cursor
+
+        //2)iterare su ogni simbolo, estrapolare user e cambiare il colore
+        // (in alternativa sottolineare fino a che è lo stesso utente e cambiare poi il colore)
+        std::string delimiter = "/";
+        for (int current_pos = 0; current_pos < project->text.size(); current_pos++) {
+            int user_chars_count = 0;
+            std::string id = project->text[current_pos].getId();
+            std::string current_user = id.substr(0, id.find(delimiter));
+
+            while (current_pos < project->text.size()) {
+
+                if (current_pos + 1 == project->text.size())
+                    break;
+
+                std::string next_id = project->text[current_pos].getId();
+                std::string next_user = next_id.substr(0, next_id.find(delimiter));
+                if (next_user != user)
+                    break;
+
+                user_chars_count++;
+                current_pos++;
+            }
+
+            int pos = current_pos - user_chars_count;
+
+            QTextCursor c(textEdit->textCursor());
+            //c.setPosition(pos);
+            //c.setPosition(pos + user_chars_count, QTextCursor::KeepAnchor);
+            int r = colors[user][0];
+            int g = colors[user][1];
+            int b = colors[user][2];
+            QColor color(r, g, b);
+
+            new_cursor->setPosition(pos, QTextCursor::MoveAnchor);
+            new_cursor->setPosition(pos + user_chars_count, QTextCursor::KeepAnchor);
+            new_cursor->select(QTextCursor::BlockUnderCursor);
+            //
+            bool resume_signals = textEdit->document()->blockSignals(
+                    true); //block signal "contentsChange" to avoid infinite loop
+            QString text = new_cursor->selectedText();
+            new_cursor->removeSelectedText();
+            QColor old_color = textEdit->textColor();
+
+            new_cursor->insertHtml(QString("<span style=\"color:%1\">%2</span>").arg(color.name()).arg(text));
+
+            //std::cout<<"testo selezionato: "<< new_cursor->selectedText().toStdString()<<"\n";
+            textEdit->document()->blockSignals(resume_signals);
+
+        }
+
+        //3) ripristinare il cursore
+        textEdit->setTextCursor(old_cursor); //update editor cursor
+        show_collaborators=true;
+    } else {
+        //4)Distinguere il caso di una seconda pressione del pulsante per rimettere tutto apposto
+        bool resume_signals = textEdit->document()->blockSignals(
+                true); //block signal "contentsChange" to avoid infinite loop
+
+        delete_all_Gui();
+
+        auto old_cursor = textEdit->textCursor(); //save old cursor
+        auto new_cursor = new QTextCursor(textEdit->document());//create new cursor
+        new_cursor->setPosition(0); //set position of new cursor
+
+        for (auto s : project->text){
+            QTextCharFormat format;//create in Gui same format of symbol (font, bold, italic, underline, strike, color)
+            QFont q;
+            q.setFamily(s.getFont());
+            q.setBold(s.isBold());
+            q.setItalic(s.isItalic());
+            q.setUnderline(s.isUnderline());
+            q.setStrikeOut(s.isStrike());
+            format.setFont(q);
+            QBrush brush;
+            brush.setColor(QColor(s.getColor()));
+            format.setForeground(brush);
+            new_cursor->insertText(
+                    QChar(s.getChar()), format);
+
+        }
+
+        textEdit->document()->blockSignals(resume_signals);
+        show_collaborators= false;
+
+    }
+    //std::cout << document->toHtml().toStdString();
 
 }
 

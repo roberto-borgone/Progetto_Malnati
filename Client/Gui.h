@@ -61,6 +61,7 @@ class Gui : public QMainWindow{
     QWidget *centralWidget;
     map<string,vector<int>> user_color;
     string user;
+    bool show_collaborators;
 
 
 
@@ -86,7 +87,7 @@ public:
     void delete_all_Gui();
     void start_timer();
     void stop_timer();
-    void markTextUser();
+    void markTextUser(map<string,vector<int>> colors);
 
 public slots:
     void logged_in(const std::string& user);

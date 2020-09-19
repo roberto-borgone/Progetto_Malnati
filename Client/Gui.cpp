@@ -494,7 +494,7 @@ void Gui::logged_in(const std::string &user) {
     user_color[user] = {r,g,b};
 
     /**********prova di più user per Collaborators*****/
-    //add_user(std::string("posso"));
+    add_user(std::string("posso"));
 }
 
 void Gui::insert_in_Gui(int pos, Symbol s) {

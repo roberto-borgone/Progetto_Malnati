@@ -492,6 +492,9 @@ void Gui::logged_in(const std::string &user) {
     item->setBackgroundColor(QColor::fromRgb(r,g,b));
     list->addItem(item);
     user_color[user] = {r,g,b};
+
+    /**********prova di più user per Collaborators*****/
+    //add_user(std::string("posso"));
 }
 
 void Gui::insert_in_Gui(int pos, Symbol s) {
@@ -618,11 +621,17 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
                 if (current_pos + 1 == project->text.size())
                     break;
 
-                std::string next_id = project->text[current_pos].getId();
+                std::string next_id = project->text[current_pos+1].getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
-                if (next_user != user)
+                if (next_user != current_user)
                     break;
 
+                user_chars_count++;
+                current_pos++;
+            }
+
+            //spaces BEFORE a seleted text cannot be written again so better to have them only after a text
+            while(project->text[current_pos].getChar()==' '){
                 user_chars_count++;
                 current_pos++;
             }
@@ -632,24 +641,26 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
             QTextCursor c(textEdit->textCursor());
             //c.setPosition(pos);
             //c.setPosition(pos + user_chars_count, QTextCursor::KeepAnchor);
-            int r = colors[user][0];
-            int g = colors[user][1];
-            int b = colors[user][2];
+            int r = colors[current_user][0];
+            int g = colors[current_user][1];
+            int b = colors[current_user][2];
             QColor color(r, g, b);
 
             new_cursor->setPosition(pos, QTextCursor::MoveAnchor);
-            new_cursor->setPosition(pos + user_chars_count, QTextCursor::KeepAnchor);
-            new_cursor->select(QTextCursor::BlockUnderCursor);
+            int pos2 = pos+user_chars_count+1;
+            if(pos2>=project->text.size())
+                pos2--;
+            new_cursor->setPosition(pos2, QTextCursor::KeepAnchor);
+            //new_cursor->select(QTextCursor::BlockUnderCursor);
             //
             bool resume_signals = textEdit->document()->blockSignals(
                     true); //block signal "contentsChange" to avoid infinite loop
             QString text = new_cursor->selectedText();
+            std::cout<<"testo selezionato: "<<text.toStdString()<<"\n";
             new_cursor->removeSelectedText();
             QColor old_color = textEdit->textColor();
 
             new_cursor->insertHtml(QString("<span style=\"color:%1\">%2</span>").arg(color.name()).arg(text));
-
-            //std::cout<<"testo selezionato: "<< new_cursor->selectedText().toStdString()<<"\n";
             textEdit->document()->blockSignals(resume_signals);
 
         }

@@ -101,6 +101,7 @@ signals:
     void close_project(std::string prj);
     void new_project();
     void time_out(int position);
+    void add_my_user(std::string user);
 };
 
 

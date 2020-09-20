@@ -151,12 +151,20 @@ void Network::message_received() {
             project_ptr->prjID_set=true;
             project_ptr->prjID = obj["prjID"].toString().toStdString();
             QJsonArray symbols = obj["text"].toArray();
+            std::string delimiter = "/";
             int i=0;
             for(auto el : symbols){
                 Symbol s(el.toObject());
                 project_ptr->insert(i, s);
                 gui_ptr->insert_in_Gui(i,s);
                 i++;
+                //aggiungo user alla lista di user del progetto se non esistente
+                std::string id = s.getId();
+                std::string user = id.substr(0, id.find(delimiter));
+                if(users.find(user) == users.end()){
+                    users.insert(user);
+                    emit new_user(user);
+                }
             }
 
             //gui_ptr->start_timer();
@@ -333,6 +341,10 @@ void Network::send_cursor(int position){
     //send JOSN obj
     socket_ptr->write(message_to_send.toLatin1());
     socket_ptr->flush();
+}
+
+void Network::add_my_user(std::string user) {
+    users.insert(user);
 }
 
 

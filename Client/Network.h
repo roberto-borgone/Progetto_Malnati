@@ -77,6 +77,9 @@ public slots:
     //slot per l'invio cursore
     void send_cursor(int position);
 
+    //to add the user that just logged in in "user" set
+    void add_my_user(std::string user);
+
 };
 
 

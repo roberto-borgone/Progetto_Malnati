@@ -492,9 +492,10 @@ void Gui::logged_in(const std::string &user) {
     item->setBackgroundColor(QColor::fromRgb(r,g,b));
     list->addItem(item);
     user_color[user] = {r,g,b};
+    emit add_my_user(user);
 
     /**********prova di più user per Collaborators*****/
-    add_user(std::string("posso"));
+    //add_user(std::string("posso"));
 }
 
 void Gui::insert_in_Gui(int pos, Symbol s) {

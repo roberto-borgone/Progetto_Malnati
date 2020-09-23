@@ -397,28 +397,13 @@ void DB_Client::main_menu() {
 
 void DB_Client::failed_log_in() {
     connected = true;
-    if (widg->findChild<QTextEdit *>("wrong_credentials") == nullptr) {
-        QTextEdit *text = new QTextEdit();
-        text->viewport()->setAutoFillBackground(false);
-        text->setText("wrong username or password");
-        text->setObjectName("wrong_credentials");
-        layout->addWidget(text);
-        widg->setLayout(layout);
-        this->setCentralWidget(widg);
-    }
+    WrongCredentialsPopUp pop(false);
+    pop.exec();
 }
 
 void DB_Client::failed_subscribe() {
     connected = true;
-    if (widg->findChild<QTextEdit *>("existing_user") == nullptr) {
-        QTextEdit *text = new QTextEdit();
-        text->viewport()->setAutoFillBackground(false);
-        text->setText("Already existing user");
-        text->setObjectName("existing_user");
-        layout->addWidget(text);
-        widg->setLayout(layout);
-        this->setCentralWidget(widg);
-    }
-
+    WrongCredentialsPopUp pop(true);
+    pop.exec();
 }
 

@@ -23,6 +23,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QTcpSocket>
+#include "WrongCredentialsPopUp.h"
 
 
 class DB_Client : public QMainWindow {

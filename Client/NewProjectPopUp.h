@@ -17,7 +17,7 @@ Q_OBJECT;
     QLineEdit* lineEdit = new QLineEdit();
 public:
     NewProjectPopUp(): QDialog(){
-        setWindowTitle("No project open");
+        setWindowTitle("New Project");
         setWindowFlags(Qt::Dialog);
 
         QVBoxLayout* layout = new QVBoxLayout();

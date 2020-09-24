@@ -3,6 +3,7 @@
 //
 
 #include "Profile.h"
+#include <iostream>
 
 Profile::Profile():QDialog(){
     setWindowTitle("Profile information");
@@ -29,6 +30,10 @@ Profile::Profile():QDialog(){
 
     QPushButton* logout = new QPushButton(w);
     logout->setText("Logout");
+    QObject::connect(logout, &QPushButton::clicked, [this]() {
+        emit log_out();
+        this->close();
+    });
     grid->addWidget(logout,1,1);
 
     w->setLayout(layout);

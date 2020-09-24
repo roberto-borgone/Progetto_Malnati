@@ -12,10 +12,14 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QSizePolicy>
+
 class Profile :public QDialog{
+
+Q_OBJECT;
 public: Profile();
 
-
+signals:
+    void log_out();
 
 
 

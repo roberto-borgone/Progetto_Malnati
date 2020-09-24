@@ -17,7 +17,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     lh = new QHBoxLayout();
     list = new QListWidget(centralWidget);
     textEdit = new QTextEdit(centralWidget);
-    show_collaborators=false;//show colored text or restore original text
+    show_collaborators = false;//show colored text or restore original text
 
     lh->addWidget(list);
     lh->addWidget(textEdit);
@@ -41,8 +41,8 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
             string add = c.selectedText().toStdString();
 
-            if (add == "\U00002029"){
-                add =="\n";
+            if (add == "\U00002029") {
+                add == "\n";
             }
 
 
@@ -152,7 +152,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
                                   frac, proj, user);
-                std::cout<<s.getId();
+                std::cout << s.getId();
 
                 if (project->prjID_set) {
                     emit send_symbol(s, pos, proj, user);
@@ -199,30 +199,37 @@ QMenuBar *Gui::initMenuBar() {
     //Uso addAction(nome,function,QKeySequence)
     QMenu *file = new QMenu("File", menuBar);
     file->addAction("New", [this]() {
-        if(project->prjID_set){
+        if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
         }
         emit new_project();
     }, QKeySequence::New); //da implementare funzionalità
     file->addAction("Open", [this]() {
-        if(project->prjID_set){
+        if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
         }
-        emit request_for_projects(std::string("user1")); }, QKeySequence::Open);
+        emit request_for_projects(std::string("user1"));
+    }, QKeySequence::Open);
     file->addAction("Close", [this]() {
-        if(project->prjID_set) {
+        if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
+            //delete all the users of the project that appears in the GUI
+            for (auto it=user_color.begin(); it!=user_color.end(); it++){
+                if(it->first!=user){
+                    user_color.erase(it);
+                }
+            }
         }
     }, QKeySequence::Close);
     file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
     file->addAction("Save as", []() { cout << "Save as"; }, QKeySequence::SaveAs);
     file->addAction("Export to PDF", [this]() {
-        QString fileName = QFileDialog::getSaveFileName((QWidget* )0, "Export PDF", QString(), "*.pdf");
+        QString fileName = QFileDialog::getSaveFileName((QWidget *) 0, "Export PDF", QString(), "*.pdf");
         if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
-        QPdfWriter* writer = new QPdfWriter(QString(fileName));
+        QPdfWriter *writer = new QPdfWriter(QString(fileName));
         QTextDocument *doc = this->textEdit->document();
         doc->print(writer);
     });
@@ -257,34 +264,62 @@ QToolBar *Gui::initToolBar() {
 
     //ToolBar -> |stile(default,barrato,corsivo,grassetto,sottolineato)|Font|dimensione|Colore|
 
-    toolBar->addAction(QIcon::fromTheme("Profile", QIcon("/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg")), "Profile", [=]() {
-        Profile f;
-        f.exec();
+    toolBar->addAction(QIcon::fromTheme("Profile",
+                                        QIcon("/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg")),
+                       "Profile", [=]() {
+                auto f = new Profile();
 
+                //button logout
+                QObject::connect(f, &Profile::log_out, [this]() {
+                    emit disconnect_socket();
 
-    });
+                    //close current project
+                    if (project->prjID_set) {
+                        emit close_project(std::string(project->prjID));
+                        project->prjID_set = false; //client can't now write on editor
+                        //delete all the users of the project that appears in the GUI
+                        for (auto it=user_color.begin(); it!=user_color.end(); it++){
+                            if(it->first!=user){
+                                user_color.erase(it);
+                            }
+                        }
+                    }
+
+                    emit disconnected();
+                    this->setVisible(false);
+
+                });
+
+                f->exec();
+            });
     toolBar->addAction(QIcon::fromTheme("Collaborators", QIcon(rsrcPath + "/link.svg")), "Collaborators", [=]() {
 
         markTextUser(user_color);
     });
     toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
-        if(project->prjID_set){
+        if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
         }
         emit new_project();
     });
     toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {
-        if(project->prjID_set){
+        if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
         }
         emit request_for_projects(std::string("user1"));
     });
     toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {
-        if(project->prjID_set) {
+        if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
+            //delete all the users of the project that appears in the GUI
+            for (auto it=user_color.begin(); it!=user_color.end(); it++){
+                if(it->first!=user){
+                    user_color.erase(it);
+                }
+            }
         }
     });
     toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
@@ -483,16 +518,18 @@ void Gui::logged_in(const std::string &user) {
 
     //Qui prende l' immagine a caso,ma dovrebbe chiedere al DB per un utente dove è salvata l' immagine
     std::string iconpath = "/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg";
-    QPixmap p(QString::fromStdString(iconpath));
-    QIcon ico(p);
-    QListWidgetItem* item = new QListWidgetItem(ico,QString::fromStdString(user));
-    int r = rand() %255;
-    int g = rand() %255;
-    int b = rand() %255;
-    item->setBackgroundColor(QColor::fromRgb(r,g,b));
-    list->addItem(item);
-    user_color[user] = {r,g,b};
-    emit add_my_user(user);
+    if (user_color.find(user) == user_color.end()) {
+        QPixmap p(QString::fromStdString(iconpath));
+        QIcon ico(p);
+        QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
+        int r = rand() % 255;
+        int g = rand() % 255;
+        int b = rand() % 255;
+        item->setBackgroundColor(QColor::fromRgb(r, g, b));
+        list->addItem(item);
+        user_color[user] = {r, g, b};
+        emit add_my_user(user);
+    }
 
     /**********prova di più user per Collaborators*****/
     //add_user(std::string("posso"));
@@ -556,22 +593,24 @@ void Gui::delete_all_Gui() {
         textEdit->clear();
     }
 }
+
 void Gui::add_user(std::string user) {
 
     QPixmap p(QString::fromStdString("..path"));
     QIcon ico(p);
-    QListWidgetItem* item = new QListWidgetItem(ico,QString::fromStdString(user));
-    int r = rand() %255;
-    int g = rand() %255;
-    int b = rand() %255;
-    user_color[user] = {r,g,b};
-    item->setBackgroundColor(QColor::fromRgb(r,g,b));
+    QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
+    int r = rand() % 255;
+    int g = rand() % 255;
+    int b = rand() % 255;
+    user_color[user] = {r, g, b};
+    item->setBackgroundColor(QColor::fromRgb(r, g, b));
     list->addItem(item);
-    user_color[user] = {r,g,b};
+    user_color[user] = {r, g, b};
 
 }
+
 void Gui::start_timer() {
-   //
+    //
     cursor_timer->start(1000);
 }
 
@@ -586,13 +625,13 @@ void Gui::change_cursor(std::string user, int pos) {
     int r = user_color[user][0];
     int g = user_color[user][1];
     int b = user_color[user][2];
-    fmr.setBackground(QBrush(QColor(r,g,b)));
+    fmr.setBackground(QBrush(QColor(r, g, b)));
     textEdit->textCursor().setCharFormat(fmr);
     textEdit->textCursor().setPosition(prevPos);
 
 }
 
-void Gui::markTextUser(map<string,vector<int>> colors) {
+void Gui::markTextUser(map<string, vector<int>> colors) {
     //Qui deve gestire il sottolineamento del testo,per farlo bisogna cambiare l' html.
     //Ho modificato l' id = utente/progetto/tempo in modo tale da poter facilmente estrapolare l'utente che lo ha scritto
     //Bisogna iterare su ogni simbolo
@@ -622,7 +661,7 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
                 if (current_pos + 1 == project->text.size())
                     break;
 
-                std::string next_id = project->text[current_pos+1].getId();
+                std::string next_id = project->text[current_pos + 1].getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
                 if (next_user != current_user)
                     break;
@@ -632,7 +671,7 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
             }
 
             //spaces BEFORE a seleted text cannot be written again so better to have them only after a text
-            while(project->text[current_pos].getChar()==' '){
+            while (project->text[current_pos].getChar() == ' ') {
                 user_chars_count++;
                 current_pos++;
             }
@@ -648,8 +687,8 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
             QColor color(r, g, b);
 
             new_cursor->setPosition(pos, QTextCursor::MoveAnchor);
-            int pos2 = pos+user_chars_count+1;
-            if(pos2>=project->text.size())
+            int pos2 = pos + user_chars_count + 1;
+            if (pos2 >= project->text.size())
                 pos2--;
             new_cursor->setPosition(pos2, QTextCursor::KeepAnchor);
             //new_cursor->select(QTextCursor::BlockUnderCursor);
@@ -657,7 +696,7 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
             bool resume_signals = textEdit->document()->blockSignals(
                     true); //block signal "contentsChange" to avoid infinite loop
             QString text = new_cursor->selectedText();
-            std::cout<<"testo selezionato: "<<text.toStdString()<<"\n";
+            std::cout << "testo selezionato: " << text.toStdString() << "\n";
             new_cursor->removeSelectedText();
             QColor old_color = textEdit->textColor();
 
@@ -668,7 +707,7 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
 
         //3) ripristinare il cursore
         textEdit->setTextCursor(old_cursor); //update editor cursor
-        show_collaborators=true;
+        show_collaborators = true;
     } else {
         //4)Distinguere il caso di una seconda pressione del pulsante per rimettere tutto apposto
         bool resume_signals = textEdit->document()->blockSignals(
@@ -680,7 +719,7 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
         auto new_cursor = new QTextCursor(textEdit->document());//create new cursor
         new_cursor->setPosition(0); //set position of new cursor
 
-        for (auto s : project->text){
+        for (auto s : project->text) {
             QTextCharFormat format;//create in Gui same format of symbol (font, bold, italic, underline, strike, color)
             QFont q;
             q.setFamily(s.getFont());
@@ -698,7 +737,7 @@ void Gui::markTextUser(map<string,vector<int>> colors) {
         }
 
         textEdit->document()->blockSignals(resume_signals);
-        show_collaborators= false;
+        show_collaborators = false;
 
     }
     //std::cout << document->toHtml().toStdString();

@@ -30,6 +30,7 @@ public:
     Network(Project *project, Gui *gui);
 
     void receiveCommand(); //riceve comando da esterno e lo manda a project
+
 signals:
 
     void insert(Symbol s);
@@ -53,6 +54,9 @@ public slots:
 
     //void sendCommand(); //manda comando all' esterno
     void getSocket(QTcpSocket &s);
+
+    //void sendCommand(); //manda comando all' esterno
+    void disconnect();
 
     //creo slot che riceve il segnale send_symbol emesso in gui.cpp con il corrispondente simbolo e lo invia tramite socket_ptr
     void send_symbol(Symbol s, int pos, std::string prj, std::string usr);
@@ -79,6 +83,9 @@ public slots:
 
     //to add the user that just logged in in "user" set
     void add_my_user(std::string user);
+
+    //clear the users vector leaving only current user
+    void clear_users(std::string my_user);
 
 };
 

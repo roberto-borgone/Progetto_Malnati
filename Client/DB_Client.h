@@ -34,7 +34,7 @@ Q_OBJECT
     QString host_name;
     quint16 port;
     QTcpSocket sslClient;
-    bool logged, connected; //connected servirà a capire se si è già connessi (tentivo precedente di login o subscribe fallito) oppure no
+    bool logged, connected, logOut; //connected servirà a capire se si è già connessi (tentivo precedente di login o subscribe fallito) oppure no
 
 public:
     DB_Client() {
@@ -44,6 +44,7 @@ public:
         port = 1290;
         logged=false;
         connected = false;
+        logOut = false;
     }
 
 
@@ -64,6 +65,8 @@ public slots:
     void failed_log_in();
 
     void failed_subscribe();
+
+    void disconnected();
 
 signals:
 

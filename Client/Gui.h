@@ -102,6 +102,9 @@ signals:
     void new_project();
     void time_out(int position);
     void add_my_user(std::string user);
+    void disconnect_socket();
+    void disconnected();
+    void clear_users(std::string my_user);
 };
 
 

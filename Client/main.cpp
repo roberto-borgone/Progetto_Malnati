@@ -42,6 +42,9 @@ int main(int argc, char *argv[]) {
     QObject::connect(network, &Network::logged_in, db_client, &DB_Client::log_in_success);
     QObject::connect(network, &Network::wrong_log_in, db_client, &DB_Client::failed_log_in);
     QObject::connect(network, &Network::wrong_sub, db_client, &DB_Client::failed_subscribe);
+    QObject::connect(g, &Gui::disconnect_socket, network, &Network::disconnect);
+    QObject::connect(g, &Gui::disconnected, db_client, &DB_Client::disconnected);
+    QObject::connect(g, &Gui::clear_users, network, &Network::clear_users);
 
     //for C/S communication (symbols)
     QObject::connect(g, &Gui::send_symbol, network, &Network::send_symbol);

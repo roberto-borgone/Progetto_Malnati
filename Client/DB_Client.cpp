@@ -120,7 +120,11 @@ void DB_Client::send_log_in() {
     // send data and wait for response
     if (sslClient.waitForConnected(3000)) {
         std::cout << "connession established!!" << std::endl;
-        emit move_socket(sslClient); //metto socket creato in network
+        if(!logOut){
+            emit move_socket(sslClient); //metto socket creato in network
+            logOut= true;
+        }
+
         std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_log");
         QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_log");
 
@@ -133,6 +137,7 @@ void DB_Client::send_log_in() {
                                         });
 
         //print JSON object
+        std::cout << "connession established!!222222" << std::endl;
         QJsonDocument Doc(json_message);
         QString message_to_send= QString::fromLatin1(Doc.toJson());
         std::cout << message_to_send.toStdString() << std::endl;
@@ -341,32 +346,6 @@ void DB_Client::send_subscribe() {
 
 void DB_Client::log_in_success(const std::string &user) {
     logged = true;
-//change layout
-    QWidget *new_widget = new QWidget;
-
-    QTextEdit *text = new QTextEdit();
-    text->setText(QString::fromStdString("logged in as:" + user));
-    text->viewport()->setAutoFillBackground(false);
-    text->setReadOnly(true);
-    text->fontItalic();
-    text->frameWidth();
-
-    delete widg;
-    //create new widget and layout
-    widg = new QWidget;
-    layout = new QVBoxLayout;
-
-    layout_items.clear();
-
-    layout_items.append(text);
-
-    for (auto t : layout_items) {
-        layout->addWidget(t);
-    }
-
-    widg->setLayout(layout);
-    this->setCentralWidget(widg);
-
     this->setVisible(false);
 }
 
@@ -405,5 +384,11 @@ void DB_Client::failed_subscribe() {
     connected = true;
     WrongCredentialsPopUp pop(true);
     pop.exec();
+}
+
+void DB_Client::disconnected() {
+    connected=false;
+    logged=false;
+    this->show();
 }
 

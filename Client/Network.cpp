@@ -33,7 +33,9 @@ void Network::receiveCommand() {
 
 void Network::getSocket(QTcpSocket &s) {
     std::cout << "qui dovrei prendermi il socket\n" << s.tr;
+    //socket_ptr.reset();
     socket_ptr = std::shared_ptr<QTcpSocket>(&s);
+    std::cout << "qui dovrei prendermi il socket\n" << s.tr;
     QObject::connect(socket_ptr.get(), &QSslSocket::readyRead, this, &Network::message_received);
 }
 
@@ -347,5 +349,16 @@ void Network::add_my_user(std::string user) {
     users.insert(user);
 }
 
+void Network::disconnect() {
+    socket_ptr->disconnectFromHost(); //da controllare
+    socket_ptr->reset();
+}
 
+void Network::clear_users(std::string my_user){
+    for(auto it = users.begin(); it!=users.end(); it++){
+        if(*it!=my_user){
+            users.erase(it);
+        }
+    }
+}
 

@@ -88,6 +88,7 @@ public:
     void start_timer();
     void stop_timer();
     void markTextUser(map<string,vector<int>> colors);
+    std::string getUser();
 
 public slots:
     void logged_in(const std::string& user);

@@ -89,6 +89,7 @@ public:
     void stop_timer();
     void markTextUser(map<string,vector<int>> colors);
     std::string getUser();
+    void clear_users_list(bool also_user);
 
 public slots:
     void logged_in(const std::string& user);
@@ -105,7 +106,7 @@ signals:
     void add_my_user(std::string user);
     void disconnect_socket();
     void disconnected();
-    void clear_users(std::string my_user);
+    void clear_users(bool also_user);
 };
 
 

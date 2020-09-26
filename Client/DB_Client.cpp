@@ -251,7 +251,10 @@ void DB_Client::send_subscribe() {
         // send data and wait for response
         if (sslClient.waitForConnected(3000)) {
             std::cout << "connession established!!" << std::endl;
-            emit move_socket(sslClient); //metto socket creato in network
+            if(!logOut){
+                emit move_socket(sslClient); //metto socket creato in network
+                logOut= true;
+            }
             std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_sub");
             QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_sub");
 

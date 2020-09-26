@@ -358,11 +358,10 @@ void Network::disconnect() {
     socket_ptr->reset();
 }
 
-void Network::clear_users(std::string my_user){
-    for(auto it = users.begin(); it!=users.end(); it++){
-        if(*it!=my_user){
-            users.erase(it);
-        }
+void Network::clear_users(bool also_user){
+    users.clear();
+    if(!also_user){
+        users.insert(users.end(), gui_ptr->getUser());
     }
 }
 

@@ -283,13 +283,21 @@ int TaskGeneric::getOpCode(){
     if(this->message.contains("opcode") && this->message["opcode"].isDouble()){
 
         // shallow security checks
+
+        //cannot login or subscribe after logged
+        if(0 <= message["opcode"].toInt() && message["opcode"].toInt() <= 1){
+            if(this->userId != "")
+                return -2;
+        }
+
+        //cannot do any protected operation without authentication
         if(2 <= message["opcode"].toInt() && message["opcode"].toInt() <= 8){
             if(!this->message.contains("user"))
                 return -2;
             if(this->userId == "" || this->message["user"].toString() != this->userId)
                 return -2;
-            // controlli di sicurezza sul progetto, deve essere aperto dal client
-            // per poterci lavorare su
+
+            // cannot work on a project without opening it
             if(5 <= message["opcode"].toInt() && message["opcode"].toInt() <= 8){
                 if(!this->message.contains("prjID"))
                     return -3;
@@ -297,6 +305,7 @@ int TaskGeneric::getOpCode(){
                     return -3;
             }
         }
+
         return message["opcode"].toInt();
     }
 

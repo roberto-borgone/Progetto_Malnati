@@ -85,7 +85,7 @@ public slots:
     void add_my_user(std::string user);
 
     //clear the users vector leaving only current user
-    void clear_users(std::string my_user);
+    void clear_users(bool also_user);
 
 };
 

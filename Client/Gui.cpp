@@ -202,6 +202,12 @@ QMenuBar *Gui::initMenuBar() {
         if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
+            //delete all the users of the project that appears in the GUI (then need to update also GUI)
+            std::vector my_color = user_color.find(user)->second;
+            user_color.clear();
+            user_color[user] = my_color;
+            clear_users_list(false);
+            emit clear_users(false);
         }
         emit new_project();
     }, QKeySequence::New); //da implementare funzionalità
@@ -209,6 +215,12 @@ QMenuBar *Gui::initMenuBar() {
         if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
+            //delete all the users of the project that appears in the GUI (then need to update also GUI)
+            std::vector my_color = user_color.find(user)->second;
+            user_color.clear();
+            user_color[user] = my_color;
+            clear_users_list(false);
+            emit clear_users(false);
         }
         emit request_for_projects(std::string("user1"));
     }, QKeySequence::Open);
@@ -216,12 +228,12 @@ QMenuBar *Gui::initMenuBar() {
         if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
-            //delete all the users of the project that appears in the GUI
-            for (auto it=user_color.begin(); it!=user_color.end(); it++){
-                if(it->first!=user){
-                    user_color.erase(it);
-                }
-            }
+            //delete all the users of the project that appears in the GUI (then need to update also GUI)
+            std::vector my_color = user_color.find(user)->second;
+            user_color.clear();
+            user_color[user] = my_color;
+            clear_users_list(false);
+            emit clear_users(false);
         }
     }, QKeySequence::Close);
     file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
@@ -277,13 +289,12 @@ QToolBar *Gui::initToolBar() {
                     if (project->prjID_set) {
                         emit close_project(std::string(project->prjID));
                         project->prjID_set = false; //client can't now write on editor
-                        //delete all the users of the project that appears in the GUI
-                        for (auto it=user_color.begin(); it!=user_color.end(); it++){
-                            if(it->first!=user){
-                                user_color.erase(it);
-                            }
-                        }
                     }
+
+                    //delete all the users of the project that appears in the GUI (then need to update also GUI)
+                    user_color.clear();
+                    clear_users_list(true);
+                    emit clear_users(true);
 
                     emit disconnected();
                     this->setVisible(false);
@@ -300,6 +311,12 @@ QToolBar *Gui::initToolBar() {
         if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
+            //delete all the users of the project that appears in the GUI (then need to update also GUI)
+            std::vector my_color = user_color.find(user)->second;
+            user_color.clear();
+            user_color[user] = my_color;
+            clear_users_list(false);
+            emit clear_users(false);
         }
         emit new_project();
     });
@@ -307,6 +324,12 @@ QToolBar *Gui::initToolBar() {
         if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
+            //delete all the users of the project that appears in the GUI (then need to update also GUI)
+            std::vector my_color = user_color.find(user)->second;
+            user_color.clear();
+            user_color[user] = my_color;
+            clear_users_list(false);
+            emit clear_users(false);
         }
         emit request_for_projects(std::string("user1"));
     });
@@ -314,12 +337,12 @@ QToolBar *Gui::initToolBar() {
         if (project->prjID_set) {
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
-            //delete all the users of the project that appears in the GUI
-            for (auto it=user_color.begin(); it!=user_color.end(); it++){
-                if(it->first!=user){
-                    user_color.erase(it);
-                }
-            }
+            //delete all the users of the project that appears in the GUI (then need to update also GUI)
+            std::vector my_color = user_color.find(user)->second;
+            user_color.clear();
+            user_color[user] = my_color;
+            clear_users_list(false);
+            emit clear_users(false);
         }
     });
     toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
@@ -652,26 +675,32 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
         // (in alternativa sottolineare fino a che è lo stesso utente e cambiare poi il colore)
         std::string delimiter = "/";
         for (int current_pos = 0; current_pos < project->text.size(); current_pos++) {
+            if (current_pos != 0) {
+                current_pos--;
+            }
             int user_chars_count = 0;
             std::string id = project->text[current_pos].getId();
             std::string current_user = id.substr(0, id.find(delimiter));
 
             while (current_pos < project->text.size()) {
 
-                if (current_pos + 1 == project->text.size())
+                if (current_pos == project->text.size())
                     break;
 
-                std::string next_id = project->text[current_pos + 1].getId();
+                std::string next_id = project->text[current_pos].getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
-                if (next_user != current_user)
+                if (next_user != current_user) {
+                    //user_chars_count--;
+                    //current_pos--;
                     break;
-
+                }
                 user_chars_count++;
                 current_pos++;
             }
 
-            //spaces BEFORE a seleted text cannot be written again so better to have them only after a text
-            while (project->text[current_pos].getChar() == ' ') {
+
+            //spaces BEFORE a selected text cannot be written again so better to have them only after a text
+            while (current_pos != project->text.size() && project->text[current_pos].getChar() == ' ') {
                 user_chars_count++;
                 current_pos++;
             }
@@ -687,8 +716,8 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             QColor color(r, g, b);
 
             new_cursor->setPosition(pos, QTextCursor::MoveAnchor);
-            int pos2 = pos + user_chars_count + 1;
-            if (pos2 >= project->text.size())
+            int pos2 = pos + user_chars_count;
+            if (pos2 > project->text.size())
                 pos2--;
             new_cursor->setPosition(pos2, QTextCursor::KeepAnchor);
             //new_cursor->select(QTextCursor::BlockUnderCursor);
@@ -742,5 +771,16 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
     }
     //std::cout << document->toHtml().toStdString();
 
+}
+
+std::string Gui::getUser() {
+    return user;
+}
+
+void Gui::clear_users_list(bool also_user) {
+    auto my_user = list->takeItem(0);
+    list->clear();
+    if (!also_user)
+        list->addItem(my_user);
 }
 

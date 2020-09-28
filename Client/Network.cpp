@@ -71,7 +71,7 @@ void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
 
 void Network::remove_symbol(Symbol s) {
     std::string prj = std::string(project_ptr->prjID);
-    std::string usr = std::string("u1"); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
+    std::string usr = gui_ptr->getUser(); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
     //create JSON object of type remove
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(7)),
@@ -290,6 +290,10 @@ void Network::close_project(std::string prj) {
     gui_ptr->delete_all_Gui();
     gui_ptr->stop_timer();
 
+    //delete list of users
+    users.clear();
+    users.insert(users.end(), gui_ptr->getUser());
+
 }
 
 void Network::project_to_get(std::string prj_name) {
@@ -354,11 +358,10 @@ void Network::disconnect() {
     socket_ptr->reset();
 }
 
-void Network::clear_users(std::string my_user){
-    for(auto it = users.begin(); it!=users.end(); it++){
-        if(*it!=my_user){
-            users.erase(it);
-        }
+void Network::clear_users(bool also_user){
+    users.clear();
+    if(!also_user){
+        users.insert(users.end(), gui_ptr->getUser());
     }
 }
 

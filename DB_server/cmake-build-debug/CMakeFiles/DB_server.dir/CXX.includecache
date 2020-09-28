@@ -1406,13 +1406,13 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.cpp
 Client.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.h
 DB_server.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_server.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.h
 QObject
 -
 QSslSocket
@@ -1432,15 +1432,19 @@ QJsonDocument
 QJsonObject
 -
 TaskGeneric.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/TaskGeneric.h
 Service.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Service.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_functions.cpp
+DB_functions.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_functions.h
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_functions.h
 iostream
 -
 sqlite3.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/sqlite3.h
 functional
 -
 string
@@ -1452,11 +1456,11 @@ QtCore/QByteArray
 QStringList
 -
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_server.cpp
 DB_server.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_server.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_server.h
 iostream
 -
 sstream
@@ -1492,27 +1496,41 @@ QSslCertificate
 QElapsedTimer
 -
 DB_functions.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_functions.h
 Client.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.h
 Service.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Service.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Project.cpp
+Project.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Project.h
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Project.h
 mutex
 -
 Symbol.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Symbol.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Service.cpp
+QtCore/QJsonDocument
+-
+Service.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Service.h
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Service.h
 QByteArray
 -
 QJsonObject
 -
 DB_functions.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_functions.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Symbol.cpp
+Symbol.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Symbol.h
+
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Symbol.h
 vector
 -
 string
@@ -1530,15 +1548,15 @@ QJsonArray
 QJsonValue
 -
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/TaskGeneric.cpp
 TaskGeneric.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/TaskGeneric.h
 Project.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Project.h
 QtCore/QJsonArray
 -
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/TaskGeneric.h
 QRunnable
 -
 QObject
@@ -1554,51 +1572,51 @@ memory
 mutex
 -
 Service.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Service.h
 Project.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Project.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_Client.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_Client.cpp
 ../../../Client.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/Client.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_DB_server.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_DB_server.cpp
 ../../../DB_server.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_server.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_TaskGeneric.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_TaskGeneric.cpp
 ../../../TaskGeneric.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/TaskGeneric.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp
 EWIEGA46WW/moc_Client.cpp
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_Client.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_Client.cpp
 EWIEGA46WW/moc_DB_server.cpp
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_DB_server.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_DB_server.cpp
 EWIEGA46WW/moc_TaskGeneric.cpp
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_TaskGeneric.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_TaskGeneric.cpp
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/main.cpp
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/main.cpp
 iostream
 -
 DB_functions.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_functions.h
 DB_server.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/DB_server.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.h
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/sqlite3.h
 stdarg.h
 -
 

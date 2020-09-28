@@ -5,5 +5,7 @@
 #include "EWIEGA46WW/moc_Network.cpp"
 #include "EWIEGA46WW/moc_NewProjectPopUp.cpp"
 #include "EWIEGA46WW/moc_PopUp.cpp"
+#include "EWIEGA46WW/moc_Profile.cpp"
 #include "EWIEGA46WW/moc_Project.cpp"
 #include "EWIEGA46WW/moc_ProjectsPopup.cpp"
+#include "EWIEGA46WW/moc_WrongCredentialsPopUp.cpp"

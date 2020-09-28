@@ -25,10 +25,11 @@ class Client: public QObject {
 public:
     Client(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, qintptr socketDescriptor, QObject* parent = nullptr);
 
+    ~Client() override;
+
 signals:
 
 public slots:
-    void connected();
     void disconnected();
     void readyRead();
 
@@ -36,6 +37,7 @@ public slots:
     void forwardMessage(const QByteArray& message);
     void sendMessage(const QByteArray& message);
     void login(QString user);
+    void killClient();
 
 private:
 
@@ -45,6 +47,7 @@ private:
     std::shared_ptr<Project> project;
     std::map<std::string, std::shared_ptr<Project>>& projects;
     std::mutex& projects_mux;
+    qintptr socketDescriptor;
 
 };
 

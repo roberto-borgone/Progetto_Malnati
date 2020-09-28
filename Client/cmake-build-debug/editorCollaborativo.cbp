@@ -170,6 +170,9 @@
 		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Symbol.h">
 			<Option target="editorCollaborativo"/>
 		</Unit>
+		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/Client/WrongCredentialsPopUp.h">
+			<Option target="editorCollaborativo"/>
+		</Unit>
 		<Unit filename="C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp">
 			<Option target="editorCollaborativo"/>
 		</Unit>

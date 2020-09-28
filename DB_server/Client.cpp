@@ -5,7 +5,7 @@
 #include "Client.h"
 #include "DB_server.h"
 
-Client::Client(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, qintptr socketDescriptor, QObject* parent): QObject(parent), service(service), projects(projects), projects_mux(projects_mux), userId("") {
+Client::Client(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, qintptr socketDescriptor, QObject* parent): QObject(parent), service(service), projects(projects), projects_mux(projects_mux), userId(""), socketDescriptor(socketDescriptor) {
 
     // create the QSslSocket object
     this->socket = new QTcpSocket(this);
@@ -13,22 +13,54 @@ Client::Client(const Service& service, std::map<std::string, std::shared_ptr<Pro
     // since i'm not in the QTcpServer class anymore i can't use the pending connections
     // mechanism of QTcpServer so i have to link the connected signal of the socket directly
     // to see the connection happening
-    connect(this->socket, SIGNAL(connected()), this, SLOT(connected()));
     connect(this->socket, SIGNAL(disconnected()), this, SLOT(disconnected()));
     connect(this->socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
 
     this->socket->setSocketDescriptor(socketDescriptor);
 
-}
-
-void Client::connected() {
-    std::cout << "New Client connected at: " << this->socket->socketDescriptor() << std::endl;
+    std::cout << "New Client connected at: " << this->socketDescriptor << std::endl;
 }
 
 void Client::disconnected() {
-    std::cout << "Client disconnected from: " << this->socket->socketDescriptor() << std::endl;
-    this->socket->deleteLater();
-    this->deleteLater();
+
+    if(this->project){
+        //automatic saving of the project
+
+        QJsonObject json_message;
+
+        json_message = QJsonObject({
+                                   qMakePair(QString("opcode"), QJsonValue(5)),
+                                   qMakePair(QString("user"), QJsonValue(this->userId)),
+                                   qMakePair(QString("prjID"), QJsonValue(QString::fromStdString(this->project->getId()))),
+                           });
+
+        auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, this->userId, json_message);
+
+        task->setAutoDelete(true);
+
+        // i don't want to block the main thread while saving, i will
+        // release the resources once the saving is finished by mean of the killClient() function
+        connect(task, SIGNAL(finished()), this, SLOT(killClient()));
+
+        QThreadPool::globalInstance()->start(task);
+
+    }else {
+        // release resources
+        std::cout << "Client disconnected from: " << this->socketDescriptor << std::endl;
+        this->socket->deleteLater();
+        this->deleteLater();
+    }
+}
+
+void Client::killClient() {
+
+    // i don't want to save the project if one of the clients causes an error
+    // moreover if this slot is called after an automatic saving by disconnection
+    // it causes the disconnected() slot to just release the resources
+    if(this->project)
+        this->project.reset();
+
+    this->socket->disconnectFromHost();
 }
 
 void Client::readyRead() {
@@ -39,13 +71,14 @@ void Client::readyRead() {
 
     std::cout << "Message: \n" << document_message.toJson().toStdString() << std::endl;
 
-    auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, json_message);
+    auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, this->userId, json_message);
 
     task->setAutoDelete(true);
 
     connect(task, SIGNAL(login(QString)), this, SLOT(login(QString)));
     connect(task, SIGNAL(returnResult(QByteArray)), this, SLOT(taskCompleted(QByteArray)));
     connect(task, SIGNAL(forwardMessage(QByteArray)), this, SLOT(forwardMessage(QByteArray)));
+    connect(task, SIGNAL(killClient()), this, SLOT(killClient()));
     QThreadPool::globalInstance()->start(task);
 
     std::cout << "New task created for client at " << this->socket->socketDescriptor() << std::endl;
@@ -78,4 +111,8 @@ void Client::sendMessage(const QByteArray& message){
 void Client::login(QString user){
     this->userId = user;
     std::cout << "Client Logged, user: " << this->userId.toStdString() << std::endl;
+}
+
+Client::~Client() {
+    std::cout << "Client destroyed at: " << this->socketDescriptor << std::endl;
 }

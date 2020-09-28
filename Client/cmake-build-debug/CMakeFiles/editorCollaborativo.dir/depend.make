@@ -140,6 +140,8 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/in
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtNetwork/qtnetworkglobal.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QApplication
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QBoxLayout
+CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialog
+CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialogButtonBox
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLabel
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLineEdit
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QMainWindow
@@ -151,6 +153,8 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/in
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qapplication.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qboxlayout.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdesktopwidget.h
+CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialog.h
+CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialogbuttonbox.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qframe.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qgridlayout.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlabel.h
@@ -168,6 +172,7 @@ CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/in
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qwidget.h
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../DB_Client.h
+CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj: ../WrongCredentialsPopUp.h
 
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QDebug
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QJsonArray
@@ -1124,14 +1129,17 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../ProjectsPopup.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../Symbol.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: ../WrongCredentialsPopUp.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_ClickableLabel.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_DB_Client.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Gui.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Network.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_NewProjectPopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_PopUp.cpp
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Profile.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_Project.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_ProjectsPopup.cpp
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_WrongCredentialsPopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/mocs_compilation.cpp
 
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
@@ -1374,5 +1382,6 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Profile.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../ProjectsPopup.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../Symbol.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../WrongCredentialsPopUp.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: ../main.cpp
 

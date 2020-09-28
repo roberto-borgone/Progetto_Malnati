@@ -16,8 +16,10 @@
 #define INSERT 6
 #define DELETE 7
 #define CURSOR 8
+#define AUTHORIZATION_ERROR -2
+#define PROJECT_ERROR -3
 
-TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), message(std::move(message)){}
+TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), userId(userId), message(std::move(message)){}
 
 void TaskGeneric::run(){
 
@@ -252,9 +254,24 @@ void TaskGeneric::run(){
             emit forwardMessage(QJsonDocument(this->message).toJson());
             break;
 
-        default:
-            std::cout << "OPCODE NOT RECOGNIZED!!!!!" << std::endl;
+        case AUTHORIZATION_ERROR:
+
+            std::cout << "AUTHORIZATION ERROR!" << std::endl;
             std::cout<<QJsonDocument(this->message).toJson().toStdString()<<std::endl;
+            emit killClient();
+            break;
+
+        case PROJECT_ERROR:
+
+            std::cout << "PROJECT ERROR!" << std::endl;
+            std::cout<<QJsonDocument(this->message).toJson().toStdString()<<std::endl;
+            emit killClient();
+            break;
+
+        default:
+            std::cout << "OPCODE NOT RECOGNIZED!" << std::endl;
+            std::cout<<QJsonDocument(this->message).toJson().toStdString()<<std::endl;
+            emit killClient();
             break;
     }
 
@@ -264,8 +281,28 @@ void TaskGeneric::run(){
 int TaskGeneric::getOpCode(){
 
     if(this->message.contains("opcode") && this->message["opcode"].isDouble()){
-        return this->message["opcode"].toInt();
+
+        // shallow security checks
+        if(2 <= message["opcode"].toInt() && message["opcode"].toInt() <= 8){
+            if(!this->message.contains("user"))
+                return -2;
+            if(this->userId == "" || this->message["user"].toString() != this->userId)
+                return -2;
+            // controlli di sicurezza sul progetto, deve essere aperto dal client
+            // per poterci lavorare su
+            if(5 <= message["opcode"].toInt() && message["opcode"].toInt() <= 8){
+                if(!this->message.contains("prjID"))
+                    return -3;
+                if(!this->project || this->message["prjID"].toString().toStdString() != this->project->getId())
+                    return -3;
+            }
+        }
+        return message["opcode"].toInt();
     }
 
     return -1;
+}
+
+TaskGeneric::~TaskGeneric() {
+    emit finished();
 }

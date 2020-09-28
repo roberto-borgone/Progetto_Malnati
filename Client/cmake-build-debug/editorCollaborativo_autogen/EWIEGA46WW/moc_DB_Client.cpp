@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_DB_Client_t {
-    QByteArrayData data[16];
-    char stringdata0[175];
+    QByteArrayData data[17];
+    char stringdata0[188];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,14 +46,15 @@ QT_MOC_LITERAL(11, 112, 14), // "log_in_success"
 QT_MOC_LITERAL(12, 127, 11), // "std::string"
 QT_MOC_LITERAL(13, 139, 4), // "user"
 QT_MOC_LITERAL(14, 144, 13), // "failed_log_in"
-QT_MOC_LITERAL(15, 158, 16) // "failed_subscribe"
+QT_MOC_LITERAL(15, 158, 16), // "failed_subscribe"
+QT_MOC_LITERAL(16, 175, 12) // "disconnected"
 
     },
     "DB_Client\0log_in\0\0move_socket\0QTcpSocket&\0"
     "s\0main_menu\0log_in_Window\0subscribe_Window\0"
     "send_log_in\0send_subscribe\0log_in_success\0"
     "std::string\0user\0failed_log_in\0"
-    "failed_subscribe"
+    "failed_subscribe\0disconnected"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,7 +64,7 @@ static const uint qt_meta_data_DB_Client[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,18 +72,19 @@ static const uint qt_meta_data_DB_Client[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   64,    2, 0x06 /* Public */,
-       3,    1,   65,    2, 0x06 /* Public */,
+       1,    0,   69,    2, 0x06 /* Public */,
+       3,    1,   70,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    0,   68,    2, 0x0a /* Public */,
-       7,    0,   69,    2, 0x0a /* Public */,
-       8,    0,   70,    2, 0x0a /* Public */,
-       9,    0,   71,    2, 0x0a /* Public */,
-      10,    0,   72,    2, 0x0a /* Public */,
-      11,    1,   73,    2, 0x0a /* Public */,
-      14,    0,   76,    2, 0x0a /* Public */,
-      15,    0,   77,    2, 0x0a /* Public */,
+       6,    0,   73,    2, 0x0a /* Public */,
+       7,    0,   74,    2, 0x0a /* Public */,
+       8,    0,   75,    2, 0x0a /* Public */,
+       9,    0,   76,    2, 0x0a /* Public */,
+      10,    0,   77,    2, 0x0a /* Public */,
+      11,    1,   78,    2, 0x0a /* Public */,
+      14,    0,   81,    2, 0x0a /* Public */,
+      15,    0,   82,    2, 0x0a /* Public */,
+      16,    0,   83,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -95,6 +97,7 @@ static const uint qt_meta_data_DB_Client[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 12,   13,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -117,6 +120,7 @@ void DB_Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 7: _t->log_in_success((*reinterpret_cast< const std::string(*)>(_a[1]))); break;
         case 8: _t->failed_log_in(); break;
         case 9: _t->failed_subscribe(); break;
+        case 10: _t->disconnected(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -167,13 +171,13 @@ int DB_Client::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 11)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

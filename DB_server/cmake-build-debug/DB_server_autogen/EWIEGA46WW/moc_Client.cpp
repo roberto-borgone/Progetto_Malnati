@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Client_t {
     QByteArrayData data[12];
-    char stringdata0[108];
+    char stringdata0[109];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,22 +32,23 @@ struct qt_meta_stringdata_Client_t {
 static const qt_meta_stringdata_Client_t qt_meta_stringdata_Client = {
     {
 QT_MOC_LITERAL(0, 0, 6), // "Client"
-QT_MOC_LITERAL(1, 7, 9), // "connected"
-QT_MOC_LITERAL(2, 17, 0), // ""
-QT_MOC_LITERAL(3, 18, 12), // "disconnected"
-QT_MOC_LITERAL(4, 31, 9), // "readyRead"
-QT_MOC_LITERAL(5, 41, 13), // "taskCompleted"
-QT_MOC_LITERAL(6, 55, 6), // "result"
-QT_MOC_LITERAL(7, 62, 14), // "forwardMessage"
-QT_MOC_LITERAL(8, 77, 7), // "message"
-QT_MOC_LITERAL(9, 85, 11), // "sendMessage"
-QT_MOC_LITERAL(10, 97, 5), // "login"
-QT_MOC_LITERAL(11, 103, 4) // "user"
+QT_MOC_LITERAL(1, 7, 12), // "disconnected"
+QT_MOC_LITERAL(2, 20, 0), // ""
+QT_MOC_LITERAL(3, 21, 9), // "readyRead"
+QT_MOC_LITERAL(4, 31, 13), // "taskCompleted"
+QT_MOC_LITERAL(5, 45, 6), // "result"
+QT_MOC_LITERAL(6, 52, 14), // "forwardMessage"
+QT_MOC_LITERAL(7, 67, 7), // "message"
+QT_MOC_LITERAL(8, 75, 11), // "sendMessage"
+QT_MOC_LITERAL(9, 87, 5), // "login"
+QT_MOC_LITERAL(10, 93, 4), // "user"
+QT_MOC_LITERAL(11, 98, 10) // "killClient"
 
     },
-    "Client\0connected\0\0disconnected\0readyRead\0"
+    "Client\0disconnected\0\0readyRead\0"
     "taskCompleted\0result\0forwardMessage\0"
-    "message\0sendMessage\0login\0user"
+    "message\0sendMessage\0login\0user\0"
+    "killClient"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,20 +68,20 @@ static const uint qt_meta_data_Client[] = {
  // slots: name, argc, parameters, tag, flags
        1,    0,   49,    2, 0x0a /* Public */,
        3,    0,   50,    2, 0x0a /* Public */,
-       4,    0,   51,    2, 0x0a /* Public */,
-       5,    1,   52,    2, 0x0a /* Public */,
-       7,    1,   55,    2, 0x0a /* Public */,
-       9,    1,   58,    2, 0x0a /* Public */,
-      10,    1,   61,    2, 0x0a /* Public */,
+       4,    1,   51,    2, 0x0a /* Public */,
+       6,    1,   54,    2, 0x0a /* Public */,
+       8,    1,   57,    2, 0x0a /* Public */,
+       9,    1,   60,    2, 0x0a /* Public */,
+      11,    0,   63,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QByteArray,    5,
+    QMetaType::Void, QMetaType::QByteArray,    7,
+    QMetaType::Void, QMetaType::QByteArray,    7,
+    QMetaType::Void, QMetaType::QString,   10,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QByteArray,    6,
-    QMetaType::Void, QMetaType::QByteArray,    8,
-    QMetaType::Void, QMetaType::QByteArray,    8,
-    QMetaType::Void, QMetaType::QString,   11,
 
        0        // eod
 };
@@ -91,13 +92,13 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         auto *_t = static_cast<Client *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->connected(); break;
-        case 1: _t->disconnected(); break;
-        case 2: _t->readyRead(); break;
-        case 3: _t->taskCompleted((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
-        case 4: _t->forwardMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
-        case 5: _t->sendMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
-        case 6: _t->login((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 0: _t->disconnected(); break;
+        case 1: _t->readyRead(); break;
+        case 2: _t->taskCompleted((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 3: _t->forwardMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 4: _t->sendMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 5: _t->login((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 6: _t->killClient(); break;
         default: ;
         }
     }

@@ -254,7 +254,7 @@ void Network::ask_projects(std::string usr) {
     //create JSON object of type request_projects
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(2)),
-                                            qMakePair(QString("user"), QJsonValue(QString(usr.c_str()))),
+                                            qMakePair(QString("user"), QJsonValue(QJsonValue(QString(gui_ptr->getUser().c_str())))),
 
                                     });
 

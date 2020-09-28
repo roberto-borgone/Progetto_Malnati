@@ -23,7 +23,6 @@ class TaskGeneric: public QObject, public QRunnable  {
 public:
 
     TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QJsonObject message);
-
     ~TaskGeneric() override;
 
 signals:

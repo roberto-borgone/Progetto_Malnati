@@ -39,8 +39,8 @@ void Client::disconnected() {
         task->setAutoDelete(true);
 
         // i don't want to block the main thread while saving, i will
-        // release the resources once the saving is finished by mean of the killClient() function
-        connect(task, SIGNAL(finished()), this, SLOT(killClient()));
+        // release the resources once the saving is finished by calling this same function
+        connect(task, SIGNAL(finished()), this, SLOT(disconnected()));
 
         QThreadPool::globalInstance()->start(task);
 
@@ -55,8 +55,6 @@ void Client::disconnected() {
 void Client::killClient() {
 
     // i don't want to save the project if one of the clients causes an error
-    // moreover if this slot is called after an automatic saving by disconnection
-    // it causes the disconnected() slot to just release the resources
     if(this->project)
         this->project.reset();
 

@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Network_t {
     QByteArrayData data[37];
-    char stringdata0[366];
+    char stringdata0[368];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -67,7 +67,7 @@ QT_MOC_LITERAL(32, 316, 5), // "prjID"
 QT_MOC_LITERAL(33, 322, 11), // "send_cursor"
 QT_MOC_LITERAL(34, 334, 11), // "add_my_user"
 QT_MOC_LITERAL(35, 346, 11), // "clear_users"
-QT_MOC_LITERAL(36, 358, 7) // "my_user"
+QT_MOC_LITERAL(36, 358, 9) // "also_user"
 
     },
     "Network\0insert\0\0Symbol\0s\0erase\0string\0"
@@ -80,7 +80,7 @@ QT_MOC_LITERAL(36, 358, 7) // "my_user"
     "message_received\0ask_projects\0"
     "close_project\0project_to_get\0prj_name\0"
     "new_project\0prjID\0send_cursor\0add_my_user\0"
-    "clear_users\0my_user"
+    "clear_users\0also_user"
 };
 #undef QT_MOC_LITERAL
 
@@ -143,7 +143,7 @@ static const uint qt_meta_data_Network[] = {
     QMetaType::Void, 0x80000000 | 8,   32,
     QMetaType::Void, QMetaType::Int,   16,
     QMetaType::Void, 0x80000000 | 8,    9,
-    QMetaType::Void, 0x80000000 | 8,   36,
+    QMetaType::Void, QMetaType::Bool,   36,
 
        0        // eod
 };
@@ -173,7 +173,7 @@ void Network::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 16: _t->new_project((*reinterpret_cast< std::string(*)>(_a[1]))); break;
         case 17: _t->send_cursor((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 18: _t->add_my_user((*reinterpret_cast< std::string(*)>(_a[1]))); break;
-        case 19: _t->clear_users((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 19: _t->clear_users((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

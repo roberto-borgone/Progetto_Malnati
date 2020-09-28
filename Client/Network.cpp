@@ -272,6 +272,7 @@ void Network::close_project(std::string prj) {
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(5)),
                                             qMakePair(QString("prjID"), QJsonValue(QString(prj.c_str()))),
+                                            qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str())))
 
                                     });
 
@@ -301,7 +302,7 @@ void Network::project_to_get(std::string prj_name) {
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(3)),
                                             qMakePair(QString("prjID"), QJsonValue(QString(prj_name.c_str()))),
-                                            qMakePair(QString("user"), QJsonValue(QString("user1"))),
+                                            qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str()))),
                                     });
 
     //print JSON object
@@ -318,7 +319,7 @@ void Network::new_project(std::string prjID) {
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(4)),
                                             qMakePair(QString("prjID"), QJsonValue(QString(prjID.c_str()))),
-                                            qMakePair(QString("user"), QJsonValue(QString("user1")))
+                                            qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str())))
                                     });
 
     //print JSON object
@@ -335,7 +336,7 @@ void Network::send_cursor(int position){
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(8)),
                                             qMakePair(QString("prjID"), QJsonValue(QString(project_ptr->prjID.c_str()))),
-                                            qMakePair(QString("user"), QJsonValue(QString("user1"))),
+                                            qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str()))),
                                             qMakePair(QString("position"), QJsonValue(position))
                                     });
 

@@ -8,6 +8,7 @@
 
 #include <QRunnable>
 #include <QObject>
+#include <QImage>
 #include <sstream>
 #include <QJsonObject>
 #include <QJsonDocument>

@@ -31,6 +31,7 @@ void TaskGeneric::run(){
 
             int result;
             QJsonObject json;
+            QImage img;
 
             result = this->service.login(this->message["user"].toString().toStdString(),
                                          this->message["password"].toString().toStdString());
@@ -41,6 +42,9 @@ void TaskGeneric::run(){
 
             if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
+                img.load("../images/" + this->message["user"].toString() + ".png");
+                json.insert("user_img", QJsonDocument::fromRawData((const char*)img.bits(), img.sizeInBytes()).array());
+                json.insert("user_img_size", QJsonValue(img.sizeInBytes()));
                 emit login(this->message["user"].toString());
             } else {
                 json.insert("user", QJsonValue(""));
@@ -55,6 +59,7 @@ void TaskGeneric::run(){
 
             int result;
             QJsonObject json;
+            QImage img = QImage("../images/User_icon.png");
 
             result = this->service.subscribe(this->message["user"].toString().toStdString(),
                                              this->message["password"].toString().toStdString());
@@ -65,6 +70,9 @@ void TaskGeneric::run(){
 
             if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
+                img.save("../images/" + this->message["user"].toString() + ".png");
+                json.insert("user_img", QJsonDocument::fromRawData((const char*)img.bits(), img.sizeInBytes()).array());
+                json.insert("user_img_size", QJsonValue(img.sizeInBytes()));
                 emit login(this->message["user"].toString());
             } else {
                 json.insert("user", QJsonValue(""));

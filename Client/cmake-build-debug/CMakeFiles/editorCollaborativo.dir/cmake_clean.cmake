@@ -1,9 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/editorCollaborativo_autogen.dir/AutogenOldSettings.txt"
+  "CMakeFiles/editorCollaborativo_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/editorCollaborativo_autogen.dir/ParseCache.txt"
   "editorCollaborativo_autogen"
   "CMakeFiles/editorCollaborativo.dir/DB_Client.cpp.obj"
   "CMakeFiles/editorCollaborativo.dir/Gui.cpp.obj"
+  "CMakeFiles/editorCollaborativo.dir/Mail.cpp.obj"
   "CMakeFiles/editorCollaborativo.dir/Network.cpp.obj"
   "CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj"
   "CMakeFiles/editorCollaborativo.dir/Project.cpp.obj"

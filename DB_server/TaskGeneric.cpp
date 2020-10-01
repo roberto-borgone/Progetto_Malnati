@@ -6,6 +6,7 @@
 #include "Project.h"
 
 #include <QtCore/QJsonArray>
+#include <QtCore/QBuffer>
 
 #define LOGIN 0
 #define SUBSCRIPTION 1
@@ -43,8 +44,11 @@ void TaskGeneric::run(){
             if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
                 img.load("../images/" + this->message["user"].toString() + ".png");
-                json.insert("user_img", QJsonDocument::fromRawData((const char*)img.bits(), img.sizeInBytes()).array());
-                json.insert("user_img_size", QJsonValue(img.sizeInBytes()));
+                QBuffer buffer;
+                buffer.open(QIODevice::WriteOnly);
+                img.save(&buffer, "PNG");
+                auto const encoded = buffer.data().toBase64();
+                json.insert("user_img", {QLatin1String(encoded)});
                 emit login(this->message["user"].toString());
             } else {
                 json.insert("user", QJsonValue(""));
@@ -71,8 +75,11 @@ void TaskGeneric::run(){
             if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
                 img.save("../images/" + this->message["user"].toString() + ".png");
-                json.insert("user_img", QJsonDocument::fromRawData((const char*)img.bits(), img.sizeInBytes()).array());
-                json.insert("user_img_size", QJsonValue(img.sizeInBytes()));
+                QBuffer buffer;
+                buffer.open(QIODevice::WriteOnly);
+                img.save(&buffer, "PNG");
+                auto const encoded = buffer.data().toBase64();
+                json.insert("user_img", {QLatin1String(encoded)});
                 emit login(this->message["user"].toString());
             } else {
                 json.insert("user", QJsonValue(""));

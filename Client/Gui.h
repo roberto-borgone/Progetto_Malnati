@@ -62,6 +62,7 @@ class Gui : public QMainWindow{
     map<string,vector<int>> user_color;
     string user;
     bool show_collaborators;
+    QImage profile_image;
 
 
 
@@ -90,6 +91,7 @@ public:
     void markTextUser(map<string,vector<int>> colors);
     std::string getUser();
     void clear_users_list(bool also_user);
+    void set_profile_image(const QImage& img);
 
 public slots:
     void logged_in(const std::string& user);

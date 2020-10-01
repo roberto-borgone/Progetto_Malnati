@@ -273,11 +273,12 @@ QMenuBar *Gui::initMenuBar() {
 
 QToolBar *Gui::initToolBar() {
     QToolBar *toolBar = new QToolBar(this);
+    toolBar->setObjectName(QString("myToolBar"));
 
     //ToolBar -> |stile(default,barrato,corsivo,grassetto,sottolineato)|Font|dimensione|Colore|
 
     toolBar->addAction(QIcon::fromTheme("Profile",
-                                        QIcon("/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg")),
+                                        QIcon(QPixmap::fromImage(profile_image))),
                        "Profile", [=]() {
                 auto f = new Profile();
 
@@ -782,5 +783,13 @@ void Gui::clear_users_list(bool also_user) {
     list->clear();
     if (!also_user)
         list->addItem(my_user);
+}
+
+void Gui::set_profile_image(const QImage &img) {
+    profile_image=QImage(img);
+    //cerca la toolbar con titolo "menu", trova il figlio con text "profile" e ambiagli l'icona con setIcon
+    auto my_toolbar=this->findChild<QToolBar*>(QString("myToolBar"));
+    auto action = my_toolbar->actions()[0];
+    action->setIcon(QPixmap::fromImage(profile_image));
 }
 

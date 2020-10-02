@@ -12,6 +12,7 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QSizePolicy>
+#include <QLineEdit>
 
 class Profile :public QDialog{
 

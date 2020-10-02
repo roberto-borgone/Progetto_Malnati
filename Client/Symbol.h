@@ -16,14 +16,14 @@
 
 using namespace std;
 class Symbol {
-    char s;
+    string s;
     string font;
     bool bold,italic,underline,strike;
     string color;
     string id;
     vector <int> frac;
 public:
-    Symbol(char s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user);
+    Symbol(string s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user);
     Symbol(const Symbol& symbol);
     Symbol(Symbol&& symbol);
     Symbol(QJsonObject json_symbol);
@@ -34,7 +34,7 @@ public:
     bool operator>=(const Symbol& symbol);
     bool operator==(const Symbol& symbol);
     string getId();
-    char getChar();
+    string getChar();
     const vector<int>& getFrac();
     void print();
     QJsonObject toJson();

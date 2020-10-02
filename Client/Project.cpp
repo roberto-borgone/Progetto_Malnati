@@ -85,7 +85,7 @@ void Project::externalInsert(Symbol s) {
     int pos = insertOrder(0, text.size(), s);
     QTextCursor cursor(document);
     cursor.setPosition(pos);
-    cursor.insertText(QString(s.getChar()));
+    cursor.insertText(QString::fromStdString(s.getChar()));
 
 }
 
@@ -113,7 +113,7 @@ int Project::remote_delete(Symbol s) {
     std::cout << std::endl;
     int pos=-1;
     for(int i=0; i<tmp.size()-1; i++) {
-        Symbol tmp_symbol('t', std::string("no_font"), false, false, false, false, std::string("no_color"), tmp,
+        Symbol tmp_symbol("t", std::string("no_font"), false, false, false, false, std::string("no_color"), tmp,
                           std::string("no_project"), std::string("no_user"));
         bounds = std::equal_range(bounds.first, bounds.second, tmp_symbol, [i](const Symbol &s1, const Symbol &s2) {
             return const_cast<Symbol &>(s1).getFrac()[i] < const_cast<Symbol &>(s2).getFrac()[i];

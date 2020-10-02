@@ -35,7 +35,7 @@ static const char *payload_text[] = {
 class Mail {
     static size_t payload_source(void *ptr, size_t size, size_t nmemb, void *userp);
 public:
-    static int sendMail(const std::string& receiver, const std::string& uri);
+    static int sendMail(const std::string& receiver, const std::string& uri,std::string sender);
 };
 
 

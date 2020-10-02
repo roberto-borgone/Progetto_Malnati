@@ -24,7 +24,7 @@ Profile::Profile():QDialog(){
     grid->addWidget(changeUsername,1,0);
     changeUsername->setText("Change Username");
 
-    QTextEdit* editext = new QTextEdit(w);
+    QLineEdit* editext = new QLineEdit(w);
     editext->setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
     grid->addWidget(editext,0,1);
 

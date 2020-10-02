@@ -23,7 +23,7 @@ void Network::receiveCommand() {
 
     this_thread::sleep_for(chrono::seconds(3));
 
-    Symbol symbol('d', "Arial", true, true, true, true, "#000000", vector<int>({-10}), "p1", "u1");
+    Symbol symbol("d", "Arial", true, true, true, true, "#000000", vector<int>({-10}), "p1", "u1");
     emit insert(symbol);
     this_thread::sleep_for(chrono::seconds(3));
     emit erase(symbol.getId());
@@ -245,6 +245,7 @@ void Network::message_received() {
             break;
 
         case cursor: {
+            cout << "cambio cursore";
             std::string user = obj["user"].toString().toStdString();
             if(users.find(user) == users.end()){
                 users.insert(user);

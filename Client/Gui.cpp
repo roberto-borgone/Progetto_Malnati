@@ -42,8 +42,9 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
             string add = c.selectedText().toStdString();
 
             if (add == "\U00002029") {
-                add == "\n";
+                add = "\n";
             }
+
 
 
             if (add == "") return;
@@ -145,7 +146,9 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 std::string proj = std::string(project->prjID); //qui si dovrà predere il progetto aperto dallo user
                 //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
 
-                Symbol s = Symbol(*sp, f.font().family().toStdString(),
+                string sps;
+                sps.push_back(*sp);
+                Symbol s = Symbol(sps, f.font().family().toStdString(),
                                   f.fontWeight() == QFont::Weight::Bold,
                                   f.fontItalic(),
                                   f.fontUnderline(),
@@ -456,6 +459,16 @@ QToolBar *Gui::initToolBar() {
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
+    toolBar->addAction(QIcon::fromTheme("Send email",QIcon(rsrcPath + "/mail.svg")), "Send invite", [this]() {
+        if(project == nullptr)
+                emit sendMail("","");
+        else
+                emit sendMail(this->getCurrentProject()->prjID,this->user);
+    });
+    toolBar->addAction(QIcon::fromTheme("Use invite",QIcon(rsrcPath + "/download.svg")), "Use invite", [this]() {
+        emit useInvite();
+    });
+
 
     return toolBar;
 
@@ -581,7 +594,7 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     bool resume_signals = textEdit->document()->blockSignals(
             true); //block signal "contentsChange" to avoid infinite loop
     new_cursor.insertText(
-            QChar(s.getChar()), format); //insert text in position (better use overloaded function with format)
+            QString::fromStdString(s.getChar()), format); //insert text in position (better use overloaded function with format)
     textEdit->document()->blockSignals(resume_signals);
 
     if (pos <= old_cursor.position()) {
@@ -643,14 +656,15 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
+
     int prevPos = textEdit->textCursor().position();
     textEdit->textCursor().setPosition(pos);
     QTextCharFormat fmr = textEdit->textCursor().charFormat();
     int r = user_color[user][0];
     int g = user_color[user][1];
     int b = user_color[user][2];
-    fmr.setBackground(QBrush(QColor(r, g, b)));
-    textEdit->textCursor().setCharFormat(fmr);
+    fmr.setForeground(QBrush(QColor(r, g, b)));
+    textEdit->mergeCurrentCharFormat(fmr);
     textEdit->textCursor().setPosition(prevPos);
 
 }
@@ -667,7 +681,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
     string paragraph = html.substr(start,end);*/
 
     //1) salvare cursore corrente
+    textEdit->setReadOnly(true);
     if (!show_collaborators) {
+
         auto old_cursor = textEdit->textCursor(); //save old cursor
         auto new_cursor = new QTextCursor(textEdit->document());//create new cursor
         new_cursor->setPosition(0); //set position of new cursor
@@ -701,7 +717,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
 
             //spaces BEFORE a selected text cannot be written again so better to have them only after a text
-            while (current_pos != project->text.size() && project->text[current_pos].getChar() == ' ') {
+            while (current_pos != project->text.size() && project->text[current_pos].getChar() == " ") {
                 user_chars_count++;
                 current_pos++;
             }
@@ -762,12 +778,13 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             brush.setColor(QColor(s.getColor()));
             format.setForeground(brush);
             new_cursor->insertText(
-                    QChar(s.getChar()), format);
+                    QString::fromStdString(s.getChar()), format);
 
         }
 
         textEdit->document()->blockSignals(resume_signals);
         show_collaborators = false;
+        textEdit->setReadOnly(false);
 
     }
     //std::cout << document->toHtml().toStdString();
@@ -791,5 +808,17 @@ void Gui::set_profile_image(const QImage &img) {
     auto my_toolbar=this->findChild<QToolBar*>(QString("myToolBar"));
     auto action = my_toolbar->actions()[0];
     action->setIcon(QPixmap::fromImage(profile_image));
+}
+void Gui::closeProject() {
+    if (project->prjID_set) {
+        emit close_project(std::string(project->prjID));
+        project->prjID_set = false; //client can't now write on editor
+        //delete all the users of the project that appears in the GUI (then need to update also GUI)
+        std::vector my_color = user_color.find(user)->second;
+        user_color.clear();
+        user_color[user] = my_color;
+        clear_users_list(false);
+        emit clear_users(false);
+    }
 }
 

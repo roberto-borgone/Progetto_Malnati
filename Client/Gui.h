@@ -46,8 +46,9 @@
 #include <QPdfWriter>
 #include <QListWidgetItem>
 #include "Profile.h"
-
+#include "SendEmailPopup.h"
 #include "Project.h"
+#include "Mail.h"
 
 using namespace std;
 class Gui : public QMainWindow{
@@ -63,6 +64,7 @@ class Gui : public QMainWindow{
     string user;
     bool show_collaborators;
     QImage profile_image;
+    SendEmailPopup *mailpopup;
 
 
 
@@ -92,11 +94,13 @@ public:
     std::string getUser();
     void clear_users_list(bool also_user);
     void set_profile_image(const QImage& img);
+    void closeProject();
 
 public slots:
     void logged_in(const std::string& user);
     void add_user(std::string user);
     void change_cursor(std::string user, int pos);
+
 
 signals:
     void send_symbol(Symbol s, int pos, std::string prj, std::string usr);
@@ -109,6 +113,8 @@ signals:
     void disconnect_socket();
     void disconnected();
     void clear_users(bool also_user);
+    void sendMail(std::string prjID,std::string sender);
+    void useInvite();
 };
 
 

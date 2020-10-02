@@ -14,15 +14,16 @@
 #include <QJsonArray>
 #include <QJsonValue>
 
+using namespace std;
 class Symbol {
-    char s;
+    string s;
     std::string font;
     bool bold,italic,underline,strike;
     std::string color;
     std::string id;
     std::vector <int> frac;
 public:
-    Symbol(char s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color, const std::vector<int>& frac, const std::string& project, const std::string& user);
+    Symbol(string s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color, const std::vector<int>& frac, const std::string& project, const std::string& user);
     Symbol(const Symbol& symbol);
     Symbol(Symbol&& symbol);
     Symbol(QJsonObject json_symbol);
@@ -33,7 +34,7 @@ public:
     bool operator>=(const Symbol& symbol);
     bool operator==(const Symbol& symbol);
     std::string getId();
-    char getChar();
+    string getChar();
     const std::vector<int>& getFrac();
     void print();
     QJsonObject toJson();

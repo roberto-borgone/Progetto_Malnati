@@ -4,7 +4,7 @@
 
 #include "Symbol.h"
 
-Symbol::Symbol(char s, string font, bool bold, bool italic, bool underline, bool strike, string color,
+Symbol::Symbol(string s, string font, bool bold, bool italic, bool underline, bool strike, string color,
                const vector<int> &frac, const string &project, const string &user) {
 
     id = user +"/"+ project +"/" + to_string(chrono::system_clock::now().time_since_epoch().count());
@@ -96,7 +96,7 @@ string Symbol::getId() {
     return id;
 }
 
-char Symbol::getChar() {
+string Symbol::getChar() {
     return s;
 }
 
@@ -108,7 +108,7 @@ QJsonObject Symbol::toJson() {
     }
     auto Json_symbol = QJsonObject({
                                            qMakePair(QString("id"), QJsonValue(QString(this->id.c_str()))),
-                                           qMakePair(QString("s"), QJsonValue(QChar(this->s))),
+                                           qMakePair(QString("s"), QJsonValue(QString(this->s.c_str()))),
                                            qMakePair(QString("font"), QJsonValue(QString(this->font.c_str()))),
                                            qMakePair(QString("color"),
                                                      QJsonValue(QString(this->color.c_str()))),

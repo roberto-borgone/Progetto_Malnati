@@ -23,7 +23,7 @@ void Network::receiveCommand() {
 
     this_thread::sleep_for(chrono::seconds(3));
 
-    Symbol symbol('d', "Arial", true, true, true, true, "#000000", vector<int>({-10}), "p1", "u1");
+    Symbol symbol("d", "Arial", true, true, true, true, "#000000", vector<int>({-10}), "p1", "u1");
     emit insert(symbol);
     this_thread::sleep_for(chrono::seconds(3));
     emit erase(symbol.getId());
@@ -121,6 +121,17 @@ void Network::message_received() {
             qDebug() << "entrato in log_in con codice:" << result;
             if (result == 0) {
                 std::string usr = obj["user"].toString().toStdString();
+
+                //get profile image
+                auto const encoded = obj["user_img"].toString().toLatin1();
+                QImage img;
+                //img.loadFromData(QByteArray::fromBase64(encoded), "PNG"); //da capire perchè l'immagine non viene presa correttamente
+                //per ora metto io l'immagine di default
+                img.load("../images/User_icon.png");
+                if(img.isNull())
+                    std::cout<<"IMMAGINE NULLA!!!"<<std::endl;
+                gui_ptr->set_profile_image(img);
+
                 emit logged_in(usr); //qui dovrò prendermi lo user dalla risposta del server
             } else if (result == 1) { emit wrong_log_in(); }
 
@@ -234,6 +245,7 @@ void Network::message_received() {
             break;
 
         case cursor: {
+            cout << "cambio cursore";
             std::string user = obj["user"].toString().toStdString();
             if(users.find(user) == users.end()){
                 users.insert(user);

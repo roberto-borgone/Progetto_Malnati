@@ -24,12 +24,12 @@ size_t Mail::payload_source(void *ptr, size_t size, size_t nmemb, void *userp) {
     return 0;
 }
 
-int Mail::sendMail(const std::string &receiver, const std::string &uri) {
+int Mail::sendMail(const std::string &receiver, const std::string &uri,std::string sender) {
 
     /*Imposto i campi variabili*/
 
     /*Utente che invia l'invito*/
-    std::string sender = "Sender";                      //(TO DO) qui ci va il nome dell'utente che sta mandando l'invio
+                          //(TO DO) qui ci va il nome dell'utente che sta mandando l'invio
     std::string sen = "From: progettopds@gmail.com (" + sender + ")\r\n";
     payload_text[2] = sen.c_str();
 

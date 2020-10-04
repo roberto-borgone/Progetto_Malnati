@@ -8,4 +8,6 @@
 #include "EWIEGA46WW/moc_Profile.cpp"
 #include "EWIEGA46WW/moc_Project.cpp"
 #include "EWIEGA46WW/moc_ProjectsPopup.cpp"
+#include "EWIEGA46WW/moc_SendEmailPopup.cpp"
+#include "EWIEGA46WW/moc_UseInvite.cpp"
 #include "EWIEGA46WW/moc_WrongCredentialsPopUp.cpp"

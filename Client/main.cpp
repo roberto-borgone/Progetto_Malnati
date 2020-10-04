@@ -10,6 +10,7 @@
 #include "PopUp.h"
 #include "ProjectsPopup.h"
 #include "NewProjectPopUp.h"
+#include "UseInvite.h"
 
 
 int main(int argc, char *argv[]) {
@@ -23,6 +24,9 @@ int main(int argc, char *argv[]) {
     //auto projects_pop_up = new ProjectsPopUp();
     //create Pop up for creating new project
     auto newPrj_pop_up = new NewProjectPopUp();
+
+    //create Pop up to send email
+
 
     auto g = new Gui(nullptr);
     Project *project = g->getCurrentProject();
@@ -62,6 +66,29 @@ int main(int argc, char *argv[]) {
         auto newPrj_pop_up = new NewProjectPopUp();
         QObject::connect(newPrj_pop_up, &NewProjectPopUp::create_project, network, &Network::new_project);
         newPrj_pop_up->exec();});
+    QObject::connect(g,&Gui::sendMail,[](std::string projectID,std::string sender){
+        if(projectID == ""){
+            SendEmailPopup *emailPopup = new SendEmailPopup(false);
+            emailPopup->exec();
+        }
+        else{
+            SendEmailPopup *emailPopup = new SendEmailPopup(true);
+            QObject::connect(emailPopup,&SendEmailPopup::get_email,[&](std::string address){
+                Mail::sendMail(address,projectID,sender);
+            });
+            emailPopup->exec();
+
+        }
+
+
+    });
+    QObject::connect(g,&Gui::useInvite,[=](){
+        UseInvite *invite = new UseInvite();
+        g->closeProject();
+        QObject::connect(invite,&UseInvite::request_for_project,network,&Network::project_to_get);
+        invite->exec();
+
+    });
 
     QObject::connect(g, &Gui::request_for_projects, network, &Network::ask_projects);
     QObject::connect(g, &Gui::close_project, network, &Network::close_project);
@@ -71,6 +98,8 @@ int main(int argc, char *argv[]) {
         QObject::connect(projects_pop_up, &ProjectsPopUp::send_prj_to_open, network, &Network::project_to_get);
         projects_pop_up->exec();
     });
+
+
 
     //for C/S communication (cursor)
     QObject::connect(g, &Gui::time_out, network, &Network::send_cursor);

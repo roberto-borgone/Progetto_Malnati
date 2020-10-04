@@ -4,7 +4,7 @@
 
 #include "Symbol.h"
 
-Symbol::Symbol(char s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color,
+Symbol::Symbol(string s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color,
                const std::vector<int> &frac, const std::string &project, const std::string &user) {
     id = user + project + std::to_string(std::chrono::system_clock::now().time_since_epoch().count());
     this->s = s;
@@ -95,7 +95,7 @@ std::string Symbol::getId() {
     return id;
 }
 
-char Symbol::getChar() {
+string Symbol::getChar() {
     return s;
 }
 
@@ -107,7 +107,7 @@ QJsonObject Symbol::toJson() {
     }
     auto Json_symbol = QJsonObject({
                                            qMakePair(QString("id"), QJsonValue(QString(this->id.c_str()))),
-                                           qMakePair(QString("s"), QJsonValue(QChar(this->s))),
+                                           qMakePair(QString("s"), QJsonValue(QString::fromStdString(this->s))),
                                            qMakePair(QString("font"), QJsonValue(QString(this->font.c_str()))),
                                            qMakePair(QString("color"),
                                                      QJsonValue(QString(this->color.c_str()))),
@@ -132,7 +132,7 @@ Symbol::Symbol(QJsonObject json_symbol) {
         frac.insert(frac.end(),json_frac[i].toInt());
     }
     id=std::string(json_symbol["id"].toString().toStdString());
-    s=json_symbol["s"].toString().toStdString()[0];
+    s=std::string(json_symbol["s"].toString().toStdString());
     font=std::string(json_symbol["font"].toString().toStdString());
     color=std::string(json_symbol["color"].toString().toStdString());
     bold=json_symbol["bold"].toBool();

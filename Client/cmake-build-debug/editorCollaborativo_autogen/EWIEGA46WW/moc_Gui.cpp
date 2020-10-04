@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'Gui.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../../../Gui.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'Gui.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.3. It"
+#error "This file was generated using the moc from 5.15.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Gui_t {
-    QByteArrayData data[24];
-    char stringdata0[229];
+    QByteArrayData data[28];
+    char stringdata0[261];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -52,9 +53,13 @@ QT_MOC_LITERAL(17, 143, 17), // "disconnect_socket"
 QT_MOC_LITERAL(18, 161, 12), // "disconnected"
 QT_MOC_LITERAL(19, 174, 11), // "clear_users"
 QT_MOC_LITERAL(20, 186, 9), // "also_user"
-QT_MOC_LITERAL(21, 196, 9), // "logged_in"
-QT_MOC_LITERAL(22, 206, 8), // "add_user"
-QT_MOC_LITERAL(23, 215, 13) // "change_cursor"
+QT_MOC_LITERAL(21, 196, 8), // "sendMail"
+QT_MOC_LITERAL(22, 205, 5), // "prjID"
+QT_MOC_LITERAL(23, 211, 6), // "sender"
+QT_MOC_LITERAL(24, 218, 9), // "useInvite"
+QT_MOC_LITERAL(25, 228, 9), // "logged_in"
+QT_MOC_LITERAL(26, 238, 8), // "add_user"
+QT_MOC_LITERAL(27, 247, 13) // "change_cursor"
 
     },
     "Gui\0send_symbol\0\0Symbol\0s\0pos\0std::string\0"
@@ -62,6 +67,7 @@ QT_MOC_LITERAL(23, 215, 13) // "change_cursor"
     "close_project\0new_project\0time_out\0"
     "position\0add_my_user\0user\0disconnect_socket\0"
     "disconnected\0clear_users\0also_user\0"
+    "sendMail\0prjID\0sender\0useInvite\0"
     "logged_in\0add_user\0change_cursor"
 };
 #undef QT_MOC_LITERAL
@@ -72,29 +78,31 @@ static const uint qt_meta_data_Gui[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      10,       // signalCount
+      12,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    4,   79,    2, 0x06 /* Public */,
-       9,    0,   88,    2, 0x06 /* Public */,
-      10,    1,   89,    2, 0x06 /* Public */,
-      11,    1,   92,    2, 0x06 /* Public */,
-      12,    0,   95,    2, 0x06 /* Public */,
-      13,    1,   96,    2, 0x06 /* Public */,
-      15,    1,   99,    2, 0x06 /* Public */,
-      17,    0,  102,    2, 0x06 /* Public */,
-      18,    0,  103,    2, 0x06 /* Public */,
-      19,    1,  104,    2, 0x06 /* Public */,
+       1,    4,   89,    2, 0x06 /* Public */,
+       9,    0,   98,    2, 0x06 /* Public */,
+      10,    1,   99,    2, 0x06 /* Public */,
+      11,    1,  102,    2, 0x06 /* Public */,
+      12,    0,  105,    2, 0x06 /* Public */,
+      13,    1,  106,    2, 0x06 /* Public */,
+      15,    1,  109,    2, 0x06 /* Public */,
+      17,    0,  112,    2, 0x06 /* Public */,
+      18,    0,  113,    2, 0x06 /* Public */,
+      19,    1,  114,    2, 0x06 /* Public */,
+      21,    2,  117,    2, 0x06 /* Public */,
+      24,    0,  122,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      21,    1,  107,    2, 0x0a /* Public */,
-      22,    1,  110,    2, 0x0a /* Public */,
-      23,    2,  113,    2, 0x0a /* Public */,
+      25,    1,  123,    2, 0x0a /* Public */,
+      26,    1,  126,    2, 0x0a /* Public */,
+      27,    2,  129,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, 0x80000000 | 6, 0x80000000 | 6,    4,    5,    7,    8,
@@ -107,6 +115,8 @@ static const uint qt_meta_data_Gui[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,   20,
+    QMetaType::Void, 0x80000000 | 6, 0x80000000 | 6,   22,   23,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 6,   16,
@@ -132,9 +142,11 @@ void Gui::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 7: _t->disconnect_socket(); break;
         case 8: _t->disconnected(); break;
         case 9: _t->clear_users((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 10: _t->logged_in((*reinterpret_cast< const std::string(*)>(_a[1]))); break;
-        case 11: _t->add_user((*reinterpret_cast< std::string(*)>(_a[1]))); break;
-        case 12: _t->change_cursor((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 10: _t->sendMail((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< std::string(*)>(_a[2]))); break;
+        case 11: _t->useInvite(); break;
+        case 12: _t->logged_in((*reinterpret_cast< const std::string(*)>(_a[1]))); break;
+        case 13: _t->add_user((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 14: _t->change_cursor((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -209,11 +221,25 @@ void Gui::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
                 return;
             }
         }
+        {
+            using _t = void (Gui::*)(std::string , std::string );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Gui::sendMail)) {
+                *result = 10;
+                return;
+            }
+        }
+        {
+            using _t = void (Gui::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Gui::useInvite)) {
+                *result = 11;
+                return;
+            }
+        }
     }
 }
 
 QT_INIT_METAOBJECT const QMetaObject Gui::staticMetaObject = { {
-    &QMainWindow::staticMetaObject,
+    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
     qt_meta_stringdata_Gui.data,
     qt_meta_data_Gui,
     qt_static_metacall,
@@ -241,13 +267,13 @@ int Gui::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        _id -= 15;
     }
     return _id;
 }
@@ -255,7 +281,7 @@ int Gui::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void Gui::send_symbol(Symbol _t1, int _t2, std::string _t3, std::string _t4)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
@@ -268,14 +294,14 @@ void Gui::no_project()
 // SIGNAL 2
 void Gui::request_for_projects(std::string _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 
 // SIGNAL 3
 void Gui::close_project(std::string _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 
@@ -288,14 +314,14 @@ void Gui::new_project()
 // SIGNAL 5
 void Gui::time_out(int _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
 }
 
 // SIGNAL 6
 void Gui::add_my_user(std::string _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 6, _a);
 }
 
@@ -314,8 +340,21 @@ void Gui::disconnected()
 // SIGNAL 9
 void Gui::clear_users(bool _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 9, _a);
+}
+
+// SIGNAL 10
+void Gui::sendMail(std::string _t1, std::string _t2)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 10, _a);
+}
+
+// SIGNAL 11
+void Gui::useInvite()
+{
+    QMetaObject::activate(this, &staticMetaObject, 11, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

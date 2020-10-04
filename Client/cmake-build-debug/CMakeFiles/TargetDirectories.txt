@@ -1,4 +1,4 @@
-/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir
-/Users/davidemiro/Desktop/progetto_malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo_autogen.dir
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo.dir
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/CMakeFiles/editorCollaborativo_autogen.dir

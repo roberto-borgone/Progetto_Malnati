@@ -4,6 +4,7 @@
 #include <chrono>
 #include <functional>
 #include <QMessageBox>
+#include "Mail.h"
 #include "Gui.h"
 #include "Network.h"
 #include "DB_Client.h"

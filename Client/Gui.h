@@ -48,9 +48,7 @@
 #include "Profile.h"
 #include "SendEmailPopup.h"
 #include "Project.h"
-#include "Mail.h"
 
-using namespace std;
 class Gui : public QMainWindow{
     Q_OBJECT
     QMenuBar* initMenuBar();

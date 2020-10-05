@@ -8,6 +8,7 @@
 
 #include <mutex>
 #include "Symbol.h"
+#include <set>
 
 class Project {
 
@@ -17,6 +18,7 @@ public:
 
     std::vector<Symbol> text;
     std::mutex text_mux;
+    std::set<QString> users;
 
     Project(std::string id, std::vector<Symbol> text);
     std::string getId();

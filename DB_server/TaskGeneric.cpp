@@ -147,14 +147,34 @@ void TaskGeneric::run(){
                 response_text.push_back(s.toJson());
             }
 
+            QJsonArray user_names;
+
+            for(const QString& user: new_project->users){
+                user_names.push_back(QJsonValue(user));
+            }
+
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(3)),
                                        qMakePair(QString("prjID"), this->message["prjID"]),
-                                       qMakePair(QString("text"), response_text)
+                                       qMakePair(QString("text"), response_text),
+                                       qMakePair(QString("user_names"), user_names)
                                });
 
+
+            new_project->users.insert(this->userId);
             this->project = new_project;
             emit returnResult(QJsonDocument(json).toJson());
+
+            // notify other users
+
+            json = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(9)),
+                                       qMakePair(QString("prjID"), this->message["prjID"]),
+                                       qMakePair(QString("user"), this->userId)
+                               });
+
+            emit forwardMessage(QJsonDocument(json).toJson());
+
             break;
 
         }
@@ -188,7 +208,9 @@ void TaskGeneric::run(){
                     this->projects.insert(std::pair(new_project->getId(), new_project));
                 }
 
+                new_project->users.insert(this->userId);
                 this->project = new_project;
+
             }
 
             emit returnResult(QJsonDocument(json).toJson());
@@ -199,7 +221,18 @@ void TaskGeneric::run(){
 
         case CLOSE: {
 
+            this->project->users.erase(this->userId);
             this->project.reset();
+
+            // notify other users
+
+            QJsonObject json_notification = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(10)),
+                                       qMakePair(QString("prjID"), this->message["prjID"]),
+                                       qMakePair(QString("user"), this->userId)
+                               });
+
+            emit forwardMessage(QJsonDocument(json_notification).toJson());
 
             {
                 auto lock = std::lock_guard(this->projects_mux);

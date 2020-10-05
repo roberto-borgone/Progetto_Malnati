@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Qt/5.12.3/mingw73_64/include/QtCore/QBuffer
-qbuffer.h
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qbuffer.h
-
 C:/Qt/5.12.3/mingw73_64/include/QtCore/QByteArray
 qbytearray.h
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
@@ -98,12 +94,6 @@ QtCore/qatomic_bootstrap.h
 QtCore/qatomic_cxx11.h
 -
 QtCore/qatomic_msvc.h
--
-
-C:/Qt/5.12.3/mingw73_64/include/QtCore/qbuffer.h
-QtCore/qiodevice.h
--
-QtCore/qbytearray.h
 -
 
 C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
@@ -1450,10 +1440,6 @@ C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
 Service.h
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.cpp
-DB_functions.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
-
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
 iostream
 -
@@ -1469,10 +1455,6 @@ QtCore/QByteArray
 -
 QStringList
 -
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.cpp
-DB_server.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
 
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
 iostream
@@ -1516,21 +1498,13 @@ C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.h
 Service.h
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
 
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.cpp
-Project.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h
-
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h
 mutex
 -
 Symbol.h
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.h
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.cpp
-QtCore/QJsonDocument
+set
 -
-Service.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
 
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
 QByteArray
@@ -1539,10 +1513,6 @@ QJsonObject
 -
 DB_functions.h
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.cpp
-Symbol.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.h
 
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Symbol.h
 vector
@@ -1560,16 +1530,6 @@ QString
 QJsonArray
 -
 QJsonValue
--
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.cpp
-TaskGeneric.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
-Project.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h
-QtCore/QJsonArray
--
-QtCore/QBuffer
 -
 
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
@@ -1593,46 +1553,6 @@ Service.h
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Service.h
 Project.h
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Project.h
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_Client.cpp
-../../../Client.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/Client.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_DB_server.cpp
-../../../DB_server.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_TaskGeneric.cpp
-../../../TaskGeneric.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/TaskGeneric.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_Client.cpp
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_Client.cpp
-EWIEGA46WW/moc_DB_server.cpp
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_DB_server.cpp
-EWIEGA46WW/moc_TaskGeneric.cpp
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/DB_server_autogen/EWIEGA46WW/moc_TaskGeneric.cpp
-
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/main.cpp
-iostream
--
-DB_functions.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_functions.h
-DB_server.h
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/DB_server.h
 
 C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/sqlite3.h
 stdarg.h

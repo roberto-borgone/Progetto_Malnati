@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Client_t {
-    QByteArrayData data[12];
-    char stringdata0[109];
+    QByteArrayData data[13];
+    char stringdata0[119];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,16 +39,17 @@ QT_MOC_LITERAL(4, 31, 13), // "taskCompleted"
 QT_MOC_LITERAL(5, 45, 6), // "result"
 QT_MOC_LITERAL(6, 52, 14), // "forwardMessage"
 QT_MOC_LITERAL(7, 67, 7), // "message"
-QT_MOC_LITERAL(8, 75, 11), // "sendMessage"
-QT_MOC_LITERAL(9, 87, 5), // "login"
-QT_MOC_LITERAL(10, 93, 4), // "user"
-QT_MOC_LITERAL(11, 98, 10) // "killClient"
+QT_MOC_LITERAL(8, 75, 9), // "projectID"
+QT_MOC_LITERAL(9, 85, 11), // "sendMessage"
+QT_MOC_LITERAL(10, 97, 5), // "login"
+QT_MOC_LITERAL(11, 103, 4), // "user"
+QT_MOC_LITERAL(12, 108, 10) // "killClient"
 
     },
     "Client\0disconnected\0\0readyRead\0"
     "taskCompleted\0result\0forwardMessage\0"
-    "message\0sendMessage\0login\0user\0"
-    "killClient"
+    "message\0projectID\0sendMessage\0login\0"
+    "user\0killClient"
 };
 #undef QT_MOC_LITERAL
 
@@ -69,18 +70,18 @@ static const uint qt_meta_data_Client[] = {
        1,    0,   49,    2, 0x0a /* Public */,
        3,    0,   50,    2, 0x0a /* Public */,
        4,    1,   51,    2, 0x0a /* Public */,
-       6,    1,   54,    2, 0x0a /* Public */,
-       8,    1,   57,    2, 0x0a /* Public */,
-       9,    1,   60,    2, 0x0a /* Public */,
-      11,    0,   63,    2, 0x0a /* Public */,
+       6,    2,   54,    2, 0x0a /* Public */,
+       9,    1,   59,    2, 0x0a /* Public */,
+      10,    1,   62,    2, 0x0a /* Public */,
+      12,    0,   65,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QByteArray,    5,
+    QMetaType::Void, QMetaType::QByteArray, QMetaType::QString,    7,    8,
     QMetaType::Void, QMetaType::QByteArray,    7,
-    QMetaType::Void, QMetaType::QByteArray,    7,
-    QMetaType::Void, QMetaType::QString,   10,
+    QMetaType::Void, QMetaType::QString,   11,
     QMetaType::Void,
 
        0        // eod
@@ -95,7 +96,7 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 0: _t->disconnected(); break;
         case 1: _t->readyRead(); break;
         case 2: _t->taskCompleted((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
-        case 3: _t->forwardMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 3: _t->forwardMessage((*reinterpret_cast< const QByteArray(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
         case 4: _t->sendMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
         case 5: _t->login((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 6: _t->killClient(); break;

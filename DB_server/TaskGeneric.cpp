@@ -173,7 +173,7 @@ void TaskGeneric::run(){
                                        qMakePair(QString("user"), this->userId)
                                });
 
-            emit forwardMessage(QJsonDocument(json).toJson());
+            emit forwardMessage(QJsonDocument(json).toJson(), this->message["prjID"].toString());
 
             break;
 
@@ -232,7 +232,7 @@ void TaskGeneric::run(){
                                        qMakePair(QString("user"), this->userId)
                                });
 
-            emit forwardMessage(QJsonDocument(json_notification).toJson());
+            emit forwardMessage(QJsonDocument(json_notification).toJson(), this->message["prjID"].toString());
 
             {
                 auto lock = std::lock_guard(this->projects_mux);
@@ -277,7 +277,7 @@ void TaskGeneric::run(){
                 this->project->insert(position, s);
             }
 
-            emit forwardMessage(QJsonDocument(this->message).toJson());
+            emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
             break;
 
         }
@@ -291,7 +291,7 @@ void TaskGeneric::run(){
                 int pos = this->project->remote_delete(s);
             }
 
-            emit forwardMessage(QJsonDocument(this->message).toJson());
+            emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
 
             break;
 
@@ -299,7 +299,7 @@ void TaskGeneric::run(){
 
         case CURSOR:
 
-            emit forwardMessage(QJsonDocument(this->message).toJson());
+            emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
             break;
 
         case AUTHORIZATION_ERROR:
@@ -361,5 +361,6 @@ int TaskGeneric::getOpCode(){
 }
 
 TaskGeneric::~TaskGeneric() {
+    this->
     emit finished();
 }

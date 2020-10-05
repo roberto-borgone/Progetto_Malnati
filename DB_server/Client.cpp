@@ -41,6 +41,7 @@ void Client::disconnected() {
         // i don't want to block the main thread while saving, i will
         // release the resources once the saving is finished by calling this same function
         connect(task, SIGNAL(finished()), this, SLOT(disconnected()));
+        connect(task, SIGNAL(forwardMessage(QByteArray, QString)), this, SLOT(forwardMessage(QByteArray, QString)), Qt::BlockingQueuedConnection);
 
         QThreadPool::globalInstance()->start(task);
 
@@ -86,7 +87,7 @@ void Client::readyRead() {
 
     connect(task, SIGNAL(login(QString)), this, SLOT(login(QString)));
     connect(task, SIGNAL(returnResult(QByteArray)), this, SLOT(taskCompleted(QByteArray)));
-    connect(task, SIGNAL(forwardMessage(QByteArray)), this, SLOT(forwardMessage(QByteArray)));
+    connect(task, SIGNAL(forwardMessage(QByteArray, QString)), this, SLOT(forwardMessage(QByteArray, QString)));
     connect(task, SIGNAL(killClient()), this, SLOT(killClient()));
     QThreadPool::globalInstance()->start(task);
 
@@ -102,12 +103,12 @@ void Client::taskCompleted(const QByteArray& result) {
     this->socket->waitForBytesWritten();
 }
 
-void Client::forwardMessage(const QByteArray& message){
+void Client::forwardMessage(const QByteArray& message, const QString& projectID){
 
     auto childrens = this->parent()->findChildren<Client(*)>();
     foreach(auto obj, childrens){
         auto c = qobject_cast<Client*>(obj);
-        if(c->userId.toStdString() != "" && this->userId.toStdString() != c->userId.toStdString() && c->project && this->project->getId() == c->project->getId()){
+        if(c->userId.toStdString() != "" && this->userId.toStdString() != c->userId.toStdString() && c->project && projectID.toStdString() == c->project->getId()){
             c->sendMessage(message);
         }
     }

@@ -63,14 +63,14 @@ static const uint qt_meta_data_TaskGeneric[] = {
 
  // signals: name, argc, parameters, tag, flags
        1,    1,   39,    2, 0x06 /* Public */,
-       4,    1,   42,    2, 0x06 /* Public */,
-       5,    1,   45,    2, 0x06 /* Public */,
-       7,    0,   48,    2, 0x06 /* Public */,
-       8,    0,   49,    2, 0x06 /* Public */,
+       4,    2,   42,    2, 0x06 /* Public */,
+       5,    1,   47,    2, 0x06 /* Public */,
+       7,    0,   50,    2, 0x06 /* Public */,
+       8,    0,   51,    2, 0x06 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QByteArray,    3,
-    QMetaType::Void, QMetaType::QByteArray,    2,
+    QMetaType::Void, QMetaType::QByteArray, QMetaType::QString,    2,    2,
     QMetaType::Void, QMetaType::QString,    6,
     QMetaType::Void,
     QMetaType::Void,
@@ -85,7 +85,7 @@ void TaskGeneric::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->returnResult((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
-        case 1: _t->forwardMessage((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
+        case 1: _t->forwardMessage((*reinterpret_cast< QByteArray(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 2: _t->login((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->killClient(); break;
         case 4: _t->finished(); break;
@@ -101,7 +101,7 @@ void TaskGeneric::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             }
         }
         {
-            using _t = void (TaskGeneric::*)(QByteArray );
+            using _t = void (TaskGeneric::*)(QByteArray , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&TaskGeneric::forwardMessage)) {
                 *result = 1;
                 return;
@@ -181,9 +181,9 @@ void TaskGeneric::returnResult(QByteArray _t1)
 }
 
 // SIGNAL 1
-void TaskGeneric::forwardMessage(QByteArray _t1)
+void TaskGeneric::forwardMessage(QByteArray _t1, QString _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 

@@ -28,7 +28,7 @@ public:
 
 signals:
     void returnResult(QByteArray result);
-    void forwardMessage(QByteArray);
+    void forwardMessage(QByteArray, QString);
     void login(QString user);
     void killClient();
     void finished();

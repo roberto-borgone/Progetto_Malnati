@@ -34,7 +34,7 @@ public slots:
     void readyRead();
 
     void taskCompleted(const QByteArray& result);
-    void forwardMessage(const QByteArray& message);
+    void forwardMessage(const QByteArray& message, const QString& projectID);
     void sendMessage(const QByteArray& message);
     void login(QString user);
     void killClient();

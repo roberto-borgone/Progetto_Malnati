@@ -4,29 +4,51 @@
 
 #include "Profile.h"
 #include <iostream>
+#include <QFileDialog>
+#include <QBuffer>
 
 Profile::Profile():QDialog(){
     setWindowTitle("Profile information");
     setWindowFlags(Qt::Dialog);
 
-    QHBoxLayout* layout = new QHBoxLayout();
-    QPixmap p("/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg");
-    QPushButton *icon = new QPushButton(this);
-    icon->setIcon(QIcon(p));
-    icon->setIconSize(p.rect().size());
-    layout->addWidget(icon,Qt::AlignCenter);
+    QGridLayout *grid = new QGridLayout(this);
+
+    QPixmap p("images/User_icon.png");
+    QLabel *icon = new QLabel(this);
+    icon->setPixmap(p);
+    icon->resize(icon->pixmap()->size());
+    if(icon->pixmap(Qt::ReturnByValue).isNull()){
+        std::cout << "a";
+    }
+    grid->addWidget(icon,0,0);
     QWidget* w = new QWidget(this);
 
-    QGridLayout *grid = new QGridLayout(this);
-    grid->addWidget(new QLabel("Username : "),0,0);
+    QPushButton *changeIcon = new QPushButton("Change image",this);
+    grid->addWidget(changeIcon,0,1);
+
+
+
+    connect(changeIcon,&QPushButton::clicked,[&](){
+        QString fileName = QFileDialog::getOpenFileName((QWidget *) 0, "Select the image", QString(), "*.png");
+
+        QPixmap pixmap;
+        pixmap.load(fileName,"PNG");
+        pixmap.save(QString("images/User_profile.png"));
+        
+
+    });
+
+
+
+    grid->addWidget(new QLabel("Username : "),1,0);
 
     QPushButton* changeUsername = new QPushButton(w);
-    grid->addWidget(changeUsername,1,0);
+    grid->addWidget(changeUsername,1,1);
     changeUsername->setText("Change Username");
 
     QLineEdit* editext = new QLineEdit(w);
     editext->setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
-    grid->addWidget(editext,0,1);
+    grid->addWidget(editext,2,0);
 
     QPushButton* logout = new QPushButton(w);
     logout->setText("Logout");
@@ -34,10 +56,9 @@ Profile::Profile():QDialog(){
         emit log_out();
         this->close();
     });
-    grid->addWidget(logout,1,1);
+    grid->addWidget(logout,2,1);
 
-    w->setLayout(layout);
-    layout->addWidget(w);
 
-    setLayout(layout);
+
+    setLayout(grid);
 }

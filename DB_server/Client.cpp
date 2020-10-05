@@ -64,7 +64,18 @@ void Client::killClient() {
 void Client::readyRead() {
 
     std::cout << "Message received from " << this->socket->socketDescriptor() << std::endl;
-    QJsonDocument document_message = QJsonDocument::fromJson(this->socket->readAll());
+
+    QByteArray message;
+    QJsonDocument document_message;
+
+    do{
+        if(this->socket->bytesAvailable() == 0)
+            this->socket->waitForReadyRead();
+        message.append(this->socket->readAll());
+        document_message = QJsonDocument::fromJson(message);
+    }while(document_message.isNull());
+
+
     QJsonObject json_message = document_message.object();
 
     std::cout << "Message: \n" << document_message.toJson().toStdString() << std::endl;

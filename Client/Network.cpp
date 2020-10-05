@@ -94,8 +94,20 @@ void Network::remove_symbol(Symbol s) {
 void Network::message_received() {
     qDebug() << "nuovo messaggio ricevuto";
     //prendo tutto il qByteArray e lo trasformo in oggetto json
+    //QJsonParseError parseError;
+    //QJsonDocument doc = QJsonDocument::fromJson(socket_ptr->readAll(), &parseError);
+
     QJsonParseError parseError;
-    QJsonDocument doc = QJsonDocument::fromJson(socket_ptr->readAll(), &parseError);
+    QByteArray message;
+    QJsonDocument doc;
+
+    do{
+        if(socket_ptr->bytesAvailable() == 0)
+            socket_ptr->waitForReadyRead();
+        std::cout << message.size() << std::endl;
+        message.append(socket_ptr->readAll());
+        doc = QJsonDocument::fromJson(message, &parseError);
+    }while(doc.isNull());
 
     /*
     if (parseError.error == QJsonParseError::NoError) {
@@ -117,6 +129,9 @@ void Network::message_received() {
     switch (opcode) {
 
         case log_in: {
+
+            std::cout<<"MESSAGGIO: " << doc.toJson().toStdString() << std::endl;
+
             int result = obj["status"].toInt();
             qDebug() << "entrato in log_in con codice:" << result;
             if (result == 0) {
@@ -125,9 +140,9 @@ void Network::message_received() {
                 //get profile image
                 auto const encoded = obj["user_img"].toString().toLatin1();
                 QImage img;
-                //img.loadFromData(QByteArray::fromBase64(encoded), "PNG"); //da capire perchè l'immagine non viene presa correttamente
+                img.loadFromData(QByteArray::fromBase64(encoded), "PNG"); //da capire perchè l'immagine non viene presa correttamente
                 //per ora metto io l'immagine di default
-                img.load("../images/User_icon.png");
+                //img.load("../images/User_icon.png");
                 if(img.isNull())
                     std::cout<<"IMMAGINE NULLA!!!"<<std::endl;
                 gui_ptr->set_profile_image(img);

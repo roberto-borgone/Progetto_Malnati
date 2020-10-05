@@ -59,6 +59,7 @@ class Gui : public QMainWindow{
     QHBoxLayout* lh;
     QWidget *centralWidget;
     map<string,vector<int>> user_color;
+    map<string,bool> connected_users;
     string user;
     bool show_collaborators;
     QImage profile_image;
@@ -93,6 +94,8 @@ public:
     void clear_users_list(bool also_user);
     void set_profile_image(const QImage& img);
     void closeProject();
+    void add_connected_user(string usr);
+    void user_disconnected(string usr);
 
 public slots:
     void logged_in(const std::string& user);

@@ -635,14 +635,15 @@ void Gui::add_user(std::string user) {
 
     QPixmap p(QString::fromStdString("..path"));
     QIcon ico(p);
-    QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
     int r = rand() % 255;
     int g = rand() % 255;
     int b = rand() % 255;
     user_color[user] = {r, g, b};
+    user_color[user] = {r, g, b};
+    connected_users[user] = false;
+    QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
     item->setBackgroundColor(QColor::fromRgb(r, g, b));
     list->addItem(item);
-    user_color[user] = {r, g, b};
 
 }
 
@@ -820,5 +821,21 @@ void Gui::closeProject() {
         clear_users_list(false);
         emit clear_users(false);
     }
+}
+
+void Gui::add_connected_user(string usr) {
+    //inserisco nelle due mappe il nuovo utente nel caso non avesse mai scritto sul progetto
+    if(user_color.find(usr)==user_color.end()){
+        add_user(usr);
+    }
+    else{
+        std::cout<<"user: "<<usr<<"settato come online"<<std::endl;
+    }
+    connected_users[usr]=true;
+}
+
+void Gui::user_disconnected(string usr){
+    connected_users[usr]=false;
+    std::cout<<"user: "<<usr<<"settato come offline"<<std::endl;
 }
 

@@ -39,21 +39,19 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
             //       cout << c.position() <<c.selectedText().toStdString() << endl;
 
 
-            string add = c.selectedText().toStdString();
-
-            if (add == "\U00002029") {
-                add = "\n";
-            }
+            QString add = c.selectedText();
 
 
 
-            if (add == "") return;
+
+
+            if (add.toStdString() == "") return;
 
             //CONTROLLATE QUESTA PARTE QUI CREO SIMBOLO RELATIVO A CARATTERE DIGITATO DA UTENTE E GENERO FRAZIONARIO
             /*BUG: se si copiano e incollano più caratteri questo non viene gestito bene*/
 
             for (auto sp = add.end() - 1; sp >= add.begin(); sp--) {
-                std::cout << sp.base() << std::endl;
+
                 QTextCharFormat f = c.charFormat();
                 vector<int> frac;
 
@@ -146,9 +144,8 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 std::string proj = std::string(project->prjID); //qui si dovrà predere il progetto aperto dallo user
                 //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
 
-                string sps;
-                sps.push_back(*sp);
-                Symbol s = Symbol(sps, f.font().family().toStdString(),
+
+                Symbol s = Symbol(*sp, f.font().family().toStdString(),
                                   f.fontWeight() == QFont::Weight::Bold,
                                   f.fontItalic(),
                                   f.fontUnderline(),
@@ -590,11 +587,11 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     brush.setColor(QColor(s.getColor()));
     format.setForeground(brush);
 
-    std::cout << "inserimento remoto" << s.getChar() << std::endl;
+    //std::cout << "inserimento remoto" << s.getChar() << std::endl;
     bool resume_signals = textEdit->document()->blockSignals(
             true); //block signal "contentsChange" to avoid infinite loop
     new_cursor.insertText(
-            QString::fromStdString(s.getChar()), format); //insert text in position (better use overloaded function with format)
+            QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
     textEdit->document()->blockSignals(resume_signals);
 
     if (pos <= old_cursor.position()) {
@@ -644,6 +641,7 @@ void Gui::add_user(std::string user) {
     QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
     item->setBackgroundColor(QColor::fromRgb(r, g, b));
     list->addItem(item);
+    user_items[user] = item;
 
 }
 
@@ -779,7 +777,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             brush.setColor(QColor(s.getColor()));
             format.setForeground(brush);
             new_cursor->insertText(
-                    QString::fromStdString(s.getChar()), format);
+                    QString(s.getChar()), format);
 
         }
 
@@ -832,10 +830,19 @@ void Gui::add_connected_user(string usr) {
         std::cout<<"user: "<<usr<<"settato come online"<<std::endl;
     }
     connected_users[usr]=true;
+    QPixmap pixmap(100,100);
+    pixmap.fill(QColor("green"));
+    QIcon redIcon(pixmap);
+    user_items[usr]->setIcon(redIcon);
 }
 
 void Gui::user_disconnected(string usr){
     connected_users[usr]=false;
     std::cout<<"user: "<<usr<<"settato come offline"<<std::endl;
+    QPixmap pixmap(100,100);
+    pixmap.fill(QColor("red"));
+    QIcon redIcon(pixmap);
+    user_items[usr]->setIcon(redIcon);
+
 }
 

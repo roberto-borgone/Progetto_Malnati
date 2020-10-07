@@ -85,7 +85,7 @@ void Project::externalInsert(Symbol s) {
     int pos = insertOrder(0, text.size(), s);
     QTextCursor cursor(document);
     cursor.setPosition(pos);
-    cursor.insertText(QString::fromStdString(s.getChar()));
+    cursor.insertText(s.getChar());
 
 }
 
@@ -106,14 +106,14 @@ int Project::remote_delete(Symbol s) {
     std::cout << "dentro la remote cancella" << std::endl;
     std::vector<int> tmp; //vettore temporane che mi servirà per la ricerca
     auto bounds = make_pair(text.begin(), text.end());
-    std::cout << "da cercare: " << s.getChar() << std::endl;
+    //std::cout << "da cercare: " << s.getChar() << std::endl;
     tmp=s.getFrac();
     std::cout << "vettore tmp: ";
     for (auto el:tmp) std::cout << el << " ";
     std::cout << std::endl;
     int pos=-1;
     for(int i=0; i<tmp.size()-1; i++) {
-        Symbol tmp_symbol("t", std::string("no_font"), false, false, false, false, std::string("no_color"), tmp,
+        Symbol tmp_symbol(QChar('t'), std::string("no_font"), false, false, false, false, std::string("no_color"), tmp,
                           std::string("no_project"), std::string("no_user"));
         bounds = std::equal_range(bounds.first, bounds.second, tmp_symbol, [i](const Symbol &s1, const Symbol &s2) {
             return const_cast<Symbol &>(s1).getFrac()[i] < const_cast<Symbol &>(s2).getFrac()[i];
@@ -132,7 +132,7 @@ int Project::remote_delete(Symbol s) {
 
         std::cout << "i: "<<i;
         for (auto t = bounds.first; t != bounds.second; t++) {
-            std::cout << "element: " << t->getChar() << " " << t->getFrac()[0] << " ";
+            //std::cout << "element: " << t->getChar() << " " << t->getFrac()[0] << " ";
         }
         cout << std::endl;
     }
@@ -144,7 +144,7 @@ int Project::remote_delete(Symbol s) {
         std::cout << "nessun elemento trovato";
     }
     for (auto it = begin; it != end; it++) {
-        std::cout << "trovato elemento" << it->getChar() << std::endl;
+        //std::cout << "trovato elemento" << it->getChar() << std::endl;
         if (it->getId() == s.getId()) {
             pos=it-text.begin();
             text.erase(it);

@@ -60,6 +60,7 @@ class Gui : public QMainWindow{
     QWidget *centralWidget;
     map<string,vector<int>> user_color;
     map<string,bool> connected_users;
+    map<string,QListWidgetItem*> user_items;
     string user;
     bool show_collaborators;
     QImage profile_image;

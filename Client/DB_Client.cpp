@@ -142,8 +142,15 @@ void DB_Client::send_log_in() {
         QString message_to_send= QString::fromLatin1(Doc.toJson());
         std::cout << message_to_send.toStdString() << std::endl;
 
+        int size = message_to_send.toLatin1().size();
+
+        // send response to the client
+        QByteArray message_to_send2 = message_to_send.toLatin1();
+        message_to_send2.prepend((const char*) &size, sizeof(int));
+
         //send JOSN obj
-        sslClient.write(message_to_send.toLatin1());
+        sslClient.write(message_to_send2);
+
         //sslClient.write(message.toStdString().c_str());
 
         if (sslClient.waitForBytesWritten()) {
@@ -203,8 +210,14 @@ void DB_Client::send_log_in() {
         std::cout << message_to_send.toStdString() << std::endl;
 
         //send JOSN obj
-        sslClient.write(message_to_send.toLatin1());
-        //sslClient.write(message.toStdString().c_str());
+        int size = message_to_send.toLatin1().size();
+
+        // send response to the client
+        QByteArray message_to_send2 = message_to_send.toLatin1();
+        message_to_send2.prepend((const char*) &size, sizeof(int));
+
+        //send JOSN obj
+        sslClient.write(message_to_send2);
 
         if (sslClient.waitForBytesWritten()) {
             qDebug() << "sent!";
@@ -271,9 +284,14 @@ void DB_Client::send_subscribe() {
             QString message_to_send= QString::fromLatin1(Doc.toJson());
             std::cout << message_to_send.toStdString() << std::endl;
 
+            int size = message_to_send.toLatin1().size();
+
+            // send response to the client
+            QByteArray message_to_send2 = message_to_send.toLatin1();
+            message_to_send2.prepend((const char*) &size, sizeof(int));
+
             //send JOSN obj
-            sslClient.write(message_to_send.toLatin1());
-            //sslClient.write(message.toStdString().c_str());
+            sslClient.write(message_to_send2);
 
             if (sslClient.waitForBytesWritten()) {
                 qDebug() << "sent!";
@@ -332,8 +350,14 @@ void DB_Client::send_subscribe() {
         std::cout << message_to_send.toStdString() << std::endl;
 
         //send JOSN obj
-        sslClient.write(message_to_send.toLatin1());
-        //sslClient.write(message.toStdString().c_str());
+        int size = message_to_send.toLatin1().size();
+
+        // send response to the client
+        QByteArray message_to_send2 = message_to_send.toLatin1();
+        message_to_send2.prepend((const char*) &size, sizeof(int));
+
+        //send JOSN obj
+        sslClient.write(message_to_send2);
 
         if (sslClient.waitForBytesWritten()) {
             qDebug() << "sent!";

@@ -66,7 +66,14 @@ void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
-    socket_ptr->write(message_to_send.toLatin1());
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
     socket_ptr->flush();
 
     /**PROVA DI ARRIVO DI PROGETTI DA SCEGLIERE*
@@ -97,11 +104,22 @@ void Network::remove_symbol(Symbol s) {
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
-    socket_ptr->write(message_to_send.toLatin1());
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
     socket_ptr->flush();
 }
 
 void Network::message_received() {
+
+    if(socket_ptr->bytesAvailable() == 0)
+        return;
+
     qDebug() << "nuovo messaggio ricevuto";
     //prendo tutto il qByteArray e lo trasformo in oggetto json
     //QJsonParseError parseError;
@@ -111,13 +129,23 @@ void Network::message_received() {
     QByteArray message;
     QJsonDocument doc;
 
-    do {
-        if (socket_ptr->bytesAvailable() == 0)
+    int maxsize;
+    int size = 0;
+    QByteArray read;
+
+    socket_ptr->read((char*) &maxsize, sizeof(int));
+
+    std::cout << "La dimensione è: " << maxsize << std::endl;
+
+    do{
+        if(socket_ptr->bytesAvailable() == 0)
             socket_ptr->waitForReadyRead();
-        std::cout << message.size() << std::endl;
-        message.append(socket_ptr->readAll());
-        doc = QJsonDocument::fromJson(message, &parseError);
-    } while (doc.isNull());
+        read = socket_ptr->read(maxsize - size);
+        size += read.size();
+        message.append(read);
+    }while(size < maxsize);
+
+    doc = QJsonDocument::fromJson(message);
 
     /*
     if (parseError.error == QJsonParseError::NoError) {
@@ -319,6 +347,7 @@ void Network::message_received() {
 
     }
 
+    this->selfCall();
 }
 
 void Network::ask_projects(std::string usr) {
@@ -336,7 +365,15 @@ void Network::ask_projects(std::string usr) {
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
-    socket_ptr->write(message_to_send.toLatin1());
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
+    socket_ptr->flush();
 }
 
 void Network::close_project(std::string prj) {
@@ -354,7 +391,14 @@ void Network::close_project(std::string prj) {
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
-    socket_ptr->write(message_to_send.toLatin1());
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
     socket_ptr->flush();
 
     //delete project and stop timer for cursor
@@ -383,7 +427,15 @@ void Network::project_to_get(std::string prj_name) {
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
-    socket_ptr->write(message_to_send.toLatin1());
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
+    socket_ptr->flush();
 }
 
 void Network::new_project(std::string prjID) {
@@ -400,7 +452,15 @@ void Network::new_project(std::string prjID) {
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
-    socket_ptr->write(message_to_send.toLatin1());
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
+    socket_ptr->flush();
 }
 
 void Network::send_cursor(int position) {
@@ -419,7 +479,14 @@ void Network::send_cursor(int position) {
     std::cout << message_to_send.toStdString() << std::endl;
 
     //send JOSN obj
-    socket_ptr->write(message_to_send.toLatin1());
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
     socket_ptr->flush();
 }
 
@@ -437,5 +504,9 @@ void Network::clear_users(bool also_user) {
     if (!also_user) {
         users.insert(users.end(), gui_ptr->getUser());
     }
+}
+
+void Network::selfCall(){
+    socket_ptr->readyRead();
 }
 

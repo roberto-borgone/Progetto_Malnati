@@ -95,9 +95,9 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: _t->disconnected(); break;
         case 1: _t->readyRead(); break;
-        case 2: _t->taskCompleted((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 2: _t->taskCompleted((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 3: _t->forwardMessage((*reinterpret_cast< const QByteArray(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2]))); break;
-        case 4: _t->sendMessage((*reinterpret_cast< const QByteArray(*)>(_a[1]))); break;
+        case 4: _t->sendMessage((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 5: _t->login((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 6: _t->killClient(); break;
         default: ;

@@ -603,6 +603,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj
  C:/Users/rober/CLionProjects/Progetto_Malnati/Client/SendEmailPopup.h
  C:/Users/rober/CLionProjects/Progetto_Malnati/Client/Symbol.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/QBuffer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
@@ -610,6 +611,7 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qbuffer.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearraylist.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
@@ -621,8 +623,10 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qcoreevent.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qdatastream.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qdir.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qfile.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qfiledevice.h
+ C:/Qt/5.12.3/mingw73_64/include/QtCore/qfileinfo.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qflags.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qgenericatomic.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/qglobal.h
@@ -709,6 +713,7 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs.h
  C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs_win.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialog
+ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QFileDialog
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QHBoxLayout
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLabel
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLineEdit
@@ -719,6 +724,7 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractscrollarea.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qboxlayout.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialog.h
+ C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qfiledialog.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qframe.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qgridlayout.h
  C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlabel.h

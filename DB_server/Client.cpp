@@ -64,18 +64,29 @@ void Client::killClient() {
 
 void Client::readyRead() {
 
+    if(this->socket->bytesAvailable() == 0)
+        return;
+
     std::cout << "Message received from " << this->socket->socketDescriptor() << std::endl;
 
     QByteArray message;
     QJsonDocument document_message;
 
+    int maxsize;
+    QByteArray read;
+    int size = 0;
+
+    this->socket->read((char*) &maxsize, sizeof(int));
+
     do{
         if(this->socket->bytesAvailable() == 0)
             this->socket->waitForReadyRead();
-        message.append(this->socket->readAll());
-        document_message = QJsonDocument::fromJson(message);
-    }while(document_message.isNull());
+        read = this->socket->read(maxsize - size);
+        size += read.size();
+        message.append(read);
+    }while(size < maxsize);
 
+    document_message = QJsonDocument::fromJson(message);
 
     QJsonObject json_message = document_message.object();
 
@@ -92,13 +103,18 @@ void Client::readyRead() {
     QThreadPool::globalInstance()->start(task);
 
     std::cout << "New task created for client at " << this->socket->socketDescriptor() << std::endl;
+
+    this->selfCall();
 }
 
-void Client::taskCompleted(const QByteArray& result) {
+void Client::taskCompleted(QByteArray result) {
 
     std::cout << "Task completed for client at " << this->socket->socketDescriptor() << std::endl;
 
+    int size = result.size();
+
     // send response to the client
+    result.prepend((char*) &size, sizeof(int));
     this->socket->write(result);
     this->socket->waitForBytesWritten();
 }
@@ -114,13 +130,21 @@ void Client::forwardMessage(const QByteArray& message, const QString& projectID)
     }
 }
 
-void Client::sendMessage(const QByteArray& message){
+void Client::sendMessage(QByteArray message){
+    int size = message.size();
+
+    // send response to the client
+    message.prepend((const char*) &size, sizeof(int));
     this->socket->write(message);
 }
 
 void Client::login(QString user){
     this->userId = user;
     std::cout << "Client Logged, user: " << this->userId.toStdString() << std::endl;
+}
+
+void Client::selfCall(){
+    this->socket->readyRead();
 }
 
 Client::~Client() {

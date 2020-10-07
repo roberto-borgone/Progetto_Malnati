@@ -602,6 +602,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Project.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../SendEmailPopup.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.obj: ../Symbol.h
 
+CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QBuffer
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qalgorithms.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qarraydata.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic.h
@@ -609,6 +610,7 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_cxx11.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qatomic_msvc.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbasicatomic.h
+CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbuffer.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearray.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qbytearraylist.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qchar.h
@@ -620,8 +622,10 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qcoreevent.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qdatastream.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qdebug.h
+CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qdir.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qfile.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qfiledevice.h
+CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qfileinfo.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qflags.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qgenericatomic.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/qglobal.h
@@ -708,6 +712,7 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtGui/qwindowdefs_win.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QDialog
+CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QFileDialog
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QHBoxLayout
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLabel
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/QLineEdit
@@ -718,6 +723,7 @@ CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/incl
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qabstractscrollarea.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qboxlayout.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qdialog.h
+CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qfiledialog.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qframe.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qgridlayout.h
 CMakeFiles/editorCollaborativo.dir/Profile.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtWidgets/qlabel.h

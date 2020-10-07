@@ -17,9 +17,9 @@ Profile::Profile():QDialog(){
     QLabel *icon = new QLabel(this);
     icon->setPixmap(p);
     icon->resize(icon->pixmap()->size());
-    if(icon->pixmap(Qt::ReturnByValue).isNull()){
-        std::cout << "a";
-    }
+//    if(icon->pixmap(Qt::ReturnByValue).isNull()){
+//        std::cout << "a";
+//    }
     grid->addWidget(icon,0,0);
     QWidget* w = new QWidget(this);
 

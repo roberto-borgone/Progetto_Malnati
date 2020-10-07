@@ -28,6 +28,7 @@ Q_OBJECT;
     std::set<string> users;
 public:
     Network(Project *project, Gui *gui);
+    void selfCall();
 
     void receiveCommand(); //riceve comando da esterno e lo manda a project
 

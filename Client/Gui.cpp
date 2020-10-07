@@ -43,7 +43,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
             }
 
         }
-
         if (added > 0) {
 
             QTextCursor c(textEdit->textCursor());

@@ -117,50 +117,82 @@ void DB_Client::send_log_in() {
         sslClient.connectToHost(host_name, port);
         //sslClient.connectToHostEncrypted("gmail.com", 443);
 
-        // send data and wait for response
-        if (sslClient.waitForConnected(3000)) {
-            std::cout << "connession established!!" << std::endl;
-            if (!logOut) {
-                emit move_socket(sslClient); //metto socket creato in network
-                logOut = true;
-            }
+    // send data and wait for response
+    if (sslClient.waitForConnected(3000)) {
+        std::cout << "connession established!!" << std::endl;
+        if(!logOut){
+            emit move_socket(sslClient); //metto socket creato in network
+            logOut= true;
+        }
 
-            std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_log");
-            QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_log");
+        std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_log");
+        QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_log");
 
-            //create JSON object of type log in
-            auto json_message = QJsonObject({
-                                                    qMakePair(QString("opcode"), QJsonValue(0)),
-                                                    qMakePair(QString("user"), QJsonValue(user)),
-                                                    qMakePair(QString("password"), QJsonValue(pwd)),
+        //create JSON object of type log in
+        auto json_message = QJsonObject({
+                                                qMakePair(QString("opcode"), QJsonValue(0)),
+                                                qMakePair(QString("user"), QJsonValue(user)),
+                                                qMakePair(QString("password"), QJsonValue(pwd)),
 
-                                            });
+                                        });
 
-            //print JSON object
-            std::cout << "connession established!!222222" << std::endl;
-            QJsonDocument Doc(json_message);
-            QString message_to_send = QString::fromLatin1(Doc.toJson());
-            std::cout << message_to_send.toStdString() << std::endl;
+        //print JSON object
+        std::cout << "connession established!!222222" << std::endl;
+        QJsonDocument Doc(json_message);
+        QString message_to_send= QString::fromLatin1(Doc.toJson());
+        std::cout << message_to_send.toStdString() << std::endl;
 
-            //send JOSN obj
-            sslClient.write(message_to_send.toLatin1());
-            //sslClient.write(message.toStdString().c_str());
+        int size = message_to_send.toLatin1().size();
 
-            if (sslClient.waitForBytesWritten()) {
-                qDebug() << "sent!";
-                qDebug() << "wait for response";
+        // send response to the client
+        QByteArray message_to_send2 = message_to_send.toLatin1();
+        message_to_send2.prepend((const char*) &size, sizeof(int));
 
+        //send JOSN obj
+        sslClient.write(message_to_send2);
+
+        //sslClient.write(message.toStdString().c_str());
+
+        if (sslClient.waitForBytesWritten()) {
+            qDebug() << "sent!";
+            qDebug() << "wait for response";
+            /*
+            if (sslClient.waitForReadyRead()) {
+                int result = sslClient.readAll().toInt();
+                std::cout << result;
+                if (result == 0) {
+                    //sslClient.close();
+                    logged = true;
+                    emit logged_in(user.toStdString());
+                } else {
+                    if (widg->findChild<QTextEdit *>("wrong_credentials") == nullptr) {
+                        QTextEdit *text = new QTextEdit();
+                        text->viewport()->setAutoFillBackground(false);
+                        text->setText("wrong username or password");
+                        text->setObjectName("wrong_credentials");
+                        layout->addWidget(text);
+                        widg->setLayout(layout);
+                        this->setCentralWidget(widg);
+                    }
+                    sslClient.close();
+                    return;
+                }
             } else {
-                //qDebug() << sslClient.errorString();
-                qDebug() << sslClient.state();
+                qDebug() << "no response";
+                sslClient.close();
                 return;
-            }
+            }*/
         } else {
-            std::cout << "failed to establish connection!!!" << std::endl;
-            qDebug() << sslClient.errorString();
+            //qDebug() << sslClient.errorString();
+            qDebug() << sslClient.state();
             return;
         }
     } else {
+        std::cout << "failed to establish connection!!!" << std::endl;
+        qDebug() << sslClient.errorString();
+        return;
+    }
+    }else{
         std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_log");
         QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_log");
 
@@ -174,12 +206,18 @@ void DB_Client::send_log_in() {
 
         //print JSON object
         QJsonDocument Doc(json_message);
-        QString message_to_send = QString::fromLatin1(Doc.toJson());
+        QString message_to_send= QString::fromLatin1(Doc.toJson());
         std::cout << message_to_send.toStdString() << std::endl;
 
         //send JOSN obj
-        sslClient.write(message_to_send.toLatin1());
-        //sslClient.write(message.toStdString().c_str());
+        int size = message_to_send.toLatin1().size();
+
+        // send response to the client
+        QByteArray message_to_send2 = message_to_send.toLatin1();
+        message_to_send2.prepend((const char*) &size, sizeof(int));
+
+        //send JOSN obj
+        sslClient.write(message_to_send2);
 
         if (sslClient.waitForBytesWritten()) {
             qDebug() << "sent!";
@@ -201,7 +239,7 @@ void DB_Client::send_subscribe() {
     std::cout << "username: " << user.toStdString() << std::endl;
     std::cout << "password: " << pwd.toStdString() << std::endl;
     if (!connected) {
-        //std::cout << QSslSocket::supportsSsl() << std::endl;
+         //std::cout << QSslSocket::supportsSsl() << std::endl;
         //ignore errors deriving from autosigned certficate
         /*
         QList<QSslCertificate> cert = QSslCertificate::fromPath(
@@ -226,9 +264,9 @@ void DB_Client::send_subscribe() {
         // send data and wait for response
         if (sslClient.waitForConnected(3000)) {
             std::cout << "connession established!!" << std::endl;
-            if (!logOut) {
+            if(!logOut){
                 emit move_socket(sslClient); //metto socket creato in network
-                logOut = true;
+                logOut= true;
             }
             std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_sub");
             QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_sub");
@@ -243,12 +281,17 @@ void DB_Client::send_subscribe() {
 
             //print JSON object
             QJsonDocument Doc(json_message);
-            QString message_to_send = QString::fromLatin1(Doc.toJson());
+            QString message_to_send= QString::fromLatin1(Doc.toJson());
             std::cout << message_to_send.toStdString() << std::endl;
 
+            int size = message_to_send.toLatin1().size();
+
+            // send response to the client
+            QByteArray message_to_send2 = message_to_send.toLatin1();
+            message_to_send2.prepend((const char*) &size, sizeof(int));
+
             //send JOSN obj
-            sslClient.write(message_to_send.toLatin1());
-            //sslClient.write(message.toStdString().c_str());
+            sslClient.write(message_to_send2);
 
             if (sslClient.waitForBytesWritten()) {
                 qDebug() << "sent!";
@@ -289,7 +332,7 @@ void DB_Client::send_subscribe() {
             qDebug() << sslClient.errorString();
             return;
         }
-    } else {
+    }else{
         std::string std_message(user.toStdString() + "_" + pwd.toStdString() + "_sub");
         QString message = QString::fromStdString(user.toStdString() + "_" + pwd.toStdString() + "_sub");
 
@@ -303,12 +346,18 @@ void DB_Client::send_subscribe() {
 
         //print JSON object
         QJsonDocument Doc(json_message);
-        QString message_to_send = QString::fromLatin1(Doc.toJson());
+        QString message_to_send= QString::fromLatin1(Doc.toJson());
         std::cout << message_to_send.toStdString() << std::endl;
 
         //send JOSN obj
-        sslClient.write(message_to_send.toLatin1());
-        //sslClient.write(message.toStdString().c_str());
+        int size = message_to_send.toLatin1().size();
+
+        // send response to the client
+        QByteArray message_to_send2 = message_to_send.toLatin1();
+        message_to_send2.prepend((const char*) &size, sizeof(int));
+
+        //send JOSN obj
+        sslClient.write(message_to_send2);
 
         if (sslClient.waitForBytesWritten()) {
             qDebug() << "sent!";
@@ -365,8 +414,8 @@ void DB_Client::failed_subscribe() {
 }
 
 void DB_Client::disconnected() {
-    connected = false;
-    logged = false;
+    connected=false;
+    logged=false;
     this->show();
 }
 

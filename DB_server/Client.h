@@ -24,7 +24,7 @@ class Client: public QObject {
 
 public:
     Client(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, qintptr socketDescriptor, QObject* parent = nullptr);
-
+    void selfCall();
     ~Client() override;
 
 signals:
@@ -33,9 +33,9 @@ public slots:
     void disconnected();
     void readyRead();
 
-    void taskCompleted(const QByteArray& result);
+    void taskCompleted(QByteArray result);
     void forwardMessage(const QByteArray& message, const QString& projectID);
-    void sendMessage(const QByteArray& message);
+    void sendMessage(QByteArray message);
     void login(QString user);
     void killClient();
 

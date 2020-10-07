@@ -30,6 +30,20 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
 
+        if (removed > 0) {
+
+            if (project->prjID_set) {
+                textEdit->undo();
+                QTextCursor c(textEdit->textCursor());
+                c.setPosition(pos);
+                c.setPosition(pos + removed, QTextCursor::KeepAnchor);
+                std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
+                project->eraseElements(pos, removed);
+                textEdit->redo();
+            }
+
+        }
+
         if (added > 0) {
 
             QTextCursor c(textEdit->textCursor());
@@ -165,19 +179,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             }
-        }
-        if (removed > 0) {
-
-            if (project->prjID_set) {
-                textEdit->undo();
-                QTextCursor c(textEdit->textCursor());
-                c.setPosition(pos);
-                c.setPosition(pos + removed, QTextCursor::KeepAnchor);
-                std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
-                project->eraseElements(pos, removed);
-                textEdit->redo();
-            }
-
         }
 
         cout << endl;

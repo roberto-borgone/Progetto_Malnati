@@ -130,7 +130,7 @@ void Network::message_received() {
 
     // accessing all object Keys
     for (const QString &key : obj.keys()) {
-        qDebug() << obj[key];
+        //qDebug() << obj[key];
     }
 
     int opcode = obj["opcode"].toInt();

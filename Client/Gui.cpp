@@ -302,6 +302,13 @@ QToolBar *Gui::initToolBar() {
 
                 });
 
+                //button change image
+                QObject::connect(f, &Profile::new_image, [this](QImage img) {
+                    std::cout<<"IMMAGINE CAMBIATA!!!!"<<std::endl;
+                    set_profile_image(img);
+                    emit change_image(img);
+                });
+
                 f->exec();
             });
     toolBar->addAction(QIcon::fromTheme("Collaborators", QIcon(rsrcPath + "/link.svg")), "Collaborators", [=]() {

@@ -251,6 +251,9 @@ void Network::message_received() {
             //setta gli utenti come connessi nella GUI (e aggiungi nuovi utenti connessi ma che non hanno mai scritto sul progetto)
             for (auto user : online_users) {
                 std::string online_user = user.toString().toStdString();
+                if (users.find(online_user) == users.end()) {
+                    users.insert(online_user);
+                }
                 gui_ptr->add_connected_user(online_user);
             }
 
@@ -334,6 +337,9 @@ void Network::message_received() {
         case user_connecting: {
             std::string user = obj["user"].toString().toStdString();
             //setto l'utente indicato come online e lo aggiugo alla lista se non ancora presente
+            if (users.find(user) == users.end()) {
+                users.insert(user);
+            }
             gui_ptr->add_connected_user(user);
         }
             break;
@@ -508,5 +514,37 @@ void Network::clear_users(bool also_user) {
 
 void Network::selfCall(){
     socket_ptr->readyRead();
+}
+
+void Network::send_image(QImage img) {
+
+    //create JSON object of type project_to_get
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(12)),
+                                    });
+
+    QBuffer buffer;
+    buffer.open(QIODevice::WriteOnly);
+    img.save(&buffer, "PNG");
+    auto const encoded = buffer.data().toBase64();
+    json_message.insert("user_img", {QLatin1String(encoded)});
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
+    socket_ptr->flush();
+
+
 }
 

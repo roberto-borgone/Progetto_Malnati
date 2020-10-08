@@ -19,6 +19,7 @@
 #include <memory>
 #include <QJsonParseError>
 #include <set>
+#include <QBuffer>
 
 class Network : public QObject {
 Q_OBJECT;
@@ -87,6 +88,9 @@ public slots:
 
     //clear the users vector leaving only current user
     void clear_users(bool also_user);
+
+    //slot per invio immagine
+    void send_image(QImage img);
 
 };
 

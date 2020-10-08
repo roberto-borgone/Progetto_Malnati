@@ -34,8 +34,8 @@ Profile::Profile():QDialog(){
         QPixmap pixmap;
         pixmap.load(fileName,"PNG");
         pixmap.save(QString("images/User_profile.png"));
-        
-
+        QImage new_profile_image(fileName);
+        emit new_image(new_profile_image);
     });
 
 

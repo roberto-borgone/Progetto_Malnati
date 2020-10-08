@@ -117,6 +117,7 @@ signals:
     void clear_users(bool also_user);
     void sendMail(std::string prjID,std::string sender);
     void useInvite();
+    void change_image(QImage img);
 };
 
 

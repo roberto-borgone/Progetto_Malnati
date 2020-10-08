@@ -1,4 +1,4 @@
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir
-/Users/davidemiro/Desktop/progetto_malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server_autogen.dir
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Clemente Cetera/Desktop/polito-magistrale/2-anno/2-semestre/Programmazione_di_sistema(rifatto)/progetto/Progetto_Malnati_new/DB_server/cmake-build-debug/CMakeFiles/DB_server_autogen.dir

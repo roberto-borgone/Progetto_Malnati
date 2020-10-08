@@ -119,7 +119,7 @@ int Project::remote_delete(Symbol s) {
             return const_cast<Symbol &>(s1).getFrac()[i] < const_cast<Symbol &>(s2).getFrac()[i];
         });
 
-        //fino a che begin è di una lunghezza di begin è minore di tmp vado avanti
+        //fino a che begin è di una lunghezza minore di tmp vado avanti
         while (bounds.first->getFrac().size() <= i+1 && bounds.first!=bounds.second ) { //i+2 cioè se non esiste l'elemento successivo
             std::cout << "avanti\n";
             bounds.first++;
@@ -143,12 +143,17 @@ int Project::remote_delete(Symbol s) {
     if (begin == end) {
         std::cout << "nessun elemento trovato";
     }
+    auto element_to_delete = begin-1;
     for (auto it = begin; it != end; it++) {
         //std::cout << "trovato elemento" << it->getChar() << std::endl;
         if (it->getId() == s.getId()) {
-            pos=it-text.begin();
-            text.erase(it);
+            element_to_delete=it;
         }
+    }
+
+    if(element_to_delete!=begin-1){
+        pos=element_to_delete-text.begin();
+        text.erase(element_to_delete);
     }
 
     return pos;

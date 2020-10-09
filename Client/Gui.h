@@ -66,6 +66,7 @@ class Gui : public QMainWindow{
     bool show_collaborators;
     QImage profile_image;
     SendEmailPopup *mailpopup;
+    map<string,QTextCursor> user_cursors;
 
 
 

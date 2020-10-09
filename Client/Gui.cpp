@@ -659,17 +659,53 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
+    bool resume_signals = textEdit->document()->blockSignals(
+            true);
+    if (user == this->user){
+        return;
+    }
 
-    int prevPos = textEdit->textCursor().position();
-    textEdit->textCursor().setPosition(pos);
+    if(user_cursors.find(user) ==user_cursors.end()){
+        user_cursors[user] = QTextCursor(textEdit->document());
+
+    }
+
+
+    QTextCursor currentCursor = textEdit->textCursor();
+    cout << user;
+
+    textEdit->setTextCursor(user_cursors[user]);
     QTextCharFormat fmr = textEdit->textCursor().charFormat();
+    // ripristino background posizione precedente
+
+    fmr.setBackground(QBrush(QColor("transparent")));
+    textEdit->mergeCurrentCharFormat(fmr);
+
+    //cambio background corrente
+
+    user_cursors[user].setPosition(pos);
+    user_cursors[user].movePosition(QTextCursor::Left,QTextCursor::KeepAnchor,1);
+
+    textEdit->setTextCursor(user_cursors[user]);
+
+    fmr = textEdit->textCursor().charFormat();
+
+
     int r = user_color[user][0];
     int g = user_color[user][1];
     int b = user_color[user][2];
-    fmr.setForeground(QBrush(QColor(r, g, b)));
-    textEdit->mergeCurrentCharFormat(fmr);
-    textEdit->textCursor().setPosition(prevPos);
+    fmr.setBackground(QBrush(QColor(r, g, b)));
 
+
+    textEdit->mergeCurrentCharFormat(fmr);
+    //ritorno al cursore corrente del progetto
+    user_cursors[user] = textEdit->textCursor();
+    textEdit->setTextCursor(currentCursor);
+
+    cout << textEdit->textCursor().position();
+    cout << textEdit->textCursor().anchor();
+    textEdit->document()->blockSignals(
+            resume_signals);
 }
 
 void Gui::markTextUser(map<string, vector<int>> colors) {

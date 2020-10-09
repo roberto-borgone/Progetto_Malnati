@@ -99,6 +99,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"/Users/davidemiro/Desktop/progetto_malnati/Client/C:/Curl/curl-7.72.0-win64-mingw/include",
 		"/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework",
 		"/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers",
 		"/Users/davidemiro/Qt/5.15.0/clang_64/mkspecs/macx-clang",

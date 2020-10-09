@@ -29,6 +29,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "editorCollaborativo_autogen/include"
+  "../C:/Curl/curl-7.72.0-win64-mingw/include"
   "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework"
   "/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers"
   "/Users/davidemiro/Qt/5.15.0/clang_64/./mkspecs/macx-clang"

@@ -33,7 +33,7 @@ void Network::receiveCommand() {
 
     this_thread::sleep_for(chrono::seconds(3));
 
-    Symbol symbol(QChar('d'), "Arial", true, true, true, true, "#000000", vector<int>({-10}), "p1", "u1");
+    Symbol symbol(QChar('d'), "Arial", true, true, true, true, "#000000", vector<int>({-10}), "p1", "u1",0);
     emit insert(symbol);
     this_thread::sleep_for(chrono::seconds(3));
     emit erase(symbol.getId());
@@ -257,7 +257,7 @@ void Network::message_received() {
                 gui_ptr->add_connected_user(online_user);
             }
 
-            //gui_ptr->start_timer();
+            gui_ptr->start_timer();
         }
             break;
 

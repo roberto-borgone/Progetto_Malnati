@@ -161,7 +161,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontUnderline(),
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
-                                  frac, proj, user);
+                                  frac, proj, user,f.font().pointSize());
                 std::cout << s.getId();
 
                 if (project->prjID_set) {
@@ -233,8 +233,6 @@ QMenuBar *Gui::initMenuBar() {
             emit clear_users(false);
         }
     }, QKeySequence::Close);
-    file->addAction("Save", []() { cout << "Save"; }, QKeySequence::Save);
-    file->addAction("Save as", []() { cout << "Save as"; }, QKeySequence::SaveAs);
     file->addAction("Export to PDF", [this]() {
         QString fileName = QFileDialog::getSaveFileName((QWidget *) 0, "Export PDF", QString(), "*.pdf");
         if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
@@ -351,13 +349,23 @@ QToolBar *Gui::initToolBar() {
         }
     });
     toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
-                       [this]() { //valutare cambio icona a save-1 a prima modifica
+                       [this]() {
+                           QString fileName = QFileDialog::getSaveFileName((QWidget *) 0, "Export PDF", QString(), "*.pdf");
+                           if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
+                           QPdfWriter *writer = new QPdfWriter(QString(fileName));
+                           QTextDocument *doc = this->textEdit->document();
+                           doc->print(writer);
 
                        });
-    toolBar->addAction(QIcon::fromTheme("Import", QIcon(rsrcPath + "/import.svg")), "Import", [this]() {
+    toolBar->addAction(QIcon::fromTheme("Use invite", QIcon(rsrcPath + "/import.svg")), "Import", [this]() {
+        emit useInvite();
 
     });
-    toolBar->addAction(QIcon::fromTheme("Export", QIcon(rsrcPath + "/export.svg")), "Export", [this]() {
+    toolBar->addAction(QIcon::fromTheme("Send invite", QIcon(rsrcPath + "/export.svg")), "Export", [this]() {
+        if (project == nullptr)
+                emit sendMail("", "");
+        else
+                emit sendMail(this->getCurrentProject()->prjID, this->user);
 
     });
     toolBar->addAction(QIcon::fromTheme("Undo", QIcon(rsrcPath + "/undo.svg")), "Undo", [this]() {
@@ -460,15 +468,7 @@ QToolBar *Gui::initToolBar() {
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
-    toolBar->addAction(QIcon::fromTheme("Send email", QIcon(rsrcPath + "/mail.svg")), "Send invite", [this]() {
-        if (project == nullptr)
-                emit sendMail("", "");
-        else
-                emit sendMail(this->getCurrentProject()->prjID, this->user);
-    });
-    toolBar->addAction(QIcon::fromTheme("Use invite", QIcon(rsrcPath + "/download.svg")), "Use invite", [this]() {
-        emit useInvite();
-    });
+
 
 
     return toolBar;
@@ -555,10 +555,11 @@ void Gui::logged_in(const std::string &user) {
     this->user = user;
 
     //Qui prende l' immagine a caso,ma dovrebbe chiedere al DB per un utente dove è salvata l' immagine
-    std::string iconpath = "/Users/davidemiro/Downloads/87244019_125707735545739_1155971369473671168_n.jpg";
+
     if (user_color.find(user) == user_color.end()) {
-        QPixmap p(QString::fromStdString(iconpath));
-        QIcon ico(p);
+        QPixmap pixmap(100, 100);
+        pixmap.fill(QColor("green"));
+        QIcon ico(pixmap);
         QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
         int r = rand() % 255;
         int g = rand() % 255;
@@ -580,19 +581,21 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     new_cursor.setPosition(pos); //set position of new cursor
     textEdit->setTextCursor(new_cursor); //update editor cursor
     QTextCharFormat format;//create in Gui same format of symbol (font, bold, italic, underline, strike, color)
-    QFont q;
+    QFont q(s.getFont(),s.getSize());
     q.setFamily(s.getFont());
     q.setBold(s.isBold());
     q.setItalic(s.isItalic());
     q.setUnderline(s.isUnderline());
     q.setStrikeOut(s.isStrike());
-    format.setForeground(QBrush(QColor(s.getColor())));
-    format.setFont(q);
+
+
 
 
     //std::cout << "inserimento remoto" << s.getChar() << std::endl;
     bool resume_signals = textEdit->document()->blockSignals(
             true); //block signal "contentsChange" to avoid infinite loop
+    format.setForeground(QBrush(QColor(s.getColor())));
+    format.setFont(q);
 
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
@@ -634,8 +637,9 @@ void Gui::delete_all_Gui() {
 
 void Gui::add_user(std::string user) {
 
-    QPixmap p(QString::fromStdString("..path"));
-    QIcon ico(p);
+    QPixmap pixmap(100, 100);
+    pixmap.fill(QColor("green"));
+    QIcon ico(pixmap);
     int r = rand() % 255;
     int g = rand() % 255;
     int b = rand() % 255;

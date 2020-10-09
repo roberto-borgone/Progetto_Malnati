@@ -5,7 +5,7 @@
 #include "Symbol.h"
 
 Symbol::Symbol(QChar s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color,
-               const std::vector<int> &frac, const std::string &project, const std::string &user) {
+               const std::vector<int> &frac, const std::string &project, const std::string &user,int size) {
     id = user + project + std::to_string(std::chrono::system_clock::now().time_since_epoch().count());
     this->s = s;
     this->font = font;
@@ -15,6 +15,7 @@ Symbol::Symbol(QChar s, std::string font, bool bold, bool italic, bool underline
     this->underline = underline;
     this->strike = strike;
     this->frac = frac;
+    this->size = size;
 
 
 }
@@ -30,6 +31,7 @@ Symbol::Symbol(const Symbol &symbol) {
     this->italic = symbol.italic;
     this->underline = symbol.underline;
     this->strike = symbol.strike;
+    this->size = symbol.size;
 }
 
 Symbol::Symbol(Symbol &&symbol) {
@@ -42,6 +44,7 @@ Symbol::Symbol(Symbol &&symbol) {
     this->italic = symbol.italic;
     this->underline = symbol.underline;
     this->strike = symbol.strike;
+    this->size = symbol.size;
 
 }
 
@@ -56,6 +59,7 @@ Symbol &Symbol::operator=(const Symbol &symbol) {
         this->italic = symbol.italic;
         this->underline = symbol.underline;
         this->strike = symbol.strike;
+        this->size = symbol.size;
     }
     return *this;
 }
@@ -123,6 +127,7 @@ QJsonObject Symbol::toJson() {
                                                      QJsonValue(this->strike)),
                                            qMakePair(QString("frac"),
                                                      QJsonValue(json_frac)),
+                                           qMakePair(QString("size"),QJsonValue(this->size)),
 
                                    });
     return Json_symbol;
@@ -141,6 +146,7 @@ Symbol::Symbol(QJsonObject json_symbol) {
     italic=json_symbol["italic"].toBool();
     underline=json_symbol["underline"].toBool();
     strike=json_symbol["strike"].toBool();
+    size=json_symbol["size"].toInt();
 }
 
 const QString Symbol::getFont() const {
@@ -165,4 +171,7 @@ bool Symbol::isStrike() const {
 
 const QString Symbol::getColor() const {
     return QString(color.c_str());
+}
+int Symbol::getSize() {
+    return this->size;
 }

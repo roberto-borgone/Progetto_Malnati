@@ -25,7 +25,7 @@ int Project::remote_delete(Symbol s) {
     int pos=-1;
     for(int i=0; i<tmp.size()-1; i++) {
         Symbol tmp_symbol(QChar('t'), std::string("no_font"), false, false, false, false, std::string("no_color"), tmp,
-                          std::string("no_project"), std::string("no_user"));
+                          std::string("no_project"), std::string("no_user"),0);
         bounds = std::equal_range(bounds.first, bounds.second, tmp_symbol, [i](const Symbol &s1, const Symbol &s2) {
             return const_cast<Symbol &>(s1).getFrac()[i] < const_cast<Symbol &>(s2).getFrac()[i];
         });

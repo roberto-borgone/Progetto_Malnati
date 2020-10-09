@@ -55,9 +55,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
             QString add = c.selectedText();
 
 
-
-
-
             if (add.toStdString() == "") return;
 
             //CONTROLLATE QUESTA PARTE QUI CREO SIMBOLO RELATIVO A CARATTERE DIGITATO DA UTENTE E GENERO FRAZIONARIO
@@ -304,7 +301,7 @@ QToolBar *Gui::initToolBar() {
 
                 //button change image
                 QObject::connect(f, &Profile::new_image, [this](QImage img) {
-                    std::cout<<"IMMAGINE CAMBIATA!!!!"<<std::endl;
+                    std::cout << "IMMAGINE CAMBIATA!!!!" << std::endl;
                     set_profile_image(img);
                     emit change_image(img);
                 });
@@ -463,13 +460,13 @@ QToolBar *Gui::initToolBar() {
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
-    toolBar->addAction(QIcon::fromTheme("Send email",QIcon(rsrcPath + "/mail.svg")), "Send invite", [this]() {
-        if(project == nullptr)
-                emit sendMail("","");
+    toolBar->addAction(QIcon::fromTheme("Send email", QIcon(rsrcPath + "/mail.svg")), "Send invite", [this]() {
+        if (project == nullptr)
+                emit sendMail("", "");
         else
-                emit sendMail(this->getCurrentProject()->prjID,this->user);
+                emit sendMail(this->getCurrentProject()->prjID, this->user);
     });
-    toolBar->addAction(QIcon::fromTheme("Use invite",QIcon(rsrcPath + "/download.svg")), "Use invite", [this]() {
+    toolBar->addAction(QIcon::fromTheme("Use invite", QIcon(rsrcPath + "/download.svg")), "Use invite", [this]() {
         emit useInvite();
     });
 
@@ -590,13 +587,18 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     q.setUnderline(s.isUnderline());
     q.setStrikeOut(s.isStrike());
     format.setFont(q);
-    QBrush brush;
-    brush.setColor(QColor(s.getColor()));
-    format.setForeground(brush);
 
     //std::cout << "inserimento remoto" << s.getChar() << std::endl;
     bool resume_signals = textEdit->document()->blockSignals(
             true); //block signal "contentsChange" to avoid infinite loop
+
+    QColor old_color = textEdit->textColor(); //save old color
+    std::istringstream converter("FFFF0000");
+    unsigned int value;
+    converter >> std::hex >> value;
+    QColor new_color = QColor::fromRgb(value);
+    textEdit->setTextColor(old_color);
+
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
     textEdit->document()->blockSignals(resume_signals);
@@ -809,12 +811,13 @@ void Gui::clear_users_list(bool also_user) {
 }
 
 void Gui::set_profile_image(const QImage &img) {
-    profile_image=QImage(img);
+    profile_image = QImage(img);
     //cerca la toolbar con titolo "menu", trova il figlio con text "profile" e ambiagli l'icona con setIcon
-    auto my_toolbar=this->findChild<QToolBar*>(QString("myToolBar"));
+    auto my_toolbar = this->findChild<QToolBar *>(QString("myToolBar"));
     auto action = my_toolbar->actions()[0];
     action->setIcon(QPixmap::fromImage(profile_image));
 }
+
 void Gui::closeProject() {
     if (project->prjID_set) {
         emit close_project(std::string(project->prjID));
@@ -830,23 +833,22 @@ void Gui::closeProject() {
 
 void Gui::add_connected_user(string usr) {
     //inserisco nelle due mappe il nuovo utente nel caso non avesse mai scritto sul progetto
-    if(user_color.find(usr)==user_color.end()){
+    if (user_color.find(usr) == user_color.end()) {
         add_user(usr);
+    } else {
+        std::cout << "user: " << usr << "settato come online" << std::endl;
     }
-    else{
-        std::cout<<"user: "<<usr<<"settato come online"<<std::endl;
-    }
-    connected_users[usr]=true;
-    QPixmap pixmap(100,100);
+    connected_users[usr] = true;
+    QPixmap pixmap(100, 100);
     pixmap.fill(QColor("green"));
     QIcon redIcon(pixmap);
     user_items[usr]->setIcon(redIcon);
 }
 
-void Gui::user_disconnected(string usr){
-    connected_users[usr]=false;
-    std::cout<<"user: "<<usr<<"settato come offline"<<std::endl;
-    QPixmap pixmap(100,100);
+void Gui::user_disconnected(string usr) {
+    connected_users[usr] = false;
+    std::cout << "user: " << usr << "settato come offline" << std::endl;
+    QPixmap pixmap(100, 100);
     pixmap.fill(QColor("red"));
     QIcon redIcon(pixmap);
     user_items[usr]->setIcon(redIcon);

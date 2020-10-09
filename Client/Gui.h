@@ -45,6 +45,7 @@
 #include <QTimer>
 #include <QPdfWriter>
 #include <QListWidgetItem>
+#include <sstream>
 #include "Profile.h"
 #include "SendEmailPopup.h"
 #include "Project.h"

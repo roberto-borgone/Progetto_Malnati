@@ -521,6 +521,7 @@ void Network::send_image(QImage img) {
     //create JSON object of type project_to_get
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(12)),
+                                            qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str()))),
                                     });
 
     QBuffer buffer;

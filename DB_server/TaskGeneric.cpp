@@ -17,6 +17,7 @@
 #define INSERT 6
 #define DELETE 7
 #define CURSOR 8
+#define MODIFY_IMG 12
 #define AUTHORIZATION_ERROR -2
 #define PROJECT_ERROR -3
 
@@ -302,6 +303,18 @@ void TaskGeneric::run(){
             emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
             break;
 
+        case MODIFY_IMG: {
+
+            auto const encoded = this->message["user_img"].toString().toLatin1();
+            QImage img;
+
+            img.loadFromData(QByteArray::fromBase64(encoded), "PNG");
+            img.save("../images/" + this->message["user"].toString() + ".png");
+
+            break;
+
+        }
+
         case AUTHORIZATION_ERROR:
 
             std::cout << "AUTHORIZATION ERROR!" << std::endl;
@@ -339,7 +352,7 @@ int TaskGeneric::getOpCode(){
         }
 
         //cannot do any protected operation without authentication
-        if(2 <= message["opcode"].toInt() && message["opcode"].toInt() <= 8){
+        if(2 <= message["opcode"].toInt() && message["opcode"].toInt() <= 12){
             if(!this->message.contains("user"))
                 return -2;
             if(this->userId == "" || this->message["user"].toString() != this->userId)

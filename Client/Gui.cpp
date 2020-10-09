@@ -586,18 +586,22 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     q.setItalic(s.isItalic());
     q.setUnderline(s.isUnderline());
     q.setStrikeOut(s.isStrike());
+    format.setForeground(QBrush(QColor(s.getColor())));
     format.setFont(q);
+
 
     //std::cout << "inserimento remoto" << s.getChar() << std::endl;
     bool resume_signals = textEdit->document()->blockSignals(
             true); //block signal "contentsChange" to avoid infinite loop
 
-    QColor old_color = textEdit->textColor(); //save old color
-    std::istringstream converter("FFFF0000");
-    unsigned int value;
-    converter >> std::hex >> value;
-    QColor new_color = QColor::fromRgb(value);
-    textEdit->setTextColor(old_color);
+//    QColor old_color = textEdit->textColor(); //save old color
+//    std::istringstream converter(s.getColor().toStdString().replace(0, 1, "FF"));
+//    unsigned int value;
+//    converter >> std::hex >> value;
+//    QColor new_color = QColor::fromRgb(value);
+//
+//    std::cout << "HO CREATO STO COLORE: " << new_color.name().toStdString() << " " << std::endl;
+//    textEdit->setTextColor(new_color);
 
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)

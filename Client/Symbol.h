@@ -23,9 +23,10 @@ class Symbol {
     string id;
     vector <int> frac;
     int size;
+    int align;
 
 public:
-    Symbol(QChar s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user,int size);
+    Symbol(QChar s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user,int size, int align);
     Symbol(const Symbol& symbol);
     Symbol(Symbol&& symbol);
     Symbol(QJsonObject json_symbol);
@@ -54,6 +55,7 @@ public:
     const QString getColor() const;
     int getSize();
 
+    int getAlign();
 
 };
 

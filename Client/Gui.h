@@ -68,6 +68,9 @@ class Gui : public QMainWindow{
     SendEmailPopup *mailpopup;
     map<string,QTextCursor> user_cursors;
 
+    //avoid allignment bug
+    bool MergeBlockFormat_bug;
+    int align;
 
 
 

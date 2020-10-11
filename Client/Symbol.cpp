@@ -5,7 +5,7 @@
 #include "Symbol.h"
 
 Symbol::Symbol(QChar s, string font, bool bold, bool italic, bool underline, bool strike, string color,
-               const vector<int> &frac, const string &project, const string &user,int size) {
+               const vector<int> &frac, const string &project, const string &user,int size, int align) {
 
     id = user +"/"+ project +"/" + to_string(chrono::system_clock::now().time_since_epoch().count());
     this->s = s;
@@ -17,6 +17,7 @@ Symbol::Symbol(QChar s, string font, bool bold, bool italic, bool underline, boo
     this->strike = strike;
     this->frac = frac;
     this->size = size;
+    this->align=align;
 
 
 }
@@ -33,6 +34,7 @@ Symbol::Symbol(const Symbol &symbol) {
     this->underline = symbol.underline;
     this->strike = symbol.strike;
     this->size = symbol.size;
+    this->align=symbol.align;
 }
 
 Symbol::Symbol(Symbol &&symbol) {
@@ -46,7 +48,7 @@ Symbol::Symbol(Symbol &&symbol) {
     this->underline = symbol.underline;
     this->strike = symbol.strike;
     this->size = symbol.size;
-
+    this->align=symbol.align;
 
 }
 
@@ -62,6 +64,7 @@ Symbol &Symbol::operator=(const Symbol &symbol) {
         this->underline = symbol.underline;
         this->strike = symbol.strike;
         this->size = symbol.size;
+        this->align=symbol.align;
 
     }
     return *this;
@@ -131,6 +134,7 @@ QJsonObject Symbol::toJson() {
                                            qMakePair(QString("frac"),
                                                      QJsonValue(json_frac)),
                                            qMakePair(QString("size"),QJsonValue(this->size)),
+                                           qMakePair(QString("align"),QJsonValue(this->align)),
 
                                    });
     return Json_symbol;
@@ -150,6 +154,7 @@ Symbol::Symbol(QJsonObject json_symbol) {
     underline=json_symbol["underline"].toBool();
     strike=json_symbol["strike"].toBool();
     size=json_symbol["size"].toInt();
+    align=json_symbol["align"].toInt();
 }
 
 const QString Symbol::getFont() const {
@@ -178,4 +183,8 @@ const QString Symbol::getColor() const {
 
 int Symbol::getSize() {
     return size;
+}
+
+int Symbol::getAlign() {
+    return align;
 }

@@ -26,25 +26,29 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     project = new Project(textEdit->document(), this);
     cursor_timer = new QTimer();
 
+    //avoid align bug with flag
+    MergeBlockFormat_bug = false;
+    align = Qt::AlignLeft;
+
 
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
 
+        //avoid align bug with flag
+        if (MergeBlockFormat_bug) {
+            added--;
+            removed--;
+
+        }
+
         if (removed > 0) {
 
             if (project->prjID_set) {
-                textEdit->undo();
-                QTextCursor c(textEdit->textCursor());
-                c.setPosition(pos);
-                c.setPosition(pos + removed, QTextCursor::KeepAnchor);
-                std::cout << "invio eliminazione per controllo centrale su server..." << std::endl;
                 project->eraseElements(pos, removed);
-                textEdit->redo();
             }
 
         }
         if (added > 0) {
-
             QTextCursor c(textEdit->textCursor());
             cout << c.position();
             c.setPosition(pos);
@@ -161,7 +165,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontUnderline(),
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
-                                  frac, proj, user,f.font().pointSize());
+                                  frac, proj, user, f.font().pointSize(), align);
                 std::cout << s.getId();
 
                 if (project->prjID_set) {
@@ -175,6 +179,11 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             }
+        }
+
+        //avoid align bug with flag
+        if (MergeBlockFormat_bug) {
+            MergeBlockFormat_bug = false;
         }
 
         cout << endl;
@@ -350,7 +359,8 @@ QToolBar *Gui::initToolBar() {
     });
     toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
                        [this]() {
-                           QString fileName = QFileDialog::getSaveFileName((QWidget *) 0, "Export PDF", QString(), "*.pdf");
+                           QString fileName = QFileDialog::getSaveFileName((QWidget *) 0, "Export PDF", QString(),
+                                                                           "*.pdf");
                            if (QFileInfo(fileName).suffix().isEmpty()) { fileName.append(".pdf"); }
                            QPdfWriter *writer = new QPdfWriter(QString(fileName));
                            QTextDocument *doc = this->textEdit->document();
@@ -451,6 +461,8 @@ QToolBar *Gui::initToolBar() {
         QTextCursor cursor = textEdit->textCursor();
         QTextBlockFormat textBlockFormat = cursor.blockFormat();
         textBlockFormat.setAlignment(Qt::AlignLeft);//or another alignment
+        MergeBlockFormat_bug = true;
+        align = Qt::AlignLeft;
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
@@ -458,6 +470,8 @@ QToolBar *Gui::initToolBar() {
         QTextCursor cursor = textEdit->textCursor();
         QTextBlockFormat textBlockFormat = cursor.blockFormat();
         textBlockFormat.setAlignment(Qt::AlignJustify);//or another alignment
+        MergeBlockFormat_bug = true;
+        align = Qt::AlignJustify;
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
@@ -465,10 +479,11 @@ QToolBar *Gui::initToolBar() {
         QTextCursor cursor = textEdit->textCursor();
         QTextBlockFormat textBlockFormat = cursor.blockFormat();
         textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
+        MergeBlockFormat_bug = true;
+        align = Qt::AlignRight;
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
-
 
 
     return toolBar;
@@ -581,7 +596,7 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     new_cursor.setPosition(pos); //set position of new cursor
     textEdit->setTextCursor(new_cursor); //update editor cursor
     QTextCharFormat format;//create in Gui same format of symbol (font, bold, italic, underline, strike, color)
-    QFont q(s.getFont(),s.getSize());
+    QFont q(s.getFont(), s.getSize());
     q.setFamily(s.getFont());
     q.setBold(s.isBold());
     q.setItalic(s.isItalic());
@@ -597,6 +612,17 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     format.setForeground(QBrush(QColor(s.getColor())));
     format.setFont(q);
 
+    //cambio allign della riga corrente
+    QTextBlockFormat textBlockFormat = new_cursor.blockFormat();
+    if (s.getAlign() == 0)
+        textBlockFormat.setAlignment(Qt::AlignLeft);//or another alignment
+    if (s.getAlign() == 1)
+        textBlockFormat.setAlignment(Qt::AlignJustify);//or another alignment
+    if (s.getAlign() == 2)
+        textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
+
+
+    new_cursor.mergeBlockFormat(textBlockFormat);
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
     textEdit->document()->blockSignals(resume_signals);
@@ -607,6 +633,10 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
         old_cursor.setPosition(old_cursor.position());
     }
     textEdit->setTextCursor(old_cursor); //update editor cursor
+
+    //setta la variabile align della riga corrente
+    QTextBlockFormat update_textBlockFormat = old_cursor.blockFormat();
+    align=update_textBlockFormat.alignment();
 }
 
 void Gui::delete_in_Gui(int pos = 0) {
@@ -665,11 +695,11 @@ void Gui::stop_timer() {
 void Gui::change_cursor(std::string user, int pos) {
     bool resume_signals = textEdit->document()->blockSignals(
             true);
-    if (user == this->user){
+    if (user == this->user) {
         return;
     }
 
-    if(user_cursors.find(user) ==user_cursors.end()){
+    if (user_cursors.find(user) == user_cursors.end()) {
         user_cursors[user] = QTextCursor(textEdit->document());
 
     }
@@ -688,7 +718,7 @@ void Gui::change_cursor(std::string user, int pos) {
     //cambio background corrente
 
     user_cursors[user].setPosition(pos);
-    user_cursors[user].movePosition(QTextCursor::Left,QTextCursor::KeepAnchor,1);
+    user_cursors[user].movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 1);
 
     textEdit->setTextCursor(user_cursors[user]);
 

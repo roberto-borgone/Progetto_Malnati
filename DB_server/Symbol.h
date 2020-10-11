@@ -23,8 +23,10 @@ class Symbol {
     std::string id;
     std::vector <int> frac;
     int size;
+    int align;
+
 public:
-    Symbol(QChar s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color, const std::vector<int>& frac, const std::string& project, const std::string& user,int size);
+    Symbol(QChar s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color, const std::vector<int>& frac, const std::string& project, const std::string& user,int size, int align);
     Symbol(const Symbol& symbol);
     Symbol(Symbol&& symbol);
     Symbol(QJsonObject json_symbol);
@@ -53,6 +55,8 @@ public:
     const QString getColor() const;
 
     int getSize();
+
+    int getAlign();
 
 
 };

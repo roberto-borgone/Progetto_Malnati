@@ -5,7 +5,7 @@
 #include "Symbol.h"
 
 Symbol::Symbol(QChar s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color,
-               const std::vector<int> &frac, const std::string &project, const std::string &user,int size) {
+               const std::vector<int> &frac, const std::string &project, const std::string &user,int size, int align) {
     id = user + project + std::to_string(std::chrono::system_clock::now().time_since_epoch().count());
     this->s = s;
     this->font = font;
@@ -16,7 +16,7 @@ Symbol::Symbol(QChar s, std::string font, bool bold, bool italic, bool underline
     this->strike = strike;
     this->frac = frac;
     this->size = size;
-
+    this->align = align;
 
 }
 
@@ -32,6 +32,7 @@ Symbol::Symbol(const Symbol &symbol) {
     this->underline = symbol.underline;
     this->strike = symbol.strike;
     this->size = symbol.size;
+    this->align = symbol.align;
 }
 
 Symbol::Symbol(Symbol &&symbol) {
@@ -45,7 +46,7 @@ Symbol::Symbol(Symbol &&symbol) {
     this->underline = symbol.underline;
     this->strike = symbol.strike;
     this->size = symbol.size;
-
+    this->align = symbol.align;
 }
 
 Symbol &Symbol::operator=(const Symbol &symbol) {
@@ -60,6 +61,7 @@ Symbol &Symbol::operator=(const Symbol &symbol) {
         this->underline = symbol.underline;
         this->strike = symbol.strike;
         this->size = symbol.size;
+        this->align = symbol.align;
     }
     return *this;
 }
@@ -174,4 +176,8 @@ const QString Symbol::getColor() const {
 }
 int Symbol::getSize() {
     return this->size;
+}
+
+int Symbol::getAlign() {
+    return this->align;
 }

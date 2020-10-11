@@ -1173,6 +1173,13 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/EWIEGA46WW/moc_WrongCredentialsPopUp.cpp
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.obj: editorCollaborativo_autogen/mocs_compilation.cpp
 
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Curl/curl-7.72.0-win64-mingw/include/curl/curl.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Curl/curl-7.72.0-win64-mingw/include/curl/curlver.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Curl/curl-7.72.0-win64-mingw/include/curl/easy.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Curl/curl-7.72.0-win64-mingw/include/curl/multi.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Curl/curl-7.72.0-win64-mingw/include/curl/system.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Curl/curl-7.72.0-win64-mingw/include/curl/typecheck-gcc.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Curl/curl-7.72.0-win64-mingw/include/curl/urlapi.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QBuffer
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj: C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags

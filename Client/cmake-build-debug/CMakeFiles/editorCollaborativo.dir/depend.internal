@@ -1174,6 +1174,13 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
  C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/EWIEGA46WW/moc_WrongCredentialsPopUp.cpp
  C:/Users/rober/CLionProjects/Progetto_Malnati/Client/cmake-build-debug/editorCollaborativo_autogen/mocs_compilation.cpp
 CMakeFiles/editorCollaborativo.dir/main.cpp.obj
+ C:/Curl/curl-7.72.0-win64-mingw/include/curl/curl.h
+ C:/Curl/curl-7.72.0-win64-mingw/include/curl/curlver.h
+ C:/Curl/curl-7.72.0-win64-mingw/include/curl/easy.h
+ C:/Curl/curl-7.72.0-win64-mingw/include/curl/multi.h
+ C:/Curl/curl-7.72.0-win64-mingw/include/curl/system.h
+ C:/Curl/curl-7.72.0-win64-mingw/include/curl/typecheck-gcc.h
+ C:/Curl/curl-7.72.0-win64-mingw/include/curl/urlapi.h
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QBuffer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QElapsedTimer
  C:/Qt/5.12.3/mingw73_64/include/QtCore/QFlags

@@ -130,6 +130,7 @@ QJsonObject Symbol::toJson() {
                                            qMakePair(QString("frac"),
                                                      QJsonValue(json_frac)),
                                            qMakePair(QString("size"),QJsonValue(this->size)),
+                                           qMakePair(QString("align"),QJsonValue(this->align)),
 
                                    });
     return Json_symbol;
@@ -149,6 +150,7 @@ Symbol::Symbol(QJsonObject json_symbol) {
     underline=json_symbol["underline"].toBool();
     strike=json_symbol["strike"].toBool();
     size=json_symbol["size"].toInt();
+    align=json_symbol["align"].toInt();
 }
 
 const QString Symbol::getFont() const {

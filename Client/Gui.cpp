@@ -28,7 +28,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
     //avoid align bug with flag
     MergeBlockFormat_bug = false;
-    align = Qt::AlignLeft;
 
 
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
@@ -165,7 +164,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontUnderline(),
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
-                                  frac, proj, user, f.font().pointSize(), align);
+                                  frac, proj, user, f.font().pointSize(), textEdit->textCursor().blockFormat().alignment());
                 std::cout << s.getId();
 
                 if (project->prjID_set) {
@@ -462,7 +461,6 @@ QToolBar *Gui::initToolBar() {
         QTextBlockFormat textBlockFormat = cursor.blockFormat();
         textBlockFormat.setAlignment(Qt::AlignLeft);//or another alignment
         MergeBlockFormat_bug = true;
-        align = Qt::AlignLeft;
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
@@ -471,7 +469,6 @@ QToolBar *Gui::initToolBar() {
         QTextBlockFormat textBlockFormat = cursor.blockFormat();
         textBlockFormat.setAlignment(Qt::AlignJustify);//or another alignment
         MergeBlockFormat_bug = true;
-        align = Qt::AlignJustify;
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
@@ -480,7 +477,6 @@ QToolBar *Gui::initToolBar() {
         QTextBlockFormat textBlockFormat = cursor.blockFormat();
         textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
         MergeBlockFormat_bug = true;
-        align = Qt::AlignRight;
         cursor.mergeBlockFormat(textBlockFormat);
         this->textEdit->setTextCursor(cursor);
     });
@@ -614,11 +610,11 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
 
     //cambio allign della riga corrente
     QTextBlockFormat textBlockFormat = new_cursor.blockFormat();
-    if (s.getAlign() == 0)
+    if (s.getAlign() == Qt::AlignLeft)
         textBlockFormat.setAlignment(Qt::AlignLeft);//or another alignment
-    if (s.getAlign() == 1)
+    if (s.getAlign() == Qt::AlignJustify)
         textBlockFormat.setAlignment(Qt::AlignJustify);//or another alignment
-    if (s.getAlign() == 2)
+    if (s.getAlign() == Qt::AlignRight)
         textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
 
 
@@ -634,9 +630,6 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     }
     textEdit->setTextCursor(old_cursor); //update editor cursor
 
-    //setta la variabile align della riga corrente
-    QTextBlockFormat update_textBlockFormat = old_cursor.blockFormat();
-    align=update_textBlockFormat.alignment();
 }
 
 void Gui::delete_in_Gui(int pos = 0) {

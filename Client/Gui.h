@@ -70,7 +70,6 @@ class Gui : public QMainWindow{
 
     //avoid allignment bug
     bool MergeBlockFormat_bug;
-    int align;
 
 
 

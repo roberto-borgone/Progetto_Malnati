@@ -17,6 +17,7 @@
 #define INSERT 6
 #define DELETE 7
 #define CURSOR 8
+#define ALIGN 11
 #define MODIFY_IMG 12
 #define AUTHORIZATION_ERROR -2
 #define PROJECT_ERROR -3
@@ -315,6 +316,12 @@ void TaskGeneric::run(){
 
         }
 
+        case ALIGN: {
+
+            emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
+            break;
+        }
+
         case AUTHORIZATION_ERROR:
 
             std::cout << "AUTHORIZATION ERROR!" << std::endl;
@@ -359,7 +366,7 @@ int TaskGeneric::getOpCode(){
                 return -2;
 
             // cannot work on a project without opening it
-            if(5 <= message["opcode"].toInt() && message["opcode"].toInt() <= 8){
+            if(5 <= message["opcode"].toInt() && message["opcode"].toInt() <= 11){
                 if(!this->message.contains("prjID"))
                     return -3;
                 if(!this->project || this->message["prjID"].toString().toStdString() != this->project->getId())

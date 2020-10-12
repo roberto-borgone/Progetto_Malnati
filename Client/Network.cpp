@@ -257,7 +257,7 @@ void Network::message_received() {
                 gui_ptr->add_connected_user(online_user);
             }
 
-            //gui_ptr->start_timer();
+            gui_ptr->start_timer();
         }
             break;
 

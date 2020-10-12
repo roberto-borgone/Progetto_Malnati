@@ -702,29 +702,31 @@ void Gui::change_cursor(std::string user, int pos) {
     cout << user;
 
     textEdit->setTextCursor(user_cursors[user]);
-    QTextCharFormat fmr = textEdit->textCursor().charFormat();
+    //QTextCharFormat fmr = textEdit->textCursor().charFormat();
     // ripristino background posizione precedente
 
-    fmr.setBackground(QBrush(QColor("transparent")));
-    textEdit->mergeCurrentCharFormat(fmr);
+    //fmr.setBackground(QBrush(QColor("transparent")));
+    textEdit->setTextBackgroundColor(QColor("transparent"));
 
     //cambio background corrente
 
     user_cursors[user].setPosition(pos);
     user_cursors[user].movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 1);
 
+
     textEdit->setTextCursor(user_cursors[user]);
 
-    fmr = textEdit->textCursor().charFormat();
+
+
 
 
     int r = user_color[user][0];
     int g = user_color[user][1];
     int b = user_color[user][2];
-    fmr.setBackground(QBrush(QColor(r, g, b)));
+    //fmr.setBackground(QBrush(QColor(r, g, b)));
 
 
-    textEdit->mergeCurrentCharFormat(fmr);
+    textEdit->setTextBackgroundColor(QColor(r,g,b));
     //ritorno al cursore corrente del progetto
     user_cursors[user] = textEdit->textCursor();
     textEdit->setTextCursor(currentCursor);
@@ -910,6 +912,12 @@ void Gui::user_disconnected(string usr) {
     pixmap.fill(QColor("red"));
     QIcon redIcon(pixmap);
     user_items[usr]->setIcon(redIcon);
+
+    QTextCursor c = textEdit->textCursor();
+    textEdit->setTextCursor(user_cursors[usr]);
+    textEdit->setTextBackgroundColor(QColor("transparent"));
+    textEdit->setTextCursor(c);
+    user_cursors.erase(usr);
 
 }
 

@@ -661,7 +661,7 @@ void Gui::delete_all_Gui() {
 void Gui::add_user(std::string user) {
 
     QPixmap pixmap(100, 100);
-    pixmap.fill(QColor("green"));
+    pixmap.fill(QColor("red"));
     QIcon ico(pixmap);
     int r = rand() % 255;
     int g = rand() % 255;

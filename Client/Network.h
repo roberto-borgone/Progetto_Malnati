@@ -92,6 +92,9 @@ public slots:
     //slot per invio immagine
     void send_image(QImage img);
 
+    //slot per invio nickname
+    void send_nickname(std::string nick);
+
 };
 
 

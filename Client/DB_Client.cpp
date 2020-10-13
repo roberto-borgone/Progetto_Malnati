@@ -26,7 +26,7 @@ void DB_Client::log_in_Window() {
 
 
     QPushButton *submit = new QPushButton("log in");
-    QPushButton *back = new QPushButton("come back");
+    QPushButton *back = new QPushButton("go back");
 
     delete widg;
     //create new widget and layout
@@ -69,7 +69,7 @@ void DB_Client::subscribe_Window() {
     pwd->setEchoMode(QLineEdit::Password);
 
     QPushButton *submit = new QPushButton("subscribe");
-    QPushButton *back = new QPushButton("come back");
+    QPushButton *back = new QPushButton("go back");
 
     delete widg;
     //create new widget and layout

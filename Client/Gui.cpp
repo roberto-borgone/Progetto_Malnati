@@ -312,6 +312,12 @@ QToolBar *Gui::initToolBar() {
                     emit change_image(img);
                 });
 
+                //button Change Nickname
+                QObject::connect(f, &Profile::new_nickname, [this](QString new_nickname) {
+                    set_nickname(new_nickname.toStdString());
+                    emit send_nick(new_nickname.toStdString());
+                });
+
                 f->exec();
             });
     toolBar->addAction(QIcon::fromTheme("Collaborators", QIcon(rsrcPath + "/link.svg")), "Collaborators", [=]() {
@@ -661,7 +667,7 @@ void Gui::delete_all_Gui() {
 void Gui::add_user(std::string user) {
 
     QPixmap pixmap(100, 100);
-    pixmap.fill(QColor("green"));
+    pixmap.fill(QColor("red"));
     QIcon ico(pixmap);
     int r = rand() % 255;
     int g = rand() % 255;
@@ -686,8 +692,6 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
-    bool resume_signals = textEdit->document()->blockSignals(
-            true);
     if (user == this->user) {
         return;
     }
@@ -702,37 +706,41 @@ void Gui::change_cursor(std::string user, int pos) {
     cout << user;
 
     textEdit->setTextCursor(user_cursors[user]);
-    QTextCharFormat fmr = textEdit->textCursor().charFormat();
+    //QTextCharFormat fmr = textEdit->textCursor().charFormat();
     // ripristino background posizione precedente
 
-    fmr.setBackground(QBrush(QColor("transparent")));
-    textEdit->mergeCurrentCharFormat(fmr);
+    bool resume_signals = textEdit->document()->blockSignals(
+            true);
+    //fmr.setBackground(QBrush(QColor("transparent")));
+    textEdit->setTextBackgroundColor(QColor("transparent"));
+    textEdit->document()->blockSignals(
+            resume_signals);
 
     //cambio background corrente
 
     user_cursors[user].setPosition(pos);
     user_cursors[user].movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 1);
 
+
     textEdit->setTextCursor(user_cursors[user]);
 
-    fmr = textEdit->textCursor().charFormat();
+
+
 
 
     int r = user_color[user][0];
     int g = user_color[user][1];
     int b = user_color[user][2];
-    fmr.setBackground(QBrush(QColor(r, g, b)));
+    //fmr.setBackground(QBrush(QColor(r, g, b)));
 
 
-    textEdit->mergeCurrentCharFormat(fmr);
+    textEdit->setTextBackgroundColor(QColor(r,g,b));
     //ritorno al cursore corrente del progetto
     user_cursors[user] = textEdit->textCursor();
     textEdit->setTextCursor(currentCursor);
 
     cout << textEdit->textCursor().position();
     cout << textEdit->textCursor().anchor();
-    textEdit->document()->blockSignals(
-            resume_signals);
 }
 
 void Gui::markTextUser(map<string, vector<int>> colors) {
@@ -911,5 +919,16 @@ void Gui::user_disconnected(string usr) {
     QIcon redIcon(pixmap);
     user_items[usr]->setIcon(redIcon);
 
+    QTextCursor c = textEdit->textCursor();
+    textEdit->setTextCursor(user_cursors[usr]);
+    textEdit->setTextBackgroundColor(QColor("transparent"));
+    textEdit->setTextCursor(c);
+    user_cursors.erase(usr);
+
+}
+
+void Gui::set_nickname(string nickname) {
+    this->nickname = nickname;
+    this->setWindowTitle(QString::fromStdString(nickname));
 }
 

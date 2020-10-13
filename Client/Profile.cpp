@@ -40,15 +40,22 @@ Profile::Profile():QDialog(){
 
 
 
-    grid->addWidget(new QLabel("Username : "),1,0);
+    grid->addWidget(new QLabel("Nickname : "),1,0);
 
-    QPushButton* changeUsername = new QPushButton(w);
-    grid->addWidget(changeUsername,1,1);
-    changeUsername->setText("Change Username");
+    QPushButton* changeNickname = new QPushButton(w);
+    grid->addWidget(changeNickname,1,1);
+    changeNickname->setText("Change Nickname");
 
     QLineEdit* editext = new QLineEdit(w);
+    editext->setObjectName(QString("my_nickname"));
     editext->setSizePolicy(QSizePolicy(QSizePolicy::Minimum,QSizePolicy::Minimum));
     grid->addWidget(editext,2,0);
+
+    //change nickname
+    QObject::connect(changeNickname, &QPushButton::clicked, [this]() {
+        emit new_nickname(this->findChild<QLineEdit*>(QString("my_nickname"))->text());
+        this->close();
+    });
 
     QPushButton* logout = new QPushButton(w);
     logout->setText("Logout");

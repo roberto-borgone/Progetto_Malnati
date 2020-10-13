@@ -22,6 +22,7 @@ public: Profile();
 signals:
     void log_out();
     void new_image(QImage img);
+    void new_nickname(QString nick);
 
 
 

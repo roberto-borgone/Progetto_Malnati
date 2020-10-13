@@ -22,7 +22,8 @@ DB_interface::DB_interface() {
     //create user table (if it doesn't exists)
     statement = "create table if not exists users("\
                 "user text primary key not null,"\
-                "pwd text not null);";
+                "pwd text not null,"
+                "nick text not null);";
     result = sqlite3_exec(db, statement, nullptr, nullptr, &err_message);
     if (result != SQLITE_OK) {
         std::cout << "SQL error: " << err_message << std::endl;
@@ -73,8 +74,8 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) const{
         std::ostringstream s_pwd;
         s_pwd << (int) std::hash<std::string>()(pwd);
         pwd = s_pwd.str();
-        statement = "insert into users(user,pwd)"\
-                "values('" + user + "'," + pwd + ")";
+        statement = "insert into users(user,pwd,nick)"\
+                "values('" + user + "'," + pwd + "'," + user + ")";
         result = sqlite3_exec(db, statement.c_str(), nullptr, nullptr, &err_message);
         if (result != SQLITE_OK) {
             std::cout << "SQL error: " << err_message << std::endl;
@@ -87,24 +88,26 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) const{
     return 0;
 }
 
-int DB_interface::log_in(const std::string &user, std::string pwd) const{
+std::string DB_interface::log_in(const std::string &user, std::string pwd) const{
+
     int result;
     std::string statement;
     char *err_message = nullptr;
+    std::string nick = "";
 
     //check if user is already in DB
-    statement = std::string("SELECT pwd FROM users WHERE user = ?");
+    statement = std::string("SELECT pwd, nick FROM users WHERE user = ?");
 
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
         std::cout << "some error occured in query the DB" << std::endl;
-        return 2;
+        return "2";
     }
     sqlite3_bind_text(stmt, 1, user.c_str(), user.size(), SQLITE_STATIC);
     int stat = sqlite3_step(stmt);
     if (stat == SQLITE_DONE) {
         std::cout << "wrong username or password" << std::endl;
-        return 1;
+        return "1";
     } else {
         std::ostringstream s_pwd;
         s_pwd << (int) std::hash<std::string>()(pwd);
@@ -112,15 +115,16 @@ int DB_interface::log_in(const std::string &user, std::string pwd) const{
 
         //get pwd from db
         std::string real_pwd((char *) sqlite3_column_text(stmt, 0));
+        nick = ((char *) sqlite3_column_text(stmt, 1));
 
         if (pwd == real_pwd) {
             std::cout << "log in success" << std::endl;
         } else{
             std::cout<<"wrong username or password"<<std::endl;
-            return 1;
+            return "1";
         }
     }
-    return 0;
+    return nick;
 }
 
 int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
@@ -229,6 +233,32 @@ int DB_interface::update_project(const std::string& id, QByteArray& doc) const{
     int stat = sqlite3_step(stmt);
     if (stat != SQLITE_DONE) {
         std::cout << "error in update project" << std::endl;
+        return 1;
+    }
+
+    return 0;
+}
+
+int DB_interface::update_nick(std::string user, std::string nick) const{
+
+    std::cout << "Updating nickname: " << nick << std::endl;
+
+    std::string statement;
+
+    //check if project is already in DB
+    statement = std::string("UPDATE users SET nick = ? WHERE user = ?");
+
+    sqlite3_stmt *stmt;
+    if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
+        std::cout << "some error occured in query the DB" << std::endl;
+        return 2;
+    }
+    sqlite3_bind_text(stmt, 1, nick.c_str(), nick.size(), SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, user.c_str(), user.size(), SQLITE_STATIC);
+
+    int stat = sqlite3_step(stmt);
+    if (stat != SQLITE_DONE) {
+        std::cout << "error in update nickname" << std::endl;
         return 1;
     }
 

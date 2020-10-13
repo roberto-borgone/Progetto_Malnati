@@ -19,6 +19,7 @@
 #define CURSOR 8
 #define ALIGN 11
 #define MODIFY_IMG 12
+#define NICKNAME 13
 #define AUTHORIZATION_ERROR -2
 #define PROJECT_ERROR -3
 
@@ -32,19 +33,30 @@ void TaskGeneric::run(){
 
         case LOGIN: {
 
-            int result;
+            std::string result;
+            int result_code;
             QJsonObject json;
             QImage img;
 
             result = this->service.login(this->message["user"].toString().toStdString(),
                                          this->message["password"].toString().toStdString());
+
+            if(result == "1")
+                result_code = 1;
+            else if(result == "2")
+                result_code = 2;
+            else
+                result_code = 0;
+
+
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(0)),
-                                       qMakePair(QString("status"), QJsonValue(result)),
+                                       qMakePair(QString("status"), QJsonValue(result_code)),
                                });
 
-            if (result == 0) {
+            if (result_code == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
+                json.insert("nickname", QJsonValue(QString::fromStdString(result)));
                 img.load("../images/" + this->message["user"].toString() + ".png");
                 QBuffer buffer;
                 buffer.open(QIODevice::WriteOnly);
@@ -322,6 +334,11 @@ void TaskGeneric::run(){
             break;
         }
 
+        case NICKNAME: {
+            this->service.update_nick(this->message["user"].toString().toStdString(), this->message["nickname"].toString().toStdString());
+            break;
+        }
+
         case AUTHORIZATION_ERROR:
 
             std::cout << "AUTHORIZATION ERROR!" << std::endl;
@@ -359,7 +376,7 @@ int TaskGeneric::getOpCode(){
         }
 
         //cannot do any protected operation without authentication
-        if(2 <= message["opcode"].toInt() && message["opcode"].toInt() <= 12){
+        if(2 <= message["opcode"].toInt() && message["opcode"].toInt() <= 13){
             if(!this->message.contains("user"))
                 return -2;
             if(this->userId == "" || this->message["user"].toString() != this->userId)

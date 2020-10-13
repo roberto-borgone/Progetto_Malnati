@@ -14,12 +14,13 @@ class Service {
 
 public:
 
-    int login(std::string user, std::string password) const;
+    std::string login(std::string user, std::string password) const;
     int subscribe(std::string user, std::string password) const;
     int createProject(const std::string id, QByteArray doc) const;
     QStringList getProjects() const;
     QByteArray getProject(std::string id) const;
     int update_project(const std::string id, QByteArray doc) const;
+    int update_nick(std::string user, std::string nick) const;
 
 private:
 

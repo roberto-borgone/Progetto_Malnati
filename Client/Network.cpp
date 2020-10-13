@@ -186,6 +186,10 @@ void Network::message_received() {
                     std::cout << "IMMAGINE NULLA!!!" << std::endl;
                 gui_ptr->set_profile_image(img);
 
+                //get nickname and change window title
+                std::string nick = obj["nickname"].toString().toStdString();
+                gui_ptr->set_nickname(nick);
+
                 emit logged_in(usr); //qui dovrò prendermi lo user dalla risposta del server
             } else if (result == 1) { emit wrong_log_in(); }
 
@@ -208,6 +212,10 @@ void Network::message_received() {
                 if (img.isNull())
                     std::cout << "IMMAGINE NULLA!!!" << std::endl;
                 gui_ptr->set_profile_image(img);
+
+                //get nickname and change window title
+                std::string nick = obj["nickname"].toString().toStdString();
+                gui_ptr->set_nickname(nick);
 
                 emit logged_in(usr); //qui dovrò prendermi lo user dalla risposta del server
             } else if (result == 1) { emit wrong_sub(); }
@@ -547,5 +555,30 @@ void Network::send_image(QImage img) {
     socket_ptr->flush();
 
 
+}
+
+void Network::send_nickname(std::string nick) {
+    //create JSON object of type project_to_get
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(13)),
+                                            qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str()))),
+                                            qMakePair(QString("nickname"), QJsonValue(QString(nick.c_str())))
+                                    });
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
+    socket_ptr->flush();
 }
 

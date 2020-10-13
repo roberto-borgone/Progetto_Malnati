@@ -312,6 +312,12 @@ QToolBar *Gui::initToolBar() {
                     emit change_image(img);
                 });
 
+                //button Change Nickname
+                QObject::connect(f, &Profile::new_nickname, [this](QString new_nickname) {
+                    set_nickname(new_nickname.toStdString());
+                    emit send_nick(new_nickname.toStdString());
+                });
+
                 f->exec();
             });
     toolBar->addAction(QIcon::fromTheme("Collaborators", QIcon(rsrcPath + "/link.svg")), "Collaborators", [=]() {
@@ -686,8 +692,6 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
-    bool resume_signals = textEdit->document()->blockSignals(
-            true);
     if (user == this->user) {
         return;
     }
@@ -705,8 +709,12 @@ void Gui::change_cursor(std::string user, int pos) {
     //QTextCharFormat fmr = textEdit->textCursor().charFormat();
     // ripristino background posizione precedente
 
+    bool resume_signals = textEdit->document()->blockSignals(
+            true);
     //fmr.setBackground(QBrush(QColor("transparent")));
     textEdit->setTextBackgroundColor(QColor("transparent"));
+    textEdit->document()->blockSignals(
+            resume_signals);
 
     //cambio background corrente
 
@@ -733,8 +741,6 @@ void Gui::change_cursor(std::string user, int pos) {
 
     cout << textEdit->textCursor().position();
     cout << textEdit->textCursor().anchor();
-    textEdit->document()->blockSignals(
-            resume_signals);
 }
 
 void Gui::markTextUser(map<string, vector<int>> colors) {
@@ -919,5 +925,10 @@ void Gui::user_disconnected(string usr) {
     textEdit->setTextCursor(c);
     user_cursors.erase(usr);
 
+}
+
+void Gui::set_nickname(string nickname) {
+    this->nickname = nickname;
+    this->setWindowTitle(QString::fromStdString(nickname));
 }
 

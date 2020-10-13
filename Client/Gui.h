@@ -63,6 +63,7 @@ class Gui : public QMainWindow{
     map<string,bool> connected_users;
     map<string,QListWidgetItem*> user_items;
     string user;
+    string nickname;
     bool show_collaborators;
     QImage profile_image;
     SendEmailPopup *mailpopup;
@@ -101,6 +102,7 @@ public:
     void closeProject();
     void add_connected_user(string usr);
     void user_disconnected(string usr);
+    void set_nickname(string nickname);
 
 public slots:
     void logged_in(const std::string& user);
@@ -122,6 +124,7 @@ signals:
     void sendMail(std::string prjID,std::string sender);
     void useInvite();
     void change_image(QImage img);
+    void send_nick(std::string nick);
 };
 
 

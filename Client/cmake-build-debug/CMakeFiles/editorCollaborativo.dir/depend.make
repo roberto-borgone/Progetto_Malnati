@@ -97,6 +97,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -118,6 +119,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
 CMakeFiles/editorCollaborativo.dir/Gui.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h
@@ -185,6 +187,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/cl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -206,6 +209,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/cl
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
 CMakeFiles/editorCollaborativo.dir/Network.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h
@@ -358,6 +362,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -381,6 +386,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
 CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h
@@ -466,6 +472,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -490,6 +497,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
 CMakeFiles/editorCollaborativo.dir/main.cpp.o: /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h

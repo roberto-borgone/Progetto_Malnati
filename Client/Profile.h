@@ -17,7 +17,7 @@
 class Profile :public QDialog{
 
 Q_OBJECT;
-public: Profile();
+public: Profile(QImage img);
 
 signals:
     void log_out();

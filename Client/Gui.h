@@ -45,7 +45,9 @@
 #include <QTimer>
 #include <QPdfWriter>
 #include <QListWidgetItem>
+#include <QStatusBar>
 #include <sstream>
+
 #include "Profile.h"
 #include "SendEmailPopup.h"
 #include "Project.h"
@@ -68,6 +70,11 @@ class Gui : public QMainWindow{
     QImage profile_image;
     SendEmailPopup *mailpopup;
     map<string,QTextCursor> user_cursors;
+    QSpinBox *size;
+    QPushButton *color;
+    QComboBox *font;
+    QLabel *countOnline;
+    QStatusBar *statusBar;
 
     //avoid allignment bug
     bool MergeBlockFormat_bug;
@@ -103,6 +110,7 @@ public:
     void add_connected_user(string usr);
     void user_disconnected(string usr);
     void set_nickname(string nickname);
+    void initializeCounter();
 
 public slots:
     void logged_in(const std::string& user);

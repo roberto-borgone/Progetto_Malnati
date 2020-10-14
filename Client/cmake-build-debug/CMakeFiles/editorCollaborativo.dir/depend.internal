@@ -98,6 +98,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.o
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -119,6 +120,7 @@ CMakeFiles/editorCollaborativo.dir/Gui.cpp.o
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h
@@ -186,6 +188,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.o
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -207,6 +210,7 @@ CMakeFiles/editorCollaborativo.dir/Network.cpp.o
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h
@@ -359,6 +363,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -382,6 +387,7 @@ CMakeFiles/editorCollaborativo.dir/editorCollaborativo_autogen/mocs_compilation.
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h
@@ -467,6 +473,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.o
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QPushButton
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSizePolicy
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QSpinBox
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStatusBar
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QStyle
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QTextEdit
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QToolBar
@@ -491,6 +498,7 @@ CMakeFiles/editorCollaborativo.dir/main.cpp.o
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qsizepolicy.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qspinbox.h
+ /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstatusbar.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qstyle.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtextedit.h
  /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/qtoolbar.h

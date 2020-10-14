@@ -233,8 +233,10 @@ void Network::message_received() {
             break;
 
         case open: {
+
             project_ptr->delete_all();
             gui_ptr->delete_all_Gui();
+            gui_ptr->initializeCounter();
             project_ptr->prjID_set = true;
             project_ptr->prjID = obj["prjID"].toString().toStdString();
             QJsonArray symbols = obj["text"].toArray();
@@ -272,6 +274,7 @@ void Network::message_received() {
         case create: {
             project_ptr->delete_all();
             gui_ptr->delete_all_Gui();
+            gui_ptr->initializeCounter();
             std::cout << "sono nella create\n";
             project_ptr->prjID_set = true;
             project_ptr->prjID = obj["prjID"].toString().toStdString();

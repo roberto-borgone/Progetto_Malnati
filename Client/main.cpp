@@ -110,6 +110,7 @@ int main(int argc, char *argv[]) {
     g->show();
     g->setVisible(false);
     db_client->show();
+
     a.exec();
    // network.join();
     return 0;

@@ -500,31 +500,37 @@ QToolBar *Gui::initToolBar() {
 
 }
 
+
+
 void Gui::setFont(QString text) {
+    /*
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFont(QFont(text));
     textEdit->setCurrentCharFormat(format);
+     */
+    textEdit->setFontFamily(text);
 
 
 }
 
 void Gui::bold() {
-    QTextCharFormat format = textEdit->currentCharFormat();
-    if (format.fontWeight() != QFont::Weight::Bold) format.setFontWeight(QFont::Weight::Bold);
-    else format.setFontWeight(QFont::Weight::Normal);
-    textEdit->setCurrentCharFormat(format);
+
+    if (textEdit->fontWeight() != QFont::Weight::Bold) textEdit->setFontWeight(QFont::Weight::Bold);
+    else textEdit->setFontWeight(QFont::Weight::Normal);
+
 }
 
 void Gui::italic() {
+    /*
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFontItalic(!format.fontItalic());
     textEdit->setCurrentCharFormat(format);
+     */
+    textEdit->setFontItalic(!textEdit->fontItalic());
 }
 
 void Gui::underline() {
-    QTextCharFormat format = textEdit->currentCharFormat();
-    format.setFontUnderline(!format.fontUnderline());
-    textEdit->setCurrentCharFormat(format);
+    textEdit->setFontUnderline(!textEdit->fontUnderline());
 }
 
 void Gui::overline() {
@@ -535,9 +541,12 @@ void Gui::overline() {
 
 
 void Gui::setTextSize(int size) {
+    /*
     QTextCharFormat format = textEdit->currentCharFormat();
     format.setFontPointSize(size);
     textEdit->setCurrentCharFormat(format);
+     */
+    textEdit->setFontPointSize(size);
 }
 
 void Gui::undo() {
@@ -699,11 +708,14 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
-    if (user == this->user) {
+
+    if (user == this->user){
         return;
     }
+    bool resume_signals = textEdit->document()->blockSignals(
+            true);
 
-    if (user_cursors.find(user) == user_cursors.end()) {
+    if(user_cursors.find(user) ==user_cursors.end()){
         user_cursors[user] = QTextCursor(textEdit->document());
 
     }
@@ -713,24 +725,14 @@ void Gui::change_cursor(std::string user, int pos) {
     cout << user;
 
     textEdit->setTextCursor(user_cursors[user]);
-    //QTextCharFormat fmr = textEdit->textCursor().charFormat();
-    // ripristino background posizione precedente
-
-    bool resume_signals = textEdit->document()->blockSignals(
-            true);
-    //fmr.setBackground(QBrush(QColor("transparent")));
     textEdit->setTextBackgroundColor(QColor("transparent"));
-    textEdit->document()->blockSignals(
-            resume_signals);
 
     //cambio background corrente
 
     user_cursors[user].setPosition(pos);
-    user_cursors[user].movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 1);
-
+    user_cursors[user].movePosition(QTextCursor::Left,QTextCursor::KeepAnchor,1);
 
     textEdit->setTextCursor(user_cursors[user]);
-
 
 
 
@@ -738,16 +740,15 @@ void Gui::change_cursor(std::string user, int pos) {
     int r = user_color[user][0];
     int g = user_color[user][1];
     int b = user_color[user][2];
-    //fmr.setBackground(QBrush(QColor(r, g, b)));
-
-
     textEdit->setTextBackgroundColor(QColor(r,g,b));
     //ritorno al cursore corrente del progetto
     user_cursors[user] = textEdit->textCursor();
     textEdit->setTextCursor(currentCursor);
+    textEdit->setTextBackgroundColor(QColor("transparent"));
 
-    cout << textEdit->textCursor().position();
-    cout << textEdit->textCursor().anchor();
+
+    textEdit->document()->blockSignals(
+            resume_signals);
 }
 
 void Gui::markTextUser(map<string, vector<int>> colors) {

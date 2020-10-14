@@ -265,7 +265,7 @@ void Network::message_received() {
                 gui_ptr->add_connected_user(online_user);
             }
 
-            //gui_ptr->start_timer();
+            gui_ptr->start_timer();
         }
             break;
 
@@ -275,7 +275,7 @@ void Network::message_received() {
             std::cout << "sono nella create\n";
             project_ptr->prjID_set = true;
             project_ptr->prjID = obj["prjID"].toString().toStdString();
-            //gui_ptr->start_timer();
+            gui_ptr->start_timer();
         }
             break;
 

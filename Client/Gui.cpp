@@ -63,9 +63,15 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
             //CONTROLLATE QUESTA PARTE QUI CREO SIMBOLO RELATIVO A CARATTERE DIGITATO DA UTENTE E GENERO FRAZIONARIO
             /*BUG: se si copiano e incollano più caratteri questo non viene gestito bene*/
 
+            int count = added;
             for (auto sp = add.end() - 1; sp >= add.begin(); sp--) {
 
+                auto old_position = c.position();
+                c.setPosition(pos + count);
+                count --;
                 QTextCharFormat f = c.charFormat();
+                c.setPosition(old_position);
+
                 vector<int> frac;
 
                 if (project->text.size() == 0)
@@ -173,6 +179,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                     project->insert(pos, s);
                     *sp = '\0';
                 } else {
+                    this->delete_all_Gui();
                     emit no_project();
                 }
 
@@ -362,7 +369,7 @@ QToolBar *Gui::initToolBar() {
             emit clear_users(false);
         }
     });
-    toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Save",
+    toolBar->addAction(QIcon::fromTheme("Save", QIcon(rsrcPath + "/save.svg")), "Export as PDF",
                        [this]() {
                            QString fileName = QFileDialog::getSaveFileName((QWidget *) 0, "Export PDF", QString(),
                                                                            "*.pdf");
@@ -848,9 +855,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             q.setUnderline(s.isUnderline());
             q.setStrikeOut(s.isStrike());
             format.setFont(q);
-            QBrush brush;
-            brush.setColor(QColor(s.getColor()));
-            format.setForeground(brush);
+            format.setForeground(QBrush(QColor(s.getColor())));
             new_cursor->insertText(
                     QString(s.getChar()), format);
 

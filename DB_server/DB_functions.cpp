@@ -75,7 +75,7 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) const{
         s_pwd << (int) std::hash<std::string>()(pwd);
         pwd = s_pwd.str();
         statement = "insert into users(user,pwd,nick)"\
-                "values('" + user + "'," + pwd + "'," + user + ")";
+                "values('" + user + "', '" + pwd + "', '" + user + "')";
         result = sqlite3_exec(db, statement.c_str(), nullptr, nullptr, &err_message);
         if (result != SQLITE_OK) {
             std::cout << "SQL error: " << err_message << std::endl;

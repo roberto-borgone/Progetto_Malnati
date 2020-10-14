@@ -335,7 +335,9 @@ void TaskGeneric::run(){
         }
 
         case NICKNAME: {
-            this->service.update_nick(this->message["user"].toString().toStdString(), this->message["nickname"].toString().toStdString());
+            if(this->message["nickname"].toString().toStdString() != ""){
+                this->service.update_nick(this->message["user"].toString().toStdString(), this->message["nickname"].toString().toStdString());
+            }
             break;
         }
 

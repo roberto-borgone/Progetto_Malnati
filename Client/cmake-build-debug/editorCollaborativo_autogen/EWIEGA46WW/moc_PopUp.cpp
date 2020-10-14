@@ -1,19 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'PopUp.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.0)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../../../PopUp.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'PopUp.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.15.0. It"
+#error "This file was generated using the moc from 5.12.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -86,7 +85,7 @@ void PopUp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
 }
 
 QT_INIT_METAOBJECT const QMetaObject PopUp::staticMetaObject = { {
-    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
+    &QDialog::staticMetaObject,
     qt_meta_stringdata_PopUp.data,
     qt_meta_data_PopUp,
     qt_static_metacall,
@@ -128,7 +127,7 @@ int PopUp::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void PopUp::popUp_delete(int _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

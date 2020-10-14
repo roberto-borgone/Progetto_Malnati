@@ -568,7 +568,7 @@ Project *Gui::getCurrentProject() {
 
 void Gui::logged_in(const std::string &user) {
     this->setVisible(true);
-    this->setWindowTitle(QString::fromStdString(user));
+    //this->setWindowTitle(QString::fromStdString(user));
     this->user = user;
 
     //Qui prende l' immagine a caso,ma dovrebbe chiedere al DB per un utente dove è salvata l' immagine

@@ -189,7 +189,7 @@ QStringList DB_interface::get_projects() const{
     return project_list;
 }
 
-QByteArray DB_interface::get_project(std::string& id) const{
+QByteArray DB_interface::get_project(std::string& id, int* status) const{
 
     std::string statement;
 
@@ -198,6 +198,7 @@ QByteArray DB_interface::get_project(std::string& id) const{
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
         std::cout << "some error occured in query the DB" << std::endl;
+        status = 2;
         return QByteArray("");
     }
     sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
@@ -206,9 +207,11 @@ QByteArray DB_interface::get_project(std::string& id) const{
 
     if (stat == SQLITE_ERROR) {
         std::cout << "SQL error getting project" << std::endl;
+        status = 1;
         return QByteArray("");
     }
 
+    status = 0;
     return QByteArray((char*)sqlite3_column_text(stmt, 0));
 
 }

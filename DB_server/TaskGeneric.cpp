@@ -128,12 +128,13 @@ void TaskGeneric::run(){
             std::vector<Symbol> text;
             QJsonArray text_json;
             std::shared_ptr<Project> new_project;
+            int status;
 
             {
                 auto lock = std::lock_guard(this->projects_mux);
                 if(this->projects.find(this->message["prjID"].toString().toStdString()) == this->projects.end()){
 
-                    result = this->service.getProject(this->message["prjID"].toString().toStdString());
+                    result = this->service.getProject(this->message["prjID"].toString().toStdString(), &status);
 
                     std::cout << "Opening:\n" << result.toStdString() << std::endl;
 
@@ -171,7 +172,8 @@ void TaskGeneric::run(){
                                        qMakePair(QString("opcode"), QJsonValue(3)),
                                        qMakePair(QString("prjID"), this->message["prjID"]),
                                        qMakePair(QString("text"), response_text),
-                                       qMakePair(QString("user_names"), user_names)
+                                       qMakePair(QString("user_names"), user_names),
+                                       qMakePair(QString("status"), QJsonValue(status))
                                });
 
 

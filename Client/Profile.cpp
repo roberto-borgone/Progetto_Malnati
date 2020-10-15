@@ -7,19 +7,15 @@
 #include <QFileDialog>
 #include <QBuffer>
 
-Profile::Profile():QDialog(){
+Profile::Profile(QImage image):QDialog(){
     setWindowTitle("Profile information");
     setWindowFlags(Qt::Dialog);
 
     QGridLayout *grid = new QGridLayout(this);
-
-    QPixmap p("images/User_icon.png");
     QLabel *icon = new QLabel(this);
-    icon->setPixmap(p);
-    icon->resize(icon->pixmap()->size());
-//    if(icon->pixmap(Qt::ReturnByValue).isNull()){
-//        std::cout << "a";
-//    }
+    QPixmap p = QPixmap::fromImage(image,Qt::AutoColor);
+    icon->setPixmap(p.scaled(100,100));
+
     grid->addWidget(icon,0,0);
     QWidget* w = new QWidget(this);
 
@@ -28,13 +24,12 @@ Profile::Profile():QDialog(){
 
 
 
-    connect(changeIcon,&QPushButton::clicked,[&](){
+    connect(changeIcon,&QPushButton::clicked,[=](){
         QString fileName = QFileDialog::getOpenFileName((QWidget *) 0, "Select the image", QString(), "*.png");
-
-        QPixmap pixmap;
-        pixmap.load(fileName,"PNG");
-        pixmap.save(QString("images/User_profile.png"));
         QImage new_profile_image(fileName);
+        QPixmap p = QPixmap::fromImage(new_profile_image,Qt::AutoColor);
+        icon->setPixmap(p.scaled(100,100));
+
         emit new_image(new_profile_image);
     });
 

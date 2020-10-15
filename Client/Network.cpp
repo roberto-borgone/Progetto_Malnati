@@ -233,49 +233,78 @@ void Network::message_received() {
             break;
 
         case open: {
-            project_ptr->delete_all();
-            gui_ptr->delete_all_Gui();
-            project_ptr->prjID_set = true;
-            project_ptr->prjID = obj["prjID"].toString().toStdString();
-            QJsonArray symbols = obj["text"].toArray();
-            QJsonArray online_users = obj["user_names"].toArray();
-            std::string delimiter = "/";
-            int i = 0;
+            int result = obj["status"].toInt();
+            if(result==0) {
+                project_ptr->delete_all();
+                gui_ptr->delete_all_Gui();
+                gui_ptr->initializeCounter();
+                project_ptr->prjID_set = true;
+                project_ptr->prjID = obj["prjID"].toString().toStdString();
+                QJsonArray symbols = obj["text"].toArray();
+                QJsonArray online_users = obj["user_names"].toArray();
+                std::string delimiter = "/";
+                int i = 0;
 
-            for (auto el : symbols) {
-                Symbol s(el.toObject());
-                project_ptr->insert(i, s);
-                gui_ptr->insert_in_Gui(i, s);
-                i++;
-                //aggiungo user alla lista di user del progetto se non esistente
-                std::string id = s.getId();
-                std::string user = id.substr(0, id.find(delimiter));
-                if (users.find(user) == users.end()) {
-                    users.insert(user);
-                    emit new_user(user);
+                for (auto el : symbols) {
+                    Symbol s(el.toObject());
+                    project_ptr->insert(i, s);
+                    gui_ptr->insert_in_Gui(i, s);
+                    i++;
+                    //aggiungo user alla lista di user del progetto se non esistente
+                    std::string id = s.getId();
+                    std::string user = id.substr(0, id.find(delimiter));
+                    if (users.find(user) == users.end()) {
+                        users.insert(user);
+                        //qui si potrebbe inviare un segnale in cui si manda l'utente e viene ritornato sia utente che nickname
+
+                        //questo segnale new_user va modificato aggiungendo il nickname ed emesso nello switch
+                        // case quando si riceve user e nickname
+                        emit new_user(user);
+                    }
                 }
-            }
 
-            //setta gli utenti come connessi nella GUI (e aggiungi nuovi utenti connessi ma che non hanno mai scritto sul progetto)
-            for (auto user : online_users) {
-                std::string online_user = user.toString().toStdString();
-                if (users.find(online_user) == users.end()) {
-                    users.insert(online_user);
+                //setta gli utenti come connessi nella GUI (e aggiungi nuovi utenti connessi ma che non hanno mai scritto sul progetto)
+                for (auto user : online_users) {
+                    std::string online_user = user.toString().toStdString();
+                    if (users.find(online_user) == users.end()) {
+                        users.insert(online_user);
+                    }
+                    gui_ptr->add_connected_user(online_user);
                 }
-                gui_ptr->add_connected_user(online_user);
-            }
 
-            gui_ptr->start_timer();
+                //set new window title
+                QString new_title(gui_ptr->get_nickname().c_str());
+                new_title.append("//");
+                new_title.append(project_ptr->prjID.c_str());
+                gui_ptr->setWindowTitle(new_title);
+
+                gui_ptr->start_timer();
+            }else{
+                emit wrong_open();
+            }
         }
             break;
 
         case create: {
-            project_ptr->delete_all();
-            gui_ptr->delete_all_Gui();
-            std::cout << "sono nella create\n";
-            project_ptr->prjID_set = true;
-            project_ptr->prjID = obj["prjID"].toString().toStdString();
-            gui_ptr->start_timer();
+            int result = obj["status"].toInt();
+            if(result==0) {
+                project_ptr->delete_all();
+                gui_ptr->delete_all_Gui();
+                gui_ptr->initializeCounter();
+                std::cout << "sono nella create\n";
+                project_ptr->prjID_set = true;
+                project_ptr->prjID = obj["prjID"].toString().toStdString();
+
+                //set new window title
+                QString new_title(gui_ptr->get_nickname().c_str());
+                new_title.append("//");
+                new_title.append(project_ptr->prjID.c_str());
+                gui_ptr->setWindowTitle(new_title);
+
+                gui_ptr->start_timer();
+            }else{
+                emit wrong_create();
+            }
         }
             break;
 
@@ -420,6 +449,9 @@ void Network::close_project(std::string prj) {
     project_ptr->delete_all();
     gui_ptr->delete_all_Gui();
     gui_ptr->stop_timer();
+
+    //delete project from window title
+    gui_ptr->setWindowTitle(QString(gui_ptr->get_nickname().c_str()));
 
     //delete list of users
     users.clear();

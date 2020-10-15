@@ -60,9 +60,12 @@ int main(int argc, char *argv[]) {
     QObject::connect(g, &Gui::change_image, network, &Network::send_image);
     QObject::connect(g, &Gui::send_nick, network, &Network::send_nickname);
 
+
     //for C/S communication (projects)
     QObject::connect(no_prj_pop_up, &PopUp::popUp_delete, g, &Gui::delete_in_Gui);
     QObject::connect(g, &Gui::no_project, [&no_prj_pop_up](){no_prj_pop_up->exec();}); //pop up when no project is open
+    QObject::connect(network,&Network::wrong_open,g,&Gui::wrong_open);
+    QObject::connect(network,&Network::wrong_create,g,&Gui::wrong_create);
 
     //PopUp fow a new project
     QObject::connect(g, &Gui::new_project, [&network](){
@@ -110,6 +113,7 @@ int main(int argc, char *argv[]) {
     g->show();
     g->setVisible(false);
     db_client->show();
+
     a.exec();
    // network.join();
     return 0;

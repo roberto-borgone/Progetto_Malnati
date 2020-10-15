@@ -31,6 +31,24 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
+    QObject::connect(textEdit,&QTextEdit::cursorPositionChanged,[=](){
+
+        QTextCharFormat f = textEdit->currentCharFormat();
+        font->blockSignals(true);
+        color->blockSignals(true);
+        size->blockSignals(true);
+        font->setCurrentText(f.fontFamily());
+        string s = "background-color: " + f.foreground().color().name().toStdString();
+        color->setStyleSheet(QString::fromStdString(s));
+        size ->setValue(f.fontPointSize());
+        font->blockSignals(false);
+        color->blockSignals(false);
+        size->blockSignals(false);
+
+
+
+
+    });
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
 
         //avoid align bug with flag
@@ -200,6 +218,12 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     //this->setCentralWidget(textEdit);
     this->setMenuBar(initMenuBar());
     this->addToolBar(initToolBar());
+    statusBar = new QStatusBar(this);
+    countOnline = new QLabel(statusBar);
+    statusBar->addWidget(countOnline);
+    this->setStatusBar(statusBar);
+
+
 }
 
 QMenuBar *Gui::initMenuBar() {
@@ -225,6 +249,7 @@ QMenuBar *Gui::initMenuBar() {
     }, QKeySequence::New); //da implementare funzionalità
     file->addAction("Open", [this]() {
         if (project->prjID_set) {
+            countOnline->setText("");
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
@@ -237,7 +262,9 @@ QMenuBar *Gui::initMenuBar() {
         emit request_for_projects(std::string("user1"));
     }, QKeySequence::Open);
     file->addAction("Close", [this]() {
+
         if (project->prjID_set) {
+            countOnline->setText("");
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
@@ -290,7 +317,7 @@ QToolBar *Gui::initToolBar() {
     toolBar->addAction(QIcon::fromTheme("Profile",
                                         QIcon(QPixmap::fromImage(profile_image))),
                        "Profile", [=]() {
-                auto f = new Profile();
+                auto f = new Profile(profile_image);
 
                 //button logout
                 QObject::connect(f, &Profile::log_out, [this]() {
@@ -333,6 +360,7 @@ QToolBar *Gui::initToolBar() {
     });
     toolBar->addAction(QIcon::fromTheme("New", QIcon(rsrcPath + "/file.svg")), "New", [=]() {
         if (project->prjID_set) {
+            countOnline->setText("");
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
@@ -346,6 +374,7 @@ QToolBar *Gui::initToolBar() {
     });
     toolBar->addAction(QIcon::fromTheme("Open", QIcon(rsrcPath + "/file-1.svg")), "Open", [=]() {
         if (project->prjID_set) {
+            countOnline->setText("");
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
@@ -359,6 +388,7 @@ QToolBar *Gui::initToolBar() {
     });
     toolBar->addAction(QIcon::fromTheme("Close", QIcon(rsrcPath + "/close.svg")), "Close", [=]() {
         if (project->prjID_set) {
+            countOnline->setText("");
             emit close_project(std::string(project->prjID));
             project->prjID_set = false; //client can't now write on editor
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
@@ -390,13 +420,6 @@ QToolBar *Gui::initToolBar() {
                 emit sendMail(this->getCurrentProject()->prjID, this->user);
 
     });
-    toolBar->addAction(QIcon::fromTheme("Undo", QIcon(rsrcPath + "/undo.svg")), "Undo", [this]() {
-        undo();
-
-    });
-    toolBar->addAction(QIcon::fromTheme("Redo", QIcon(rsrcPath + "/redo.svg")), "Redo", [this]() {
-        redo();
-    });
     toolBar->addAction(QIcon::fromTheme("Cut", QIcon(rsrcPath + "/scissors.svg")), "Cut", [this]() {
         cut();
     });
@@ -407,7 +430,7 @@ QToolBar *Gui::initToolBar() {
         deleteT();
     });
 
-    QComboBox *font = new QComboBox(toolBar);
+    font = new QComboBox(toolBar);
 
     //Metto come opzioni tutti i font presenti nel sistema
     QFontDatabase db;
@@ -438,24 +461,21 @@ QToolBar *Gui::initToolBar() {
     toolBar->addAction(QIcon::fromTheme("Underline", QIcon(rsrcPath + "/underline.svg")), "Underline", [this]() {
         underline();
     });
-    toolBar->addAction(QIcon::fromTheme("Overline", QIcon(rsrcPath + "/strikethrough.svg")), "Overline", [this]() {
-        overline();
-    });
 
-    QSpinBox *size = new QSpinBox(toolBar);
+    size = new QSpinBox(toolBar);
     size->setRange(8, 288);
     QObject::connect(size, QOverload<int>::of(&QSpinBox::valueChanged), [this](int i) -> void {
         setTextSize(i);
     });
     toolBar->addWidget(size);
 
-    QPushButton *color = new QPushButton(toolBar);
+    color = new QPushButton(toolBar);
     color->setStyleSheet("background-color: black");
 
     connect(color, &QPushButton::pressed, [=]() {
 
         QColorDialog palette(QColor("black"), this);
-        connect(&palette, &QColorDialog::colorSelected, [color, this](const QColor &c) -> void {
+        connect(&palette, &QColorDialog::colorSelected, [=](const QColor &c) -> void {
 
             string s = "background-color: " + c.name().toStdString();
 
@@ -696,6 +716,7 @@ void Gui::add_user(std::string user) {
     list->addItem(item);
     user_items[user] = item;
 
+
 }
 
 void Gui::start_timer() {
@@ -892,6 +913,7 @@ void Gui::set_profile_image(const QImage &img) {
 
 void Gui::closeProject() {
     if (project->prjID_set) {
+        countOnline->setText(QString::fromStdString(""));
         emit close_project(std::string(project->prjID));
         project->prjID_set = false; //client can't now write on editor
         //delete all the users of the project that appears in the GUI (then need to update also GUI)
@@ -900,6 +922,7 @@ void Gui::closeProject() {
         user_color[user] = my_color;
         clear_users_list(false);
         emit clear_users(false);
+
     }
 }
 
@@ -914,7 +937,13 @@ void Gui::add_connected_user(string usr) {
     QPixmap pixmap(100, 100);
     pixmap.fill(QColor("green"));
     QIcon redIcon(pixmap);
+
     user_items[usr]->setIcon(redIcon);
+    int n = std::stoi(this->countOnline->text().toStdString().substr(0,' '));
+    n = n + 1;
+    cout << n;
+    string s = to_string(n) + " collaborators are online now";
+    this->countOnline->setText(QString::fromStdString(s));
 }
 
 void Gui::user_disconnected(string usr) {
@@ -930,6 +959,10 @@ void Gui::user_disconnected(string usr) {
     textEdit->setTextBackgroundColor(QColor("transparent"));
     textEdit->setTextCursor(c);
     user_cursors.erase(usr);
+    int n = std::stoi(this->countOnline->text().toStdString().substr(0,' '));
+    n = n - 1;
+    string s = to_string(n) + " collaborators are online now";
+    this->countOnline->setText(QString::fromStdString(s));
 
 }
 
@@ -937,4 +970,23 @@ void Gui::set_nickname(string nickname) {
     this->nickname = nickname;
     this->setWindowTitle(QString::fromStdString(nickname));
 }
+void Gui::initializeCounter() {
 
+
+    string s = "0 collaborators are online now";
+    this->countOnline->setText(QString::fromStdString(s));
+}
+
+std::string Gui::get_nickname() {
+    return nickname;
+}
+
+void Gui::wrong_open() {
+    WrongProjectPopUp pop(true);
+    pop.exec();
+}
+
+void Gui::wrong_create() {
+    WrongProjectPopUp pop(false);
+    pop.exec();
+}

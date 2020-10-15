@@ -25,7 +25,7 @@ public:
     std::string log_in(const std::string& user, std::string pwd) const;
     int create_project(const std::string& id, QByteArray& doc) const;
     QStringList get_projects() const;
-    QByteArray get_project(std::string& id) const;
+    QByteArray get_project(std::string& id, int* status) const;
     int update_project(const std::string& id, QByteArray& doc) const;
     int update_nick(std::string user, std::string nick) const;
 };

@@ -23,8 +23,8 @@ QStringList Service::getProjects() const{
     return this->db.get_projects();
 }
 
-QByteArray Service::getProject(std::string id) const{
-    return this->db.get_project(id);
+QByteArray Service::getProject(std::string id, int* status) const{
+    return this->db.get_project(id, status);
 }
 
 int Service::update_project(const std::string id, QByteArray doc) const{

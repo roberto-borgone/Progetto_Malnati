@@ -18,7 +18,7 @@ public:
     int subscribe(std::string user, std::string password) const;
     int createProject(const std::string id, QByteArray doc) const;
     QStringList getProjects() const;
-    QByteArray getProject(std::string id) const;
+    QByteArray getProject(std::string id, int* status) const;
     int update_project(const std::string id, QByteArray doc) const;
     int update_nick(std::string user, std::string nick) const;
 

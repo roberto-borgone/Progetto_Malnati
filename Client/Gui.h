@@ -110,6 +110,7 @@ public:
     void add_connected_user(string usr);
     void user_disconnected(string usr);
     void set_nickname(string nickname);
+    std::string get_nickname();
     void initializeCounter();
 
 public slots:

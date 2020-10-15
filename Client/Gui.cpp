@@ -977,3 +977,7 @@ void Gui::initializeCounter() {
     this->countOnline->setText(QString::fromStdString(s));
 }
 
+std::string Gui::get_nickname() {
+    return nickname;
+}
+

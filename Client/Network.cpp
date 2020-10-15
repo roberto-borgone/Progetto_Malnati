@@ -267,6 +267,12 @@ void Network::message_received() {
                 gui_ptr->add_connected_user(online_user);
             }
 
+            //set new window title
+            QString new_title(gui_ptr->get_nickname().c_str());
+            new_title.append("//");
+            new_title.append(project_ptr->prjID.c_str());
+            gui_ptr->setWindowTitle(new_title);
+
             gui_ptr->start_timer();
         }
             break;
@@ -278,6 +284,13 @@ void Network::message_received() {
             std::cout << "sono nella create\n";
             project_ptr->prjID_set = true;
             project_ptr->prjID = obj["prjID"].toString().toStdString();
+
+            //set new window title
+            QString new_title(gui_ptr->get_nickname().c_str());
+            new_title.append("//");
+            new_title.append(project_ptr->prjID.c_str());
+            gui_ptr->setWindowTitle(new_title);
+
             gui_ptr->start_timer();
         }
             break;
@@ -423,6 +436,9 @@ void Network::close_project(std::string prj) {
     project_ptr->delete_all();
     gui_ptr->delete_all_Gui();
     gui_ptr->stop_timer();
+
+    //delete project from window title
+    gui_ptr->setWindowTitle(QString(gui_ptr->get_nickname().c_str()));
 
     //delete list of users
     users.clear();

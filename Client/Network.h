@@ -51,6 +51,10 @@ signals:
 
     void new_user(std::string user);
 
+    void wrong_open();
+
+    void wrong_create();
+
 
 public slots:
 

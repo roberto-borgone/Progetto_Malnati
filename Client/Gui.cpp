@@ -981,3 +981,12 @@ std::string Gui::get_nickname() {
     return nickname;
 }
 
+void Gui::wrong_open() {
+    WrongProjectPopUp pop(true);
+    pop.exec();
+}
+
+void Gui::wrong_create() {
+    WrongProjectPopUp pop(false);
+    pop.exec();
+}

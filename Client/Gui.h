@@ -51,6 +51,7 @@
 #include "Profile.h"
 #include "SendEmailPopup.h"
 #include "Project.h"
+#include "WrongProjectPopUp.h"
 
 class Gui : public QMainWindow{
     Q_OBJECT
@@ -117,6 +118,8 @@ public slots:
     void logged_in(const std::string& user);
     void add_user(std::string user);
     void change_cursor(std::string user, int pos);
+    void wrong_open();
+    void wrong_create();
 
 
 signals:

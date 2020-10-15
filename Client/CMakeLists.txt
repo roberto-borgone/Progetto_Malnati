@@ -26,7 +26,7 @@ list(APPEND LIBRARIES
         Qt5::WebSockets)
 list(REMOVE_DUPLICATES LIBRARIES)
 
-add_executable(editorCollaborativo main.cpp Gui.cpp Gui.h Project.cpp Project.h Symbol.cpp Symbol.h Network.cpp Network.h DB_Client.cpp DB_Client.h PopUp.h ProjectsPopup.h ClickableLabel.h NewProjectPopUp.h Profile.cpp Profile.h WrongCredentialsPopUp.h Mail.cpp Mail.h SendEmailPopup.h UseInvite.h)
+add_executable(editorCollaborativo main.cpp Gui.cpp Gui.h Project.cpp Project.h Symbol.cpp Symbol.h Network.cpp Network.h DB_Client.cpp DB_Client.h PopUp.h ProjectsPopup.h ClickableLabel.h NewProjectPopUp.h Profile.cpp Profile.h WrongCredentialsPopUp.h Mail.cpp Mail.h SendEmailPopup.h UseInvite.h WrongProjectPopUp.h)
 target_link_libraries(editorCollaborativo ${LIBRARIES} ws2_32 C:/Curl/curl-7.72.0-win64-mingw/lib/libcurl.dll.a)
 #target_link_libraries(editorCollaborativo ${LIBRARIES} curl)
 

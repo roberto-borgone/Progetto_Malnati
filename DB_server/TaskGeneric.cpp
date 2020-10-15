@@ -17,13 +17,13 @@
 #define INSERT 6
 #define DELETE 7
 #define CURSOR 8
-#define ALIGN 11
+#define GET_NICK 11
 #define MODIFY_IMG 12
 #define NICKNAME 13
 #define AUTHORIZATION_ERROR -2
 #define PROJECT_ERROR -3
 
-TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), userId(userId), message(std::move(message)){}
+TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QString nick, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), userId(userId), nick(nick), message(std::move(message)){}
 
 void TaskGeneric::run(){
 
@@ -39,14 +39,7 @@ void TaskGeneric::run(){
             QImage img;
 
             result = this->service.login(this->message["user"].toString().toStdString(),
-                                         this->message["password"].toString().toStdString());
-
-            if(result == "1")
-                result_code = 1;
-            else if(result == "2")
-                result_code = 2;
-            else
-                result_code = 0;
+                                         this->message["password"].toString().toStdString(), &result_code);
 
 
             json = QJsonObject({
@@ -63,7 +56,7 @@ void TaskGeneric::run(){
                 img.save(&buffer, "PNG");
                 auto const encoded = buffer.data().toBase64();
                 json.insert("user_img", {QLatin1String(encoded)});
-                emit login(this->message["user"].toString());
+                emit login(this->message["user"].toString(), QString::fromStdString(result));
             } else {
                 json.insert("user", QJsonValue(""));
             }
@@ -88,13 +81,14 @@ void TaskGeneric::run(){
 
             if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
+                json.insert("nickname", QJsonValue(this->message["user"].toString()));
                 img.save("../images/" + this->message["user"].toString() + ".png");
                 QBuffer buffer;
                 buffer.open(QIODevice::WriteOnly);
                 img.save(&buffer, "PNG");
                 auto const encoded = buffer.data().toBase64();
                 json.insert("user_img", {QLatin1String(encoded)});
-                emit login(this->message["user"].toString());
+                emit login(this->message["user"].toString(), this->message["user"].toString());
             } else {
                 json.insert("user", QJsonValue(""));
             }
@@ -128,12 +122,13 @@ void TaskGeneric::run(){
             std::vector<Symbol> text;
             QJsonArray text_json;
             std::shared_ptr<Project> new_project;
+            int status;
 
             {
                 auto lock = std::lock_guard(this->projects_mux);
                 if(this->projects.find(this->message["prjID"].toString().toStdString()) == this->projects.end()){
 
-                    result = this->service.getProject(this->message["prjID"].toString().toStdString());
+                    result = this->service.getProject(this->message["prjID"].toString().toStdString(), &status);
 
                     std::cout << "Opening:\n" << result.toStdString() << std::endl;
 
@@ -162,20 +157,24 @@ void TaskGeneric::run(){
             }
 
             QJsonArray user_names;
+            QJsonArray nicknames;
 
-            for(const QString& user: new_project->users){
-                user_names.push_back(QJsonValue(user));
+            for(std::pair<QString, QString> user: new_project->users){
+                user_names.push_back(QJsonValue(user.first));
+                nicknames.push_back(QJsonValue(user.second));
             }
 
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(3)),
                                        qMakePair(QString("prjID"), this->message["prjID"]),
                                        qMakePair(QString("text"), response_text),
-                                       qMakePair(QString("user_names"), user_names)
+                                       qMakePair(QString("user_names"), user_names),
+                                       qMakePair(QString("nicknames"), nicknames),
+                                       qMakePair(QString("status"), QJsonValue(status))
                                });
 
 
-            new_project->users.insert(this->userId);
+            new_project->users.insert(std::pair(this->userId, this->nick));
             this->project = new_project;
             emit returnResult(QJsonDocument(json).toJson());
 
@@ -184,7 +183,8 @@ void TaskGeneric::run(){
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(9)),
                                        qMakePair(QString("prjID"), this->message["prjID"]),
-                                       qMakePair(QString("user"), this->userId)
+                                       qMakePair(QString("user"), this->userId),
+                                       qMakePair(QString("nickname"), this->nick)
                                });
 
             emit forwardMessage(QJsonDocument(json).toJson(), this->message["prjID"].toString());
@@ -222,7 +222,7 @@ void TaskGeneric::run(){
                     this->projects.insert(std::pair(new_project->getId(), new_project));
                 }
 
-                new_project->users.insert(this->userId);
+                new_project->users.insert(std::pair(this->userId, this->nick));
                 this->project = new_project;
 
             }
@@ -235,7 +235,7 @@ void TaskGeneric::run(){
 
         case CLOSE: {
 
-            this->project->users.erase(this->userId);
+            this->project->users.erase(std::pair(this->userId, this->nick));
             this->project.reset();
 
             // notify other users
@@ -328,9 +328,18 @@ void TaskGeneric::run(){
 
         }
 
-        case ALIGN: {
+        case GET_NICK: {
 
-            emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
+            std::string nick = this->service.get_nick(this->message["user_nick"].toString().toStdString());
+
+            QJsonObject json = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(2)),
+                                       qMakePair(QString("user"), this->message["user_nick"]),
+                                       qMakePair(QString("nickname"), QString::fromStdString(nick))
+                               });
+
+            emit returnResult(QJsonDocument(json).toJson());
+
             break;
         }
 
@@ -400,6 +409,5 @@ int TaskGeneric::getOpCode(){
 }
 
 TaskGeneric::~TaskGeneric() {
-    this->
     emit finished();
 }

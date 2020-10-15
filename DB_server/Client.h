@@ -36,7 +36,7 @@ public slots:
     void taskCompleted(QByteArray result);
     void forwardMessage(const QByteArray& message, const QString& projectID);
     void sendMessage(QByteArray message);
-    void login(QString user);
+    void login(QString user, QString nick);
     void killClient();
 
 private:
@@ -44,6 +44,7 @@ private:
     QTcpSocket* socket;
     const Service& service;
     QString userId;
+    QString nick;
     std::shared_ptr<Project> project;
     std::map<std::string, std::shared_ptr<Project>>& projects;
     std::mutex& projects_mux;

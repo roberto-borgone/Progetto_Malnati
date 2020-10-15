@@ -34,7 +34,7 @@ void Client::disconnected() {
                                    qMakePair(QString("prjID"), QJsonValue(QString::fromStdString(this->project->getId()))),
                            });
 
-        auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, this->userId, json_message);
+        auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, this->userId, this->nick, json_message);
 
         task->setAutoDelete(true);
 
@@ -92,11 +92,11 @@ void Client::readyRead() {
 
     std::cout << "Message: \n" << document_message.toJson().toStdString() << std::endl;
 
-    auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, this->userId, json_message);
+    auto task = new TaskGeneric(this->service, this->projects, this->projects_mux, this->project, this->userId, this->nick, json_message);
 
     task->setAutoDelete(true);
 
-    connect(task, SIGNAL(login(QString)), this, SLOT(login(QString)));
+    connect(task, SIGNAL(login(QString,QString)), this, SLOT(login(QString,QString)));
     connect(task, SIGNAL(returnResult(QByteArray)), this, SLOT(taskCompleted(QByteArray)));
     connect(task, SIGNAL(forwardMessage(QByteArray, QString)), this, SLOT(forwardMessage(QByteArray, QString)));
     connect(task, SIGNAL(killClient()), this, SLOT(killClient()));
@@ -138,8 +138,9 @@ void Client::sendMessage(QByteArray message){
     this->socket->write(message);
 }
 
-void Client::login(QString user){
+void Client::login(QString user, QString nick){
     this->userId = user;
+    this->nick = nick;
     std::cout << "Client Logged, user: " << this->userId.toStdString() << std::endl;
 }
 

@@ -88,12 +88,14 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) const{
     return 0;
 }
 
-std::string DB_interface::log_in(const std::string &user, std::string pwd) const{
+std::string DB_interface::log_in(const std::string &user, std::string pwd, int* status) const{
 
     int result;
     std::string statement;
     char *err_message = nullptr;
     std::string nick = "";
+
+    *status = 0;
 
     //check if user is already in DB
     statement = std::string("SELECT pwd, nick FROM users WHERE user = ?");
@@ -101,13 +103,15 @@ std::string DB_interface::log_in(const std::string &user, std::string pwd) const
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
         std::cout << "some error occured in query the DB" << std::endl;
-        return "2";
+        *status = 2;
+        return "";
     }
     sqlite3_bind_text(stmt, 1, user.c_str(), user.size(), SQLITE_STATIC);
     int stat = sqlite3_step(stmt);
     if (stat == SQLITE_DONE) {
         std::cout << "wrong username or password" << std::endl;
-        return "1";
+        *status = 1;
+        return "";
     } else {
         std::ostringstream s_pwd;
         s_pwd << (int) std::hash<std::string>()(pwd);
@@ -121,7 +125,8 @@ std::string DB_interface::log_in(const std::string &user, std::string pwd) const
             std::cout << "log in success" << std::endl;
         } else{
             std::cout<<"wrong username or password"<<std::endl;
-            return "1";
+            *status = 1;
+            return "";
         }
     }
     return nick;
@@ -189,23 +194,28 @@ QStringList DB_interface::get_projects() const{
     return project_list;
 }
 
-QByteArray DB_interface::get_project(std::string& id) const{
+QByteArray DB_interface::get_project(std::string& id, int* status) const{
 
     std::string statement;
 
     statement = std::string("SELECT doc FROM projects WHERE id = ?");
 
     sqlite3_stmt *stmt;
+
+    *status = 0;
+
     if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
         std::cout << "some error occured in query the DB" << std::endl;
+        *status = 2;
         return QByteArray("");
     }
     sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
 
     int stat = sqlite3_step(stmt);
 
-    if (stat == SQLITE_ERROR) {
+    if (stat == SQLITE_DONE) {
         std::cout << "SQL error getting project" << std::endl;
+        *status = 1;
         return QByteArray("");
     }
 
@@ -264,4 +274,28 @@ int DB_interface::update_nick(std::string user, std::string nick) const{
 
     return 0;
 }
+
+std::string DB_interface::get_nick(std::string user) const{
+
+    std::string statement;
+
+    statement = std::string("SELECT nick FROM users WHERE user = ?");
+
+    sqlite3_stmt *stmt;
+
+    if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
+        std::cout << "some error occured in query the DB" << std::endl;
+        return "";
+    }
+    sqlite3_bind_text(stmt, 1, user.c_str(), user.size(), SQLITE_STATIC);
+
+    int stat = sqlite3_step(stmt);
+
+    if (stat == SQLITE_DONE) {
+        std::cout << "SQL error getting nickname" << std::endl;
+        return "";
+    }
+
+    return std::string((char*)sqlite3_column_text(stmt, 0));
+};
 

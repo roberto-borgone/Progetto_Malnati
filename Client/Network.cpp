@@ -258,7 +258,8 @@ void Network::message_received() {
                     if (users.find(user) == users.end()) {
                         users.insert(user);
                         //qui si potrebbe inviare un segnale in cui si manda l'utente e viene ritornato sia utente che nickname
-                        get_nick(user);
+                        if(!online_users.contains(QJsonValue(QString::fromStdString(user))))
+                            get_nick(user);
                     }
                 }
 
@@ -628,9 +629,10 @@ void Network::send_nickname(std::string nick) {
 void Network::get_nick(std::string user) {
     //create JSON object of type project_to_get
     auto json_message = QJsonObject({
-                                            qMakePair(QString("opcode"), QJsonValue(14)),
+                                            qMakePair(QString("opcode"), QJsonValue(11)),
                                             qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str()))),
                                             qMakePair(QString("user_nick"), QJsonValue(QString(user.c_str()))),
+                                            qMakePair(QString("prjID"), QString(project_ptr->prjID.c_str()))
                                     });
 
     //print JSON object

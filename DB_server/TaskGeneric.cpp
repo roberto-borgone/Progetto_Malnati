@@ -333,7 +333,7 @@ void TaskGeneric::run(){
             std::string nick = this->service.get_nick(this->message["user_nick"].toString().toStdString());
 
             QJsonObject json = QJsonObject({
-                                       qMakePair(QString("opcode"), QJsonValue(2)),
+                                       qMakePair(QString("opcode"), QJsonValue(11)),
                                        qMakePair(QString("user"), this->message["user_nick"]),
                                        qMakePair(QString("nickname"), QString::fromStdString(nick))
                                });
@@ -346,6 +346,11 @@ void TaskGeneric::run(){
         case NICKNAME: {
             if(this->message["nickname"].toString().toStdString() != ""){
                 this->service.update_nick(this->message["user"].toString().toStdString(), this->message["nickname"].toString().toStdString());
+
+                this->project->users.erase(std::pair(this->userId, this->nick));
+                this->project->users.insert(std::pair(this->userId, this->message["nickname"].toString()));
+
+                emit login(this->userId, this->message["nickname"].toString());
             }
             break;
         }

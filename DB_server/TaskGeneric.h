@@ -30,6 +30,7 @@ signals:
     void returnResult(QByteArray result);
     void forwardMessage(QByteArray, QString);
     void login(QString user, QString nick);
+
     void killClient();
     void finished();
 

@@ -19,8 +19,8 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     textEdit = new QTextEdit(centralWidget);
     show_collaborators = false;//show colored text or restore original text
 
-    lh->addWidget(list);
-    lh->addWidget(textEdit);
+    lh->addWidget(list,0);
+    lh->addWidget(textEdit, 1);
     centralWidget->setLayout(lh);
     this->setCentralWidget(centralWidget);
     project = new Project(textEdit->document(), this);
@@ -242,6 +242,7 @@ QMenuBar *Gui::initMenuBar() {
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
             users_nickname.clear();
+            connected_users.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -257,6 +258,7 @@ QMenuBar *Gui::initMenuBar() {
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
             users_nickname.clear();
+            connected_users.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -273,6 +275,7 @@ QMenuBar *Gui::initMenuBar() {
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
             users_nickname.clear();
+            connected_users.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -335,6 +338,7 @@ QToolBar *Gui::initToolBar() {
                     //delete all the users of the project that appears in the GUI (then need to update also GUI)
                     user_color.clear();
                     users_nickname.clear();
+                    connected_users.clear();
                     clear_users_list(true);
                     emit clear_users(true);
 
@@ -371,6 +375,7 @@ QToolBar *Gui::initToolBar() {
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
             users_nickname.clear();
+            connected_users.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -386,6 +391,7 @@ QToolBar *Gui::initToolBar() {
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
             users_nickname.clear();
+            connected_users.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -401,6 +407,7 @@ QToolBar *Gui::initToolBar() {
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
             users_nickname.clear();
+            connected_users.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -620,7 +627,7 @@ void Gui::logged_in(const std::string &user) {
         QPixmap pixmap(100, 100);
         pixmap.fill(QColor("green"));
         QIcon ico(pixmap);
-        QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
+        QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(nickname));
         int r = rand() % 255;
         int g = rand() % 255;
         int b = rand() % 255;
@@ -710,20 +717,22 @@ void Gui::delete_all_Gui() {
 
 void Gui::add_user(std::string user, std::string nickname) {
 
-    QPixmap pixmap(100, 100);
-    pixmap.fill(QColor("red"));
-    QIcon ico(pixmap);
-    int r = rand() % 255;
-    int g = rand() % 255;
-    int b = rand() % 255;
-    user_color[user] = {r, g, b};
-    user_color[user] = {r, g, b};
-    connected_users[user] = false;
-    QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(nickname));
-    item->setBackgroundColor(QColor::fromRgb(r, g, b));
-    list->addItem(item);
-    user_items[user] = item;
-    users_nickname[user]=nickname;
+    if(users_nickname.find(user) == users_nickname.end()){
+        QPixmap pixmap(100, 100);
+        pixmap.fill(QColor("red"));
+        QIcon ico(pixmap);
+        int r = rand() % 255;
+        int g = rand() % 255;
+        int b = rand() % 255;
+        user_color[user] = {r, g, b};
+        connected_users[user] = false;
+        QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(nickname));
+        item->setBackgroundColor(QColor::fromRgb(r, g, b));
+        list->addItem(item);
+        user_items[user] = item;
+        users_nickname[user]=nickname;
+    }
+
 }
 
 void Gui::start_timer() {
@@ -927,6 +936,7 @@ void Gui::closeProject() {
         std::vector my_color = user_color.find(user)->second;
         user_color.clear();
         users_nickname.clear();
+        connected_users.clear();
         user_color[user] = my_color;
         clear_users_list(false);
         emit clear_users(false);

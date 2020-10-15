@@ -61,6 +61,7 @@ class Gui : public QMainWindow{
     QTimer* cursor_timer;
     QListWidget* list;
     QHBoxLayout* lh;
+    QHBoxLayout* statusBarH;
     QWidget *centralWidget;
     map<string,vector<int>> user_color;
     map<string,bool> connected_users;

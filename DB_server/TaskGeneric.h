@@ -23,13 +23,13 @@ class TaskGeneric: public QObject, public QRunnable  {
 
 public:
 
-    TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QJsonObject message);
+    TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QString nick, QJsonObject message);
     ~TaskGeneric() override;
 
 signals:
     void returnResult(QByteArray result);
     void forwardMessage(QByteArray, QString);
-    void login(QString user);
+    void login(QString user, QString nick);
     void killClient();
     void finished();
 
@@ -41,6 +41,7 @@ protected:
     std::shared_ptr<Project>& project;
     QJsonObject message;
     QString userId;
+    QString nick;
 
     void run() override;
     int getOpCode();

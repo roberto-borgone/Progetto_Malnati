@@ -5,9 +5,9 @@
 #include <QtCore/QJsonDocument>
 #include "Service.h"
 
-std::string Service::login(std::string user, std::string password) const{
+std::string Service::login(std::string user, std::string password, int* status) const{
     //try to log in
-    return this->db.log_in(user, password);
+    return this->db.log_in(user, password, status);
 }
 
 int Service::subscribe(std::string user, std::string password) const{
@@ -33,6 +33,10 @@ int Service::update_project(const std::string id, QByteArray doc) const{
 
 int Service::update_nick(std::string user, std::string nick) const{
     return this->db.update_nick(user, nick);
+}
+
+std::string Service::get_nick(std::string user) const{
+    return this->db.get_nick(user);
 }
 
 

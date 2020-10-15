@@ -11,3 +11,4 @@
 #include "EWIEGA46WW/moc_SendEmailPopup.cpp"
 #include "EWIEGA46WW/moc_UseInvite.cpp"
 #include "EWIEGA46WW/moc_WrongCredentialsPopUp.cpp"
+#include "EWIEGA46WW/moc_WrongProjectPopUp.cpp"

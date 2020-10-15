@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TaskGeneric.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'TaskGeneric.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.7. It"
+#error "This file was generated using the moc from 5.12.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_TaskGeneric_t {
-    QByteArrayData data[9];
-    char stringdata0[79];
+    QByteArrayData data[10];
+    char stringdata0[84];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,20 +38,21 @@ QT_MOC_LITERAL(3, 26, 6), // "result"
 QT_MOC_LITERAL(4, 33, 14), // "forwardMessage"
 QT_MOC_LITERAL(5, 48, 5), // "login"
 QT_MOC_LITERAL(6, 54, 4), // "user"
-QT_MOC_LITERAL(7, 59, 10), // "killClient"
-QT_MOC_LITERAL(8, 70, 8) // "finished"
+QT_MOC_LITERAL(7, 59, 4), // "nick"
+QT_MOC_LITERAL(8, 64, 10), // "killClient"
+QT_MOC_LITERAL(9, 75, 8) // "finished"
 
     },
     "TaskGeneric\0returnResult\0\0result\0"
-    "forwardMessage\0login\0user\0killClient\0"
-    "finished"
+    "forwardMessage\0login\0user\0nick\0"
+    "killClient\0finished"
 };
 #undef QT_MOC_LITERAL
 
 static const uint qt_meta_data_TaskGeneric[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        5,   14, // methods
@@ -64,14 +65,14 @@ static const uint qt_meta_data_TaskGeneric[] = {
  // signals: name, argc, parameters, tag, flags
        1,    1,   39,    2, 0x06 /* Public */,
        4,    2,   42,    2, 0x06 /* Public */,
-       5,    1,   47,    2, 0x06 /* Public */,
-       7,    0,   50,    2, 0x06 /* Public */,
-       8,    0,   51,    2, 0x06 /* Public */,
+       5,    2,   47,    2, 0x06 /* Public */,
+       8,    0,   52,    2, 0x06 /* Public */,
+       9,    0,   53,    2, 0x06 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QByteArray,    3,
     QMetaType::Void, QMetaType::QByteArray, QMetaType::QString,    2,    2,
-    QMetaType::Void, QMetaType::QString,    6,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,    6,    7,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -81,12 +82,12 @@ static const uint qt_meta_data_TaskGeneric[] = {
 void TaskGeneric::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        TaskGeneric *_t = static_cast<TaskGeneric *>(_o);
+        auto *_t = static_cast<TaskGeneric *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->returnResult((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 1: _t->forwardMessage((*reinterpret_cast< QByteArray(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
-        case 2: _t->login((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->login((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         case 3: _t->killClient(); break;
         case 4: _t->finished(); break;
         default: ;
@@ -94,35 +95,35 @@ void TaskGeneric::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (TaskGeneric::*_t)(QByteArray );
+            using _t = void (TaskGeneric::*)(QByteArray );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&TaskGeneric::returnResult)) {
                 *result = 0;
                 return;
             }
         }
         {
-            typedef void (TaskGeneric::*_t)(QByteArray , QString );
+            using _t = void (TaskGeneric::*)(QByteArray , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&TaskGeneric::forwardMessage)) {
                 *result = 1;
                 return;
             }
         }
         {
-            typedef void (TaskGeneric::*_t)(QString );
+            using _t = void (TaskGeneric::*)(QString , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&TaskGeneric::login)) {
                 *result = 2;
                 return;
             }
         }
         {
-            typedef void (TaskGeneric::*_t)();
+            using _t = void (TaskGeneric::*)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&TaskGeneric::killClient)) {
                 *result = 3;
                 return;
             }
         }
         {
-            typedef void (TaskGeneric::*_t)();
+            using _t = void (TaskGeneric::*)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&TaskGeneric::finished)) {
                 *result = 4;
                 return;
@@ -131,10 +132,14 @@ void TaskGeneric::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     }
 }
 
-const QMetaObject TaskGeneric::staticMetaObject = {
-    { &QObject::staticMetaObject, qt_meta_stringdata_TaskGeneric.data,
-      qt_meta_data_TaskGeneric,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject TaskGeneric::staticMetaObject = { {
+    &QObject::staticMetaObject,
+    qt_meta_stringdata_TaskGeneric.data,
+    qt_meta_data_TaskGeneric,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *TaskGeneric::metaObject() const
@@ -184,9 +189,9 @@ void TaskGeneric::forwardMessage(QByteArray _t1, QString _t2)
 }
 
 // SIGNAL 2
-void TaskGeneric::login(QString _t1)
+void TaskGeneric::login(QString _t1, QString _t2)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 

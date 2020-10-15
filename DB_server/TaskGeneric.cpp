@@ -17,13 +17,13 @@
 #define INSERT 6
 #define DELETE 7
 #define CURSOR 8
-#define ALIGN 11
+#define GET_NICK 11
 #define MODIFY_IMG 12
 #define NICKNAME 13
 #define AUTHORIZATION_ERROR -2
 #define PROJECT_ERROR -3
 
-TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), userId(userId), message(std::move(message)){}
+TaskGeneric::TaskGeneric(const Service& service, std::map<std::string, std::shared_ptr<Project>>& projects, std::mutex& projects_mux, std::shared_ptr<Project>& project, QString userId, QString nick, QJsonObject message): service(service), projects(projects), projects_mux(projects_mux), project(project), userId(userId), nick(nick), message(std::move(message)){}
 
 void TaskGeneric::run(){
 
@@ -39,14 +39,7 @@ void TaskGeneric::run(){
             QImage img;
 
             result = this->service.login(this->message["user"].toString().toStdString(),
-                                         this->message["password"].toString().toStdString());
-
-            if(result == "1")
-                result_code = 1;
-            else if(result == "2")
-                result_code = 2;
-            else
-                result_code = 0;
+                                         this->message["password"].toString().toStdString(), &result_code);
 
 
             json = QJsonObject({
@@ -63,7 +56,7 @@ void TaskGeneric::run(){
                 img.save(&buffer, "PNG");
                 auto const encoded = buffer.data().toBase64();
                 json.insert("user_img", {QLatin1String(encoded)});
-                emit login(this->message["user"].toString());
+                emit login(this->message["user"].toString(), QString::fromStdString(result));
             } else {
                 json.insert("user", QJsonValue(""));
             }
@@ -94,7 +87,7 @@ void TaskGeneric::run(){
                 img.save(&buffer, "PNG");
                 auto const encoded = buffer.data().toBase64();
                 json.insert("user_img", {QLatin1String(encoded)});
-                emit login(this->message["user"].toString());
+                emit login(this->message["user"].toString(), this->message["user"].toString());
             } else {
                 json.insert("user", QJsonValue(""));
             }
@@ -186,7 +179,8 @@ void TaskGeneric::run(){
             json = QJsonObject({
                                        qMakePair(QString("opcode"), QJsonValue(9)),
                                        qMakePair(QString("prjID"), this->message["prjID"]),
-                                       qMakePair(QString("user"), this->userId)
+                                       qMakePair(QString("user"), this->userId),
+                                       qMakePair(QString("nickname"), this->nick)
                                });
 
             emit forwardMessage(QJsonDocument(json).toJson(), this->message["prjID"].toString());
@@ -330,9 +324,18 @@ void TaskGeneric::run(){
 
         }
 
-        case ALIGN: {
+        case GET_NICK: {
 
-            emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
+            std::string nick = this->service.get_nick(this->message["user_nick"].toString().toStdString());
+
+            QJsonObject json = QJsonObject({
+                                       qMakePair(QString("opcode"), QJsonValue(2)),
+                                       qMakePair(QString("user"), this->message["user_nick"]),
+                                       qMakePair(QString("nickname"), QString::fromStdString(nick))
+                               });
+
+            emit returnResult(QJsonDocument(json).toJson());
+
             break;
         }
 
@@ -402,6 +405,5 @@ int TaskGeneric::getOpCode(){
 }
 
 TaskGeneric::~TaskGeneric() {
-    this->
     emit finished();
 }

@@ -16,7 +16,8 @@ enum opcode {
     remote_delete,
     cursor,
     user_connecting,
-    user_disconnecting
+    user_disconnecting,
+    get_nickname
 };
 
 Network::Network(Project *project, Gui *gui) : QObject(nullptr) {
@@ -242,6 +243,7 @@ void Network::message_received() {
                 project_ptr->prjID = obj["prjID"].toString().toStdString();
                 QJsonArray symbols = obj["text"].toArray();
                 QJsonArray online_users = obj["user_names"].toArray();
+                QJsonArray online_nicknames = obj["nicknames"].toArray();
                 std::string delimiter = "/";
                 int i = 0;
 
@@ -256,20 +258,18 @@ void Network::message_received() {
                     if (users.find(user) == users.end()) {
                         users.insert(user);
                         //qui si potrebbe inviare un segnale in cui si manda l'utente e viene ritornato sia utente che nickname
-
-                        //questo segnale new_user va modificato aggiungendo il nickname ed emesso nello switch
-                        // case quando si riceve user e nickname
-                        emit new_user(user);
+                        get_nick(user);
                     }
                 }
 
                 //setta gli utenti come connessi nella GUI (e aggiungi nuovi utenti connessi ma che non hanno mai scritto sul progetto)
-                for (auto user : online_users) {
-                    std::string online_user = user.toString().toStdString();
+                for (i=0; i<online_users.size(); i++) {
+                    std::string online_user = online_users[i].toString().toStdString();
+                    std::string online_nick = online_nicknames[i].toString().toStdString();
                     if (users.find(online_user) == users.end()) {
                         users.insert(online_user);
                     }
-                    gui_ptr->add_connected_user(online_user);
+                    gui_ptr->add_connected_user(online_user,online_nick);
                 }
 
                 //set new window title
@@ -319,7 +319,7 @@ void Network::message_received() {
             std::string user = obj["user"].toString().toStdString();
             if (users.find(user) == users.end()) {
                 users.insert(user);
-                emit new_user(user);
+                get_nick(user);
             }
             int position = obj["position"].toInt();
 
@@ -349,7 +349,7 @@ void Network::message_received() {
             std::string user = obj["user"].toString().toStdString();
             if (users.find(user) == users.end()) {
                 users.insert(user);
-                emit new_user(user);
+                get_nick(user);
             }
             int pos = project_ptr->remote_delete(s); //funzione che si occuperà di cancellare il simbolo nel progetto
             if (pos >= 0) { //cioè se il simbolo da eliminare non era già stato eliminato in precedenza
@@ -363,7 +363,7 @@ void Network::message_received() {
             std::string user = obj["user"].toString().toStdString();
             if (users.find(user) == users.end()) {
                 users.insert(user);
-                emit new_user(user);
+                get_nick(user);
             }
             int position = obj["position"].toInt(); /*PER DAVIDE: QUI SI HA DOVE SI TROVA IL CURSORE DI UN UTENTE DA MOSTRARE*/
 
@@ -373,11 +373,12 @@ void Network::message_received() {
 
         case user_connecting: {
             std::string user = obj["user"].toString().toStdString();
+            std::string nick_name = obj["nickname"].toString().toStdString();
             //setto l'utente indicato come online e lo aggiugo alla lista se non ancora presente
             if (users.find(user) == users.end()) {
                 users.insert(user);
             }
-            gui_ptr->add_connected_user(user);
+            gui_ptr->add_connected_user(user, nick_name);
         }
             break;
 
@@ -385,6 +386,16 @@ void Network::message_received() {
             std::string user = obj["user"].toString().toStdString();
             //setto l'utente indicato come offline
             gui_ptr->user_disconnected(user);
+        }
+            break;
+
+        case get_nickname: {
+            std::string user = obj["user"].toString().toStdString();
+            std::string nick_name = obj["nickname"].toString().toStdString();
+
+            //questo segnale new_user va modificato aggiungendo il nickname ed emesso nello switch
+            // case quando si riceve user e nickname
+            emit new_user(user,nick_name);
         }
             break;
 
@@ -595,6 +606,31 @@ void Network::send_nickname(std::string nick) {
                                             qMakePair(QString("opcode"), QJsonValue(13)),
                                             qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str()))),
                                             qMakePair(QString("nickname"), QJsonValue(QString(nick.c_str())))
+                                    });
+
+    //print JSON object
+    QJsonDocument Doc(json_message);
+    QString message_to_send = QString::fromLatin1(Doc.toJson());
+    std::cout << message_to_send.toStdString() << std::endl;
+
+    //send JOSN obj
+    int size = message_to_send.toLatin1().size();
+
+    // send response to the client
+    QByteArray message_to_send2 = message_to_send.toLatin1();
+    message_to_send2.prepend((const char*) &size, sizeof(int));
+
+    //send JOSN obj
+    socket_ptr->write(message_to_send2);
+    socket_ptr->flush();
+}
+
+void Network::get_nick(std::string user) {
+    //create JSON object of type project_to_get
+    auto json_message = QJsonObject({
+                                            qMakePair(QString("opcode"), QJsonValue(14)),
+                                            qMakePair(QString("user"), QJsonValue(QString(gui_ptr->getUser().c_str()))),
+                                            qMakePair(QString("user_nick"), QJsonValue(QString(user.c_str()))),
                                     });
 
     //print JSON object

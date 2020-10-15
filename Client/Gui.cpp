@@ -241,6 +241,7 @@ QMenuBar *Gui::initMenuBar() {
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
+            users_nickname.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -255,6 +256,7 @@ QMenuBar *Gui::initMenuBar() {
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
+            users_nickname.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -270,6 +272,7 @@ QMenuBar *Gui::initMenuBar() {
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
+            users_nickname.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -331,6 +334,7 @@ QToolBar *Gui::initToolBar() {
 
                     //delete all the users of the project that appears in the GUI (then need to update also GUI)
                     user_color.clear();
+                    users_nickname.clear();
                     clear_users_list(true);
                     emit clear_users(true);
 
@@ -366,6 +370,7 @@ QToolBar *Gui::initToolBar() {
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
+            users_nickname.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -380,6 +385,7 @@ QToolBar *Gui::initToolBar() {
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
+            users_nickname.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -394,6 +400,7 @@ QToolBar *Gui::initToolBar() {
             //delete all the users of the project that appears in the GUI (then need to update also GUI)
             std::vector my_color = user_color.find(user)->second;
             user_color.clear();
+            users_nickname.clear();
             user_color[user] = my_color;
             clear_users_list(false);
             emit clear_users(false);
@@ -620,6 +627,7 @@ void Gui::logged_in(const std::string &user) {
         item->setBackgroundColor(QColor::fromRgb(r, g, b));
         list->addItem(item);
         user_color[user] = {r, g, b};
+        users_nickname[user]=nickname;
         emit add_my_user(user);
     }
 
@@ -700,7 +708,7 @@ void Gui::delete_all_Gui() {
     }
 }
 
-void Gui::add_user(std::string user) {
+void Gui::add_user(std::string user, std::string nickname) {
 
     QPixmap pixmap(100, 100);
     pixmap.fill(QColor("red"));
@@ -711,12 +719,11 @@ void Gui::add_user(std::string user) {
     user_color[user] = {r, g, b};
     user_color[user] = {r, g, b};
     connected_users[user] = false;
-    QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(user));
+    QListWidgetItem *item = new QListWidgetItem(ico, QString::fromStdString(nickname));
     item->setBackgroundColor(QColor::fromRgb(r, g, b));
     list->addItem(item);
     user_items[user] = item;
-
-
+    users_nickname[user]=nickname;
 }
 
 void Gui::start_timer() {
@@ -919,6 +926,7 @@ void Gui::closeProject() {
         //delete all the users of the project that appears in the GUI (then need to update also GUI)
         std::vector my_color = user_color.find(user)->second;
         user_color.clear();
+        users_nickname.clear();
         user_color[user] = my_color;
         clear_users_list(false);
         emit clear_users(false);
@@ -926,10 +934,10 @@ void Gui::closeProject() {
     }
 }
 
-void Gui::add_connected_user(string usr) {
+void Gui::add_connected_user(string usr, string nickname) {
     //inserisco nelle due mappe il nuovo utente nel caso non avesse mai scritto sul progetto
     if (user_color.find(usr) == user_color.end()) {
-        add_user(usr);
+        add_user(usr, nickname);
     } else {
         std::cout << "user: " << usr << "settato come online" << std::endl;
     }

@@ -64,6 +64,7 @@ class Gui : public QMainWindow{
     QWidget *centralWidget;
     map<string,vector<int>> user_color;
     map<string,bool> connected_users;
+    map<string,string> users_nickname;
     map<string,QListWidgetItem*> user_items;
     string user;
     string nickname;
@@ -108,7 +109,7 @@ public:
     void clear_users_list(bool also_user);
     void set_profile_image(const QImage& img);
     void closeProject();
-    void add_connected_user(string usr);
+    void add_connected_user(string usr, string nickname);
     void user_disconnected(string usr);
     void set_nickname(string nickname);
     std::string get_nickname();
@@ -116,7 +117,7 @@ public:
 
 public slots:
     void logged_in(const std::string& user);
-    void add_user(std::string user);
+    void add_user(std::string user, std::string nickname);
     void change_cursor(std::string user, int pos);
     void wrong_open();
     void wrong_create();

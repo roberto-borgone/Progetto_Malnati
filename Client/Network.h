@@ -33,6 +33,8 @@ public:
 
     void receiveCommand(); //riceve comando da esterno e lo manda a project
 
+    void get_nick(std::string user); //funzione che invia la richiesta di un nickname
+
 signals:
 
     void insert(Symbol s);
@@ -49,7 +51,7 @@ signals:
 
     void change_cursor(std::string user, int position);
 
-    void new_user(std::string user);
+    void new_user(std::string user, std::string nickname);
 
     void wrong_open();
 

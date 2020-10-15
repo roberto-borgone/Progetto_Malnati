@@ -18,7 +18,7 @@ public:
 
     std::vector<Symbol> text;
     std::mutex text_mux;
-    std::set<QString> users;
+    std::set<std::pair<QString,QString>> users;
 
     Project(std::string id, std::vector<Symbol> text);
     std::string getId();

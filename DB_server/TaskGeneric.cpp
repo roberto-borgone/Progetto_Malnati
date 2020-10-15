@@ -81,6 +81,7 @@ void TaskGeneric::run(){
 
             if (result == 0) {
                 json.insert("user", QJsonValue(this->message["user"].toString()));
+                json.insert("nickname", QJsonValue(this->message["user"].toString()));
                 img.save("../images/" + this->message["user"].toString() + ".png");
                 QBuffer buffer;
                 buffer.open(QIODevice::WriteOnly);
@@ -156,9 +157,11 @@ void TaskGeneric::run(){
             }
 
             QJsonArray user_names;
+            QJsonArray nicknames;
 
-            for(const QString& user: new_project->users){
-                user_names.push_back(QJsonValue(user));
+            for(std::pair<QString, QString> user: new_project->users){
+                user_names.push_back(QJsonValue(user.first));
+                nicknames.push_back(QJsonValue(user.second));
             }
 
             json = QJsonObject({
@@ -166,11 +169,12 @@ void TaskGeneric::run(){
                                        qMakePair(QString("prjID"), this->message["prjID"]),
                                        qMakePair(QString("text"), response_text),
                                        qMakePair(QString("user_names"), user_names),
+                                       qMakePair(QString("nicknames"), nicknames),
                                        qMakePair(QString("status"), QJsonValue(status))
                                });
 
 
-            new_project->users.insert(this->userId);
+            new_project->users.insert(std::pair(this->userId, this->nick));
             this->project = new_project;
             emit returnResult(QJsonDocument(json).toJson());
 
@@ -218,7 +222,7 @@ void TaskGeneric::run(){
                     this->projects.insert(std::pair(new_project->getId(), new_project));
                 }
 
-                new_project->users.insert(this->userId);
+                new_project->users.insert(std::pair(this->userId, this->nick));
                 this->project = new_project;
 
             }
@@ -231,7 +235,7 @@ void TaskGeneric::run(){
 
         case CLOSE: {
 
-            this->project->users.erase(this->userId);
+            this->project->users.erase(std::pair(this->userId, this->nick));
             this->project.reset();
 
             // notify other users

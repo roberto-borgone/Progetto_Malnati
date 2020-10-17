@@ -328,6 +328,7 @@ void Network::message_received() {
             //se i vettori del simbolo che mi arriva e quello che ho in poszione pos sono uguali vado a vedere id...
             //altrimenti vuol dire che il simbolo che mi arriva è stato generato dopo che era arrvato al client il mio simbolo
             //in quella posizione
+
             if (position < project_ptr->text.size()) {
                 Symbol symbol_in_pos = project_ptr->get_symbol_in_pos(position);
                 //in questo caso bisogna controllare gli id di tutti i simboli successivi (nel caso di pi utenti che inseriscano contemporaneamente in stessa pos)
@@ -339,7 +340,10 @@ void Network::message_received() {
                     symbol_in_pos = project_ptr->get_symbol_in_pos(position);
                 }
             }
-            project_ptr->insert(position, s);
+
+
+            //int position = project_ptr->new_insert(s);
+            project_ptr->insert(position,s);
             gui_ptr->insert_in_Gui(position, s);
         }
             break;

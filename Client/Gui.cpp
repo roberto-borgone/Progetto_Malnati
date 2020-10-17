@@ -32,7 +32,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
     QObject::connect(textEdit,&QTextEdit::cursorPositionChanged,[=](){
-
+        /*
         QTextCharFormat f = textEdit->currentCharFormat();
         font->blockSignals(true);
         color->blockSignals(true);
@@ -44,6 +44,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
         font->blockSignals(false);
         color->blockSignals(false);
         size->blockSignals(false);
+        */
 
 
 
@@ -60,12 +61,15 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
         if (removed > 0) {
 
-            if (project->prjID_set) {
+            if (project->prjID_set && !project->text.empty()) {
                 project->eraseElements(pos, removed);
+                removed = 0;
             }
 
         }
         if (added > 0) {
+
+
             QTextCursor c(textEdit->textCursor());
             cout << c.position();
             c.setPosition(pos);
@@ -202,6 +206,9 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 }
 
 
+            }
+            if(removed > 0){
+                project->eraseElements(pos, removed);
             }
         }
 
@@ -357,7 +364,7 @@ QToolBar *Gui::initToolBar() {
                 //button Change Nickname
                 QObject::connect(f, &Profile::new_nickname, [this](QString new_nickname) {
                     set_nickname(new_nickname.toStdString());
-                    emit send_nick(new_nickname.toStdString());
+                    //emit send_nick(new_nickname.toStdString());
                 });
 
                 f->exec();
@@ -987,6 +994,14 @@ void Gui::user_disconnected(string usr) {
 void Gui::set_nickname(string nickname) {
     this->nickname = nickname;
     this->setWindowTitle(QString::fromStdString(nickname));
+    users_nickname[user] =nickname;
+
+    QListWidgetItem *item = list->item(0);
+    if(item != nullptr) item->setText(QString::fromStdString(nickname));
+
+
+
+
 }
 void Gui::initializeCounter() {
 

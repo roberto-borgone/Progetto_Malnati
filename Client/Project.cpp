@@ -10,6 +10,15 @@
 
 Project::Project(QTextDocument *document, QObject *parent) : QObject(parent), document(document) {}
 
+int Project::new_insert(Symbol s) {
+    if(s < text[0]) return 0;
+    if(s >text[text.size() - 1]) return text.size();
+    for(int i = 1 ; i < text.size(); i++){
+        if(text[i - 1] <= s && text[i] >=s){
+            return i;
+        }
+    }
+}
 int Project::insertOrder(int l, int r, Symbol s) { //inserisco in tempo logaritmico in modo ordinato elemento,serve
     int q;
     if (s <= text[l]) {
@@ -55,6 +64,7 @@ void Project::eraseElement(string id) {
 }
 
 int Project::insert(int pos, Symbol s) {
+
     text.insert(text.begin() + pos, s);
     symbols.insert({s.getId(), pos});
 }
@@ -185,3 +195,5 @@ void Project::markUsersText(map<string,vector<int>> colors) {
     std::cout << document->toHtml().toStdString();
 
 }
+
+

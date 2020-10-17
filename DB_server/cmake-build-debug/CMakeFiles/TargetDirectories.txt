@@ -1,4 +1,4 @@
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/rober/CLionProjects/Progetto_Malnati/DB_server/cmake-build-debug/CMakeFiles/DB_server_autogen.dir
+/Users/davidemiro/Desktop/progmal/DB_server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/davidemiro/Desktop/progmal/DB_server/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/davidemiro/Desktop/progmal/DB_server/cmake-build-debug/CMakeFiles/DB_server.dir
+/Users/davidemiro/Desktop/progmal/DB_server/cmake-build-debug/CMakeFiles/DB_server_autogen.dir

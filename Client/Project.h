@@ -11,6 +11,7 @@
 #include <QTextCharFormat>
 #include <QTextCursor>
 #include <algorithm>
+#include <set>
 
 #include "Symbol.h"
 
@@ -26,11 +27,14 @@ public:
 
     Project(QTextDocument *document,QObject *parent);
     vector<Symbol> text;
+    multiset<Symbol> textOrder;
+
     map<string,int> symbols; //id->position
     /*******PROVA DI POP UP PER NESSUN PROGETTO APERTO***/
     bool prjID_set = false; //set true to use editor
     std::string prjID;
 
+    int new_insert(Symbol s);
     int insert(int pos,Symbol s);
     int insertOrder(int l,int r,Symbol s);
     void eraseElement(int pos);

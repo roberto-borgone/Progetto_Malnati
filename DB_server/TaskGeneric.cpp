@@ -125,6 +125,7 @@ void TaskGeneric::run(){
             int status;
 
             {
+
                 auto lock = std::lock_guard(this->projects_mux);
                 if(this->projects.find(this->message["prjID"].toString().toStdString()) == this->projects.end()){
 
@@ -145,23 +146,32 @@ void TaskGeneric::run(){
                     new_project = std::make_shared<Project>(json["id"].toString().toStdString(), text);
 
                     this->projects.insert(std::pair(new_project->getId(), new_project));
+
                 }else{
+
                     new_project = this->projects[this->message["prjID"].toString().toStdString()];
                 }
             }
 
             QJsonArray response_text;
 
-            for (Symbol s : new_project->text) {
-                response_text.push_back(s.toJson());
+            {
+                auto lock = std::lock_guard(new_project-> text_mux);
+                for (Symbol s : new_project->text) {
+                    response_text.push_back(s.toJson());
+                }
+                this->project = new_project;
             }
 
             QJsonArray user_names;
             QJsonArray nicknames;
 
-            for(std::pair<QString, QString> user: new_project->users){
-                user_names.push_back(QJsonValue(user.first));
-                nicknames.push_back(QJsonValue(user.second));
+            {
+                auto lock = std::lock_guard(new_project->user_mux);
+                for(std::pair<QString, QString> user: new_project->users){
+                    user_names.push_back(QJsonValue(user.first));
+                    nicknames.push_back(QJsonValue(user.second));
+                }
             }
 
             json = QJsonObject({
@@ -174,8 +184,8 @@ void TaskGeneric::run(){
                                });
 
 
-            new_project->users.insert(std::pair(this->userId, this->nick));
-            this->project = new_project;
+            new_project->add_user(std::pair(this->userId, this->nick));
+
             emit returnResult(QJsonDocument(json).toJson());
 
             // notify other users
@@ -222,7 +232,7 @@ void TaskGeneric::run(){
                     this->projects.insert(std::pair(new_project->getId(), new_project));
                 }
 
-                new_project->users.insert(std::pair(this->userId, this->nick));
+                new_project->add_user(std::pair(this->userId, this->nick));
                 this->project = new_project;
 
             }
@@ -235,7 +245,7 @@ void TaskGeneric::run(){
 
         case CLOSE: {
 
-            this->project->users.erase(std::pair(this->userId, this->nick));
+            this->project->remove_user(std::pair(this->userId, this->nick));
             this->project.reset();
 
             // notify other users

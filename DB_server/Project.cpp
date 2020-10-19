@@ -49,3 +49,13 @@ int Project::remote_delete(Symbol s) {
 
     return pos;
 }
+
+int Project::add_user(std::pair<QString, QString> user) {
+    auto lock = std::lock_guard(this->user_mux);
+    this->users.insert(user);
+}
+
+int Project::remove_user(std::pair<QString, QString> user){
+    auto lock = std::lock_guard(this->user_mux);
+    this->users.erase(user);
+}

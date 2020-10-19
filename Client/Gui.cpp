@@ -32,7 +32,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
     QObject::connect(textEdit,&QTextEdit::cursorPositionChanged,[=](){
-        /*
+
         QTextCharFormat f = textEdit->currentCharFormat();
         font->blockSignals(true);
         color->blockSignals(true);
@@ -44,9 +44,6 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
         font->blockSignals(false);
         color->blockSignals(false);
         size->blockSignals(false);
-        */
-
-
 
 
     });
@@ -685,8 +682,8 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
     if (s.getAlign() == Qt::AlignRight)
         textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
 
-
     new_cursor.mergeBlockFormat(textBlockFormat);
+
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
     textEdit->document()->blockSignals(resume_signals);

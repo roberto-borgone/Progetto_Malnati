@@ -335,6 +335,10 @@ void Network::message_received() {
                 //in questo caso bisogna controllare gli id di tutti i simboli successivi (nel caso di pi utenti che inseriscano contemporaneamente in stessa pos)
                 std::hash<std::string> hash_funct;
                 //ciclo fino a che ho vettori uguali e l'id remoto è minore di quelli locali con uguali vettori, quando esc metto nella posizione trovata
+
+                //da provare altro while!!!!!!!!!!!!!!!!!
+
+
                 while (symbol_in_pos.getFrac() == s.getFrac() &&
                        hash_funct(symbol_in_pos.getId()) > hash_funct(symbol_in_pos.getId())) {
                     position++;

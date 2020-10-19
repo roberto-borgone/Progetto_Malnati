@@ -322,6 +322,7 @@ void Network::message_received() {
                 users.insert(user);
                 get_nick(user);
             }
+
             int position = obj["position"].toInt();
 
             //passi per inserimento nel progetto
@@ -340,9 +341,6 @@ void Network::message_received() {
                     symbol_in_pos = project_ptr->get_symbol_in_pos(position);
                 }
             }
-
-
-            //int position = project_ptr->new_insert(s);
             project_ptr->insert(position,s);
             gui_ptr->insert_in_Gui(position, s);
         }

@@ -71,6 +71,8 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             QTextCursor c(textEdit->textCursor());
+
+
             cout << c.position();
             c.setPosition(pos);
             c.setPosition(pos + added, QTextCursor::KeepAnchor);
@@ -78,7 +80,9 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             QString add = c.selectedText();
-
+            if(add ==QString("") && added > 0){
+                add = textEdit->toPlainText();
+            }
 
             if (add.toStdString() == "") return;
 
@@ -364,7 +368,7 @@ QToolBar *Gui::initToolBar() {
                 //button Change Nickname
                 QObject::connect(f, &Profile::new_nickname, [this](QString new_nickname) {
                     set_nickname(new_nickname.toStdString());
-                    //emit send_nick(new_nickname.toStdString());
+                    emit send_nick(new_nickname.toStdString());
                 });
 
                 f->exec();

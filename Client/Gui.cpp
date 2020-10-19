@@ -61,10 +61,11 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
         if (removed > 0) {
 
+
             if (project->prjID_set && !project->text.empty()) {
                 project->eraseElements(pos, removed);
-                removed = 0;
             }
+
 
         }
         if (added > 0) {
@@ -80,6 +81,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             QString add = c.selectedText();
+
             if(add ==QString("") && added > 0){
                 add = textEdit->toPlainText();
             }
@@ -211,9 +213,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
             }
-            if(removed > 0){
-                project->eraseElements(pos, removed);
-            }
+
         }
 
         //avoid align bug with flag

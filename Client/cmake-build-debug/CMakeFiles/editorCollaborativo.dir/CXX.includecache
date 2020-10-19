@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/davidemiro/Desktop/progmal/Client/Gui.cpp
+Gui.h
+/Users/davidemiro/Desktop/progmal/Client/Gui.h
+QDebug
+-
+QTextCodec
+-
+
 /Users/davidemiro/Desktop/progmal/Client/Gui.h
 vector
 -
@@ -100,42 +108,6 @@ Project.h
 WrongProjectPopUp.h
 /Users/davidemiro/Desktop/progmal/Client/WrongProjectPopUp.h
 
-/Users/davidemiro/Desktop/progmal/Client/Network.cpp
-Network.h
-/Users/davidemiro/Desktop/progmal/Client/Network.h
-
-/Users/davidemiro/Desktop/progmal/Client/Network.h
-QObject
--
-Symbol.h
-/Users/davidemiro/Desktop/progmal/Client/Symbol.h
-Project.h
-/Users/davidemiro/Desktop/progmal/Client/Project.h
-Gui.h
-/Users/davidemiro/Desktop/progmal/Client/Gui.h
-functional
--
-thread
--
-vector
--
-map
--
-iostream
--
-QSslSocket
--
-QJsonObject
--
-memory
--
-QJsonParseError
--
-set
--
-QBuffer
--
-
 /Users/davidemiro/Desktop/progmal/Client/Profile.h
 QDialog
 -
@@ -214,9 +186,9 @@ QDialogButtonBox
 QBoxLayout
 -
 
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QBuffer
-qbuffer.h
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbuffer.h
+/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QDebug
+qdebug.h
+/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdebug.h
 
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QJsonArray
 qjsonarray.h
@@ -226,17 +198,9 @@ qjsonarray.h
 qjsonobject.h
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qjsonobject.h
 
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QJsonParseError
-qjsondocument.h
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qjsondocument.h
-
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QJsonValue
 qjsonvalue.h
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qjsonvalue.h
-
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QObject
-qobject.h
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h
 
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QString
 qstring.h
@@ -246,14 +210,44 @@ qstring.h
 qstringlist.h
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstringlist.h
 
+/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QTextCodec
+qtextcodec.h
+/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qtextcodec.h
+
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/QTimer
 qtimer.h
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qtimer.h
 
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qbuffer.h
-QtCore/qiodevice.h
+/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qdebug.h
+QtCore/qalgorithms.h
 -
-QtCore/qbytearray.h
+QtCore/qhash.h
+-
+QtCore/qlist.h
+-
+QtCore/qmap.h
+-
+QtCore/qpair.h
+-
+QtCore/qtextstream.h
+-
+QtCore/qstring.h
+-
+QtCore/qvector.h
+-
+QtCore/qset.h
+-
+QtCore/qcontiguouscache.h
+-
+QtCore/qsharedpointer.h
+-
+vector
+-
+list
+-
+map
+-
+utility
 -
 
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qjsonarray.h
@@ -264,14 +258,6 @@ QtCore/qiterator.h
 QtCore/qshareddata.h
 -
 initializer_list
--
-
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qjsondocument.h
-QtCore/qjsonvalue.h
--
-QtCore/qscopedpointer.h
--
-memory
 -
 
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qjsonobject.h
@@ -294,26 +280,6 @@ QtCore/qstring.h
 QtCore/qshareddata.h
 -
 QtCore/qcborvalue.h
--
-
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qobject.h
-QtCore/qobjectdefs.h
--
-QtCore/qstring.h
--
-QtCore/qbytearray.h
--
-QtCore/qlist.h
--
-QtCore/qcoreevent.h
--
-QtCore/qscopedpointer.h
--
-QtCore/qmetatype.h
--
-QtCore/qobject_impl.h
--
-chrono
 -
 
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qstring.h
@@ -352,6 +318,12 @@ QtCore/qregexp.h
 QtCore/qstring.h
 -
 QtCore/qstringmatcher.h
+-
+
+/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qtextcodec.h
+QtCore/qstring.h
+-
+QtCore/qlist.h
 -
 
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers/qtimer.h
@@ -492,24 +464,6 @@ QtGui/qpen.h
 QtGui/qbrush.h
 -
 QtGui/qtextoption.h
--
-
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtNetwork.framework/Headers/QSslSocket
-qsslsocket.h
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtNetwork.framework/Headers/qsslsocket.h
-
-/Users/davidemiro/Qt/5.15.0/clang_64/lib/QtNetwork.framework/Headers/qsslsocket.h
-QtNetwork/qtnetworkglobal.h
--
-QtCore/qlist.h
--
-QtCore/qregexp.h
--
-QtCore/qvector.h
--
-QtNetwork/qtcpsocket.h
--
-QtNetwork/qsslerror.h
 -
 
 /Users/davidemiro/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers/QBoxLayout

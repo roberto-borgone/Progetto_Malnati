@@ -9,16 +9,29 @@
 
 
 Project::Project(QTextDocument *document, QObject *parent) : QObject(parent), document(document) {}
-
+/*
 int Project::new_insert(Symbol s) {
-    if(s < text[0]) return 0;
-    if(s >text[text.size() - 1]) return text.size();
-    for(int i = 1 ; i < text.size(); i++){
-        if(text[i - 1] <= s && text[i] >=s){
-            return i;
+    int pos;
+    if(text.size() > 0){
+        if(s < text[0]) pos = 0;
+        if(s >text[text.size() - 1]) pos = text.size() - 1;
+        for(int i = 1 ; i < text.size(); i++){
+            if(text[i - 1] <= s && text[i] >=s){
+                pos = i;
+            }
         }
     }
+    else{
+        pos = 0;
+    }
+    text.insert(text.begin() + pos, s);
+    symbols.insert({s.getId(), pos});
+    return pos;
+
+
 }
+*/
+/*
 int Project::insertOrder(int l, int r, Symbol s) { //inserisco in tempo logaritmico in modo ordinato elemento,serve
     int q;
     if (s <= text[l]) {
@@ -51,67 +64,62 @@ int Project::insertOrder(int l, int r, Symbol s) { //inserisco in tempo logaritm
         }
     }
 }
+*/
 
-void Project::eraseElement(int pos) {
-    symbols.erase(text[pos].getId());
-    text.erase(text.begin() + pos);
-}
-
-void Project::eraseElement(string id) {
-    int pos = symbols[id];
-    symbols.erase(id);
-    text.erase(text.begin() + pos);
-}
-
-int Project::insert(int pos, Symbol s) {
-
-    text.insert(text.begin() + pos, s);
-    symbols.insert({s.getId(), pos});
-}
-
-void Project::eraseElements(int pos, int r) {
-    /*auto it = text.begin()+pos;
-    auto end = it + r;
-    while(it != end){
-        symbols.erase(it->getId());
-        Symbol s = *it;
-        text.erase(it);
-        emit remove_symbol(s);
-        it ++;
-    }*/
-
-    for (int i = 0; i < r; i++) {
-        auto it = text.begin() + pos;
-        symbols.erase(it->getId());
-        Symbol s = *it;
-        text.erase(it);
-        emit remove_symbol(s);
+void Project::eraseElements(int pos, int removed) {
+    if(pos + removed > text.size()){
+        return;
     }
+    auto start = text.begin();
+    auto end = text.begin();
+
+    std::advance(start,pos);
+    std::advance(end,pos +removed);
+
+    for(auto it = start; it !=end;it++){
+        symbols.erase(it->getId());
+        emit remove_symbol(*it);
+    }
+    text.erase(start,end);
+
+
+
+
+}
+int Project::eraseElement(string id) {
+    if(symbols.find(id) == symbols.end()){
+        return -1;
+    }
+    Symbol s = symbols[id];
+    auto it = text.find(s);
+    int pos = std::distance(text.begin(),it);
+    text.erase(s);
+    return pos;
+}
+int Project::eraseElement(Symbol s) {
+    auto it = text.find(s);
+    if(it == text.end()){
+        return -1;
+    }
+    symbols.erase(s.getId());
+
+
+    int pos = std::distance(text.begin(),it);
+    text.erase(s);
+    return pos;
+}
+
+int Project::insert(Symbol s) {
+    auto it = text.insert(s);
+    int pos = std::distance(text.begin(),it);
+    symbols.insert({s.getId(),s});
+    return pos;
+
 }
 
 
-void Project::externalInsert(Symbol s) {
 
-    int pos = insertOrder(0, text.size(), s);
-    QTextCursor cursor(document);
-    cursor.setPosition(pos);
-    cursor.insertText(s.getChar());
-
-}
-
-void Project::externalDelete(string id) {
-    int pos = symbols[id];
-    eraseElement(pos);
-    QTextCursor cursor(document);
-    cursor.setPosition(pos);
-    cursor.deleteChar();
-
-}
-
-Symbol Project::get_symbol_in_pos(int pos) {
-    return text[pos];
-}
-
+/*
 int Project::remote_delete(Symbol s) {
     std::cout << "dentro la remote cancella" << std::endl;
     std::vector<int> tmp; //vettore temporane che mi servirà per la ricerca
@@ -168,6 +176,7 @@ int Project::remote_delete(Symbol s) {
 
     return pos;
 }
+*/
 
 void Project::delete_all() {
     text.clear();
@@ -193,6 +202,23 @@ void Project::markUsersText(map<string,vector<int>> colors) {
 
     }
     std::cout << document->toHtml().toStdString();
+
+}
+void Project::externalInsert(Symbol s) {
+
+    int pos = insert(s);
+    QTextCursor cursor(document);
+    cursor.setPosition(pos);
+    cursor.insertText(s.getChar());
+
+}
+
+void Project::externalDelete(string id) {
+
+    int pos = eraseElement(id);
+    QTextCursor cursor(document);
+    cursor.setPosition(pos);
+    cursor.deleteChar();
 
 }
 

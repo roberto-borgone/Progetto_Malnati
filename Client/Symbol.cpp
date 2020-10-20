@@ -36,6 +36,7 @@ Symbol::Symbol(const Symbol &symbol) {
     this->size = symbol.size;
     this->align=symbol.align;
 }
+Symbol::Symbol() {}
 
 Symbol::Symbol(Symbol &&symbol) {
     this->id = symbol.id;
@@ -70,7 +71,7 @@ Symbol &Symbol::operator=(const Symbol &symbol) {
     return *this;
 }
 
-bool Symbol::operator<(const Symbol &symbol) {
+bool Symbol::operator<(const Symbol &symbol) const {
     return this->frac < symbol.frac;
 }
 
@@ -90,7 +91,7 @@ bool Symbol::operator==(const Symbol &symbol) {
     return this->id == symbol.id;
 }
 
-const vector<int> &Symbol::getFrac() {
+const vector<int> &Symbol::getFrac() const {
     return this->frac;
 }
 
@@ -103,11 +104,11 @@ void Symbol::print() {
     */
 }
 
-string Symbol::getId() {
+string Symbol::getId() const{
     return id;
 }
 
-QChar Symbol::getChar() {
+QChar Symbol::getChar() const{
     return s;
 }
 

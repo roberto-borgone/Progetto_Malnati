@@ -11,6 +11,7 @@ std::string Project::getId(){
 }
 
 int Project::insert(int pos, Symbol s) {
+
     text.insert(text.begin() + pos, s);
 }
 

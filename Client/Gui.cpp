@@ -48,7 +48,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
     });
     QObject::connect(textEdit->document(), &QTextDocument::contentsChange, [=](int pos, int removed, int added) {
-
+        qDebug() << "Change content";
         //avoid align bug with flag
         if (MergeBlockFormat_bug) {
             added--;
@@ -102,15 +102,23 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 if (project->text.size() == 0)
                     frac = vector<int>{0};
                 else if (pos == project->text.size()) {
-                    frac = project->text[pos - 1].getFrac();
+                    auto it = project->text.begin();
+                    std::advance(it,pos - 1);
+                    frac = it->getFrac();
                     frac.back()++;
                 } else if (pos == 0) {
-                    frac = project->text[0].getFrac();
+                    auto it = project->text.begin();
+
+                    frac = it->getFrac();
                     frac.back()--;
                 } else {  //inserimento in mezzo
 
-                    auto before = project->text[pos - 1].getFrac();
-                    vector<int> next = project->text[pos].getFrac();
+                    auto b = project->text.begin();
+                    std::advance(b,pos-1);
+                    auto n = project->text.begin();
+                    std::advance(n,pos);
+                    vector<int> before= b->getFrac();
+                    vector<int> next = n->getFrac();
 
                     //caso in cui il secondo sia più piccolo del primo
                     if (next.size() < before.size()) {
@@ -201,7 +209,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 if (project->prjID_set) {
                     emit send_symbol(s, pos, proj, user);
                     //inserisco simbolo in gui
-                    project->insert(pos, s);
+                    project->insert(s);
                     *sp = '\0';
                 } else {
                     this->delete_all_Gui();
@@ -650,12 +658,18 @@ void Gui::logged_in(const std::string &user) {
     //add_user(std::string("posso"));
 }
 
-void Gui::insert_in_Gui(int pos, Symbol s) {
+void Gui:: insert_in_Gui(int pos, Symbol s) {
     /*INSERIMENTO DI CARATTERE IN GUI*/
-    auto old_cursor = textEdit->textCursor(); //save old cursor
-    auto new_cursor = QTextCursor(textEdit->document());//create new cursor
+
+    QTextCursor old_cursor = textEdit->textCursor(); //save old cursor
+
+
+    QTextCursor new_cursor = textEdit->textCursor();//create new cursor
+
     new_cursor.setPosition(pos); //set position of new cursor
-    textEdit->setTextCursor(new_cursor); //update editor cursor
+
+
+
     QTextCharFormat format;//create in Gui same format of symbol (font, bold, italic, underline, strike, color)
     QFont q(s.getFont(), s.getSize());
     q.setFamily(s.getFont());
@@ -686,7 +700,9 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
 
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
+
     textEdit->document()->blockSignals(resume_signals);
+    //textEdit->setTextCursor(new_cursor); //update editor cursor
 
     if (pos <= old_cursor.position()) {
         old_cursor.setPosition(old_cursor.position() + 1);
@@ -699,8 +715,9 @@ void Gui::insert_in_Gui(int pos, Symbol s) {
 
 void Gui::delete_in_Gui(int pos = 0) {
     /*CANCELLAZIONE DI CARATTERE IN GUI*/
-    auto old_cursor = textEdit->textCursor(); //save old cursor
-    auto new_cursor = QTextCursor(textEdit->document());//create new cursor
+    QTextCursor old_cursor = textEdit->textCursor(); //save old cursor
+    QTextCursor new_cursor = QTextCursor(textEdit->document());//create new cursor
+
     new_cursor.setPosition(pos); //set position of new cursor
     textEdit->setTextCursor(new_cursor); //update editor cursor
 
@@ -744,7 +761,7 @@ void Gui::add_user(std::string user, std::string nickname) {
 }
 
 void Gui::start_timer() {
-    //
+
     cursor_timer->start(1000);
 }
 
@@ -753,6 +770,7 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
+    qDebug()<<"Change cursor";
 
     if (user == this->user){
         return;
@@ -808,6 +826,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
     string paragraph = html.substr(start,end);*/
 
     //1) salvare cursore corrente
+    qDebug()<<"Mark user";
     textEdit->setReadOnly(true);
     if (!show_collaborators) {
 
@@ -823,15 +842,18 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
                 current_pos--;
             }
             int user_chars_count = 0;
-            std::string id = project->text[current_pos].getId();
+            auto it = project->text.begin();
+            std::advance(it,current_pos);
+            std::string id = it->getId();
             std::string current_user = id.substr(0, id.find(delimiter));
 
             while (current_pos < project->text.size()) {
 
                 if (current_pos == project->text.size())
                     break;
-
-                std::string next_id = project->text[current_pos].getId();
+                auto it = project->text.begin();
+                std::advance(it,current_pos);
+                std::string next_id = it->getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
                 if (next_user != current_user) {
                     //user_chars_count--;
@@ -844,7 +866,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
 
             //spaces BEFORE a selected text cannot be written again so better to have them only after a text
-            while (current_pos != project->text.size() && project->text[current_pos].getChar() == " ") {
+            it = project->text.begin();
+            std::advance(it,current_pos);
+            while (current_pos != project->text.size() && it->getChar() == " ") {
                 user_chars_count++;
                 current_pos++;
             }

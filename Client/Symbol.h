@@ -27,18 +27,19 @@ class Symbol {
 
 public:
     Symbol(QChar s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user,int size, int align);
+    Symbol();
     Symbol(const Symbol& symbol);
     Symbol(Symbol&& symbol);
     Symbol(QJsonObject json_symbol);
     Symbol& operator=(const Symbol& symbol);
-    bool operator<(const Symbol& symbol);
+    bool operator<(const Symbol& symbol) const;
     bool operator>(const Symbol& symbol);
     bool operator<=(const Symbol& symbol);
     bool operator>=(const Symbol& symbol);
     bool operator==(const Symbol& symbol);
-    string getId();
-    QChar getChar();
-    const vector<int>& getFrac();
+    string getId() const;
+    QChar getChar() const;
+    const vector<int>& getFrac() const;
     void print();
     QJsonObject toJson();
 

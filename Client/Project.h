@@ -12,6 +12,7 @@
 #include <QTextCursor>
 #include <algorithm>
 #include <set>
+#include <mutex>
 
 #include "Symbol.h"
 
@@ -25,23 +26,22 @@ Q_OBJECT
     QTextDocument *document;
 public:
 
-    Project(QTextDocument *document,QObject *parent);
-    vector<Symbol> text;
-    multiset<Symbol> textOrder;
 
-    map<string,int> symbols; //id->position
+    Project(QTextDocument *document,QObject *parent);
+
+    multiset<Symbol> text;
+
+    map<string,Symbol> symbols; //id->position
     /*******PROVA DI POP UP PER NESSUN PROGETTO APERTO***/
     bool prjID_set = false; //set true to use editor
     std::string prjID;
 
-    int new_insert(Symbol s);
-    int insert(int pos,Symbol s);
-    int insertOrder(int l,int r,Symbol s);
-    void eraseElement(int pos);
-    void eraseElement(string id);
-    void eraseElements(int pos,int r);
-    Symbol get_symbol_in_pos(int pos);
+
+    int insert(Symbol s);
+    int eraseElement(Symbol s);
+    void eraseElements(int pos,int removed);
     int remote_delete(Symbol s);
+    int eraseElement(string id);
     void delete_all();
     void markUsersText(map<string,vector<int>> colors);
 

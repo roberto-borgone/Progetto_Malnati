@@ -43,10 +43,10 @@ void Network::receiveCommand() {
 }
 
 void Network::getSocket(QTcpSocket &s) {
-    std::cout << "qui dovrei prendermi il socket\n" << s.tr;
+
     //socket_ptr.reset();
     socket_ptr = std::shared_ptr<QTcpSocket>(&s);
-    std::cout << "qui dovrei prendermi il socket\n" << s.tr;
+
     QObject::connect(socket_ptr.get(), &QSslSocket::readyRead, this, &Network::message_received);
 }
 
@@ -121,7 +121,7 @@ void Network::message_received() {
     if(socket_ptr->bytesAvailable() == 0)
         return;
 
-    qDebug() << "nuovo messaggio ricevuto";
+
     //prendo tutto il qByteArray e lo trasformo in oggetto json
     //QJsonParseError parseError;
     //QJsonDocument doc = QJsonDocument::fromJson(socket_ptr->readAll(), &parseError);
@@ -136,7 +136,7 @@ void Network::message_received() {
 
     socket_ptr->read((char*) &maxsize, sizeof(int));
 
-    std::cout << "La dimensione è: " << maxsize << std::endl;
+
 
     do{
         if(socket_ptr->bytesAvailable() == 0)
@@ -169,10 +169,10 @@ void Network::message_received() {
 
         case log_in: {
 
-            std::cout << "MESSAGGIO: " << doc.toJson().toStdString() << std::endl;
+
 
             int result = obj["status"].toInt();
-            qDebug() << "entrato in log_in con codice:" << result;
+
             if (result == 0) {
                 std::string usr = obj["user"].toString().toStdString();
 
@@ -199,7 +199,7 @@ void Network::message_received() {
 
         case subscribe: {
             int result = obj["status"].toInt();
-            qDebug() << "entrato in subscribe con codice:" << result;
+
             if (result == 0) {
                 std::string usr = obj["user"].toString().toStdString();
 
@@ -249,9 +249,9 @@ void Network::message_received() {
 
                 for (auto el : symbols) {
                     Symbol s(el.toObject());
-                    project_ptr->insert(i, s);
+                    i = project_ptr->insert(s);
                     gui_ptr->insert_in_Gui(i, s);
-                    i++;
+
                     //aggiungo user alla lista di user del progetto se non esistente
                     std::string id = s.getId();
                     std::string user = id.substr(0, id.find(delimiter));
@@ -292,7 +292,7 @@ void Network::message_received() {
                 project_ptr->delete_all();
                 gui_ptr->delete_all_Gui();
                 gui_ptr->initializeCounter();
-                std::cout << "sono nella create\n";
+
                 project_ptr->prjID_set = true;
                 project_ptr->prjID = obj["prjID"].toString().toStdString();
 
@@ -323,13 +323,13 @@ void Network::message_received() {
                 get_nick(user);
             }
 
-            int position = obj["position"].toInt();
+            //int position = obj["position"].toInt();
 
             //passi per inserimento nel progetto
             //se i vettori del simbolo che mi arriva e quello che ho in poszione pos sono uguali vado a vedere id...
             //altrimenti vuol dire che il simbolo che mi arriva è stato generato dopo che era arrvato al client il mio simbolo
             //in quella posizione
-
+            /*
             if (position < project_ptr->text.size()) {
                 Symbol symbol_in_pos = project_ptr->get_symbol_in_pos(position);
                 //in questo caso bisogna controllare gli id di tutti i simboli successivi (nel caso di pi utenti che inseriscano contemporaneamente in stessa pos)
@@ -345,8 +345,12 @@ void Network::message_received() {
                     symbol_in_pos = project_ptr->get_symbol_in_pos(position);
                 }
             }
-            project_ptr->insert(position,s);
+            */
+
+            int position = project_ptr->insert(s);
             gui_ptr->insert_in_Gui(position, s);
+
+
         }
             break;
 
@@ -358,7 +362,7 @@ void Network::message_received() {
                 users.insert(user);
                 get_nick(user);
             }
-            int pos = project_ptr->remote_delete(s); //funzione che si occuperà di cancellare il simbolo nel progetto
+            int pos = project_ptr->eraseElement(s); //funzione che si occuperà di cancellare il simbolo nel progetto
             if (pos >= 0) { //cioè se il simbolo da eliminare non era già stato eliminato in precedenza
                 gui_ptr->delete_in_Gui(pos);
             }
@@ -366,7 +370,7 @@ void Network::message_received() {
             break;
 
         case cursor: {
-            cout << "cambio cursore";
+
             std::string user = obj["user"].toString().toStdString();
             if (users.find(user) == users.end()) {
                 users.insert(user);

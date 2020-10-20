@@ -36,10 +36,6 @@ TaskGeneric.h
 Service.h
 /Users/davidemiro/Desktop/progmal/DB_server/Service.h
 
-/Users/davidemiro/Desktop/progmal/DB_server/DB_functions.cpp
-DB_functions.h
-/Users/davidemiro/Desktop/progmal/DB_server/DB_functions.h
-
 /Users/davidemiro/Desktop/progmal/DB_server/DB_functions.h
 iostream
 -
@@ -113,12 +109,6 @@ Symbol.h
 /Users/davidemiro/Desktop/progmal/DB_server/Symbol.h
 set
 -
-
-/Users/davidemiro/Desktop/progmal/DB_server/Service.cpp
-QtCore/QJsonDocument
--
-Service.h
-/Users/davidemiro/Desktop/progmal/DB_server/Service.h
 
 /Users/davidemiro/Desktop/progmal/DB_server/Service.h
 QByteArray

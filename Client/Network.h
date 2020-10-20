@@ -20,6 +20,7 @@
 #include <QJsonParseError>
 #include <set>
 #include <QBuffer>
+#include <mutex>
 
 class Network : public QObject {
 Q_OBJECT;
@@ -27,6 +28,7 @@ Q_OBJECT;
     std::shared_ptr<Project> project_ptr;
     std::shared_ptr<Gui> gui_ptr;
     std::set<string> users;
+    std::mutex m;
 public:
     Network(Project *project, Gui *gui);
     void selfCall();

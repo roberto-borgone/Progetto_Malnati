@@ -119,7 +119,7 @@ void TaskGeneric::run(){
 
             QByteArray result;
             QJsonObject json;
-            std::vector<Symbol> text;
+            std::multiset<Symbol> text;
             QJsonArray text_json;
             std::shared_ptr<Project> new_project;
             int status;
@@ -140,7 +140,7 @@ void TaskGeneric::run(){
                     text_json = json["text"].toArray();
                     for (auto value : text_json) {
                         QJsonObject obj = value.toObject();
-                        text.emplace_back(Symbol(obj));
+                        text.insert(Symbol(obj));
                     }
 
                     new_project = std::make_shared<Project>(json["id"].toString().toStdString(), text);
@@ -207,7 +207,7 @@ void TaskGeneric::run(){
 
             int result;
             QJsonObject json;
-            std::vector<Symbol> text;
+            std::multiset<Symbol> text;
             std::shared_ptr<Project> new_project;
 
             json = QJsonObject({
@@ -225,7 +225,7 @@ void TaskGeneric::run(){
 
             if(result == 0) {
 
-                new_project = std::make_shared<Project>(this->message["prjID"].toString().toStdString(), std::vector<Symbol>());
+                new_project = std::make_shared<Project>(this->message["prjID"].toString().toStdString(), std::multiset<Symbol>());
 
                 {
                     auto lock = std::lock_guard(this->projects_mux);
@@ -284,21 +284,12 @@ void TaskGeneric::run(){
 
         case INSERT: {
 
-            Symbol s(this->message["symbol"].toObject());
-            int position = this->message["position"].toInt();
+            QJsonArray symbols = this->message["symbols"].toArray();
 
             {
                 auto lock = std::lock_guard(this->project->text_mux);
-                if (position < this->project->text.size()) {
-                    Symbol symbol_in_pos = this->project->get_symbol_in_pos(position);
-                    std::hash<std::string> hash_funct;
-                    while (symbol_in_pos.getFrac() == s.getFrac() &&
-                           hash_funct(symbol_in_pos.getId()) > hash_funct(symbol_in_pos.getId())) {
-                        position++;
-                        symbol_in_pos = this->project->get_symbol_in_pos(position);
-                    }
-                }
-                this->project->insert(position, s);
+                for(auto s : symbols)
+                    this->project->insert(Symbol(s.toObject()));
             }
 
             emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());
@@ -312,7 +303,7 @@ void TaskGeneric::run(){
 
             {
                 auto lock = std::lock_guard(this->project->text_mux);
-                int pos = this->project->remote_delete(s);
+                this->project->remote_delete(s);
             }
 
             emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());

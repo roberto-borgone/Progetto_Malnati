@@ -9,6 +9,7 @@
 #include <mutex>
 #include "Symbol.h"
 #include <set>
+#include <map>
 
 class Project {
 
@@ -16,16 +17,15 @@ class Project {
 
 public:
 
-    std::vector<Symbol> text;
+    std::multiset<Symbol> text;
     std::mutex text_mux;
     std::set<std::pair<QString,QString>> users;
     std::mutex user_mux;
 
-    Project(std::string id, std::vector<Symbol> text);
+    Project(std::string id, std::multiset<Symbol> text);
     std::string getId();
-    Symbol get_symbol_in_pos(int pos);
-    int insert(int pos,Symbol s);
-    int remote_delete(Symbol s);
+    void insert(Symbol s);
+    void remote_delete(Symbol s);
     int add_user(std::pair<QString, QString> user);
     int remove_user(std::pair<QString, QString> user);
 

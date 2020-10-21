@@ -31,7 +31,7 @@ public:
     Symbol(Symbol&& symbol);
     Symbol(QJsonObject json_symbol);
     Symbol& operator=(const Symbol& symbol);
-    bool operator<(const Symbol& symbol);
+    bool operator<(const Symbol& symbol) const;
     bool operator>(const Symbol& symbol);
     bool operator<=(const Symbol& symbol);
     bool operator>=(const Symbol& symbol);

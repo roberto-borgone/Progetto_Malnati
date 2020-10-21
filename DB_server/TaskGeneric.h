@@ -12,7 +12,7 @@
 #include <sstream>
 #include <QJsonObject>
 #include <QJsonDocument>
-#import <memory>
+#include <memory>
 #include <mutex>
 #include "Service.h"
 #include "Project.h"

@@ -66,7 +66,7 @@ Symbol &Symbol::operator=(const Symbol &symbol) {
     return *this;
 }
 
-bool Symbol::operator<(const Symbol &symbol) {
+bool Symbol::operator<(const Symbol &symbol) const{
     return this->frac < symbol.frac;
 }
 

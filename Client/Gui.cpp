@@ -774,6 +774,9 @@ void Gui::stop_timer() {
 void Gui::change_cursor(std::string user, int pos) {
     qDebug() << "Change cursor";
 
+    if(user_color.find(user) == user_color.end())
+        return;
+
     if (user == this->user) {
         return;
     }

@@ -74,7 +74,7 @@ public slots:
     void send_symbol(std::vector<Symbol> symbols, std::string prj, std::string usr);
 
     //slot per l'invio della cancellazione di un carattere
-    void remove_symbol(Symbol s);
+    void remove_symbol(std::vector<Symbol> s);
 
     //funzione generica per la ricezione di una risposta o di un comando da parte del server
     void message_received();

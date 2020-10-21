@@ -91,13 +91,22 @@ void Network::send_symbol(std::vector<Symbol> symbols, std::string prj, std::str
     emit project_to_choose();*/
 }
 
-void Network::remove_symbol(Symbol s) {
+void Network::remove_symbol(std::vector<Symbol> s) {
+
+
     std::string prj = std::string(project_ptr->prjID);
     std::string usr = gui_ptr->getUser(); //qui si dovrà prendere lo user (quello ritornato dal server dopo il login e salvato)
+
+    QJsonArray removed_symbols;
+
+    for(Symbol sym : s){
+        removed_symbols.push_back(sym.toJson());
+    }
+
     //create JSON object of type remove
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(7)),
-                                            qMakePair(QString("symbol"), QJsonValue(s.toJson())),
+                                            qMakePair(QString("symbols"), QJsonValue(removed_symbols)),
                                             qMakePair(QString("prjID"), QJsonValue(QString(prj.c_str()))),
                                             qMakePair(QString("user"), QJsonValue(QString(usr.c_str()))),
 
@@ -363,17 +372,24 @@ void Network::message_received() {
             break;
 
         case remote_delete: {
+
+
             //ricezione cancellazione simbolo da remoto
-            Symbol s(obj["symbol"].toObject());
+            QJsonArray symbols =obj["symbols"].toArray();
+
             std::string user = obj["user"].toString().toStdString();
             if (users.find(user) == users.end()) {
                 users.insert(user);
                 get_nick(user);
             }
-            int pos = project_ptr->eraseElement(s); //funzione che si occuperà di cancellare il simbolo nel progetto
-            if (pos >= 0) { //cioè se il simbolo da eliminare non era già stato eliminato in precedenza
-                gui_ptr->delete_in_Gui(pos);
+
+            for(auto s : symbols){
+                int pos = project_ptr->eraseElement(Symbol(s.toObject())); //funzione che si occuperà di cancellare il simbolo nel progetto
+                if (pos >= 0) { //cioè se il simbolo da eliminare non era già stato eliminato in precedenza
+                    gui_ptr->delete_in_Gui(pos);
+                }
             }
+
         }
             break;
 

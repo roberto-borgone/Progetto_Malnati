@@ -67,6 +67,9 @@ int Project::insertOrder(int l, int r, Symbol s) { //inserisco in tempo logaritm
 */
 
 void Project::eraseElements(int pos, int removed) {
+
+    std::vector<Symbol> removed_symbols;
+
     if(pos + removed > text.size()){
         return;
     }
@@ -78,8 +81,11 @@ void Project::eraseElements(int pos, int removed) {
 
     for(auto it = start; it !=end;it++){
         symbols.erase(it->getId());
-        emit remove_symbol(*it);
+        removed_symbols.push_back(*it);
     }
+
+    emit remove_symbol(removed_symbols);
+
     text.erase(start,end);
 
 

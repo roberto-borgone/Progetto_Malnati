@@ -6,7 +6,7 @@
 
 DB_interface::DB_interface() {
     int result;
-    char *statement;
+    std::string statement;
     char *err_message = nullptr;
 
     //try to open (or create if not existing) database
@@ -24,7 +24,7 @@ DB_interface::DB_interface() {
                 "user text primary key not null,"\
                 "pwd text not null,"
                 "nick text not null);";
-    result = sqlite3_exec(db, statement, nullptr, nullptr, &err_message);
+    result = sqlite3_exec(db, statement.c_str(), nullptr, nullptr, &err_message);
     if (result != SQLITE_OK) {
         std::cout << "SQL error: " << err_message << std::endl;
         sqlite3_free(err_message);
@@ -36,7 +36,7 @@ DB_interface::DB_interface() {
     statement = "create table if not exists projects("\
                 "id text primary key not null,"\
                 "doc text not null);";
-    result = sqlite3_exec(db, statement, nullptr, nullptr, &err_message);
+    result = sqlite3_exec(db, statement.c_str(), nullptr, nullptr, &err_message);
     if (result != SQLITE_OK) {
         std::cout << "SQL error: " << err_message << std::endl;
         sqlite3_free(err_message);
@@ -90,9 +90,7 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) const{
 
 std::string DB_interface::log_in(const std::string &user, std::string pwd, int* status) const{
 
-    int result;
     std::string statement;
-    char *err_message = nullptr;
     std::string nick = "";
 
     *status = 0;

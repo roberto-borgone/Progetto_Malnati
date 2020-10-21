@@ -299,11 +299,12 @@ void TaskGeneric::run(){
 
         case DELETE: {
 
-            Symbol s(this->message["symbol"].toObject());
+            QJsonArray symbols = this->message["symbols"].toArray();
 
             {
                 auto lock = std::lock_guard(this->project->text_mux);
-                this->project->remote_delete(s);
+                for(auto s : symbols)
+                    this->project->remote_delete(Symbol(s.toObject()));
             }
 
             emit forwardMessage(QJsonDocument(this->message).toJson(), this->message["prjID"].toString());

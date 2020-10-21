@@ -29,7 +29,9 @@ Q_OBJECT;
     std::shared_ptr<Gui> gui_ptr;
     std::set<string> users;
     std::mutex m;
+
 public:
+
     Network(Project *project, Gui *gui);
     void selfCall();
 

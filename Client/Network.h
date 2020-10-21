@@ -69,7 +69,7 @@ public slots:
     void disconnect();
 
     //creo slot che riceve il segnale send_symbol emesso in gui.cpp con il corrispondente simbolo e lo invia tramite socket_ptr
-    void send_symbol(Symbol s, int pos, std::string prj, std::string usr);
+    void send_symbol(std::vector<Symbol> symbols, std::string prj, std::string usr);
 
     //slot per l'invio della cancellazione di un carattere
     void remove_symbol(Symbol s);

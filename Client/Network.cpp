@@ -50,15 +50,19 @@ void Network::getSocket(QTcpSocket &s) {
     QObject::connect(socket_ptr.get(), &QSslSocket::readyRead, this, &Network::message_received);
 }
 
-void Network::send_symbol(Symbol s, int pos, std::string prj, std::string usr) {
+void Network::send_symbol(std::vector<Symbol> symbols, std::string prj, std::string usr) {
     //create JSON object of type insert
+    QJsonArray text;
+
+    for (Symbol s : symbols) {
+        text.push_back(s.toJson());
+    }
+
     auto json_message = QJsonObject({
                                             qMakePair(QString("opcode"), QJsonValue(6)),
-                                            qMakePair(QString("symbol"), QJsonValue(s.toJson())),
-                                            qMakePair(QString("position"), QJsonValue(pos)),
                                             qMakePair(QString("prjID"), QJsonValue(QString(prj.c_str()))),
                                             qMakePair(QString("user"), QJsonValue(QString(usr.c_str()))),
-
+                                            qMakePair(QString("symbols"), text)
                                     });
 
     //print JSON object
@@ -316,8 +320,9 @@ void Network::message_received() {
 
         case remote_insert: {
             //ricezione insrimento simbolo da remoto
-            Symbol s(obj["symbol"].toObject());
             std::string user = obj["user"].toString().toStdString();
+            QJsonArray symbols = obj["symbols"].toArray();
+
             if (users.find(user) == users.end()) {
                 users.insert(user);
                 get_nick(user);
@@ -346,9 +351,12 @@ void Network::message_received() {
                 }
             }
             */
-
-            int position = project_ptr->insert(s);
-            gui_ptr->insert_in_Gui(position, s);
+            int i = 0;
+            for (auto el : symbols) {
+                Symbol s(el.toObject());
+                i = project_ptr->insert(s);
+                gui_ptr->insert_in_Gui(i, s);
+            }
 
 
         }

@@ -19,7 +19,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
     textEdit = new QTextEdit(centralWidget);
     show_collaborators = false;//show colored text or restore original text
 
-    lh->addWidget(list,0);
+    lh->addWidget(list, 0);
     lh->addWidget(textEdit, 1);
     centralWidget->setLayout(lh);
     this->setCentralWidget(centralWidget);
@@ -31,7 +31,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
 
     cursor_timer->callOnTimeout([this]() { emit time_out(textEdit->textCursor().position()); });
-    QObject::connect(textEdit,&QTextEdit::cursorPositionChanged,[=](){
+    QObject::connect(textEdit, &QTextEdit::cursorPositionChanged, [=]() {
 
         QTextCharFormat f = textEdit->currentCharFormat();
         font->blockSignals(true);
@@ -40,7 +40,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
         font->setCurrentText(f.fontFamily());
         string s = "background-color: " + f.foreground().color().name().toStdString();
         color->setStyleSheet(QString::fromStdString(s));
-        size ->setValue(f.fontPointSize());
+        size->setValue(f.fontPointSize());
         font->blockSignals(false);
         color->blockSignals(false);
         size->blockSignals(false);
@@ -67,7 +67,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
         }
         if (added > 0) {
 
-
+            std::vector<Symbol> added_symbols;
             QTextCursor c(textEdit->textCursor());
 
 
@@ -79,7 +79,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
             QString add = c.selectedText();
 
-            if(add ==QString("") && added > 0){
+            if (add == QString("") && added > 0) {
                 add = textEdit->toPlainText();
             }
 
@@ -93,7 +93,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
 
                 auto old_position = c.position();
                 c.setPosition(pos + count);
-                count --;
+                count--;
                 QTextCharFormat f = c.charFormat();
                 c.setPosition(old_position);
 
@@ -103,7 +103,7 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                     frac = vector<int>{0};
                 else if (pos == project->text.size()) {
                     auto it = project->text.begin();
-                    std::advance(it,pos - 1);
+                    std::advance(it, pos - 1);
                     frac = it->getFrac();
                     frac.back()++;
                 } else if (pos == 0) {
@@ -114,10 +114,10 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                 } else {  //inserimento in mezzo
 
                     auto b = project->text.begin();
-                    std::advance(b,pos-1);
+                    std::advance(b, pos - 1);
                     auto n = project->text.begin();
-                    std::advance(n,pos);
-                    vector<int> before= b->getFrac();
+                    std::advance(n, pos);
+                    vector<int> before = b->getFrac();
                     vector<int> next = n->getFrac();
 
                     //caso in cui il secondo sia più piccolo del primo
@@ -203,21 +203,24 @@ Gui::Gui(QWidget *parent) : QMainWindow(parent) {
                                   f.fontUnderline(),
                                   f.fontStrikeOut(),
                                   f.foreground().color().name().toStdString(),
-                                  frac, proj, user, f.font().pointSize(), textEdit->textCursor().blockFormat().alignment());
+                                  frac, proj, user, f.font().pointSize(),
+                                  textEdit->textCursor().blockFormat().alignment());
                 std::cout << s.getId();
 
-                if (project->prjID_set) {
-                    emit send_symbol(s, pos, proj, user);
-                    //inserisco simbolo in gui
-                    project->insert(s);
-                    *sp = '\0';
-                } else {
-                    this->delete_all_Gui();
-                    emit no_project();
-                }
-
-
+                //aggiungo simbolo al vettore di simboli da inserire
+                added_symbols.insert(added_symbols.begin(), s);
+                project->insert(s);
+                *sp = '\0';
             }
+            //send symbols to be added
+            if (project->prjID_set) {
+                emit send_symbol(added_symbols, std::string(project->prjID), user);
+                //inserisco simbolo in gui
+            } else {
+                this->delete_all_Gui();
+                emit no_project();
+            }
+
 
         }
 
@@ -304,7 +307,6 @@ QMenuBar *Gui::initMenuBar() {
         QTextDocument *doc = this->textEdit->document();
         doc->print(writer);
     });
-
     menuBar->addMenu(file);
 
 
@@ -323,7 +325,8 @@ QMenuBar *Gui::initMenuBar() {
     menuBar->addMenu(edit);
 
     //Definizione QMenu View ...
-
+    QMenu *view = new QMenu("View", menuBar);
+    menuBar->addMenu(view);
 
 
     return menuBar;
@@ -551,7 +554,6 @@ QToolBar *Gui::initToolBar() {
 }
 
 
-
 void Gui::setFont(QString text) {
     /*
     QTextCharFormat format = textEdit->currentCharFormat();
@@ -650,7 +652,7 @@ void Gui::logged_in(const std::string &user) {
         item->setBackgroundColor(QColor::fromRgb(r, g, b));
         list->addItem(item);
         user_color[user] = {r, g, b};
-        users_nickname[user]=nickname;
+        users_nickname[user] = nickname;
         emit add_my_user(user);
     }
 
@@ -658,7 +660,7 @@ void Gui::logged_in(const std::string &user) {
     //add_user(std::string("posso"));
 }
 
-void Gui:: insert_in_Gui(int pos, Symbol s) {
+void Gui::insert_in_Gui(int pos, Symbol s) {
     /*INSERIMENTO DI CARATTERE IN GUI*/
 
     QTextCursor old_cursor = textEdit->textCursor(); //save old cursor
@@ -677,8 +679,6 @@ void Gui:: insert_in_Gui(int pos, Symbol s) {
     q.setItalic(s.isItalic());
     q.setUnderline(s.isUnderline());
     q.setStrikeOut(s.isStrike());
-    q.setPointSizeF(s.getSize());
-
 
 
 
@@ -698,7 +698,7 @@ void Gui:: insert_in_Gui(int pos, Symbol s) {
     if (s.getAlign() == Qt::AlignRight)
         textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
 
-    new_cursor.setBlockFormat(textBlockFormat);
+    new_cursor.mergeBlockFormat(textBlockFormat);
 
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
@@ -721,7 +721,7 @@ void Gui::delete_in_Gui(int pos = 0) {
     QTextCursor new_cursor = QTextCursor(textEdit->document());//create new cursor
 
     new_cursor.setPosition(pos); //set position of new cursor
-    //textEdit->setTextCursor(new_cursor); //update editor cursor
+    textEdit->setTextCursor(new_cursor); //update editor cursor
 
     bool resume_signals = textEdit->document()->blockSignals(
             true); //block signal "contentsChange" to avoid infinite loop
@@ -744,7 +744,7 @@ void Gui::delete_all_Gui() {
 
 void Gui::add_user(std::string user, std::string nickname) {
 
-    if(users_nickname.find(user) == users_nickname.end()){
+    if (users_nickname.find(user) == users_nickname.end()) {
         QPixmap pixmap(100, 100);
         pixmap.fill(QColor("red"));
         QIcon ico(pixmap);
@@ -757,7 +757,7 @@ void Gui::add_user(std::string user, std::string nickname) {
         item->setBackgroundColor(QColor::fromRgb(r, g, b));
         list->addItem(item);
         user_items[user] = item;
-        users_nickname[user]=nickname;
+        users_nickname[user] = nickname;
     }
 
 }
@@ -772,15 +772,15 @@ void Gui::stop_timer() {
 }
 
 void Gui::change_cursor(std::string user, int pos) {
-    qDebug()<<"Change cursor";
+    qDebug() << "Change cursor";
 
-    if (user == this->user){
+    if (user == this->user) {
         return;
     }
     bool resume_signals = textEdit->document()->blockSignals(
             true);
 
-    if(user_cursors.find(user) ==user_cursors.end()){
+    if (user_cursors.find(user) == user_cursors.end()) {
         user_cursors[user] = QTextCursor(textEdit->document());
 
     }
@@ -795,17 +795,15 @@ void Gui::change_cursor(std::string user, int pos) {
     //cambio background corrente
 
     user_cursors[user].setPosition(pos);
-    user_cursors[user].movePosition(QTextCursor::Left,QTextCursor::KeepAnchor,1);
+    user_cursors[user].movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, 1);
 
     textEdit->setTextCursor(user_cursors[user]);
-
-
 
 
     int r = user_color[user][0];
     int g = user_color[user][1];
     int b = user_color[user][2];
-    textEdit->setTextBackgroundColor(QColor(r,g,b));
+    textEdit->setTextBackgroundColor(QColor(r, g, b));
     //ritorno al cursore corrente del progetto
     user_cursors[user] = textEdit->textCursor();
     textEdit->setTextCursor(currentCursor);
@@ -828,6 +826,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
     string paragraph = html.substr(start,end);*/
 
     //1) salvare cursore corrente
+    qDebug() << "Mark user";
     textEdit->setReadOnly(true);
     if (!show_collaborators) {
 
@@ -844,7 +843,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             }
             int user_chars_count = 0;
             auto it = project->text.begin();
-            std::advance(it,current_pos);
+            std::advance(it, current_pos);
             std::string id = it->getId();
             std::string current_user = id.substr(0, id.find(delimiter));
 
@@ -852,9 +851,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
                 if (current_pos == project->text.size())
                     break;
-                auto next_it = project->text.begin();
-                std::advance(next_it,current_pos);
-                std::string next_id = next_it->getId();
+                auto it = project->text.begin();
+                std::advance(it, current_pos);
+                std::string next_id = it->getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
                 if (next_user != current_user) {
                     //user_chars_count--;
@@ -867,10 +866,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
 
             //spaces BEFORE a selected text cannot be written again so better to have them only after a text
-            auto i = project->text.begin();
-            std::advance(i,current_pos);
-
-            while (current_pos != project->text.size() && i->getChar() == " ") {
+            it = project->text.begin();
+            std::advance(it, current_pos);
+            while (current_pos != project->text.size() && it->getChar() == " ") {
                 user_chars_count++;
                 current_pos++;
             }
@@ -926,7 +924,6 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             q.setItalic(s.isItalic());
             q.setUnderline(s.isUnderline());
             q.setStrikeOut(s.isStrike());
-            q.setPointSize(s.getSize());
             format.setFont(q);
             format.setForeground(QBrush(QColor(s.getColor())));
             new_cursor->insertText(
@@ -992,7 +989,7 @@ void Gui::add_connected_user(string usr, string nickname) {
     QIcon redIcon(pixmap);
 
     user_items[usr]->setIcon(redIcon);
-    int n = std::stoi(this->countOnline->text().toStdString().substr(0,' '));
+    int n = std::stoi(this->countOnline->text().toStdString().substr(0, ' '));
     n = n + 1;
     cout << n;
     string s = to_string(n) + " collaborators are online now";
@@ -1012,7 +1009,7 @@ void Gui::user_disconnected(string usr) {
     textEdit->setTextBackgroundColor(QColor("transparent"));
     textEdit->setTextCursor(c);
     user_cursors.erase(usr);
-    int n = std::stoi(this->countOnline->text().toStdString().substr(0,' '));
+    int n = std::stoi(this->countOnline->text().toStdString().substr(0, ' '));
     n = n - 1;
     string s = to_string(n) + " collaborators are online now";
     this->countOnline->setText(QString::fromStdString(s));
@@ -1022,15 +1019,14 @@ void Gui::user_disconnected(string usr) {
 void Gui::set_nickname(string nickname) {
     this->nickname = nickname;
     this->setWindowTitle(QString::fromStdString(nickname));
-    users_nickname[user] =nickname;
+    users_nickname[user] = nickname;
 
     QListWidgetItem *item = list->item(0);
-    if(item != nullptr) item->setText(QString::fromStdString(nickname));
-
-
+    if (item != nullptr) item->setText(QString::fromStdString(nickname));
 
 
 }
+
 void Gui::initializeCounter() {
 
 

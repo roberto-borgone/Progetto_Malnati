@@ -304,6 +304,7 @@ QMenuBar *Gui::initMenuBar() {
         QTextDocument *doc = this->textEdit->document();
         doc->print(writer);
     });
+
     menuBar->addMenu(file);
 
 
@@ -322,8 +323,7 @@ QMenuBar *Gui::initMenuBar() {
     menuBar->addMenu(edit);
 
     //Definizione QMenu View ...
-    QMenu *view = new QMenu("View", menuBar);
-    menuBar->addMenu(view);
+
 
 
     return menuBar;
@@ -677,6 +677,8 @@ void Gui:: insert_in_Gui(int pos, Symbol s) {
     q.setItalic(s.isItalic());
     q.setUnderline(s.isUnderline());
     q.setStrikeOut(s.isStrike());
+    q.setPointSizeF(s.getSize());
+
 
 
 
@@ -696,7 +698,7 @@ void Gui:: insert_in_Gui(int pos, Symbol s) {
     if (s.getAlign() == Qt::AlignRight)
         textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
 
-    new_cursor.mergeBlockFormat(textBlockFormat);
+    new_cursor.setBlockFormat(textBlockFormat);
 
     new_cursor.insertText(
             QString(s.getChar()), format); //insert text in position (better use overloaded function with format)
@@ -719,7 +721,7 @@ void Gui::delete_in_Gui(int pos = 0) {
     QTextCursor new_cursor = QTextCursor(textEdit->document());//create new cursor
 
     new_cursor.setPosition(pos); //set position of new cursor
-    textEdit->setTextCursor(new_cursor); //update editor cursor
+    //textEdit->setTextCursor(new_cursor); //update editor cursor
 
     bool resume_signals = textEdit->document()->blockSignals(
             true); //block signal "contentsChange" to avoid infinite loop
@@ -826,7 +828,6 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
     string paragraph = html.substr(start,end);*/
 
     //1) salvare cursore corrente
-    qDebug()<<"Mark user";
     textEdit->setReadOnly(true);
     if (!show_collaborators) {
 
@@ -851,9 +852,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
                 if (current_pos == project->text.size())
                     break;
-                auto it = project->text.begin();
-                std::advance(it,current_pos);
-                std::string next_id = it->getId();
+                auto next_it = project->text.begin();
+                std::advance(next_it,current_pos);
+                std::string next_id = next_it->getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
                 if (next_user != current_user) {
                     //user_chars_count--;
@@ -866,9 +867,10 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
 
             //spaces BEFORE a selected text cannot be written again so better to have them only after a text
-            it = project->text.begin();
-            std::advance(it,current_pos);
-            while (current_pos != project->text.size() && it->getChar() == " ") {
+            auto i = project->text.begin();
+            std::advance(i,current_pos);
+
+            while (current_pos != project->text.size() && i->getChar() == " ") {
                 user_chars_count++;
                 current_pos++;
             }
@@ -924,6 +926,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             q.setItalic(s.isItalic());
             q.setUnderline(s.isUnderline());
             q.setStrikeOut(s.isStrike());
+            q.setPointSize(s.getSize());
             format.setFont(q);
             format.setForeground(QBrush(QColor(s.getColor())));
             new_cursor->insertText(

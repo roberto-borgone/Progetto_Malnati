@@ -347,8 +347,10 @@ void Network::message_received() {
             }
             */
 
+
             int position = project_ptr->insert(s);
             gui_ptr->insert_in_Gui(position, s);
+
 
 
         }
@@ -362,10 +364,12 @@ void Network::message_received() {
                 users.insert(user);
                 get_nick(user);
             }
+
             int pos = project_ptr->eraseElement(s); //funzione che si occuperà di cancellare il simbolo nel progetto
             if (pos >= 0) { //cioè se il simbolo da eliminare non era già stato eliminato in precedenza
                 gui_ptr->delete_in_Gui(pos);
             }
+
         }
             break;
 

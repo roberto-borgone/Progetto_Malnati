@@ -324,9 +324,7 @@ QMenuBar *Gui::initMenuBar() {
 
     menuBar->addMenu(edit);
 
-    //Definizione QMenu View ...
-    QMenu *view = new QMenu("View", menuBar);
-    menuBar->addMenu(view);
+
 
 
     return menuBar;
@@ -447,7 +445,7 @@ QToolBar *Gui::initToolBar() {
 
     });
     toolBar->addAction(QIcon::fromTheme("Send invite", QIcon(rsrcPath + "/export.svg")), "Export", [this]() {
-        if (project == nullptr)
+        if (project == nullptr || !project->prjID_set)
                 emit sendMail("", "");
         else
                 emit sendMail(this->getCurrentProject()->prjID, this->user);

@@ -3,10 +3,12 @@
 //
 
 #include "Symbol.h"
+#include <sstream>
 
-Symbol::Symbol(QChar s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color,
-               const std::vector<int> &frac, const std::string &project, const std::string &user,int size, int align) {
-    id = user + project + std::to_string(std::chrono::system_clock::now().time_since_epoch().count());
+Symbol::Symbol(QChar s, string font, bool bold, bool italic, bool underline, bool strike, string color,
+               const vector<int> &frac, const string &project, const string &user,int size, int align) {
+
+    id = user +"/"+ project +"/" + to_string(chrono::system_clock::now().time_since_epoch().count());
     this->s = s;
     this->font = font;
     this->color = color;
@@ -16,7 +18,8 @@ Symbol::Symbol(QChar s, std::string font, bool bold, bool italic, bool underline
     this->strike = strike;
     this->frac = frac;
     this->size = size;
-    this->align = align;
+    this->align=align;
+
 
 }
 
@@ -32,8 +35,9 @@ Symbol::Symbol(const Symbol &symbol) {
     this->underline = symbol.underline;
     this->strike = symbol.strike;
     this->size = symbol.size;
-    this->align = symbol.align;
+    this->align=symbol.align;
 }
+Symbol::Symbol() {}
 
 Symbol::Symbol(Symbol &&symbol) {
     this->id = symbol.id;
@@ -46,7 +50,8 @@ Symbol::Symbol(Symbol &&symbol) {
     this->underline = symbol.underline;
     this->strike = symbol.strike;
     this->size = symbol.size;
-    this->align = symbol.align;
+    this->align=symbol.align;
+
 }
 
 Symbol &Symbol::operator=(const Symbol &symbol) {
@@ -61,49 +66,111 @@ Symbol &Symbol::operator=(const Symbol &symbol) {
         this->underline = symbol.underline;
         this->strike = symbol.strike;
         this->size = symbol.size;
-        this->align = symbol.align;
+        this->align=symbol.align;
+
     }
     return *this;
 }
 
-bool Symbol::operator<(const Symbol &symbol) const{
-    return this->frac < symbol.frac;
+vector<string> Symbol::splitId(string id) const{
+    string intermediate;
+    stringstream stream(id);
+    vector<string> split;
+    while(getline(stream,intermediate,'/')){
+        split.push_back(intermediate);
+    }
+    return split;
+
 }
 
 bool Symbol::operator>(const Symbol &symbol) {
-    return this->frac > symbol.frac;
-}
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
 
-bool Symbol::operator<=(const Symbol &symbol) {
-    return this->frac <= symbol.frac;
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 > check2;
+    }
+    else{
+        return this->frac > symbol.frac;
+
+    }
+
+}
+bool Symbol::operator<(const Symbol &symbol) const {
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
+
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 < check2;
+    }
+    else{
+        return this->frac < symbol.frac;
+
+    }
+
 }
 
 bool Symbol::operator>=(const Symbol &symbol) {
-    return this->frac >= symbol.frac;
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
+
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 >= check2;
+    }
+    else{
+        return this->frac >= symbol.frac;
+
+    }
+
+}
+bool Symbol::operator<=(const Symbol &symbol)  {
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
+
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 <= check2;
+    }
+    else{
+        return this->frac <= symbol.frac;
+
+    }
+
 }
 
 bool Symbol::operator==(const Symbol &symbol) {
     return this->id == symbol.id;
 }
 
-const std::vector<int> &Symbol::getFrac() {
+const vector<int> &Symbol::getFrac() const {
     return this->frac;
 }
 
 void Symbol::print() {
     /*
-    std::cout << this->s << " " << this->bold << this->italic << this->underline << this->strike << this->color << "---";
+    cout << this->s << " " << this->bold << this->italic << this->underline << this->strike << this->color << "---";
     for (auto &n : frac)
-        std::cout << n;
-    std::cout << std::endl;
-     */
+        cout << n;
+    cout << std::endl;
+    */
 }
 
-std::string Symbol::getId() {
+string Symbol::getId() const{
     return id;
 }
 
-QChar Symbol::getChar() {
+QChar Symbol::getChar() const{
     return s;
 }
 
@@ -115,7 +182,7 @@ QJsonObject Symbol::toJson() {
     }
     auto Json_symbol = QJsonObject({
                                            qMakePair(QString("id"), QJsonValue(QString(this->id.c_str()))),
-                                           qMakePair(QString("s"), QJsonValue(this->s)),
+                                           qMakePair(QString("s"), QJsonValue(QChar(this->s))),
                                            qMakePair(QString("font"), QJsonValue(QString(this->font.c_str()))),
                                            qMakePair(QString("color"),
                                                      QJsonValue(QString(this->color.c_str()))),
@@ -141,10 +208,10 @@ Symbol::Symbol(QJsonObject json_symbol) {
     for(int i=0; i<json_frac.size(); i++){
         frac.insert(frac.end(),json_frac[i].toInt());
     }
-    id=std::string(json_symbol["id"].toString().toStdString());
+    id=string(json_symbol["id"].toString().toStdString());
     s=json_symbol["s"].toString()[0];
-    font=std::string(json_symbol["font"].toString().toStdString());
-    color=std::string(json_symbol["color"].toString().toStdString());
+    font=string(json_symbol["font"].toString().toStdString());
+    color=string(json_symbol["color"].toString().toStdString());
     bold=json_symbol["bold"].toBool();
     italic=json_symbol["italic"].toBool();
     underline=json_symbol["underline"].toBool();
@@ -176,10 +243,11 @@ bool Symbol::isStrike() const {
 const QString Symbol::getColor() const {
     return QString(color.c_str());
 }
+
 int Symbol::getSize() {
-    return this->size;
+    return size;
 }
 
 int Symbol::getAlign() {
-    return this->align;
+    return align;
 }

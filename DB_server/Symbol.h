@@ -17,16 +17,18 @@
 using namespace std;
 class Symbol {
     QChar s;
-    std::string font;
+    string font;
     bool bold,italic,underline,strike;
-    std::string color;
-    std::string id;
-    std::vector <int> frac;
+    string color;
+    string id;
+    vector <int> frac;
     int size;
     int align;
+    vector<string> splitId(string id) const;
 
 public:
-    Symbol(QChar s, std::string font, bool bold, bool italic, bool underline, bool strike, std::string color, const std::vector<int>& frac, const std::string& project, const std::string& user,int size, int align);
+    Symbol(QChar s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user,int size, int align);
+    Symbol();
     Symbol(const Symbol& symbol);
     Symbol(Symbol&& symbol);
     Symbol(QJsonObject json_symbol);
@@ -36,9 +38,9 @@ public:
     bool operator<=(const Symbol& symbol);
     bool operator>=(const Symbol& symbol);
     bool operator==(const Symbol& symbol);
-    std::string getId();
-    QChar getChar();
-    const std::vector<int>& getFrac();
+    string getId() const;
+    QChar getChar() const;
+    const vector<int>& getFrac() const;
     void print();
     QJsonObject toJson();
 
@@ -53,11 +55,9 @@ public:
     bool isStrike() const;
 
     const QString getColor() const;
-
     int getSize();
 
     int getAlign();
-
 
 };
 

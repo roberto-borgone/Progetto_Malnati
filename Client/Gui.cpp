@@ -927,8 +927,18 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             q.setItalic(s.isItalic());
             q.setUnderline(s.isUnderline());
             q.setStrikeOut(s.isStrike());
+            q.setPointSize(s.getSize());
             format.setFont(q);
             format.setForeground(QBrush(QColor(s.getColor())));
+            QTextBlockFormat textBlockFormat = new_cursor->blockFormat();
+            if (s.getAlign() == Qt::AlignLeft)
+                textBlockFormat.setAlignment(Qt::AlignLeft);//or another alignment
+            if (s.getAlign() == Qt::AlignJustify)
+                textBlockFormat.setAlignment(Qt::AlignJustify);//or another alignment
+            if (s.getAlign() == Qt::AlignRight)
+                textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
+
+            new_cursor->mergeBlockFormat(textBlockFormat);
             new_cursor->insertText(
                     QString(s.getChar()), format);
 

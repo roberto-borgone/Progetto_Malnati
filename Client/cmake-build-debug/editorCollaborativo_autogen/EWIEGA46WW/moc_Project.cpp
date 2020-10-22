@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Project_t {
-    QByteArrayData data[11];
-    char stringdata0[102];
+    QByteArrayData data[12];
+    char stringdata0[122];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,13 +41,15 @@ QT_MOC_LITERAL(5, 33, 14), // "internalDelete"
 QT_MOC_LITERAL(6, 48, 6), // "string"
 QT_MOC_LITERAL(7, 55, 2), // "id"
 QT_MOC_LITERAL(8, 58, 13), // "remove_symbol"
-QT_MOC_LITERAL(9, 72, 14), // "externalInsert"
-QT_MOC_LITERAL(10, 87, 14) // "externalDelete"
+QT_MOC_LITERAL(9, 72, 19), // "std::vector<Symbol>"
+QT_MOC_LITERAL(10, 92, 14), // "externalInsert"
+QT_MOC_LITERAL(11, 107, 14) // "externalDelete"
 
     },
     "Project\0internalInsert\0\0Symbol\0s\0"
     "internalDelete\0string\0id\0remove_symbol\0"
-    "externalInsert\0externalDelete"
+    "std::vector<Symbol>\0externalInsert\0"
+    "externalDelete"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,13 +72,13 @@ static const uint qt_meta_data_Project[] = {
        8,    1,   45,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       9,    1,   48,    2, 0x0a /* Public */,
-      10,    1,   51,    2, 0x0a /* Public */,
+      10,    1,   48,    2, 0x0a /* Public */,
+      11,    1,   51,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void, 0x80000000 | 6,    7,
-    QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, 0x80000000 | 9,    4,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -93,7 +95,7 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         switch (_id) {
         case 0: _t->internalInsert((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
         case 1: _t->internalDelete((*reinterpret_cast< string(*)>(_a[1]))); break;
-        case 2: _t->remove_symbol((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
+        case 2: _t->remove_symbol((*reinterpret_cast< std::vector<Symbol>(*)>(_a[1]))); break;
         case 3: _t->externalInsert((*reinterpret_cast< Symbol(*)>(_a[1]))); break;
         case 4: _t->externalDelete((*reinterpret_cast< string(*)>(_a[1]))); break;
         default: ;
@@ -115,7 +117,7 @@ void Project::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
             }
         }
         {
-            using _t = void (Project::*)(Symbol );
+            using _t = void (Project::*)(std::vector<Symbol> );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Project::remove_symbol)) {
                 *result = 2;
                 return;
@@ -179,7 +181,7 @@ void Project::internalDelete(string _t1)
 }
 
 // SIGNAL 2
-void Project::remove_symbol(Symbol _t1)
+void Project::remove_symbol(std::vector<Symbol> _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);

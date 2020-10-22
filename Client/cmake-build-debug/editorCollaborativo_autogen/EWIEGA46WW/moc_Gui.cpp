@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Gui_t {
     QByteArrayData data[35];
-    char stringdata0[326];
+    char stringdata0[345];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,49 +35,50 @@ static const qt_meta_stringdata_Gui_t qt_meta_stringdata_Gui = {
 QT_MOC_LITERAL(0, 0, 3), // "Gui"
 QT_MOC_LITERAL(1, 4, 11), // "send_symbol"
 QT_MOC_LITERAL(2, 16, 0), // ""
-QT_MOC_LITERAL(3, 17, 6), // "Symbol"
-QT_MOC_LITERAL(4, 24, 1), // "s"
-QT_MOC_LITERAL(5, 26, 3), // "pos"
-QT_MOC_LITERAL(6, 30, 11), // "std::string"
-QT_MOC_LITERAL(7, 42, 3), // "prj"
-QT_MOC_LITERAL(8, 46, 3), // "usr"
-QT_MOC_LITERAL(9, 50, 10), // "no_project"
-QT_MOC_LITERAL(10, 61, 20), // "request_for_projects"
-QT_MOC_LITERAL(11, 82, 13), // "close_project"
-QT_MOC_LITERAL(12, 96, 11), // "new_project"
-QT_MOC_LITERAL(13, 108, 8), // "time_out"
-QT_MOC_LITERAL(14, 117, 8), // "position"
-QT_MOC_LITERAL(15, 126, 11), // "add_my_user"
-QT_MOC_LITERAL(16, 138, 4), // "user"
-QT_MOC_LITERAL(17, 143, 17), // "disconnect_socket"
-QT_MOC_LITERAL(18, 161, 12), // "disconnected"
-QT_MOC_LITERAL(19, 174, 11), // "clear_users"
-QT_MOC_LITERAL(20, 186, 9), // "also_user"
-QT_MOC_LITERAL(21, 196, 8), // "sendMail"
-QT_MOC_LITERAL(22, 205, 5), // "prjID"
-QT_MOC_LITERAL(23, 211, 6), // "sender"
-QT_MOC_LITERAL(24, 218, 9), // "useInvite"
-QT_MOC_LITERAL(25, 228, 12), // "change_image"
-QT_MOC_LITERAL(26, 241, 3), // "img"
-QT_MOC_LITERAL(27, 245, 9), // "send_nick"
-QT_MOC_LITERAL(28, 255, 4), // "nick"
-QT_MOC_LITERAL(29, 260, 9), // "logged_in"
-QT_MOC_LITERAL(30, 270, 8), // "add_user"
-QT_MOC_LITERAL(31, 279, 8), // "nickname"
-QT_MOC_LITERAL(32, 288, 13), // "change_cursor"
-QT_MOC_LITERAL(33, 302, 10), // "wrong_open"
-QT_MOC_LITERAL(34, 313, 12) // "wrong_create"
+QT_MOC_LITERAL(3, 17, 19), // "std::vector<Symbol>"
+QT_MOC_LITERAL(4, 37, 7), // "symbols"
+QT_MOC_LITERAL(5, 45, 11), // "std::string"
+QT_MOC_LITERAL(6, 57, 3), // "prj"
+QT_MOC_LITERAL(7, 61, 3), // "usr"
+QT_MOC_LITERAL(8, 65, 10), // "no_project"
+QT_MOC_LITERAL(9, 76, 20), // "request_for_projects"
+QT_MOC_LITERAL(10, 97, 13), // "close_project"
+QT_MOC_LITERAL(11, 111, 11), // "new_project"
+QT_MOC_LITERAL(12, 123, 8), // "time_out"
+QT_MOC_LITERAL(13, 132, 8), // "position"
+QT_MOC_LITERAL(14, 141, 11), // "add_my_user"
+QT_MOC_LITERAL(15, 153, 4), // "user"
+QT_MOC_LITERAL(16, 158, 17), // "disconnect_socket"
+QT_MOC_LITERAL(17, 176, 12), // "disconnected"
+QT_MOC_LITERAL(18, 189, 11), // "clear_users"
+QT_MOC_LITERAL(19, 201, 9), // "also_user"
+QT_MOC_LITERAL(20, 211, 8), // "sendMail"
+QT_MOC_LITERAL(21, 220, 5), // "prjID"
+QT_MOC_LITERAL(22, 226, 6), // "sender"
+QT_MOC_LITERAL(23, 233, 9), // "useInvite"
+QT_MOC_LITERAL(24, 243, 12), // "change_image"
+QT_MOC_LITERAL(25, 256, 3), // "img"
+QT_MOC_LITERAL(26, 260, 9), // "send_nick"
+QT_MOC_LITERAL(27, 270, 4), // "nick"
+QT_MOC_LITERAL(28, 275, 9), // "logged_in"
+QT_MOC_LITERAL(29, 285, 8), // "add_user"
+QT_MOC_LITERAL(30, 294, 8), // "nickname"
+QT_MOC_LITERAL(31, 303, 13), // "change_cursor"
+QT_MOC_LITERAL(32, 317, 3), // "pos"
+QT_MOC_LITERAL(33, 321, 10), // "wrong_open"
+QT_MOC_LITERAL(34, 332, 12) // "wrong_create"
 
     },
-    "Gui\0send_symbol\0\0Symbol\0s\0pos\0std::string\0"
-    "prj\0usr\0no_project\0request_for_projects\0"
-    "close_project\0new_project\0time_out\0"
-    "position\0add_my_user\0user\0disconnect_socket\0"
-    "disconnected\0clear_users\0also_user\0"
-    "sendMail\0prjID\0sender\0useInvite\0"
-    "change_image\0img\0send_nick\0nick\0"
-    "logged_in\0add_user\0nickname\0change_cursor\0"
-    "wrong_open\0wrong_create"
+    "Gui\0send_symbol\0\0std::vector<Symbol>\0"
+    "symbols\0std::string\0prj\0usr\0no_project\0"
+    "request_for_projects\0close_project\0"
+    "new_project\0time_out\0position\0add_my_user\0"
+    "user\0disconnect_socket\0disconnected\0"
+    "clear_users\0also_user\0sendMail\0prjID\0"
+    "sender\0useInvite\0change_image\0img\0"
+    "send_nick\0nick\0logged_in\0add_user\0"
+    "nickname\0change_cursor\0pos\0wrong_open\0"
+    "wrong_create"
 };
 #undef QT_MOC_LITERAL
 
@@ -95,48 +96,48 @@ static const uint qt_meta_data_Gui[] = {
       14,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    4,  109,    2, 0x06 /* Public */,
-       9,    0,  118,    2, 0x06 /* Public */,
-      10,    1,  119,    2, 0x06 /* Public */,
-      11,    1,  122,    2, 0x06 /* Public */,
-      12,    0,  125,    2, 0x06 /* Public */,
-      13,    1,  126,    2, 0x06 /* Public */,
-      15,    1,  129,    2, 0x06 /* Public */,
-      17,    0,  132,    2, 0x06 /* Public */,
-      18,    0,  133,    2, 0x06 /* Public */,
-      19,    1,  134,    2, 0x06 /* Public */,
-      21,    2,  137,    2, 0x06 /* Public */,
-      24,    0,  142,    2, 0x06 /* Public */,
-      25,    1,  143,    2, 0x06 /* Public */,
-      27,    1,  146,    2, 0x06 /* Public */,
+       1,    3,  109,    2, 0x06 /* Public */,
+       8,    0,  116,    2, 0x06 /* Public */,
+       9,    1,  117,    2, 0x06 /* Public */,
+      10,    1,  120,    2, 0x06 /* Public */,
+      11,    0,  123,    2, 0x06 /* Public */,
+      12,    1,  124,    2, 0x06 /* Public */,
+      14,    1,  127,    2, 0x06 /* Public */,
+      16,    0,  130,    2, 0x06 /* Public */,
+      17,    0,  131,    2, 0x06 /* Public */,
+      18,    1,  132,    2, 0x06 /* Public */,
+      20,    2,  135,    2, 0x06 /* Public */,
+      23,    0,  140,    2, 0x06 /* Public */,
+      24,    1,  141,    2, 0x06 /* Public */,
+      26,    1,  144,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      29,    1,  149,    2, 0x0a /* Public */,
-      30,    2,  152,    2, 0x0a /* Public */,
-      32,    2,  157,    2, 0x0a /* Public */,
-      33,    0,  162,    2, 0x0a /* Public */,
-      34,    0,  163,    2, 0x0a /* Public */,
+      28,    1,  147,    2, 0x0a /* Public */,
+      29,    2,  150,    2, 0x0a /* Public */,
+      31,    2,  155,    2, 0x0a /* Public */,
+      33,    0,  160,    2, 0x0a /* Public */,
+      34,    0,  161,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, 0x80000000 | 3, QMetaType::Int, 0x80000000 | 6, 0x80000000 | 6,    4,    5,    7,    8,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 5, 0x80000000 | 5,    4,    6,    7,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 6,    8,
-    QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, 0x80000000 | 5,    7,
+    QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   14,
-    QMetaType::Void, 0x80000000 | 6,   16,
+    QMetaType::Void, QMetaType::Int,   13,
+    QMetaType::Void, 0x80000000 | 5,   15,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,   20,
-    QMetaType::Void, 0x80000000 | 6, 0x80000000 | 6,   22,   23,
+    QMetaType::Void, QMetaType::Bool,   19,
+    QMetaType::Void, 0x80000000 | 5, 0x80000000 | 5,   21,   22,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QImage,   26,
-    QMetaType::Void, 0x80000000 | 6,   28,
+    QMetaType::Void, QMetaType::QImage,   25,
+    QMetaType::Void, 0x80000000 | 5,   27,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 6,   16,
-    QMetaType::Void, 0x80000000 | 6, 0x80000000 | 6,   16,   31,
-    QMetaType::Void, 0x80000000 | 6, QMetaType::Int,   16,    5,
+    QMetaType::Void, 0x80000000 | 5,   15,
+    QMetaType::Void, 0x80000000 | 5, 0x80000000 | 5,   15,   30,
+    QMetaType::Void, 0x80000000 | 5, QMetaType::Int,   15,   32,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -149,7 +150,7 @@ void Gui::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         auto *_t = static_cast<Gui *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->send_symbol((*reinterpret_cast< Symbol(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< std::string(*)>(_a[3])),(*reinterpret_cast< std::string(*)>(_a[4]))); break;
+        case 0: _t->send_symbol((*reinterpret_cast< std::vector<Symbol>(*)>(_a[1])),(*reinterpret_cast< std::string(*)>(_a[2])),(*reinterpret_cast< std::string(*)>(_a[3]))); break;
         case 1: _t->no_project(); break;
         case 2: _t->request_for_projects((*reinterpret_cast< std::string(*)>(_a[1]))); break;
         case 3: _t->close_project((*reinterpret_cast< std::string(*)>(_a[1]))); break;
@@ -173,7 +174,7 @@ void Gui::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (Gui::*)(Symbol , int , std::string , std::string );
+            using _t = void (Gui::*)(std::vector<Symbol> , std::string , std::string );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Gui::send_symbol)) {
                 *result = 0;
                 return;
@@ -314,9 +315,9 @@ int Gui::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Gui::send_symbol(Symbol _t1, int _t2, std::string _t3, std::string _t4)
+void Gui::send_symbol(std::vector<Symbol> _t1, std::string _t2, std::string _t3)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 

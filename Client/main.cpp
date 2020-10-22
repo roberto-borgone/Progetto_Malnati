@@ -15,6 +15,9 @@
 
 
 int main(int argc, char *argv[]) {
+    vector<int> f ={1};
+    Symbol s(QChar('c'),"Arial",true,true,true,true,"red",f,"fd","kj",10, 0);
+    Symbol p(QChar('c'),"Arial",true,true,true,true,"red",f,"fd","kj",10, 0);
 
 
     QApplication a(argc,argv);

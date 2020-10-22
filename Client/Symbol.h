@@ -24,6 +24,7 @@ class Symbol {
     vector <int> frac;
     int size;
     int align;
+    vector<string> splitId(string id) const;
 
 public:
     Symbol(QChar s,string font,bool bold,bool italic,bool underline,bool strike,string color,const vector<int>& frac,const string& project,const string& user,int size, int align);

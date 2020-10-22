@@ -3,6 +3,7 @@
 //
 
 #include "Symbol.h"
+#include <sstream>
 
 Symbol::Symbol(QChar s, string font, bool bold, bool italic, bool underline, bool strike, string color,
                const vector<int> &frac, const string &project, const string &user,int size, int align) {
@@ -71,20 +72,81 @@ Symbol &Symbol::operator=(const Symbol &symbol) {
     return *this;
 }
 
-bool Symbol::operator<(const Symbol &symbol) const {
-    return this->frac < symbol.frac;
+vector<string> Symbol::splitId(string id) const{
+    string intermediate;
+    stringstream stream(id);
+    vector<string> split;
+    while(getline(stream,intermediate,'/')){
+        split.push_back(intermediate);
+    }
+    return split;
+
 }
 
 bool Symbol::operator>(const Symbol &symbol) {
-    return this->frac > symbol.frac;
-}
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
 
-bool Symbol::operator<=(const Symbol &symbol) {
-    return this->frac <= symbol.frac;
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 > check2;
+    }
+    else{
+        return this->frac > symbol.frac;
+
+    }
+
+}
+bool Symbol::operator<(const Symbol &symbol) const {
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
+
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 < check2;
+    }
+    else{
+        return this->frac < symbol.frac;
+
+    }
+
 }
 
 bool Symbol::operator>=(const Symbol &symbol) {
-    return this->frac >= symbol.frac;
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
+
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 >= check2;
+    }
+    else{
+        return this->frac >= symbol.frac;
+
+    }
+
+}
+bool Symbol::operator<=(const Symbol &symbol)  {
+    if(this->frac == symbol.frac){
+        vector<string> split1 = splitId(this->getId());
+        vector<string> split2 = splitId(symbol.getId());
+
+        string check1 = split1[2] + split1[0];
+        string check2 = split2[2] + split2[0];
+
+        return check1 <= check2;
+    }
+    else{
+        return this->frac <= symbol.frac;
+
+    }
+
 }
 
 bool Symbol::operator==(const Symbol &symbol) {

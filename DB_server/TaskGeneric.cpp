@@ -349,9 +349,10 @@ void TaskGeneric::run(){
             if(this->message["nickname"].toString().toStdString() != ""){
                 this->service.update_nick(this->message["user"].toString().toStdString(), this->message["nickname"].toString().toStdString());
 
-                this->project->users.erase(std::pair(this->userId, this->nick));
-                this->project->users.insert(std::pair(this->userId, this->message["nickname"].toString()));
-
+                if(this->project) {
+                    this->project->users.erase(std::pair(this->userId, this->nick));
+                    this->project->users.insert(std::pair(this->userId, this->message["nickname"].toString()));
+                }
                 emit login(this->userId, this->message["nickname"].toString());
             }
             break;

@@ -827,9 +827,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
     string paragraph = html.substr(start,end);*/
 
     //1) salvare cursore corrente
-    qDebug() << "Mark user";
     textEdit->setReadOnly(true);
     if (!show_collaborators) {
+        vector<Symbol> text(project->text.begin(),project->text.end());
 
         auto old_cursor = textEdit->textCursor(); //save old cursor
         auto new_cursor = new QTextCursor(textEdit->document());//create new cursor
@@ -838,23 +838,20 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
         //2)iterare su ogni simbolo, estrapolare user e cambiare il colore
         // (in alternativa sottolineare fino a che è lo stesso utente e cambiare poi il colore)
         std::string delimiter = "/";
-        for (int current_pos = 0; current_pos < project->text.size(); current_pos++) {
+        for (int current_pos = 0; current_pos < text.size(); current_pos++) {
             if (current_pos != 0) {
                 current_pos--;
             }
             int user_chars_count = 0;
-            auto it = project->text.begin();
-            std::advance(it, current_pos);
-            std::string id = it->getId();
+            std::string id = text[current_pos].getId();
             std::string current_user = id.substr(0, id.find(delimiter));
 
             while (current_pos < project->text.size()) {
 
                 if (current_pos == project->text.size())
                     break;
-                auto a = project->text.begin();
-                std::advance(a, current_pos);
-                std::string next_id = a->getId();
+
+                std::string next_id = text[current_pos].getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
                 if (next_user != current_user) {
                     //user_chars_count--;
@@ -867,9 +864,7 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
 
             //spaces BEFORE a selected text cannot be written again so better to have them only after a text
-            auto z = project->text.begin();
-            std::advance(z, current_pos);
-            while (current_pos != project->text.size() && z->getChar() == " ") {
+            while (current_pos != project->text.size() && text[current_pos].getChar() == " ") {
                 user_chars_count++;
                 current_pos++;
             }
@@ -925,18 +920,8 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
             q.setItalic(s.isItalic());
             q.setUnderline(s.isUnderline());
             q.setStrikeOut(s.isStrike());
-            q.setPointSize(s.getSize());
             format.setFont(q);
             format.setForeground(QBrush(QColor(s.getColor())));
-            QTextBlockFormat textBlockFormat = new_cursor->blockFormat();
-            if (s.getAlign() == Qt::AlignLeft)
-                textBlockFormat.setAlignment(Qt::AlignLeft);//or another alignment
-            if (s.getAlign() == Qt::AlignJustify)
-                textBlockFormat.setAlignment(Qt::AlignJustify);//or another alignment
-            if (s.getAlign() == Qt::AlignRight)
-                textBlockFormat.setAlignment(Qt::AlignRight);//or another alignment
-
-            new_cursor->mergeBlockFormat(textBlockFormat);
             new_cursor->insertText(
                     QString(s.getChar()), format);
 
@@ -948,7 +933,6 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
     }
     //std::cout << document->toHtml().toStdString();
-
 }
 
 std::string Gui::getUser() {

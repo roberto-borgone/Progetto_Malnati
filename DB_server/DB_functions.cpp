@@ -57,18 +57,22 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) const{
     std::string statement;
     char *err_message = nullptr;
 
+    sqlite3_exec(db, "BEGIN", 0, 0, 0);
+
     //check if user is already in DB
     statement = std::string("SELECT user FROM users WHERE user = ?");
 
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
         std::cout << "some error occured in query the DB" << std::endl;
+        sqlite3_exec(db, "ROLLBACK", 0, 0, 0);
         return 2;
     }
     sqlite3_bind_text(stmt, 1, user.c_str(), user.size(), SQLITE_STATIC);
     int stat = sqlite3_step(stmt);
     if (stat != SQLITE_DONE) {
         std::cout << "already existing user" << std::endl;
+        sqlite3_exec(db, "ROLLBACK", 0, 0, 0);
         return 1;
     } else {
         std::ostringstream s_pwd;
@@ -80,11 +84,14 @@ int DB_interface::subscribe(const std::string &user, std::string pwd) const{
         if (result != SQLITE_OK) {
             std::cout << "SQL error: " << err_message << std::endl;
             sqlite3_free(err_message);
+            sqlite3_exec(db, "ROLLBACK", 0, 0, 0);
             return 2;
         } else {
             std::cout << "added user" << std::endl;
         }
     }
+
+    sqlite3_exec(db, "COMMIT", 0, 0, 0);
     return 0;
 }
 
@@ -136,18 +143,22 @@ int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
     std::string statement;
     char *err_message = nullptr;
 
+    sqlite3_exec(db, "BEGIN", 0, 0, 0);
+
     //check if project is already in DB
     statement = std::string("SELECT id FROM projects WHERE id = ?");
 
     sqlite3_stmt *stmt;
     if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
         std::cout << "some error occured in query the DB" << std::endl;
+        sqlite3_exec(db, "ROLLBACK", 0, 0, 0);
         return 2;
     }
     sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
     int stat = sqlite3_step(stmt);
     if (stat != SQLITE_DONE) {
         std::cout << "already existing project" << std::endl;
+        sqlite3_exec(db, "ROLLBACK", 0, 0, 0);
         return 1;
     } else {
         statement = std::string("INSERT into projects(id, doc) values(?,?)");
@@ -155,6 +166,7 @@ int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
         sqlite3_stmt *stmt;
         if (sqlite3_prepare_v2(db, statement.c_str(), statement.size(), &stmt, nullptr) != SQLITE_OK) {
             std::cout << "some error occured in query the DB" << std::endl;
+            sqlite3_exec(db, "ROLLBACK", 0, 0, 0);
             return 2;
         }
         sqlite3_bind_text(stmt, 1, id.c_str(), id.size(), SQLITE_STATIC);
@@ -163,12 +175,14 @@ int DB_interface::create_project(const std::string& id, QByteArray& doc) const{
         if (result != SQLITE_DONE) {
             std::cout << "SQL error creating project" << std::endl;
             sqlite3_free(err_message);
+            sqlite3_exec(db, "ROLLBACK", 0, 0, 0);
             return 2;
         } else {
             std::cout << "created project" << std::endl;
         }
     }
 
+    sqlite3_exec(db, "COMMIT", 0, 0, 0);
     return 0;
 }
 

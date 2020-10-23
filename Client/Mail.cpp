@@ -24,12 +24,11 @@ size_t Mail::payload_source(void *ptr, size_t size, size_t nmemb, void *userp) {
     return 0;
 }
 
-int Mail::sendMail(const std::string &receiver, const std::string &uri,std::string sender) {
+int Mail::sendMail(const std::string &receiver, const std::string &uri,const std::string& sender) {
 
     /*Imposto i campi variabili*/
 
     /*Utente che invia l'invito*/
-                          //(TO DO) qui ci va il nome dell'utente che sta mandando l'invio
     std::string sen = "From: progettopds@gmail.com (" + sender + ")\r\n";
     payload_text[2] = sen.c_str();
 
@@ -38,12 +37,96 @@ int Mail::sendMail(const std::string &receiver, const std::string &uri,std::stri
     payload_text[1] = rec.c_str();
 
     /*ID Mail*/
-    std::string id = "Message-ID: <15>\r\n";             //(TO DO) in realtà qui ci andrebbe l'id univoco preso dalla memoria
+    std::string id = "Message-ID: <15>\r\n";
     payload_text[3] = id.c_str();
 
     /*URI documento*/
-    std::string prov_uri = "URI: " + uri + "\r\n";      //(TO DO) qui ci va l'uri del documento corrente
+    std::string prov_uri = "URI: " + uri + "\r\n";
     payload_text[8] = prov_uri.c_str();
+
+    /*Data e Ora*/
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    int day_n = ltm->tm_wday;
+
+    std::string day = "";
+    switch (day_n) {
+        case 0:
+            day = "Sun";
+        break;
+        case 1:
+            day = "Mon";
+        break;
+        case 2:
+            day = "Tue";
+        break;
+        case 3:
+            day = "Wen";
+        break;
+        case 4:
+            day = "Thu";
+        break;
+        case 5:
+            day = "Fri";
+        break;
+        case 6:
+            day = "Sat";
+        break;
+        default:
+            day = "Mon";
+        break;
+    }
+
+    int mon_n = ltm->tm_mon;
+    std::string month = "";
+    switch (mon_n) {
+        case 0:
+            month = "Jan";
+            break;
+        case 1:
+            month = "Feb";
+            break;
+        case 2:
+            month = "Mar";
+            break;
+        case 3:
+            month = "Apr";
+            break;
+        case 4:
+            month = "May";
+            break;
+        case 5:
+            month = "Jun";
+            break;
+        case 6:
+            month = "Jul";
+            break;
+        case 7:
+            month = "Aug";
+            break;
+        case 8:
+            month = "Sep";
+            break;
+        case 9:
+            month = "Oct";
+            break;
+        case 10:
+            month = "Nov";
+            break;
+        case 11:
+            month = "Dec";
+            break;
+        default:
+            month = "Oct";
+            break;
+    }
+    std::string mday = std::to_string(ltm->tm_mday);
+    std::string year = std::to_string(ltm->tm_year);
+    std::string hours = std::to_string(ltm->tm_hour);
+    std::string minutes = std::to_string(ltm->tm_min);
+    std::string seconds = std::to_string(ltm->tm_sec);
+    std::string prov_date = "Date: " + day + ", " + mday + " " + month + " " + year + " " + hours + ":" + minutes + ":" + seconds + " +1100\r\n";
+    payload_text[0] = prov_date.c_str();
 
     CURL *curl;
     CURLcode res = CURLE_OK;

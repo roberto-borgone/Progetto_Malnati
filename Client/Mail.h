@@ -18,7 +18,7 @@ struct upload_status {
 };
 
 static const char *payload_text[] = {
-        "Date: Mon, 29 Nov 2010 21:54:29 +1100\r\n",
+        "Date: \r\n",
         "To: \r\n",
         "From: progettopds@gmail.com (Collaborative Editor)\r\n",
         "Message-ID: \r\n",
@@ -35,7 +35,7 @@ static const char *payload_text[] = {
 class Mail {
     static size_t payload_source(void *ptr, size_t size, size_t nmemb, void *userp);
 public:
-    static int sendMail(const std::string& receiver, const std::string& uri,std::string sender);
+    static int sendMail(const std::string& receiver, const std::string& uri,const std::string& sender);
 };
 
 

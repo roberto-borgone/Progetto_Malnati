@@ -852,9 +852,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
                 if (current_pos == project->text.size())
                     break;
-                auto it = project->text.begin();
-                std::advance(it, current_pos);
-                std::string next_id = it->getId();
+                auto a = project->text.begin();
+                std::advance(a, current_pos);
+                std::string next_id = a->getId();
                 std::string next_user = next_id.substr(0, next_id.find(delimiter));
                 if (next_user != current_user) {
                     //user_chars_count--;
@@ -867,9 +867,9 @@ void Gui::markTextUser(map<string, vector<int>> colors) {
 
 
             //spaces BEFORE a selected text cannot be written again so better to have them only after a text
-            it = project->text.begin();
-            std::advance(it, current_pos);
-            while (current_pos != project->text.size() && it->getChar() == " ") {
+            auto z = project->text.begin();
+            std::advance(z, current_pos);
+            while (current_pos != project->text.size() && z->getChar() == " ") {
                 user_chars_count++;
                 current_pos++;
             }
